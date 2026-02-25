@@ -78,7 +78,7 @@
     <MaxDropContainerRespawnTime>20</MaxDropContainerRespawnTime>
     <EnableTurretsFriendlyFire>false</EnableTurretsFriendlyFire>
     <EnableSubgridDamage>false</EnableSubgridDamage>
-    <SyncDistance>3000</SyncDistance>
+    <SyncDistance>150000</SyncDistance>
     <ExperimentalMode>true</ExperimentalMode>
     <AdaptiveSimulationQuality>true</AdaptiveSimulationQuality>
     <EnableVoxelHand>false</EnableVoxelHand>
@@ -298,16 +298,6 @@
       <PublishedFileId>3020885446</PublishedFileId>
       <PublishedServiceName>Steam</PublishedServiceName>
     </ModItem>
-    <ModItem FriendlyName="SCDefenseBlocks">
-      <Name>3023988614.sbm</Name>
-      <PublishedFileId>3023988614</PublishedFileId>
-      <PublishedServiceName>Steam</PublishedServiceName>
-    </ModItem>
-    <ModItem FriendlyName="SCCleanModCategories">
-      <Name>2893360222.sbm</Name>
-      <PublishedFileId>2893360222</PublishedFileId>
-      <PublishedServiceName>Steam</PublishedServiceName>
-    </ModItem>
     <ModItem FriendlyName="SCCleanDLCCattegories">
       <Name>2893360271.sbm</Name>
       <PublishedFileId>2893360271</PublishedFileId>
@@ -418,7 +408,7 @@
       <PublishedFileId>1864380341</PublishedFileId>
       <PublishedServiceName>Steam</PublishedServiceName>
     </ModItem>
-    <ModItem FriendlyName="AQD - Armored Thrusters">
+    <ModItem FriendlyName="AQD - Armored Thrusters (Deprecated)">
       <Name>1810920525.sbm</Name>
       <PublishedFileId>1810920525</PublishedFileId>
       <PublishedServiceName>Steam</PublishedServiceName>
@@ -481,5 +471,5 @@
     </ModItem>
   </Mods>
   <SessionName>SkyTech Build World</SessionName>
-  <LastSaveTime>2026-02-24T19:48:37.3454338-06:00</LastSaveTime>
+  <LastSaveTime>2026-02-24T22:13:03.9211374-06:00</LastSaveTime>
 </MyObjectBuilder_WorldConfiguration>

@@ -1,27 +1,28 @@
 <?xml version="1.0"?>
 <MyObjectBuilder_Checkpoint xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <CurrentSector x="0" y="0" z="0" />
-  <ElapsedGameTime>77039600000</ElapsedGameTime>
+  <ElapsedGameTime>105215760000</ElapsedGameTime>
   <SessionName>SkyTech Build World</SessionName>
   <SpectatorPosition>
-    <Position x="10675.140064594894" y="1868.4268334335684" z="10372.113820514604" />
-    <Forward x="-0.04800853" y="-0.953734756" z="0.296791553" />
-    <Up x="0.806745" y="-0.212222189" z="-0.5514747" />
+    <Position x="5.3095347095552414" y="-28.774544839405976" z="-22.42395342674552" />
+    <Forward x="-0.133726344" y="0.9090996" z="0.3945317" />
+    <Up x="0.539679766" y="0.400702357" z="-0.740394056" />
     <Orientation>
-      <X>-0.7242168</X>
-      <Y>-0.352002531</Y>
-      <Z>-0.285694033</Z>
-      <W>0.519599</W>
+      <X>0.201647982</X>
+      <Y>0.810311</Y>
+      <Z>-0.508907557</Z>
+      <W>0.2091584</W>
     </Orientation>
   </SpectatorPosition>
-  <SpectatorSpeed x="2.562891" y="1" />
+  <SpectatorSpeed x="1.70859492" y="1" />
   <SpectatorIsLightOn>false</SpectatorIsLightOn>
-  <CameraEntity>0</CameraEntity>
-  <ControlledObject>124168712738897777</ControlledObject>
+  <CameraController>Entity</CameraController>
+  <CameraEntity>121146153636173499</CameraEntity>
+  <ControlledObject>121146153636173499</ControlledObject>
   <Password />
   <Description>Highfleet-esque multicrew Space Engineers combat tournament.</Description>
-  <LastSaveTime>2026-02-24T19:48:37.3454338-06:00</LastSaveTime>
-  <SpectatorDistance>2.6</SpectatorDistance>
+  <LastSaveTime>2026-02-24T22:13:03.9211374-06:00</LastSaveTime>
+  <SpectatorDistance>3.78147578</SpectatorDistance>
   <WorkshopId xsi:nil="true" />
   <WorkshopId1 xsi:nil="true" />
   <CharacterToolbar>
@@ -91,6 +92,21 @@
           <DefinitionId Type="MyObjectBuilder_AirtightSlideDoor" Subtype="LargeBlockSlideDoor" />
         </Data>
       </Slot>
+      <Slot>
+        <Index>9</Index>
+        <Item />
+        <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+          <DefinitionId Type="MyObjectBuilder_ConveyorSorter" Subtype="DetectionAggregatorBlock" />
+        </Data>
+      </Slot>
+      <Slot>
+        <Index>10</Index>
+        <Item />
+        <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+          <DefinitionId Type="MyObjectBuilder_CameraBlock" Subtype="PassiveRadar_Simple" />
+        </Data>
+      </Slot>
+      <Slot>
     </Slots>
     <SlotsGamepad />
   </CharacterToolbar>
@@ -297,14 +313,12 @@
   <Factions>
     <Factions>
       <MyObjectBuilder_Faction>
-        <FactionId>258961289160008772</FactionId>
         <Tag>SPRT</Tag>
         <Name>Space Pirates</Name>
-        <Description>Fearless pirate raiders scour the stars, seeking vast fortunes as they attack and salvage without mercy.</Description>
         <PrivateInfo />
         <Members>
           <MyObjectBuilder_FactionMember>
-            <PlayerId>144115188075855896</PlayerId>
+            <PlayerId>144115188075855897</PlayerId>
             <IsLeader>true</IsLeader>
             <IsFounder>true</IsFounder>
           </MyObjectBuilder_FactionMember>
@@ -333,25 +347,21 @@
         <Tag>FCTM</Tag>
         <Name>The Factorum</Name>
         <Description>The creators of Prototech. They've returned from the edge of known space to seek revenge.</Description>
-        <PrivateInfo />
-        <Members>
-          <MyObjectBuilder_FactionMember>
-            <PlayerId>144115188075855897</PlayerId>
             <IsLeader>true</IsLeader>
             <IsFounder>true</IsFounder>
           </MyObjectBuilder_FactionMember>
         </Members>
         <JoinRequests />
-        <AutoAcceptMember>false</AutoAcceptMember>
-        <AutoAcceptPeace>false</AutoAcceptPeace>
-        <AcceptHumans>false</AcceptHumans>
-        <EnableFriendlyFire>false</EnableFriendlyFire>
-        <FactionType>None</FactionType>
-        <FactionTypeString>None</FactionTypeString>
+        <AutoAcceptMember>true</AutoAcceptMember>
+        <AutoAcceptPeace>true</AutoAcceptPeace>
+        <AcceptHumans>true</AcceptHumans>
+        <EnableFriendlyFire>true</EnableFriendlyFire>
+        <FactionType>PlayerMade</FactionType>
+        <FactionTypeString>PlayerMade</FactionTypeString>
         <Stations />
-        <CustomColor x="0" y="-0.8" z="-0.450000018" />
-        <IconColor x="0" y="-0.8" z="0.55" />
-        <FactionIcon>Textures\FactionLogo\Factorum.dds</FactionIcon>
+        <CustomColor x="0.6784314" y="0.199999988" z="0.55" />
+        <IconColor x="0.6895425" y="0.199999988" z="0.55" />
+        <FactionIcon>Textures\FactionLogo\Empty.dds</FactionIcon>
         <TransferedPCUDelta>0</TransferedPCUDelta>
         <Score>0</Score>
         <ObjectivePercentageCompleted>0</ObjectivePercentageCompleted>
@@ -361,14 +371,81 @@
         </DamageInflicted>
       </MyObjectBuilder_Faction>
       <MyObjectBuilder_Faction>
-        <FactionId>271542045013370568</FactionId>
+        <FactionId>227511084619015033</FactionId>
+        <Tag>SPC</Tag>
+        <Name>Spectators</Name>
+        <Description>Join me!</Description>
+        <PrivateInfo>ari says hi!</PrivateInfo>
+        <Members>
+          <MyObjectBuilder_FactionMember>
+            <PlayerId>144115188075855901</PlayerId>
+            <IsLeader>true</IsLeader>
+            <IsFounder>true</IsFounder>
+          </MyObjectBuilder_FactionMember>
+        </Members>
+        <JoinRequests />
+        <AutoAcceptMember>true</AutoAcceptMember>
+        <AutoAcceptPeace>true</AutoAcceptPeace>
+        <AcceptHumans>true</AcceptHumans>
+        <EnableFriendlyFire>true</EnableFriendlyFire>
+        <FactionType>PlayerMade</FactionType>
+        <FactionTypeString>PlayerMade</FactionTypeString>
+        <Stations />
+        <CustomColor x="0" y="-0.8" z="-0.450000018" />
+        <IconColor x="0" y="-0.8" z="0.55" />
+        <FactionIcon>Textures\Faction\StarCore_1.dds</FactionIcon>
+        <TransferedPCUDelta>0</TransferedPCUDelta>
+        <Score>0</Score>
+        <ObjectivePercentageCompleted>0</ObjectivePercentageCompleted>
+        <FactionIconWorkshopId>
+          <Id>2425204399</Id>
+          <ServiceName>Steam</ServiceName>
+        </FactionIconWorkshopId>
+        <DamageInflicted>
+          <dictionary />
+        </DamageInflicted>
+      </MyObjectBuilder_Faction>
+      <MyObjectBuilder_Faction>
+        <FactionId>241220076369610950</FactionId>
+        <Tag>SPRT</Tag>
+        <Name>Space Pirates</Name>
+        <Description>Fearless pirate raiders scour the stars, seeking vast fortunes as they attack and salvage without mercy.</Description>
+        <PrivateInfo />
+        <Members>
+          <MyObjectBuilder_FactionMember>
+            <PlayerId>144115188075855902</PlayerId>
+            <IsLeader>true</IsLeader>
+            <IsFounder>true</IsFounder>
+          </MyObjectBuilder_FactionMember>
+        </Members>
+        <JoinRequests />
+        <AutoAcceptMember>false</AutoAcceptMember>
+        <AutoAcceptPeace>false</AutoAcceptPeace>
+        <AcceptHumans>false</AcceptHumans>
+        <EnableFriendlyFire>false</EnableFriendlyFire>
+        <FactionType>Pirate</FactionType>
+        <FactionTypeString>Pirate</FactionTypeString>
+        <Stations />
+        <CustomColor x="0" y="-0.8" z="-0.450000018" />
+        <IconColor x="0" y="-0.8" z="-0.450000018" />
+        <FactionIcon>Textures\FactionLogo\PirateIcon.dds</FactionIcon>
+        <TransferedPCUDelta>0</TransferedPCUDelta>
+        <Score>0</Score>
+        <ObjectivePercentageCompleted>0</ObjectivePercentageCompleted>
+        <FactionIconWorkshopId xsi:nil="true" />
+        <DamageInflicted>
+          <dictionary />
+        </DamageInflicted>
+      </MyObjectBuilder_Faction>
+      <MyObjectBuilder_Faction>
+        <FactionId>252601195522464275</FactionId>
         <Tag>UNKN</Tag>
         <Name>Unknown</Name>
         <Description>Space is vast. As humans push into the void of space, sometimes the void pushes back. Danger, mystery, or reward may lie ahead.</Description>
         <PrivateInfo />
         <Members>
           <MyObjectBuilder_FactionMember>
-            <PlayerId>144115188075855898</PlayerId>
+            <PlayerId>144115188075855903</PlayerId>
             <IsLeader>true</IsLeader>
             <IsFounder>true</IsFounder>
           </MyObjectBuilder_FactionMember>
@@ -407,10 +484,176 @@
           <Key>144115188075855898</Key>
           <Value>271542045013370568</Value>
         </item>
+        <item>
+          <Key>144115188075855899</Key>
+          <Value>249640982411927350</Value>
+        </item>
+        <item>
+          <Key>144115188075855900</Key>
+          <Value>230032659110629844</Value>
+        </item>
+        <item>
+          <Key>144115188075855901</Key>
+          <Value>227511084619015033</Value>
+        </item>
+        <item>
+          <Key>144115188075855902</Key>
+          <Value>241220076369610950</Value>
+        </item>
+        <item>
+          <Key>144115188075855903</Key>
+          <Value>252601195522464275</Value>
+        </item>
       </dictionary>
     </Players>
-    <Relations />
-    <RelationsWithPlayers />
+    <Relations>
+      <MyObjectBuilder_FactionRelation>
+        <FactionId1>285120341301407075</FactionId1>
+        <FactionId2>249640982411927350</FactionId2>
+        <Relation>Enemies</Relation>
+        <Reputation>-1000</Reputation>
+      </MyObjectBuilder_FactionRelation>
+      <MyObjectBuilder_FactionRelation>
+        <FactionId1>285120341301407075</FactionId1>
+        <FactionId2>230032659110629844</FactionId2>
+        <Relation>Enemies</Relation>
+        <Reputation>-1000</Reputation>
+      </MyObjectBuilder_FactionRelation>
+      <MyObjectBuilder_FactionRelation>
+        <FactionId1>285120341301407075</FactionId1>
+        <FactionId2>227511084619015033</FactionId2>
+        <Relation>Enemies</Relation>
+        <Reputation>-1000</Reputation>
+      </MyObjectBuilder_FactionRelation>
+      <MyObjectBuilder_FactionRelation>
+        <FactionId1>249640982411927350</FactionId1>
+        <FactionId2>227511084619015033</FactionId2>
+        <Relation>Neutral</Relation>
+        <Reputation>0</Reputation>
+      </MyObjectBuilder_FactionRelation>
+      <MyObjectBuilder_FactionRelation>
+        <FactionId1>249640982411927350</FactionId1>
+        <FactionId2>230032659110629844</FactionId2>
+        <Relation>Neutral</Relation>
+        <Reputation>0</Reputation>
+      </MyObjectBuilder_FactionRelation>
+      <MyObjectBuilder_FactionRelation>
+        <FactionId1>230032659110629844</FactionId1>
+        <FactionId2>227511084619015033</FactionId2>
+        <Relation>Neutral</Relation>
+        <Reputation>0</Reputation>
+      </MyObjectBuilder_FactionRelation>
+    </Relations>
+    <RelationsWithPlayers>
+      <MyObjectBuilder_PlayerFactionRelation>
+        <PlayerId>144115188075855896</PlayerId>
+        <FactionId>249640982411927350</FactionId>
+        <Relation>Enemies</Relation>
+        <Reputation>-1000</Reputation>
+      </MyObjectBuilder_PlayerFactionRelation>
+      <MyObjectBuilder_PlayerFactionRelation>
+        <PlayerId>144115188075855897</PlayerId>
+        <FactionId>249640982411927350</FactionId>
+        <Relation>Enemies</Relation>
+        <Reputation>-1000</Reputation>
+      </MyObjectBuilder_PlayerFactionRelation>
+      <MyObjectBuilder_PlayerFactionRelation>
+        <PlayerId>144115188075855895</PlayerId>
+        <FactionId>285120341301407075</FactionId>
+        <Relation>Enemies</Relation>
+        <Reputation>-1500</Reputation>
+      </MyObjectBuilder_PlayerFactionRelation>
+      <MyObjectBuilder_PlayerFactionRelation>
+        <PlayerId>144115188075855898</PlayerId>
+        <FactionId>249640982411927350</FactionId>
+        <Relation>Enemies</Relation>
+        <Reputation>-1000</Reputation>
+      </MyObjectBuilder_PlayerFactionRelation>
+      <MyObjectBuilder_PlayerFactionRelation>
+        <PlayerId>144115188075855896</PlayerId>
+        <FactionId>230032659110629844</FactionId>
+        <Relation>Enemies</Relation>
+        <Reputation>-1000</Reputation>
+      </MyObjectBuilder_PlayerFactionRelation>
+      <MyObjectBuilder_PlayerFactionRelation>
+        <PlayerId>144115188075855897</PlayerId>
+        <FactionId>230032659110629844</FactionId>
+        <Relation>Enemies</Relation>
+        <Reputation>-1000</Reputation>
+      </MyObjectBuilder_PlayerFactionRelation>
+      <MyObjectBuilder_PlayerFactionRelation>
+        <PlayerId>144115188075855898</PlayerId>
+        <FactionId>230032659110629844</FactionId>
+        <Relation>Enemies</Relation>
+        <Reputation>-1000</Reputation>
+      </MyObjectBuilder_PlayerFactionRelation>
+      <MyObjectBuilder_PlayerFactionRelation>
+        <PlayerId>144115188075855896</PlayerId>
+        <FactionId>227511084619015033</FactionId>
+        <Relation>Enemies</Relation>
+        <Reputation>-1000</Reputation>
+      </MyObjectBuilder_PlayerFactionRelation>
+      <MyObjectBuilder_PlayerFactionRelation>
+        <PlayerId>144115188075855897</PlayerId>
+        <FactionId>227511084619015033</FactionId>
+        <Relation>Enemies</Relation>
+        <Reputation>-1000</Reputation>
+      </MyObjectBuilder_PlayerFactionRelation>
+      <MyObjectBuilder_PlayerFactionRelation>
+        <PlayerId>144115188075855898</PlayerId>
+        <FactionId>227511084619015033</FactionId>
+        <Relation>Enemies</Relation>
+        <Reputation>-1000</Reputation>
+      </MyObjectBuilder_PlayerFactionRelation>
+      <MyObjectBuilder_PlayerFactionRelation>
+        <PlayerId>144115188075855899</PlayerId>
+        <FactionId>227511084619015033</FactionId>
+        <Relation>Neutral</Relation>
+        <Reputation>0</Reputation>
+      </MyObjectBuilder_PlayerFactionRelation>
+      <MyObjectBuilder_PlayerFactionRelation>
+        <PlayerId>144115188075855895</PlayerId>
+        <FactionId>227511084619015033</FactionId>
+        <Relation>Neutral</Relation>
+        <Reputation>0</Reputation>
+      </MyObjectBuilder_PlayerFactionRelation>
+      <MyObjectBuilder_PlayerFactionRelation>
+        <PlayerId>144115188075855901</PlayerId>
+        <FactionId>249640982411927350</FactionId>
+        <Relation>Neutral</Relation>
+        <Reputation>0</Reputation>
+      </MyObjectBuilder_PlayerFactionRelation>
+      <MyObjectBuilder_PlayerFactionRelation>
+        <PlayerId>144115188075855899</PlayerId>
+        <FactionId>230032659110629844</FactionId>
+        <Relation>Neutral</Relation>
+        <Reputation>0</Reputation>
+      </MyObjectBuilder_PlayerFactionRelation>
+      <MyObjectBuilder_PlayerFactionRelation>
+        <PlayerId>144115188075855895</PlayerId>
+        <FactionId>230032659110629844</FactionId>
+        <Relation>Neutral</Relation>
+        <Reputation>0</Reputation>
+      </MyObjectBuilder_PlayerFactionRelation>
+      <MyObjectBuilder_PlayerFactionRelation>
+        <PlayerId>144115188075855900</PlayerId>
+        <FactionId>249640982411927350</FactionId>
+        <Relation>Neutral</Relation>
+        <Reputation>0</Reputation>
+      </MyObjectBuilder_PlayerFactionRelation>
+      <MyObjectBuilder_PlayerFactionRelation>
+        <PlayerId>144115188075855900</PlayerId>
+        <FactionId>227511084619015033</FactionId>
+        <Relation>Neutral</Relation>
+        <Reputation>0</Reputation>
+      </MyObjectBuilder_PlayerFactionRelation>
+      <MyObjectBuilder_PlayerFactionRelation>
+        <PlayerId>144115188075855901</PlayerId>
+        <FactionId>230032659110629844</FactionId>
+        <Relation>Neutral</Relation>
+        <Reputation>0</Reputation>
+      </MyObjectBuilder_PlayerFactionRelation>
+    </RelationsWithPlayers>
     <Requests />
     <PlayerToFactionsVis>
       <MyObjectBuilder_FactionsVisEntry>
@@ -418,8 +661,8 @@
         <SerialId>0</SerialId>
         <IdentityId>144115188075855895</IdentityId>
         <DiscoveredFactions>
-          <long>258961289160008772</long>
-          <long>271542045013370568</long>
+          <long>241220076369610950</long>
+          <long>252601195522464275</long>
         </DiscoveredFactions>
       </MyObjectBuilder_FactionsVisEntry>
     </PlayerToFactionsVis>
@@ -543,16 +786,6 @@
       <PublishedFileId>3020885446</PublishedFileId>
       <PublishedServiceName>Steam</PublishedServiceName>
     </ModItem>
-    <ModItem FriendlyName="SCDefenseBlocks">
-      <Name>3023988614.sbm</Name>
-      <PublishedFileId>3023988614</PublishedFileId>
-      <PublishedServiceName>Steam</PublishedServiceName>
-    </ModItem>
-    <ModItem FriendlyName="SCCleanModCategories">
-      <Name>2893360222.sbm</Name>
-      <PublishedFileId>2893360222</PublishedFileId>
-      <PublishedServiceName>Steam</PublishedServiceName>
-    </ModItem>
     <ModItem FriendlyName="SCCleanDLCCattegories">
       <Name>2893360271.sbm</Name>
       <PublishedFileId>2893360271</PublishedFileId>
@@ -663,7 +896,7 @@
       <PublishedFileId>1864380341</PublishedFileId>
       <PublishedServiceName>Steam</PublishedServiceName>
     </ModItem>
-    <ModItem FriendlyName="AQD - Armored Thrusters">
+    <ModItem FriendlyName="AQD - Armored Thrusters (Deprecated)">
       <Name>1810920525.sbm</Name>
       <PublishedFileId>1810920525</PublishedFileId>
       <PublishedServiceName>Steam</PublishedServiceName>
@@ -725,24 +958,55 @@
       <IsDependency>true</IsDependency>
     </ModItem>
   </Mods>
-  <CreativeTools />
   <Scenario Type="MyObjectBuilder_ScenarioDefinition" Subtype="EmptyWorld" />
   <RespawnCooldowns />
   <Identities>
     <MyObjectBuilder_Identity>
+      <IdentityId>144115188075855902</IdentityId>
+      <DisplayName>Space Pirates</DisplayName>
+      <CharacterEntityId>0</CharacterEntityId>
+      <BlockLimitModifier>0</BlockLimitModifier>
+      <LastLoginTime>2026-02-24T22:04:04.2722556-06:00</LastLoginTime>
+      <SavedCharacters />
+      <LastLogoutTime>2026-02-24T22:04:04.2722556-06:00</LastLogoutTime>
+      <RespawnShips />
+      <LastDeathPosition xsi:nil="true" />
+      <ActiveContracts />
+      <TransferedPCUDelta>0</TransferedPCUDelta>
+      <IsGlobalEncounterSpawner>false</IsGlobalEncounterSpawner>
+    </MyObjectBuilder_Identity>
+    <MyObjectBuilder_Identity>
+      <IdentityId>144115188075855903</IdentityId>
+      <DisplayName>Unknown</DisplayName>
+      <CharacterEntityId>0</CharacterEntityId>
+      <BlockLimitModifier>0</BlockLimitModifier>
+      <LastLoginTime>2026-02-24T22:04:04.6102569-06:00</LastLoginTime>
+      <SavedCharacters />
+      <LastLogoutTime>2026-02-24T22:04:04.6102569-06:00</LastLogoutTime>
+      <RespawnShips />
+      <LastDeathPosition xsi:nil="true" />
+      <ActiveContracts />
+      <TransferedPCUDelta>0</TransferedPCUDelta>
+      <IsGlobalEncounterSpawner>false</IsGlobalEncounterSpawner>
+    </MyObjectBuilder_Identity>
+    <MyObjectBuilder_Identity>
       <IdentityId>144115188075855895</IdentityId>
       <DisplayName>Aristeas</DisplayName>
-      <CharacterEntityId>124168712738897777</CharacterEntityId>
+      <CharacterEntityId>121146153636173499</CharacterEntityId>
       <Model>Default_Astronaut_Female</Model>
       <ColorMask x="0.566666663" y="-0.528525352" z="0.133391291" />
       <BlockLimitModifier>0</BlockLimitModifier>
-      <LastLoginTime>2026-02-24T19:45:44.8437902-06:00</LastLoginTime>
+      <LastLoginTime>2026-02-24T22:04:03.5622563-06:00</LastLoginTime>
       <SavedCharacters>
-        <long>124168712738897777</long>
+        <long>121146153636173499</long>
       </SavedCharacters>
-      <LastLogoutTime>2026-02-24T19:48:37.3454338-06:00</LastLogoutTime>
+      <LastLogoutTime>2026-02-24T22:13:03.9211374-06:00</LastLogoutTime>
       <RespawnShips />
-      <LastDeathPosition xsi:nil="true" />
+      <LastDeathPosition>
+        <X>-9267.4061964308239</X>
+        <Y>1694.1017543577971</Y>
+        <Z>-4577.1272759363364</Z>
+      </LastDeathPosition>
       <ActiveContracts />
       <TransferedPCUDelta>0</TransferedPCUDelta>
       <IsGlobalEncounterSpawner>false</IsGlobalEncounterSpawner>
@@ -752,7 +1016,7 @@
       <DisplayName>Space Pirates</DisplayName>
       <CharacterEntityId>0</CharacterEntityId>
       <BlockLimitModifier>0</BlockLimitModifier>
-      <LastLoginTime>2026-02-24T19:45:45.7667906-06:00</LastLoginTime>
+      <LastLoginTime>2026-02-24T22:04:05.3012563-06:00</LastLoginTime>
       <SavedCharacters />
       <LastLogoutTime>0001-01-01T00:00:00</LastLogoutTime>
       <RespawnShips />
@@ -766,7 +1030,7 @@
       <DisplayName>The Factorum</DisplayName>
       <CharacterEntityId>0</CharacterEntityId>
       <BlockLimitModifier>0</BlockLimitModifier>
-      <LastLoginTime>2026-02-24T19:45:44.8307909-06:00</LastLoginTime>
+      <LastLoginTime>2026-02-24T22:04:03.5482564-06:00</LastLoginTime>
       <SavedCharacters />
       <LastLogoutTime>2026-02-24T19:18:42.891798-06:00</LastLogoutTime>
       <RespawnShips />
@@ -780,9 +1044,51 @@
       <DisplayName>Unknown</DisplayName>
       <CharacterEntityId>0</CharacterEntityId>
       <BlockLimitModifier>0</BlockLimitModifier>
-      <LastLoginTime>2026-02-24T19:45:44.8307909-06:00</LastLoginTime>
+      <LastLoginTime>2026-02-24T22:04:03.5482564-06:00</LastLoginTime>
       <SavedCharacters />
       <LastLogoutTime>2026-02-24T19:18:42.8947982-06:00</LastLogoutTime>
+      <RespawnShips />
+      <LastDeathPosition xsi:nil="true" />
+      <ActiveContracts />
+      <TransferedPCUDelta>0</TransferedPCUDelta>
+      <IsGlobalEncounterSpawner>false</IsGlobalEncounterSpawner>
+    </MyObjectBuilder_Identity>
+    <MyObjectBuilder_Identity>
+      <IdentityId>144115188075855899</IdentityId>
+      <DisplayName>RED NPC8093</DisplayName>
+      <CharacterEntityId>0</CharacterEntityId>
+      <BlockLimitModifier>0</BlockLimitModifier>
+      <LastLoginTime>2026-02-24T22:04:03.5482564-06:00</LastLoginTime>
+      <SavedCharacters />
+      <LastLogoutTime>2026-02-24T21:57:06.2983124-06:00</LastLogoutTime>
+      <RespawnShips />
+      <LastDeathPosition xsi:nil="true" />
+      <ActiveContracts />
+      <TransferedPCUDelta>0</TransferedPCUDelta>
+      <IsGlobalEncounterSpawner>false</IsGlobalEncounterSpawner>
+    </MyObjectBuilder_Identity>
+    <MyObjectBuilder_Identity>
+      <IdentityId>144115188075855900</IdentityId>
+      <DisplayName>BLU NPC9531</DisplayName>
+      <CharacterEntityId>0</CharacterEntityId>
+      <BlockLimitModifier>0</BlockLimitModifier>
+      <LastLoginTime>2026-02-24T22:04:03.5482564-06:00</LastLoginTime>
+      <SavedCharacters />
+      <LastLogoutTime>2026-02-24T21:57:50.0956308-06:00</LastLogoutTime>
+      <RespawnShips />
+      <LastDeathPosition xsi:nil="true" />
+      <ActiveContracts />
+      <TransferedPCUDelta>0</TransferedPCUDelta>
+      <IsGlobalEncounterSpawner>false</IsGlobalEncounterSpawner>
+    </MyObjectBuilder_Identity>
+    <MyObjectBuilder_Identity>
+      <IdentityId>144115188075855901</IdentityId>
+      <DisplayName>SPC NPC9149</DisplayName>
+      <CharacterEntityId>0</CharacterEntityId>
+      <BlockLimitModifier>0</BlockLimitModifier>
+      <LastLoginTime>2026-02-24T22:04:03.5482564-06:00</LastLoginTime>
+      <SavedCharacters />
+      <LastLogoutTime>2026-02-24T21:58:59.1128193-06:00</LastLogoutTime>
       <RespawnShips />
       <LastDeathPosition xsi:nil="true" />
       <ActiveContracts />
@@ -871,14 +1177,70 @@
                   <DefinitionId Type="MyObjectBuilder_AirtightSlideDoor" Subtype="LargeBlockSlideDoor" />
                 </Data>
               </Slot>
+              <Slot>
+                <Index>9</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_ConveyorSorter" Subtype="DetectionAggregatorBlock" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>10</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_CameraBlock" Subtype="PassiveRadar_Simple" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>11</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_SurvivalKit" Subtype="SurvivalKitLargeReskin" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>12</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_CameraBlock" Subtype="ActiveRadar_Simple" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>13</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_ConveyorSorter" Subtype="DetectionHudControllerBlock" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>14</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_Cockpit" Subtype="LargeBlockCockpitSeat" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>15</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_ConveyorSorter" Subtype="DetectionManualBlock" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>16</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_Beacon" Subtype="LargeBlockBeacon" />
+                </Data>
+              </Slot>
             </Slots>
             <SlotsGamepad />
           </Toolbar>
           <EntityCameraData>
-            <CameraControllerSettings EntityId="124168712738897777">
-              <IsFirstPerson>false</IsFirstPerson>
-              <Distance>2.5999999046325684</Distance>
-              <HeadAngle x="12.8974457" y="0" />
+            <CameraControllerSettings EntityId="121146153636173499">
+              <IsFirstPerson>true</IsFirstPerson>
+              <Distance>3.7814757688362515</Distance>
+              <HeadAngle x="0" y="0" />
             </CameraControllerSettings>
           </EntityCameraData>
           <BuildColorSlots>
@@ -920,7 +1282,7 @@
             <Vector3>
               <X>0</X>
               <Y>-0.8</Y>
-              <Z>0.2</Z>
+              <Z>0.55</Z>
             </Vector3>
             <Vector3>
               <X>0</X>
@@ -954,9 +1316,9 @@
             </Vector3>
           </BuildColorSlots>
           <CreativeToolsEnabled>false</CreativeToolsEnabled>
-          <RemoteAdminSettings>0</RemoteAdminSettings>
+          <RemoteAdminSettings>4</RemoteAdminSettings>
           <PromoteLevel>None</PromoteLevel>
-          <BuildArmorSkin>Battered_Armor</BuildArmorSkin>
+          <BuildArmorSkin>SciFi_Armor</BuildArmorSkin>
           <BuildColorSlot>7</BuildColorSlot>
           <IsWildlifeAgent>false</IsWildlifeAgent>
           <PlatformIcon></PlatformIcon>
@@ -1048,12 +1410,15 @@
       </item>
     </dictionary>
   </AllPlayersColors>
-  <ChatHistory />
-  <FactionChatHistory />
   <NonPlayerIdentities>
     <long>144115188075855896</long>
     <long>144115188075855897</long>
     <long>144115188075855898</long>
+    <long>144115188075855899</long>
+    <long>144115188075855900</long>
+    <long>144115188075855901</long>
+    <long>144115188075855902</long>
+    <long>144115188075855903</long>
   </NonPlayerIdentities>
   <Gps>
     <dictionary>
@@ -1068,33 +1433,6 @@
                 <X>0</X>
                 <Y>0</Y>
                 <Z>0</Z>
-              </coords>
-              <isFinal>true</isFinal>
-              <showOnHud>true</showOnHud>
-              <alwaysVisible>false</alwaysVisible>
-              <color>
-                <PackedValue>4294035829</PackedValue>
-                <X>117</X>
-                <Y>201</Y>
-                <Z>241</Z>
-                <R>117</R>
-                <G>201</G>
-                <B>241</B>
-                <A>255</A>
-              </color>
-              <entityId>0</entityId>
-              <isObjective>false</isObjective>
-              <contractId>0</contractId>
-              <IsGlobalEncounterGPS>false</IsGlobalEncounterGPS>
-              <DisplayName />
-            </Entry>
-            <Entry>
-              <name>Center Pertam</name>
-              <description>Current position</description>
-              <coords>
-                <X>57272.18</X>
-                <Y>-19129.59</Y>
-                <Z>-148211.81</Z>
               </coords>
               <isFinal>true</isFinal>
               <showOnHud>true</showOnHud>
@@ -1295,7 +1633,14 @@
       <Installations />
     </MyObjectBuilder_SessionComponent>
     <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_SpaceFaunaComponent">
-      <SpawnInfos />
+      <SpawnInfos>
+        <Info X="-9220.4392228040688" Y="1721.8386415989971" Z="-4598.4342292006422" S="2217569" A="2217569" />
+        <Info X="-9021.1262345228188" Y="1800.084460690794" Z="-4711.5870612318922" S="1664587" A="1664587" />
+        <Info X="-11151.908083977411" Y="2995.8651711760785" Z="-4966.0364585072721" S="1065558" A="1065558" />
+        <Info X="-10006.25197422786" Y="2186.9296271394974" Z="-4439.3764549408888" S="2149905" A="2149905" />
+        <Info X="-9726.872942164302" Y="1927.6592206175326" Z="-4590.6877813730962" S="400737" A="400737" />
+        <Info X="-9357.8461409368811" Y="1685.3860076587994" Z="-4505.6424060147738" S="947609" A="947609" />
+      </SpawnInfos>
       <TimeoutInfos />
     </MyObjectBuilder_SessionComponent>
     <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_CampaignSessionComponent">
@@ -1370,8 +1715,27 @@
       <LevelScriptFiles xsi:nil="true" />
       <StateMachines xsi:nil="true" />
       <Questlog>
-        <LineData />
-        <Title>Prepare to Leave the Escape Pod</Title>
+        <LineData>
+          <MultilineData>
+            <Completed>false</Completed>
+            <IsObjective>true</IsObjective>
+            <Data>SHIFT + F3 = Commands</Data>
+            <CharactersDisplayed>-1</CharactersDisplayed>
+          </MultilineData>
+          <MultilineData>
+            <Completed>false</Completed>
+            <IsObjective>true</IsObjective>
+            <Data>SHIFT+F2 = Infodoc</Data>
+            <CharactersDisplayed>-1</CharactersDisplayed>
+          </MultilineData>
+          <MultilineData>
+            <Completed>false</Completed>
+            <IsObjective>true</IsObjective>
+            <Data>CTRL + F2 = Report Bug</Data>
+            <CharactersDisplayed>-1</CharactersDisplayed>
+          </MultilineData>
+        </LineData>
+        <Title>Keybinds</Title>
         <Visible>false</Visible>
         <IsUsedByVisualScripting>false</IsUsedByVisualScripting>
       </Questlog>
@@ -1382,13 +1746,32 @@
     </MyObjectBuilder_SessionComponent>
     <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_AntennaSessionComponent" />
     <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_EnvironmentBotSpawningSystem">
-      <TimeSinceLastEventInMs>85100</TimeSinceLastEventInMs>
+      <TimeSinceLastEventInMs>19783</TimeSinceLastEventInMs>
     </MyObjectBuilder_SessionComponent>
     <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_TradingManager" />
     <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_CoordinateSystem">
       <Definition Type="MyObjectBuilder_CoordinateSystemDefinition" Subtype="CoordinateSystem" />
-      <LastCoordSysId>2</LastCoordSysId>
-      <CoordSystems />
+      <LastCoordSysId>10</LastCoordSysId>
+      <CoordSystems>
+        <CoordSysInfo>
+          <Id>2</Id>
+          <EntityCount>1</EntityCount>
+          <Rotation x="-0.5410105" y="0.04829223" z="-0.4180548" w="0.7281522" />
+          <Position x="-1.5932214070385569" y="1.7944603334826041" z="2.0823446297546986" />
+        </CoordSysInfo>
+        <CoordSysInfo>
+          <Id>9</Id>
+          <EntityCount>1</EntityCount>
+          <Rotation x="-0.32791236" y="0.485552" z="-0.5787897" w="0.567199469" />
+          <Position x="-13459.361446617757" y="2987.1712946769926" z="-5908.3765885629455" />
+        </CoordSysInfo>
+        <CoordSysInfo>
+          <Id>7</Id>
+          <EntityCount>1</EntityCount>
+          <Rotation x="-0.288228869" y="0.210792467" z="-0.607554138" w="0.709484756" />
+          <Position x="10664.780199408777" y="1853.6363483310977" z="10381.755498270551" />
+        </CoordSysInfo>
+      </CoordSystems>
     </MyObjectBuilder_SessionComponent>
     <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_BankingSystem">
       <Definition Type="MyObjectBuilder_BankingSystemDefinition" Subtype="BankingSystem" />
@@ -1410,14 +1793,6 @@
           </Account>
         </MyObjectBuilder_AccountEntry>
         <MyObjectBuilder_AccountEntry>
-          <OwnerIdentifier>258961289160008772</OwnerIdentifier>
-          <Account>
-            <OwnerIdentifier>258961289160008772</OwnerIdentifier>
-            <Balance>100000000</Balance>
-            <Log />
-          </Account>
-        </MyObjectBuilder_AccountEntry>
-        <MyObjectBuilder_AccountEntry>
           <OwnerIdentifier>285120341301407075</OwnerIdentifier>
           <Account>
             <OwnerIdentifier>285120341301407075</OwnerIdentifier>
@@ -1426,10 +1801,10 @@
           </Account>
         </MyObjectBuilder_AccountEntry>
         <MyObjectBuilder_AccountEntry>
-          <OwnerIdentifier>271542045013370568</OwnerIdentifier>
+          <OwnerIdentifier>144115188075855901</OwnerIdentifier>
           <Account>
-            <OwnerIdentifier>271542045013370568</OwnerIdentifier>
-            <Balance>0</Balance>
+            <OwnerIdentifier>144115188075855901</OwnerIdentifier>
+            <Balance>10000</Balance>
             <Log />
           </Account>
         </MyObjectBuilder_AccountEntry>
@@ -1449,8 +1824,64 @@
             <Log />
           </Account>
         </MyObjectBuilder_AccountEntry>
+        <MyObjectBuilder_AccountEntry>
+          <OwnerIdentifier>249640982411927350</OwnerIdentifier>
+          <Account>
+            <OwnerIdentifier>249640982411927350</OwnerIdentifier>
+            <Balance>0</Balance>
+            <Log />
+          </Account>
+        </MyObjectBuilder_AccountEntry>
+        <MyObjectBuilder_AccountEntry>
+          <OwnerIdentifier>144115188075855899</OwnerIdentifier>
+          <Account>
+            <OwnerIdentifier>144115188075855899</OwnerIdentifier>
+            <Balance>10000</Balance>
+            <Log />
+          </Account>
+        </MyObjectBuilder_AccountEntry>
+        <MyObjectBuilder_AccountEntry>
+          <OwnerIdentifier>230032659110629844</OwnerIdentifier>
+          <Account>
+            <OwnerIdentifier>230032659110629844</OwnerIdentifier>
+            <Balance>0</Balance>
+            <Log />
+          </Account>
+        </MyObjectBuilder_AccountEntry>
+        <MyObjectBuilder_AccountEntry>
+          <OwnerIdentifier>144115188075855900</OwnerIdentifier>
+          <Account>
+            <OwnerIdentifier>144115188075855900</OwnerIdentifier>
+            <Balance>10000</Balance>
+            <Log />
+          </Account>
+        </MyObjectBuilder_AccountEntry>
+        <MyObjectBuilder_AccountEntry>
+          <OwnerIdentifier>227511084619015033</OwnerIdentifier>
+          <Account>
+            <OwnerIdentifier>227511084619015033</OwnerIdentifier>
+            <Balance>0</Balance>
+            <Log />
+          </Account>
+        </MyObjectBuilder_AccountEntry>
+        <MyObjectBuilder_AccountEntry>
+          <OwnerIdentifier>241220076369610950</OwnerIdentifier>
+          <Account>
+            <OwnerIdentifier>241220076369610950</OwnerIdentifier>
+            <Balance>100000000</Balance>
+            <Log />
+          </Account>
+        </MyObjectBuilder_AccountEntry>
+        <MyObjectBuilder_AccountEntry>
+          <OwnerIdentifier>252601195522464275</OwnerIdentifier>
+          <Account>
+            <OwnerIdentifier>252601195522464275</OwnerIdentifier>
+            <Balance>0</Balance>
+            <Log />
+          </Account>
+        </MyObjectBuilder_AccountEntry>
       </Accounts>
-      <OverallBalance>100040000</OverallBalance>
+      <OverallBalance>200070000</OverallBalance>
     </MyObjectBuilder_SessionComponent>
     <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_NeutralShipSpawner">
       <ShipsInProgress />
@@ -1487,13 +1918,47 @@
   <InGameTime>2081-01-01T07:00:00</InGameTime>
   <CustomSkybox />
   <RequiresDX>11</RequiresDX>
-  <VicinityModelsCache />
+  <VicinityModelsCache>
+    <string>Models\Cubes\Large\BatteryLarge.mwm</string>
+    <string>Models\Cubes\Large\SurvivalKit.mwm</string>
+    <string>C:\Program Files (x86)\Steam\steamapps\workshop\content\244850\2425204399\Models\StarCore skinable 5x5x1.mwm</string>
+    <string>Models\Cubes\Large\SurvivalKit_Reskin.mwm</string>
+    <string>Models\Cubes\Large\ControlPanel.mwm</string>
+    <string>Models\Cubes\Large\beacon.mwm</string>
+  </VicinityModelsCache>
   <VicinityArmorModelsCache>
     <string>Models\Characters\Astronaut\Female\SE_astronaut.mwm</string>
+    <string>Models\Cubes\Large\Armor\CornerTriangleLeftPlateSlope2Tip.mwm</string>
+    <string>Models\Cubes\Large\Armor\SlopePlateSlab.mwm</string>
+    <string>Models\Cubes\Large\Armor\SquarePlate.mwm</string>
+    <string>Models\Cubes\Large\Armor\CornerTriangleLeftPlate.mwm</string>
+    <string>Models\Cubes\Large\Armor\SlopePlateSlope2Tip.mwm</string>
+    <string>Models\Cubes\Large\Armor\SquarePlateSlope2BaseFront.mwm</string>
+    <string>Models\Cubes\Large\Armor\SquarePlateSlope2BaseTop.mwm</string>
+    <string>Models\Cubes\Large\Armor\SquarePlateCenter.mwm</string>
+    <string>Models\Cubes\Large\Armor\SquarePlateSlope2TipBack.mwm</string>
+    <string>Models\Cubes\Large\Armor\CornerTriangleRightPlate.mwm</string>
+    <string>Models\Cubes\Large\Armor\CornerTriangleLeftPlateCorner2TipFront.mwm</string>
+    <string>Models\Cubes\Large\Armor\CornerTriangleRightPlateSlope2Tip.mwm</string>
+    <string>Models\Cubes\Large\Armor\SquarePlateSlope2BaseLeft.mwm</string>
+    <string>Models\Cubes\Large\Armor\SlopePlate.mwm</string>
+    <string>Models\Cubes\Large\Armor\SquarePlateSlope2BaseRight.mwm</string>
   </VicinityArmorModelsCache>
-  <VicinityVoxelCache />
+  <VicinityVoxelCache>
+    <string>Ice_03</string>
+    <string>Nickel_01</string>
+    <string>Silicon_01</string>
+    <string>Ice_01</string>
+    <string>Rocks_grass</string>
+    <string>Grass bare</string>
+    <string>Grass</string>
+    <string>Magnesium_01</string>
+    <string>Iron_02</string>
+    <string>Grass_old bare</string>
+    <string>Stone</string>
+    <string>DesertRocks</string>
+    <string>Soil</string>
+    <string>Grass_old</string>
+  </VicinityVoxelCache>
   <WorldId>dd5139a0-a776-4b1d-a075-50e7e316b75b</WorldId>
-  <RemoteAdminSettings>
-    <dictionary />
-  </RemoteAdminSettings>
 </MyObjectBuilder_Checkpoint>

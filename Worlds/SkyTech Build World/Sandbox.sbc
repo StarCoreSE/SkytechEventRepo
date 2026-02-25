@@ -107,13 +107,54 @@
         </Data>
       </Slot>
       <Slot>
+        <Index>11</Index>
+        <Item />
+        <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+          <DefinitionId Type="MyObjectBuilder_SurvivalKit" Subtype="SurvivalKitLargeReskin" />
+        </Data>
+      </Slot>
+      <Slot>
+        <Index>12</Index>
+        <Item />
+        <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+          <DefinitionId Type="MyObjectBuilder_CameraBlock" Subtype="ActiveRadar_Simple" />
+        </Data>
+      </Slot>
+      <Slot>
+        <Index>13</Index>
+        <Item />
+        <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+          <DefinitionId Type="MyObjectBuilder_ConveyorSorter" Subtype="DetectionHudControllerBlock" />
+        </Data>
+      </Slot>
+      <Slot>
+        <Index>14</Index>
+        <Item />
+        <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+          <DefinitionId Type="MyObjectBuilder_Cockpit" Subtype="LargeBlockCockpitSeat" />
+        </Data>
+      </Slot>
+      <Slot>
+        <Index>15</Index>
+        <Item />
+        <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+          <DefinitionId Type="MyObjectBuilder_ConveyorSorter" Subtype="DetectionManualBlock" />
+        </Data>
+      </Slot>
+      <Slot>
+        <Index>16</Index>
+        <Item />
+        <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+          <DefinitionId Type="MyObjectBuilder_Beacon" Subtype="LargeBlockBeacon" />
+        </Data>
+      </Slot>
     </Slots>
     <SlotsGamepad />
   </CharacterToolbar>
   <ControlledEntities>
     <dictionary>
       <item>
-        <Key>124168712738897777</Key>
+        <Key>121146153636173499</Key>
         <Value>
           <ClientId>0</ClientId>
           <SerialId>0</SerialId>
@@ -200,7 +241,7 @@
     <MaxDropContainerRespawnTime>20</MaxDropContainerRespawnTime>
     <EnableTurretsFriendlyFire>false</EnableTurretsFriendlyFire>
     <EnableSubgridDamage>false</EnableSubgridDamage>
-    <SyncDistance>3000</SyncDistance>
+    <SyncDistance>150000</SyncDistance>
     <ExperimentalMode>true</ExperimentalMode>
     <AdaptiveSimulationQuality>true</AdaptiveSimulationQuality>
     <EnableVoxelHand>false</EnableVoxelHand>
@@ -306,15 +347,27 @@
   </Settings>
   <ScriptManagerData>
     <variables>
-      <dictionary />
+      <dictionary>
+        <item>
+          <Key>PaintGunMod_ServerSettings</Key>
+          <Value xsi:type="xsd:string">[ServerSettings]
+RequireAmmo=True
+PaintSpeedMultiplier=1
+ReplacePaintSurvival=False
+PaintUnfinishedBlocks=False
+</Value>
+        </item>
+      </dictionary>
     </variables>
   </ScriptManagerData>
   <AppVersion>1208015</AppVersion>
   <Factions>
     <Factions>
       <MyObjectBuilder_Faction>
-        <Tag>SPRT</Tag>
-        <Name>Space Pirates</Name>
+        <FactionId>285120341301407075</FactionId>
+        <Tag>FCTM</Tag>
+        <Name>The Factorum</Name>
+        <Description>The creators of Prototech. They've returned from the edge of known space to seek revenge.</Description>
         <PrivateInfo />
         <Members>
           <MyObjectBuilder_FactionMember>
@@ -328,12 +381,12 @@
         <AutoAcceptPeace>false</AutoAcceptPeace>
         <AcceptHumans>false</AcceptHumans>
         <EnableFriendlyFire>false</EnableFriendlyFire>
-        <FactionType>Pirate</FactionType>
-        <FactionTypeString>Pirate</FactionTypeString>
+        <FactionType>None</FactionType>
+        <FactionTypeString>None</FactionTypeString>
         <Stations />
         <CustomColor x="0" y="-0.8" z="-0.450000018" />
-        <IconColor x="0" y="0" z="0" />
-        <FactionIcon>Textures\FactionLogo\PirateIcon.dds</FactionIcon>
+        <IconColor x="0" y="-0.8" z="0.55" />
+        <FactionIcon>Textures\FactionLogo\Factorum.dds</FactionIcon>
         <TransferedPCUDelta>0</TransferedPCUDelta>
         <Score>0</Score>
         <ObjectivePercentageCompleted>0</ObjectivePercentageCompleted>
@@ -343,10 +396,46 @@
         </DamageInflicted>
       </MyObjectBuilder_Faction>
       <MyObjectBuilder_Faction>
-        <FactionId>285120341301407075</FactionId>
-        <Tag>FCTM</Tag>
-        <Name>The Factorum</Name>
-        <Description>The creators of Prototech. They've returned from the edge of known space to seek revenge.</Description>
+        <FactionId>249640982411927350</FactionId>
+        <Tag>RED</Tag>
+        <Name>RED Team</Name>
+        <Description>Join me!</Description>
+        <PrivateInfo>ari says hi!</PrivateInfo>
+        <Members>
+          <MyObjectBuilder_FactionMember>
+            <PlayerId>144115188075855899</PlayerId>
+            <IsLeader>true</IsLeader>
+            <IsFounder>true</IsFounder>
+          </MyObjectBuilder_FactionMember>
+        </Members>
+        <JoinRequests />
+        <AutoAcceptMember>true</AutoAcceptMember>
+        <AutoAcceptPeace>true</AutoAcceptPeace>
+        <AcceptHumans>true</AcceptHumans>
+        <EnableFriendlyFire>true</EnableFriendlyFire>
+        <FactionType>PlayerMade</FactionType>
+        <FactionTypeString>PlayerMade</FactionTypeString>
+        <Stations />
+        <CustomColor x="0" y="0.199999988" z="0.55" />
+        <IconColor x="0" y="0.199999988" z="0.55" />
+        <FactionIcon>Textures\FactionLogo\Empty.dds</FactionIcon>
+        <TransferedPCUDelta>0</TransferedPCUDelta>
+        <Score>0</Score>
+        <ObjectivePercentageCompleted>0</ObjectivePercentageCompleted>
+        <FactionIconWorkshopId xsi:nil="true" />
+        <DamageInflicted>
+          <dictionary />
+        </DamageInflicted>
+      </MyObjectBuilder_Faction>
+      <MyObjectBuilder_Faction>
+        <FactionId>230032659110629844</FactionId>
+        <Tag>BLU</Tag>
+        <Name>BLUE Team</Name>
+        <Description>Join me!</Description>
+        <PrivateInfo>ari says hi!</PrivateInfo>
+        <Members>
+          <MyObjectBuilder_FactionMember>
+            <PlayerId>144115188075855900</PlayerId>
             <IsLeader>true</IsLeader>
             <IsFounder>true</IsFounder>
           </MyObjectBuilder_FactionMember>

@@ -1,6 +1,6 @@
 ﻿namespace Skytech.Thrusters
 {
-    internal class TestAssembly : AssemblyBase
+    internal class Gimbal3x3 : AssemblyBase
     {
         
     }

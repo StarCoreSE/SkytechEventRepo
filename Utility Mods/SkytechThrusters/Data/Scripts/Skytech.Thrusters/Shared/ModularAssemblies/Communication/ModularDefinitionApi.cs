@@ -7,7 +7,7 @@ using VRage.Game.ModAPI;
 using VRage.Utils;
 using VRageMath;
 
-namespace Skytech.Thrusters.ModularAssemblies.Communication
+namespace Skytech.Thrusters.Shared.ModularAssemblies.Communication
 {
     /// <summary>
     ///     Class used to communicate with the Modular Assemblies Framework mod. <br /><br />

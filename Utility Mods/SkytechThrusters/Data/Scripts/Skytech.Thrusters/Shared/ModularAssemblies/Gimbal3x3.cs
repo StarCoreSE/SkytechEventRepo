@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using Sandbox.ModAPI;
 using VRageMath;
-using static Skytech.Thrusters.ModularAssemblies.Communication.DefinitionDefs;
+using static Skytech.Thrusters.Shared.ModularAssemblies.Communication.DefinitionDefs;
 
-namespace Skytech.Thrusters.ModularAssemblies
+namespace Skytech.Thrusters.Shared.ModularAssemblies
 {
     /* Hey there modders!
      *
@@ -20,27 +19,27 @@ namespace Skytech.Thrusters.ModularAssemblies
         // However, for all but the simplest of assemblies it would be wise to have a separate utilities class.
 
         // This is the important bit.
-        internal ModularPhysicalDefinition ExampleDefinition => new ModularPhysicalDefinition
+        internal ModularPhysicalDefinition Gimbal3x3 => new ModularPhysicalDefinition
         {
             // Unique name of the definition.
-            Name = "ExampleDefinition",
+            Name = "Gimbal3x3",
 
-            OnInit = AssemblyManager<TestAssembly>.Load,
+            OnInit = AssemblyManager<Gimbal3x3>.Load,
 
             // Triggers whenever a new part is added to an assembly.
-            OnPartAdd = AssemblyManager<TestAssembly>.OnPartAdd,
+            OnPartAdd = AssemblyManager<Gimbal3x3>.OnPartAdd,
 
             // Triggers whenever a part is removed from an assembly.
-            OnPartRemove = AssemblyManager<TestAssembly>.OnPartRemove,
+            OnPartRemove = AssemblyManager<Gimbal3x3>.OnPartRemove,
 
             // Triggers whenever a part is destroyed, just after OnPartRemove.
-            OnPartDestroy = AssemblyManager<TestAssembly>.OnPartDestroy,
+            OnPartDestroy = AssemblyManager<Gimbal3x3>.OnPartDestroy,
 
-            OnAssemblyClose = AssemblyManager<TestAssembly>.OnAssemblyClose,
+            OnAssemblyClose = AssemblyManager<Gimbal3x3>.OnAssemblyClose,
 
             // Optional - if this is set, an assembly will not be created until a baseblock exists.
             // 
-            BaseBlockSubtype = null,
+            BaseBlockSubtype = "",
 
             // All SubtypeIds that can be part of this assembly.
             AllowedBlockSubtypes = new[]

@@ -1,14 +1,15 @@
 ﻿using System.Collections.Generic;
+using Skytech.Thrusters.Shared.ModularAssemblies.Communication;
 using VRage.Game.ModAPI;
-using Skytech.Thrusters.ModularAssemblies.Communication;
-namespace Skytech.Thrusters
+
+namespace Skytech.Thrusters.Shared.ModularAssemblies
 {
     internal class AssemblyManager<TAssembly> : IAssemblyManager
         where TAssembly : AssemblyBase, new()
     {
         // This class is a singleton.
         protected static AssemblyManager<TAssembly> I { get; private set; } = null;
-        private static ModularDefinitionApi ModularApi => ModularAssemblies.ModularDefinition.ModularApi;
+        private static ModularDefinitionApi ModularApi => ModularDefinition.ModularApi;
 
 
         private Dictionary<int, AssemblyBase> _assemblies = new Dictionary<int, AssemblyBase>();

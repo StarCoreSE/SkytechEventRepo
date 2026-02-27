@@ -1,8 +1,9 @@
-﻿using VRage.Game.Components;
+﻿using Skytech.Thrusters.Shared.ModularAssemblies;
+using VRage.Game.Components;
 using VRage.Utils;
-using static Skytech.Thrusters.ModularAssemblies.Communication.DefinitionDefs;
+using static Skytech.Thrusters.Shared.ModularAssemblies.Communication.DefinitionDefs;
 
-namespace Skytech.Thrusters.ModularAssemblies.Communication
+namespace Skytech.Thrusters.Shared.ModularAssemblies.Communication
 {
     [MySessionComponentDescriptor(MyUpdateOrder.Simulation, int.MinValue)]
     internal class ModularDefinitionSender : MySessionComponentBase
@@ -15,20 +16,20 @@ namespace Skytech.Thrusters.ModularAssemblies.Communication
                 $"{ModContext.ModName}.ModularDefinition: Init new ModularAssembliesDefinition");
 
             // Init
-            StoredDef = global::Skytech.Thrusters.ModularAssemblies.ModularDefinition.GetBaseDefinitions();
+            StoredDef = ModularDefinition.GetBaseDefinitions();
 
             // Send definitions over as soon as the API loads, and create the API before anything else can init.
-            global::Skytech.Thrusters.ModularAssemblies.ModularDefinition.ModularApi.Init(ModContext, SendDefinitions);
+            ModularDefinition.ModularApi.Init(ModContext, SendDefinitions);
         }
 
         protected override void UnloadData()
         {
-            global::Skytech.Thrusters.ModularAssemblies.ModularDefinition.ModularApi.UnloadData();
+            ModularDefinition.ModularApi.UnloadData();
         }
 
         private void SendDefinitions()
         {
-            global::Skytech.Thrusters.ModularAssemblies.ModularDefinition.ModularApi.RegisterDefinitions(StoredDef);
+            ModularDefinition.ModularApi.RegisterDefinitions(StoredDef);
         }
     }
 }

@@ -1,8 +1,8 @@
-﻿using Skytech.Thrusters.ModularAssemblies.Communication;
-using static Skytech.Thrusters.ModularAssemblies.Communication.DefinitionDefs;
+﻿using Skytech.Thrusters.Shared.ModularAssemblies.Communication;
+using static Skytech.Thrusters.Shared.ModularAssemblies.Communication.DefinitionDefs;
 
 // ReSharper disable once CheckNamespace
-namespace Skytech.Thrusters.ModularAssemblies
+namespace Skytech.Thrusters.Shared.ModularAssemblies
 {
     internal partial class ModularDefinition
     {
@@ -20,7 +20,7 @@ namespace Skytech.Thrusters.ModularAssemblies
         /// <param name="baseDefs"></param>
         internal static ModularDefinitionContainer GetBaseDefinitions()
         {
-            return new Skytech.Thrusters.ModularAssemblies.ModularDefinition().Container;
+            return new Skytech.Thrusters.Shared.ModularAssemblies.ModularDefinition().Container;
         }
     }
 }

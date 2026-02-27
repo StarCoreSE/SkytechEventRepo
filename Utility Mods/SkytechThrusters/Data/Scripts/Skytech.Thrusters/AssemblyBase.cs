@@ -1,7 +1,8 @@
 ﻿using Sandbox.ModAPI;
 using System.Collections.Generic;
 using VRage.Game.ModAPI;
-using Skytech.Thrusters.ModularAssemblies.Communication;
+using Skytech.Thrusters.Shared.ModularAssemblies;
+using Skytech.Thrusters.Shared.ModularAssemblies.Communication;
 
 namespace Skytech.Thrusters
 {
@@ -10,7 +11,7 @@ namespace Skytech.Thrusters
     /// </summary>
     internal abstract class AssemblyBase
     {
-        private static ModularDefinitionApi ModularApi => ModularAssemblies.ModularDefinition.ModularApi;
+        private static ModularDefinitionApi ModularApi => ModularDefinition.ModularApi;
 
         public int AssemblyId { get; private set; }
         public IMyCubeGrid Grid { get; private set; }

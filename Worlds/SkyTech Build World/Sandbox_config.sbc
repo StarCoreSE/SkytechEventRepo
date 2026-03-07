@@ -183,6 +183,10 @@
     <RandomizeSeed>false</RandomizeSeed>
   </Settings>
   <Mods>
+    <ModItem FriendlyName="SkytechThrusters">
+      <Name>SkytechThrusters</Name>
+      <PublishedServiceName>Steam</PublishedServiceName>
+    </ModItem>
     <ModItem FriendlyName="|_M  A  X  I  M_| Sensor Suite V1">
       <Name>3488371475.sbm</Name>
       <PublishedFileId>3488371475</PublishedFileId>
@@ -471,5 +475,5 @@
     </ModItem>
   </Mods>
   <SessionName>SkyTech Build World</SessionName>
-  <LastSaveTime>2026-02-24T22:13:03.9211374-06:00</LastSaveTime>
+  <LastSaveTime>2026-03-07T17:10:15.3933424-06:00</LastSaveTime>
 </MyObjectBuilder_WorldConfiguration>

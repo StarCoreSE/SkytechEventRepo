@@ -20,6 +20,7 @@ namespace Skytech.Thrusters.Shared.ModularAssemblies
             if (I != null)
                 return;
             I = new AssemblyManager<TAssembly>();
+            AssemblyBase.OnDefinitionInit<TAssembly>();
         }
 
         public void Unload()

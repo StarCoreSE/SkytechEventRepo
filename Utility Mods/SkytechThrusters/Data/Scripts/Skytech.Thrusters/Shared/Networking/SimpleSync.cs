@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Skytech.Thrusters.Client.Networking;
 using Skytech.Thrusters.Server.Networking;
-using Skytech.Thrusters.Shared.BlockLogic;
 using Skytech.Thrusters.Shared.Utils;
 using ProtoBuf;
 using Sandbox.ModAPI;
@@ -26,8 +25,8 @@ namespace Skytech.Thrusters.Shared.Networking
 
         public Func<TValue, TValue> Validate = null;
 
-        private long _componentId;
-        public IControlBlockBase ComponentId
+        private AssemblyBase _component;
+        public AssemblyBase Component
         {
             get
             {
@@ -45,7 +44,7 @@ namespace Skytech.Thrusters.Shared.Networking
                 }
 
                 _component = value;
-                SimpleSyncManager.RegisterSync(this, _component.CubeBlock.EntityId);
+                SimpleSyncManager.RegisterSync(this, _component.RootId);
                 _component.OnClose += OnComponentClosed;
 
                 if (MyAPIGateway.Session.IsServer)
@@ -105,7 +104,7 @@ namespace Skytech.Thrusters.Shared.Networking
                 Contents = MyAPIGateway.Utilities.SerializeToBinary(_value)
             };
             if (MyAPIGateway.Session.IsServer)
-                ServerNetwork.SendToEveryoneInSync(packet, Component.CubeBlock.GetPosition());
+                ServerNetwork.SendToEveryoneInSync(packet, Component.RootBlock.GetPosition());
             else
                 ClientNetwork.SendToServer(packet);
         }
@@ -190,7 +189,7 @@ namespace Skytech.Thrusters.Shared.Networking
     internal interface ISimpleSync
     {
         long SyncId { get; set; }
-        IControlBlockBase Component { get; }
+        AssemblyBase Component { get; }
         void UpdateFromNetwork(byte[] data);
     }
 }

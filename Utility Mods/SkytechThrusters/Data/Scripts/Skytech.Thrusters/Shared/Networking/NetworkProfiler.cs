@@ -366,7 +366,7 @@ namespace Skytech.Thrusters.Shared.Networking
                     if (_duration <= 0 || ServerNetwork.I.Profiler.Active || !CanUserRequestProfile(senderSteamId))
                         return;
 
-                    MyVisualScriptLogicProvider.SendChatMessageColored($"Network profiling requested by \"{requesterName}\" for {_duration:N}s - performance may drop.", Color.Red, "Detection Equipment");
+                    MyVisualScriptLogicProvider.SendChatMessageColored($"Network profiling requested by \"{requesterName}\" for {_duration:N}s - performance may drop.", Color.Red, "SkyTech Thrusters");
                     ServerNetwork.I.Profiler.Activate(_duration, senderSteamId);
                     return;
                 }

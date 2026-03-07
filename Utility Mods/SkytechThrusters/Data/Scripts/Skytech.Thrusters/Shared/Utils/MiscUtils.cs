@@ -1,10 +1,12 @@
-﻿using System;
+﻿using Sandbox.Game.Entities.Planet;
 using Sandbox.ModAPI;
+using System;
 using System.Collections.Generic;
 using System.Text;
+using VRage;
+using VRage.Game;
 using VRage.Game.ModAPI;
 using VRage.ModAPI;
-using Sandbox.Game.Entities.Planet;
 using VRageMath;
 
 namespace Skytech.Thrusters.Shared.Utils
@@ -70,6 +72,34 @@ namespace Skytech.Thrusters.Shared.Utils
             }
 
             return 0;
+        }
+
+        public static void AddBlock<T>(IMyCubeBlock baseBlock, string subtypeName, Vector3I position) where T : MyObjectBuilder_CubeBlock, new()
+        {
+            var grid = baseBlock.CubeGrid;
+            var existingBlock = grid.GetCubeBlock(position);
+            if (existingBlock != null)
+                grid.RemoveBlock(existingBlock);
+            
+            var nextBlockBuilder = new T
+            {
+                SubtypeName = subtypeName,
+                Min = position,
+                BlockOrientation = new MyBlockOrientation(Base6Directions.GetClosestDirection(position - baseBlock.Position), baseBlock.Orientation.Forward),
+                ColorMaskHSV = new SerializableVector3(0, -1, 0),
+                Owner = baseBlock.OwnerId,
+                EntityId = 0,
+                ShareMode = MyOwnershipShareModeEnum.None
+            };
+
+            IMySlimBlock newBlock = grid.AddBlock(nextBlockBuilder, false);
+
+            if (newBlock == null)
+            {
+                MyAPIGateway.Utilities.ShowNotification($"Failed to add {subtypeName}", 1000);
+                return;
+            }
+            MyAPIGateway.Utilities.ShowNotification($"{subtypeName} added at {position}", 1000);
         }
     }
 }

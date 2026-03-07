@@ -1,4 +1,5 @@
-﻿using Sandbox.ModAPI;
+﻿using System;
+using Sandbox.ModAPI;
 using System.Collections.Generic;
 using VRage.Game.ModAPI;
 using Skytech.Thrusters.Shared.ModularAssemblies;
@@ -16,7 +17,11 @@ namespace Skytech.Thrusters
         public int AssemblyId { get; private set; }
         public IMyCubeGrid Grid { get; private set; }
 
-        private HashSet<IMyCubeBlock> _blocks = new HashSet<IMyCubeBlock>();
+        public IMyCubeBlock RootBlock { get; private set; } = null;
+        public long RootId { get; private set; } = -1;
+        public Action OnClose = null;
+
+        protected HashSet<IMyCubeBlock> Blocks = new HashSet<IMyCubeBlock>();
 
         protected AssemblyBase()
         {
@@ -35,6 +40,15 @@ namespace Skytech.Thrusters
             return asm;
         }
 
+        public static void OnDefinitionInit<TAssembly>() where TAssembly : AssemblyBase, new()
+        {
+            new TAssembly().DefinitionInit();
+        }
+
+        protected virtual void DefinitionInit()
+        {
+        }
+
         protected virtual void Init()
         {
         }
@@ -51,6 +65,7 @@ namespace Skytech.Thrusters
         /// </summary>
         public virtual void Unload()
         {
+            OnClose?.Invoke();
         }
 
         /// <summary>
@@ -60,7 +75,12 @@ namespace Skytech.Thrusters
         /// <param name="isBasePart"></param>
         public virtual void OnPartAdd(IMyCubeBlock block, bool isBasePart)
         {
-            _blocks.Add(block);
+            Blocks.Add(block);
+            if (RootBlock == null)
+            {
+                RootBlock = block;
+                RootId = RootBlock.EntityId ^ GetType().Name.GetHashCode();
+            }
         }
 
         /// <summary>
@@ -70,7 +90,7 @@ namespace Skytech.Thrusters
         /// <param name="isBasePart"></param>
         public virtual void OnPartRemove(IMyCubeBlock block, bool isBasePart)
         {
-            _blocks.Remove(block);
+            Blocks.Remove(block);
         }
 
         /// <summary>

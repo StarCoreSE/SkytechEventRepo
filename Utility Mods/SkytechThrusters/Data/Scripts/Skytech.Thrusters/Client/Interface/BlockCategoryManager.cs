@@ -27,7 +27,7 @@ namespace Skytech.Thrusters.Client.Interface
                     RegisterFromSubtype(def.Id.SubtypeName);
             }
 
-            _blockCategory = new GuiBlockCategoryHelper("[Detection Equipment]", "DetectionEquipmentBlockCategory");
+            _blockCategory = new GuiBlockCategoryHelper("[SkyTech Thrusters]", "SkytechThrustersBlockCategory");
             foreach (var item in _bufferBlockSubtypes)
                 _blockCategory.AddBlock(item);
 

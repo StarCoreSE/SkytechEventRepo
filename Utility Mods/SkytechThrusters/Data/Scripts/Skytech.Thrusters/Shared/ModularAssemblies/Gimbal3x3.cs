@@ -46,6 +46,7 @@ namespace Skytech.Thrusters.Shared.ModularAssemblies
             {
                 "Gimbal3x3Center",
                 "GimbalThrustPart",
+                "LargeBlockSmallAtmosphericThrust",
             },
 
             // Allowed connection directions & whitelists, measured in blocks.
@@ -59,6 +60,7 @@ namespace Skytech.Thrusters.Shared.ModularAssemblies
                     [Vector3I.Right] = CenterConnections,
                     [Vector3I.Down] = CenterConnections,
                     [Vector3I.Left] = CenterConnections,
+                    [Vector3I.Forward] = new [] { "LargeBlockSmallAtmosphericThrust" },
                 },
                 ["GimbalThrustPart"] = new Dictionary<Vector3I, string[]>
                 {

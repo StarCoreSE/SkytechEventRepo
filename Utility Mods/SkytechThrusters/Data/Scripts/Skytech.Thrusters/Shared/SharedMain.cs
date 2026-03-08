@@ -1,5 +1,6 @@
-﻿using System;
-using Skytech.Thrusters.Shared.Utils;
+﻿using Skytech.Thrusters.Shared.Utils;
+using System;
+using System.Collections.Generic;
 using VRage.Game.Components;
 
 namespace Skytech.Thrusters.Shared
@@ -9,6 +10,7 @@ namespace Skytech.Thrusters.Shared
     internal class SharedMain : MySessionComponentBase
     {
         public static SharedMain I;
+        public HashSet<IAssemblyManager> AssemblyManagers = new HashSet<IAssemblyManager>();
 
         public override void LoadData()
         {
@@ -52,6 +54,11 @@ namespace Skytech.Thrusters.Shared
                     GlobalData.UpdatePlayers();
                 }
 
+                foreach (var asm in AssemblyManagers)
+                {
+                    asm.Update();
+                }
+
                 GlobalObjectPools.Update();
                 Log.Update();
                 Ticks++;
@@ -71,7 +78,8 @@ namespace Skytech.Thrusters.Shared
             {
                 Log.Info("SharedMain", "Start unload...");
                 Log.IncreaseIndent();
-                
+
+                AssemblyManagers = null;
                 GlobalObjectPools.Unload();
                 GlobalData.Unload();
 

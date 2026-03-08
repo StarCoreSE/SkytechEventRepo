@@ -86,7 +86,8 @@ namespace Skytech.Thrusters.Shared.Utils
                 SubtypeName = subtypeName,
                 Min = position,
                 BlockOrientation = new MyBlockOrientation(Base6Directions.GetClosestDirection(position - baseBlock.Position), baseBlock.Orientation.Forward),
-                ColorMaskHSV = new SerializableVector3(0, -1, 0),
+                ColorMaskHSV = baseBlock.Render.ColorMaskHsv,
+                SkinSubtypeId = baseBlock.SlimBlock.SkinSubtypeId.String,
                 Owner = baseBlock.OwnerId,
                 EntityId = 0,
                 ShareMode = MyOwnershipShareModeEnum.None

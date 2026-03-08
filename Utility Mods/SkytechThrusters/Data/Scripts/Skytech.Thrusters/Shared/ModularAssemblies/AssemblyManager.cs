@@ -20,6 +20,7 @@ namespace Skytech.Thrusters.Shared.ModularAssemblies
             if (I != null)
                 return;
             I = new AssemblyManager<TAssembly>();
+            SharedMain.I.AssemblyManagers.Add(I);
             AssemblyBase.OnDefinitionInit<TAssembly>();
         }
 
@@ -29,6 +30,7 @@ namespace Skytech.Thrusters.Shared.ModularAssemblies
             {
                 system.Unload();
             }
+            SharedMain.I.AssemblyManagers.Remove(I);
             I = null;
         }
 

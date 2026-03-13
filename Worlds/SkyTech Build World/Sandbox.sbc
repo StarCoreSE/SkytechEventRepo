@@ -1,28 +1,28 @@
 <?xml version="1.0"?>
 <MyObjectBuilder_Checkpoint xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <CurrentSector x="0" y="0" z="0" />
-  <ElapsedGameTime>106368560000</ElapsedGameTime>
+  <ElapsedGameTime>113838800000</ElapsedGameTime>
   <SessionName>SkyTech Build World</SessionName>
   <SpectatorPosition>
-    <Position x="5.3095347095552405" y="-28.77454483940604" z="-22.423953426745534" />
-    <Forward x="-0.133726358" y="0.9090996" z="0.3945317" />
-    <Up x="0.539679766" y="0.400702357" z="-0.740394056" />
+    <Position x="-171.08745797947711" y="-50.550039660386574" z="353.7294171888891" />
+    <Forward x="0.5812192" y="-0.286278158" z="-0.7617277" />
+    <Up x="0.6815004" y="0.682772458" z="0.263398916" />
     <Orientation>
-      <X>0.201647982</X>
-      <Y>0.810311</Y>
-      <Z>-0.508907557</Z>
-      <W>0.2091584</W>
+      <X>-0.00673013832</X>
+      <Y>-0.345095426</Y>
+      <Z>-0.398206562</Z>
+      <W>0.8498796</W>
     </Orientation>
   </SpectatorPosition>
-  <SpectatorSpeed x="1.70859492" y="1" />
+  <SpectatorSpeed x="0.225000143" y="1" />
   <SpectatorIsLightOn>false</SpectatorIsLightOn>
-  <CameraController>Entity</CameraController>
-  <CameraEntity>121146153636173499</CameraEntity>
-  <ControlledObject>121146153636173499</ControlledObject>
+  <CameraController>ThirdPersonSpectator</CameraController>
+  <CameraEntity>0</CameraEntity>
+  <ControlledObject>97159568566077574</ControlledObject>
   <Password />
   <Description>Highfleet-esque multicrew Space Engineers combat tournament.</Description>
-  <LastSaveTime>2026-03-07T18:12:14.8918141-06:00</LastSaveTime>
-  <SpectatorDistance>7.84126949</SpectatorDistance>
+  <LastSaveTime>2026-03-12T20:04:51.2626515-05:00</LastSaveTime>
+  <SpectatorDistance>49.6219177</SpectatorDistance>
   <WorkshopId xsi:nil="true" />
   <WorkshopId1 xsi:nil="true" />
   <CharacterToolbar>
@@ -61,7 +61,7 @@
         <Index>4</Index>
         <Item />
         <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-          <DefinitionId Type="MyObjectBuilder_Thrust" Subtype="LargeBlockSmallThrust" />
+          <DefinitionId Type="MyObjectBuilder_Cockpit" Subtype="OpenCockpitLarge" />
         </Data>
       </Slot>
       <Slot>
@@ -154,7 +154,15 @@
   <ControlledEntities>
     <dictionary>
       <item>
-        <Key>121146153636173499</Key>
+        <Key>97159568566077574</Key>
+        <Value>
+          <ClientId>0</ClientId>
+          <SerialId>0</SerialId>
+          <HashedId>12660639651026331004</HashedId>
+        </Value>
+      </item>
+      <item>
+        <Key>135021567501630321</Key>
         <Value>
           <ClientId>0</ClientId>
           <SerialId>0</SerialId>
@@ -400,7 +408,7 @@ PaintUnfinishedBlocks=False
         <Tag>RED</Tag>
         <Name>RED Team</Name>
         <Description>Join me!</Description>
-        <PrivateInfo>ari says hi!</PrivateInfo>
+        <PrivateInfo>i'm red da ba de da ba dead</PrivateInfo>
         <Members>
           <MyObjectBuilder_FactionMember>
             <PlayerId>144115188075855899</PlayerId>
@@ -432,7 +440,7 @@ PaintUnfinishedBlocks=False
         <Tag>BLU</Tag>
         <Name>BLUE Team</Name>
         <Description>Join me!</Description>
-        <PrivateInfo>ari says hi!</PrivateInfo>
+        <PrivateInfo>i'm blue da ba de da ba die</PrivateInfo>
         <Members>
           <MyObjectBuilder_FactionMember>
             <PlayerId>144115188075855900</PlayerId>
@@ -463,7 +471,7 @@ PaintUnfinishedBlocks=False
         <FactionId>227511084619015033</FactionId>
         <Tag>SPC</Tag>
         <Name>Spectators</Name>
-        <Description>Join me!</Description>
+        <Description>Join me! Excluded from matchmaking.</Description>
         <PrivateInfo>ari says hi!</PrivateInfo>
         <Members>
           <MyObjectBuilder_FactionMember>
@@ -564,6 +572,43 @@ PaintUnfinishedBlocks=False
           <dictionary />
         </DamageInflicted>
       </MyObjectBuilder_Faction>
+      <MyObjectBuilder_Faction>
+        <FactionId>236836207455637877</FactionId>
+        <Tag>NEU</Tag>
+        <Name>Neutral</Name>
+        <Description>Join me! Excluded from matchmaking.</Description>
+        <PrivateInfo>i'm green da ba de da ba... deen?</PrivateInfo>
+        <Members>
+          <MyObjectBuilder_FactionMember>
+            <PlayerId>144115188075855895</PlayerId>
+            <IsLeader>true</IsLeader>
+            <IsFounder>false</IsFounder>
+          </MyObjectBuilder_FactionMember>
+          <MyObjectBuilder_FactionMember>
+            <PlayerId>144115188075855904</PlayerId>
+            <IsLeader>true</IsLeader>
+            <IsFounder>true</IsFounder>
+          </MyObjectBuilder_FactionMember>
+        </Members>
+        <JoinRequests />
+        <AutoAcceptMember>true</AutoAcceptMember>
+        <AutoAcceptPeace>true</AutoAcceptPeace>
+        <AcceptHumans>true</AcceptHumans>
+        <EnableFriendlyFire>true</EnableFriendlyFire>
+        <FactionType>PlayerMade</FactionType>
+        <FactionTypeString>PlayerMade</FactionTypeString>
+        <Stations />
+        <CustomColor x="0.315686256" y="0.199999988" z="0.55" />
+        <IconColor x="0" y="-0.8" z="0.55" />
+        <FactionIcon>Textures\FactionLogo\Empty.dds</FactionIcon>
+        <TransferedPCUDelta>0</TransferedPCUDelta>
+        <Score>0</Score>
+        <ObjectivePercentageCompleted>0</ObjectivePercentageCompleted>
+        <FactionIconWorkshopId xsi:nil="true" />
+        <DamageInflicted>
+          <dictionary />
+        </DamageInflicted>
+      </MyObjectBuilder_Faction>
     </Factions>
     <Players>
       <dictionary>
@@ -598,6 +643,14 @@ PaintUnfinishedBlocks=False
         <item>
           <Key>144115188075855903</Key>
           <Value>252601195522464275</Value>
+        </item>
+        <item>
+          <Key>144115188075855895</Key>
+          <Value>236836207455637877</Value>
+        </item>
+        <item>
+          <Key>144115188075855904</Key>
+          <Value>236836207455637877</Value>
         </item>
       </dictionary>
     </Players>
@@ -634,6 +687,42 @@ PaintUnfinishedBlocks=False
       </MyObjectBuilder_FactionRelation>
       <MyObjectBuilder_FactionRelation>
         <FactionId1>230032659110629844</FactionId1>
+        <FactionId2>227511084619015033</FactionId2>
+        <Relation>Neutral</Relation>
+        <Reputation>0</Reputation>
+      </MyObjectBuilder_FactionRelation>
+      <MyObjectBuilder_FactionRelation>
+        <FactionId1>285120341301407075</FactionId1>
+        <FactionId2>236836207455637877</FactionId2>
+        <Relation>Enemies</Relation>
+        <Reputation>-1000</Reputation>
+      </MyObjectBuilder_FactionRelation>
+      <MyObjectBuilder_FactionRelation>
+        <FactionId1>241220076369610950</FactionId1>
+        <FactionId2>236836207455637877</FactionId2>
+        <Relation>Enemies</Relation>
+        <Reputation>-1000</Reputation>
+      </MyObjectBuilder_FactionRelation>
+      <MyObjectBuilder_FactionRelation>
+        <FactionId1>252601195522464275</FactionId1>
+        <FactionId2>236836207455637877</FactionId2>
+        <Relation>Enemies</Relation>
+        <Reputation>-1000</Reputation>
+      </MyObjectBuilder_FactionRelation>
+      <MyObjectBuilder_FactionRelation>
+        <FactionId1>236836207455637877</FactionId1>
+        <FactionId2>230032659110629844</FactionId2>
+        <Relation>Neutral</Relation>
+        <Reputation>0</Reputation>
+      </MyObjectBuilder_FactionRelation>
+      <MyObjectBuilder_FactionRelation>
+        <FactionId1>236836207455637877</FactionId1>
+        <FactionId2>249640982411927350</FactionId2>
+        <Relation>Neutral</Relation>
+        <Reputation>0</Reputation>
+      </MyObjectBuilder_FactionRelation>
+      <MyObjectBuilder_FactionRelation>
+        <FactionId1>236836207455637877</FactionId1>
         <FactionId2>227511084619015033</FactionId2>
         <Relation>Neutral</Relation>
         <Reputation>0</Reputation>
@@ -747,6 +836,84 @@ PaintUnfinishedBlocks=False
         <FactionId>230032659110629844</FactionId>
         <Relation>Neutral</Relation>
         <Reputation>0</Reputation>
+      </MyObjectBuilder_PlayerFactionRelation>
+      <MyObjectBuilder_PlayerFactionRelation>
+        <PlayerId>144115188075855897</PlayerId>
+        <FactionId>236836207455637877</FactionId>
+        <Relation>Enemies</Relation>
+        <Reputation>-1000</Reputation>
+      </MyObjectBuilder_PlayerFactionRelation>
+      <MyObjectBuilder_PlayerFactionRelation>
+        <PlayerId>144115188075855902</PlayerId>
+        <FactionId>236836207455637877</FactionId>
+        <Relation>Enemies</Relation>
+        <Reputation>-1000</Reputation>
+      </MyObjectBuilder_PlayerFactionRelation>
+      <MyObjectBuilder_PlayerFactionRelation>
+        <PlayerId>144115188075855895</PlayerId>
+        <FactionId>241220076369610950</FactionId>
+        <Relation>Enemies</Relation>
+        <Reputation>-1000</Reputation>
+      </MyObjectBuilder_PlayerFactionRelation>
+      <MyObjectBuilder_PlayerFactionRelation>
+        <PlayerId>144115188075855903</PlayerId>
+        <FactionId>236836207455637877</FactionId>
+        <Relation>Enemies</Relation>
+        <Reputation>-1000</Reputation>
+      </MyObjectBuilder_PlayerFactionRelation>
+      <MyObjectBuilder_PlayerFactionRelation>
+        <PlayerId>144115188075855895</PlayerId>
+        <FactionId>252601195522464275</FactionId>
+        <Relation>Neutral</Relation>
+        <Reputation>0</Reputation>
+      </MyObjectBuilder_PlayerFactionRelation>
+      <MyObjectBuilder_PlayerFactionRelation>
+        <PlayerId>144115188075855904</PlayerId>
+        <FactionId>230032659110629844</FactionId>
+        <Relation>Neutral</Relation>
+        <Reputation>0</Reputation>
+      </MyObjectBuilder_PlayerFactionRelation>
+      <MyObjectBuilder_PlayerFactionRelation>
+        <PlayerId>144115188075855900</PlayerId>
+        <FactionId>236836207455637877</FactionId>
+        <Relation>Neutral</Relation>
+        <Reputation>0</Reputation>
+      </MyObjectBuilder_PlayerFactionRelation>
+      <MyObjectBuilder_PlayerFactionRelation>
+        <PlayerId>144115188075855895</PlayerId>
+        <FactionId>249640982411927350</FactionId>
+        <Relation>Neutral</Relation>
+        <Reputation>0</Reputation>
+      </MyObjectBuilder_PlayerFactionRelation>
+      <MyObjectBuilder_PlayerFactionRelation>
+        <PlayerId>144115188075855904</PlayerId>
+        <FactionId>249640982411927350</FactionId>
+        <Relation>Neutral</Relation>
+        <Reputation>0</Reputation>
+      </MyObjectBuilder_PlayerFactionRelation>
+      <MyObjectBuilder_PlayerFactionRelation>
+        <PlayerId>144115188075855899</PlayerId>
+        <FactionId>236836207455637877</FactionId>
+        <Relation>Neutral</Relation>
+        <Reputation>0</Reputation>
+      </MyObjectBuilder_PlayerFactionRelation>
+      <MyObjectBuilder_PlayerFactionRelation>
+        <PlayerId>144115188075855904</PlayerId>
+        <FactionId>227511084619015033</FactionId>
+        <Relation>Neutral</Relation>
+        <Reputation>0</Reputation>
+      </MyObjectBuilder_PlayerFactionRelation>
+      <MyObjectBuilder_PlayerFactionRelation>
+        <PlayerId>144115188075855901</PlayerId>
+        <FactionId>236836207455637877</FactionId>
+        <Relation>Neutral</Relation>
+        <Reputation>0</Reputation>
+      </MyObjectBuilder_PlayerFactionRelation>
+      <MyObjectBuilder_PlayerFactionRelation>
+        <PlayerId>144115188075855904</PlayerId>
+        <FactionId>241220076369610950</FactionId>
+        <Relation>Enemies</Relation>
+        <Reputation>-1000</Reputation>
       </MyObjectBuilder_PlayerFactionRelation>
     </RelationsWithPlayers>
     <Requests />
@@ -1065,7 +1232,7 @@ PaintUnfinishedBlocks=False
       <DisplayName>Space Pirates</DisplayName>
       <CharacterEntityId>0</CharacterEntityId>
       <BlockLimitModifier>0</BlockLimitModifier>
-      <LastLoginTime>2026-03-07T18:09:56.4098031-06:00</LastLoginTime>
+      <LastLoginTime>2026-03-12T19:55:02.7124616-05:00</LastLoginTime>
       <SavedCharacters />
       <LastLogoutTime>2026-02-24T22:04:04.2722556-06:00</LastLogoutTime>
       <RespawnShips />
@@ -1079,9 +1246,23 @@ PaintUnfinishedBlocks=False
       <DisplayName>Unknown</DisplayName>
       <CharacterEntityId>0</CharacterEntityId>
       <BlockLimitModifier>0</BlockLimitModifier>
-      <LastLoginTime>2026-03-07T18:09:56.4098031-06:00</LastLoginTime>
+      <LastLoginTime>2026-03-12T19:55:02.7124616-05:00</LastLoginTime>
       <SavedCharacters />
       <LastLogoutTime>2026-02-24T22:04:04.6102569-06:00</LastLogoutTime>
+      <RespawnShips />
+      <LastDeathPosition xsi:nil="true" />
+      <ActiveContracts />
+      <TransferedPCUDelta>0</TransferedPCUDelta>
+      <IsGlobalEncounterSpawner>false</IsGlobalEncounterSpawner>
+    </MyObjectBuilder_Identity>
+    <MyObjectBuilder_Identity>
+      <IdentityId>144115188075855904</IdentityId>
+      <DisplayName>NEU NPC3719</DisplayName>
+      <CharacterEntityId>0</CharacterEntityId>
+      <BlockLimitModifier>0</BlockLimitModifier>
+      <LastLoginTime>2026-03-12T20:02:13.0822304-05:00</LastLoginTime>
+      <SavedCharacters />
+      <LastLogoutTime>2026-03-12T20:02:13.0822304-05:00</LastLogoutTime>
       <RespawnShips />
       <LastDeathPosition xsi:nil="true" />
       <ActiveContracts />
@@ -1095,11 +1276,11 @@ PaintUnfinishedBlocks=False
       <Model>Default_Astronaut_Female</Model>
       <ColorMask x="0.566666663" y="-0.528525352" z="0.133391291" />
       <BlockLimitModifier>0</BlockLimitModifier>
-      <LastLoginTime>2026-03-07T18:09:56.4118017-06:00</LastLoginTime>
+      <LastLoginTime>2026-03-12T19:55:02.7154615-05:00</LastLoginTime>
       <SavedCharacters>
         <long>121146153636173499</long>
       </SavedCharacters>
-      <LastLogoutTime>2026-03-07T18:12:14.8918141-06:00</LastLogoutTime>
+      <LastLogoutTime>2026-03-12T20:04:51.2626515-05:00</LastLogoutTime>
       <RespawnShips />
       <LastDeathPosition>
         <X>-9267.4061964308239</X>
@@ -1115,7 +1296,7 @@ PaintUnfinishedBlocks=False
       <DisplayName>Space Pirates</DisplayName>
       <CharacterEntityId>0</CharacterEntityId>
       <BlockLimitModifier>0</BlockLimitModifier>
-      <LastLoginTime>2026-03-07T18:09:58.6673054-06:00</LastLoginTime>
+      <LastLoginTime>2026-03-12T19:55:04.7162385-05:00</LastLoginTime>
       <SavedCharacters />
       <LastLogoutTime>0001-01-01T00:00:00</LastLogoutTime>
       <RespawnShips />
@@ -1129,7 +1310,7 @@ PaintUnfinishedBlocks=False
       <DisplayName>The Factorum</DisplayName>
       <CharacterEntityId>0</CharacterEntityId>
       <BlockLimitModifier>0</BlockLimitModifier>
-      <LastLoginTime>2026-03-07T18:09:56.4098031-06:00</LastLoginTime>
+      <LastLoginTime>2026-03-12T19:55:02.7124616-05:00</LastLoginTime>
       <SavedCharacters />
       <LastLogoutTime>2026-02-24T19:18:42.891798-06:00</LastLogoutTime>
       <RespawnShips />
@@ -1143,7 +1324,7 @@ PaintUnfinishedBlocks=False
       <DisplayName>Unknown</DisplayName>
       <CharacterEntityId>0</CharacterEntityId>
       <BlockLimitModifier>0</BlockLimitModifier>
-      <LastLoginTime>2026-03-07T18:09:56.4098031-06:00</LastLoginTime>
+      <LastLoginTime>2026-03-12T19:55:02.7124616-05:00</LastLoginTime>
       <SavedCharacters />
       <LastLogoutTime>2026-02-24T19:18:42.8947982-06:00</LastLogoutTime>
       <RespawnShips />
@@ -1157,7 +1338,7 @@ PaintUnfinishedBlocks=False
       <DisplayName>RED NPC8093</DisplayName>
       <CharacterEntityId>0</CharacterEntityId>
       <BlockLimitModifier>0</BlockLimitModifier>
-      <LastLoginTime>2026-03-07T18:09:56.4098031-06:00</LastLoginTime>
+      <LastLoginTime>2026-03-12T19:55:02.7124616-05:00</LastLoginTime>
       <SavedCharacters />
       <LastLogoutTime>2026-02-24T21:57:06.2983124-06:00</LastLogoutTime>
       <RespawnShips />
@@ -1171,7 +1352,7 @@ PaintUnfinishedBlocks=False
       <DisplayName>BLU NPC9531</DisplayName>
       <CharacterEntityId>0</CharacterEntityId>
       <BlockLimitModifier>0</BlockLimitModifier>
-      <LastLoginTime>2026-03-07T18:09:56.4098031-06:00</LastLoginTime>
+      <LastLoginTime>2026-03-12T19:55:02.7124616-05:00</LastLoginTime>
       <SavedCharacters />
       <LastLogoutTime>2026-02-24T21:57:50.0956308-06:00</LastLogoutTime>
       <RespawnShips />
@@ -1185,7 +1366,7 @@ PaintUnfinishedBlocks=False
       <DisplayName>SPC NPC9149</DisplayName>
       <CharacterEntityId>0</CharacterEntityId>
       <BlockLimitModifier>0</BlockLimitModifier>
-      <LastLoginTime>2026-03-07T18:09:56.4098031-06:00</LastLoginTime>
+      <LastLoginTime>2026-03-12T19:55:02.7124616-05:00</LastLoginTime>
       <SavedCharacters />
       <LastLogoutTime>2026-02-24T21:58:59.1128193-06:00</LastLogoutTime>
       <RespawnShips />
@@ -1245,7 +1426,7 @@ PaintUnfinishedBlocks=False
                 <Index>4</Index>
                 <Item />
                 <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-                  <DefinitionId Type="MyObjectBuilder_Thrust" Subtype="LargeBlockSmallThrust" />
+                  <DefinitionId Type="MyObjectBuilder_Cockpit" Subtype="OpenCockpitLarge" />
                 </Data>
               </Slot>
               <Slot>
@@ -1338,15 +1519,20 @@ PaintUnfinishedBlocks=False
           <EntityCameraData>
             <CameraControllerSettings EntityId="121146153636173499">
               <IsFirstPerson>true</IsFirstPerson>
-              <Distance>7.8412694005949319</Distance>
-              <HeadAngle x="-22.9065456" y="-19.7208519" />
+              <Distance>7.8412694931030273</Distance>
+              <HeadAngle x="0" y="0" />
+            </CameraControllerSettings>
+            <CameraControllerSettings EntityId="97159568566077574">
+              <IsFirstPerson>false</IsFirstPerson>
+              <Distance>49.621918853257512</Distance>
+              <HeadAngle x="15.1398935" y="57.4217377" />
             </CameraControllerSettings>
           </EntityCameraData>
           <BuildColorSlots>
             <Vector3>
               <X>0</X>
-              <Y>-1</Y>
-              <Z>0</Z>
+              <Y>-0.8</Y>
+              <Z>7.450581E-09</Z>
             </Vector3>
             <Vector3>
               <X>0</X>
@@ -1518,6 +1704,7 @@ PaintUnfinishedBlocks=False
     <long>144115188075855901</long>
     <long>144115188075855902</long>
     <long>144115188075855903</long>
+    <long>144115188075855904</long>
   </NonPlayerIdentities>
   <Gps>
     <dictionary>
@@ -1733,13 +1920,12 @@ PaintUnfinishedBlocks=False
     </MyObjectBuilder_SessionComponent>
     <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_SpaceFaunaComponent">
       <SpawnInfos>
-        <Info X="-9220.4392228040688" Y="1721.8386415989971" Z="-4598.4342292006422" S="2097486" A="2097486" />
-        <Info X="-9021.1262345228188" Y="1800.084460690794" Z="-4711.5870612318922" S="1544504" A="1544504" />
-        <Info X="-11151.908083977411" Y="2995.8651711760785" Z="-4966.0364585072721" S="945475" A="945475" />
-        <Info X="-10006.25197422786" Y="2186.9296271394974" Z="-4439.3764549408888" S="2029822" A="2029822" />
-        <Info X="-9726.872942164302" Y="1927.6592206175326" Z="-4590.6877813730962" S="280654" A="280654" />
-        <Info X="-9357.8461409368811" Y="1685.3860076587994" Z="-4505.6424060147738" S="827526" A="827526" />
-        <Info X="-169.90548271180128" Y="-47.740913908537372" Z="331.05722213101103" S="1048754" A="43200" />
+        <Info X="-9220.4392228040688" Y="1721.8386415989971" Z="-4598.4342292006422" S="1319337" A="1319337" />
+        <Info X="-9021.1262345228188" Y="1800.084460690794" Z="-4711.5870612318922" S="766355" A="766355" />
+        <Info X="-11151.908083977411" Y="2995.8651711760785" Z="-4966.0364585072721" S="167326" A="167326" />
+        <Info X="-10006.25197422786" Y="2186.9296271394974" Z="-4439.3764549408888" S="1251673" A="1251673" />
+        <Info X="-169.90548271180128" Y="-47.740913908537372" Z="331.05722213101103" S="270605" A="270605" />
+        <Info X="-9357.8461409368811" Y="1685.3860076587994" Z="-4505.6424060147738" S="49377" A="49377" />
       </SpawnInfos>
       <TimeoutInfos />
     </MyObjectBuilder_SessionComponent>
@@ -1827,7 +2013,7 @@ PaintUnfinishedBlocks=False
     </MyObjectBuilder_SessionComponent>
     <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_AntennaSessionComponent" />
     <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_EnvironmentBotSpawningSystem">
-      <TimeSinceLastEventInMs>19815</TimeSinceLastEventInMs>
+      <TimeSinceLastEventInMs>77800</TimeSinceLastEventInMs>
     </MyObjectBuilder_SessionComponent>
     <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_TradingManager" />
     <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_CoordinateSystem">
@@ -1851,12 +2037,6 @@ PaintUnfinishedBlocks=False
           <EntityCount>1</EntityCount>
           <Rotation x="-0.288228869" y="0.210792467" z="-0.607554138" w="0.709484756" />
           <Position x="10664.780199408777" y="1853.6363483310977" z="10381.755498270551" />
-        </CoordSysInfo>
-        <CoordSysInfo>
-          <Id>10</Id>
-          <EntityCount>1</EntityCount>
-          <Rotation x="-0.614155352" y="-0.09920922" z="-0.300835729" w="0.722819865" />
-          <Position x="-175.80564611332738" y="-52.5709739331478" z="337.48563452262988" />
         </CoordSysInfo>
       </CoordSystems>
     </MyObjectBuilder_SessionComponent>
@@ -1983,8 +2163,24 @@ PaintUnfinishedBlocks=False
             <Log />
           </Account>
         </MyObjectBuilder_AccountEntry>
+        <MyObjectBuilder_AccountEntry>
+          <OwnerIdentifier>236836207455637877</OwnerIdentifier>
+          <Account>
+            <OwnerIdentifier>236836207455637877</OwnerIdentifier>
+            <Balance>0</Balance>
+            <Log />
+          </Account>
+        </MyObjectBuilder_AccountEntry>
+        <MyObjectBuilder_AccountEntry>
+          <OwnerIdentifier>144115188075855904</OwnerIdentifier>
+          <Account>
+            <OwnerIdentifier>144115188075855904</OwnerIdentifier>
+            <Balance>10000</Balance>
+            <Log />
+          </Account>
+        </MyObjectBuilder_AccountEntry>
       </Accounts>
-      <OverallBalance>200090000</OverallBalance>
+      <OverallBalance>200100000</OverallBalance>
     </MyObjectBuilder_SessionComponent>
     <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_NeutralShipSpawner">
       <ShipsInProgress />
@@ -2021,13 +2217,19 @@ PaintUnfinishedBlocks=False
   <InGameTime>2081-01-01T07:00:00</InGameTime>
   <CustomSkybox />
   <RequiresDX>11</RequiresDX>
-  <VicinityModelsCache />
+  <VicinityModelsCache>
+    <string>Models\Cubes\Large\GeneratorSmall.mwm</string>
+    <string>Models\Cubes\Large\OpenCockpitLarge.mwm</string>
+    <string>C:\Users\jnick\AppData\Roaming\SpaceEngineers\Mods\SkytechThrusters\Models\Cubes\large\Gimbal3x3Center.mwm</string>
+    <string>C:\Users\jnick\AppData\Roaming\SpaceEngineers\Mods\SkytechThrusters\Models\Cubes\large\GimbalThrustPart.mwm</string>
+    <string>Models\Cubes\Large\AtmosphericThrusterSmall.mwm</string>
+    <string>C:\Program Files (x86)\Steam\steamapps\workshop\content\244850\2621169600\Models\Cubes\Large\AQD_LG_Gyroscope.mwm</string>
+  </VicinityModelsCache>
   <VicinityArmorModelsCache>
     <string>Models\Characters\Astronaut\Female\SE_astronaut.mwm</string>
     <string>Models\Cubes\Large\Armor\SquarePlate.mwm</string>
   </VicinityArmorModelsCache>
   <VicinityVoxelCache>
-    <string>Stone</string>
     <string>Ice_03</string>
     <string>Nickel_01</string>
     <string>Silicon_01</string>
@@ -2037,10 +2239,11 @@ PaintUnfinishedBlocks=False
     <string>Grass</string>
     <string>Magnesium_01</string>
     <string>Iron_02</string>
+    <string>Grass_old</string>
+    <string>Stone</string>
     <string>Grass_old bare</string>
     <string>Soil</string>
     <string>DesertRocks</string>
-    <string>Grass_old</string>
   </VicinityVoxelCache>
   <WorldId>dd5139a0-a776-4b1d-a075-50e7e316b75b</WorldId>
 </MyObjectBuilder_Checkpoint>

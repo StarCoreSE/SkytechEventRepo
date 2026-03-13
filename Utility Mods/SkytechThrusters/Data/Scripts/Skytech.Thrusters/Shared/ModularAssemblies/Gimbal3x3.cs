@@ -65,7 +65,8 @@ namespace Skytech.Thrusters.Shared.ModularAssemblies
                 ["GimbalThrustPart"] = new Dictionary<Vector3I, string[]>
                 {
                     [Vector3I.Backward] = new[] { "Gimbal3x3Center" },
-                }
+                },
+                // TODO connections on thrusters
             },
         };
 

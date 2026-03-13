@@ -1,6 +1,6 @@
 ﻿using System;
-using Sandbox.ModAPI;
 using System.Collections.Generic;
+using Sandbox.Game.Entities;
 using VRage.Game.ModAPI;
 using Skytech.Thrusters.Shared.ModularAssemblies;
 using Skytech.Thrusters.Shared.ModularAssemblies.Communication;
@@ -12,10 +12,11 @@ namespace Skytech.Thrusters
     /// </summary>
     internal abstract class AssemblyBase
     {
-        private static ModularDefinitionApi ModularApi => ModularDefinition.ModularApi;
+        protected static ModularDefinitionApi ModularApi => ModularDefinition.ModularApi;
 
         public int AssemblyId { get; private set; }
         public IMyCubeGrid Grid { get; private set; }
+        public MyCubeGrid MyGrid { get; private set; }
 
         public IMyCubeBlock RootBlock { get; private set; } = null;
         public long RootId { get; private set; } = -1;
@@ -33,8 +34,9 @@ namespace Skytech.Thrusters
             TAssembly asm = new TAssembly
             {
                 AssemblyId = assemblyId,
-                Grid = ModularApi.GetAssemblyGrid(assemblyId)
+                Grid = ModularApi.GetAssemblyGrid(assemblyId),
             };
+            asm.MyGrid = (MyCubeGrid) asm.Grid;
 
             asm.Init();
             return asm;

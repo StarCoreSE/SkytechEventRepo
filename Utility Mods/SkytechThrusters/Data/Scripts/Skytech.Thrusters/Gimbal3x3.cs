@@ -77,6 +77,9 @@ namespace Skytech.Thrusters
             // slight delay is intentional, helps with order of operations for painting and skinning
             MyAPIGateway.Utilities.InvokeOnGameThread(() =>
             {
+                if (Thruster == null || DrawDummy == null)
+                    return;
+
                 DrawDummy.Render.EnableColorMaskHsv = true;
                 DrawDummy.Render.ColorMaskHsv = Thruster.Render.ColorMaskHsv;
                 DrawDummy.Render.UpdateRenderTextureChanges(Thruster.Render.TextureChanges);

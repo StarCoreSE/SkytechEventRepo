@@ -183,6 +183,10 @@
     <RandomizeSeed>false</RandomizeSeed>
   </Settings>
   <Mods>
+    <ModItem FriendlyName="SkytechEngines">
+      <Name>SkytechEngines</Name>
+      <PublishedServiceName>Steam</PublishedServiceName>
+    </ModItem>
     <ModItem FriendlyName="SkytechThrusters">
       <Name>SkytechThrusters</Name>
       <PublishedServiceName>Steam</PublishedServiceName>
@@ -475,5 +479,5 @@
     </ModItem>
   </Mods>
   <SessionName>SkyTech Build World</SessionName>
-  <LastSaveTime>2026-03-12T20:04:51.2626515-05:00</LastSaveTime>
+  <LastSaveTime>2026-03-15T22:02:46.7874368-05:00</LastSaveTime>
 </MyObjectBuilder_WorldConfiguration>

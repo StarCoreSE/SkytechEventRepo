@@ -1,6 +1,7 @@
 ﻿using Skytech.Engines.Shared.Utils;
 using System;
 using System.Collections.Generic;
+using AriUtils;
 using VRage.Game.Components;
 
 namespace Skytech.Engines.Shared
@@ -18,7 +19,7 @@ namespace Skytech.Engines.Shared
             {
                 I = this;
 
-                if (!GlobalData.CheckShouldLoad())
+                if (!GlobalData.CheckShouldLoad(ModContext, modIdFormatted => modIdFormatted.Contains("skytech") && modIdFormatted.Contains("engines")))
                 {
                     I = null;
                     return;
@@ -28,7 +29,7 @@ namespace Skytech.Engines.Shared
                 Log.Info("SharedMain", "Start initialize...");
                 Log.IncreaseIndent();
 
-                GlobalData.Init();
+                GlobalData.Init(ModContext);
                 GlobalObjectPools.Init();
 
                 Log.DecreaseIndent();

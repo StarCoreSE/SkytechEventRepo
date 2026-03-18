@@ -1,5 +1,4 @@
-﻿using Skytech.Engines.Shared.ModularAssemblies;
-using VRage.Game.Components;
+﻿using VRage.Game.Components;
 using VRage.Utils;
 using static Skytech.Engines.Shared.ModularAssemblies.Communication.DefinitionDefs;
 

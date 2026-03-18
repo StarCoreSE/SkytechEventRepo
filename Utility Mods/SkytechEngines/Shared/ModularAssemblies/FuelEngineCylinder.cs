@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using VRageMath;
 using static Skytech.Engines.Shared.ModularAssemblies.Communication.DefinitionDefs;
 

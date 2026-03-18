@@ -1,7 +1,4 @@
-﻿using System;
-using VRageMath;
-
-namespace Skytech.Engines
+﻿namespace Skytech.Engines
 {
     internal class FuelEngineCarburettor : AssemblyBase
     {

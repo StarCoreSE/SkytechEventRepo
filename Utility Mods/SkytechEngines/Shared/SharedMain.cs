@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using AriUtils;
+using AriUtils.HUD;
 using VRage.Game.Components;
 
 namespace Skytech.Engines.Shared
@@ -31,6 +32,7 @@ namespace Skytech.Engines.Shared
 
                 GlobalData.Init(ModContext);
                 GlobalObjectPools.Init();
+                BlockInfo.Init();
 
                 Log.DecreaseIndent();
                 Log.Info("SharedMain", "Initialized.");
@@ -50,10 +52,7 @@ namespace Skytech.Engines.Shared
 
             try
             {
-                if (Ticks % 10 == 0)
-                {
-                    GlobalData.UpdatePlayers();
-                }
+                GlobalData.Update();
 
                 foreach (var asm in AssemblyManagers)
                 {
@@ -61,6 +60,7 @@ namespace Skytech.Engines.Shared
                 }
 
                 GlobalObjectPools.Update();
+                BlockInfo.Update();
                 Log.Update();
                 Ticks++;
             }
@@ -81,6 +81,7 @@ namespace Skytech.Engines.Shared
                 Log.IncreaseIndent();
 
                 AssemblyManagers = null;
+                BlockInfo.Close();
                 GlobalObjectPools.Unload();
                 GlobalData.Unload();
 

@@ -34,4 +34,5 @@
     <None Remove="thumb.png" />
   </ItemGroup>
   <Import Project="..\..\..\..\..\..\source\repos\AriUtils\AriUtils.projitems" Label="Shared" />
+  <Import Project="..\RichHudFramework\RichHudFramework.projitems" Label="Shared" />
 </Project>

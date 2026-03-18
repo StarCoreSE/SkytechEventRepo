@@ -6,7 +6,6 @@ using AriUtils;
 using VRage.Game.ModAPI;
 using VRageMath;
 using Skytech.Engines.Shared;
-using Skytech.Engines.Shared.Utils;
 using Skytech.Engines.Shared.Networking;
 
 namespace Skytech.Engines.Server.Networking

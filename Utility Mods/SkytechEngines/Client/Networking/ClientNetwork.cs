@@ -4,8 +4,6 @@ using System;
 using System.Linq;
 using AriUtils;
 using Skytech.Engines.Shared.Networking;
-using Skytech.Engines.Shared;
-using Skytech.Engines.Shared.Utils;
 
 namespace Skytech.Engines.Client.Networking
 {

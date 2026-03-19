@@ -1,9 +1,10 @@
-﻿using VRage.Game.Components;
-using Skytech.Engines.Client.Networking;
-using System;
-using AriUtils;
+﻿using AriUtils;
+using AriUtils.HUD;
 using Sandbox.ModAPI;
 using Skytech.Engines.Client.Interface;
+using Skytech.Engines.Client.Networking;
+using System;
+using VRage.Game.Components;
 
 namespace Skytech.Engines.Client
 {
@@ -23,6 +24,8 @@ namespace Skytech.Engines.Client
 
                 new ClientNetwork().LoadData();
                 BlockCategoryManager.Init();
+                RichHudFramework.ApiManager.Init(ModContext);
+                RichHudFramework.ApiManager.RichHudOnLoadRegisterOrInvoke(BlockInfo.Init);
 
                 Log.DecreaseIndent();
                 Log.Info("ClientMain", "Initialized.");

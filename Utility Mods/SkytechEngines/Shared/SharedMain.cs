@@ -32,7 +32,6 @@ namespace Skytech.Engines.Shared
 
                 GlobalData.Init(ModContext);
                 GlobalObjectPools.Init();
-                BlockInfo.Init();
 
                 Log.DecreaseIndent();
                 Log.Info("SharedMain", "Initialized.");

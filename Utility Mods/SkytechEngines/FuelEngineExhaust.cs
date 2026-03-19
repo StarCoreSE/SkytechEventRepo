@@ -24,7 +24,11 @@ namespace Skytech.Engines
 
         private void BlockInfoCallback(IMyCubeBlock block, StringBuilder sb)
         {
-
+            sb.AppendLine($"Exhaust Assembly {AssemblyId}");
+            sb.AppendLine($"hi line 1 (aimed block is {block.DisplayNameText})");
+            sb.AppendLine($"hi line 2 (current time is {DateTime.Now:T})");
+            sb.AppendLine($"hi line 3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3");
+            sb.AppendLine($"hi line 4 :3");
         }
     }
 }

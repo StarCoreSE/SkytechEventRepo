@@ -1,9 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using AriUtils.HUD;
 using Sandbox.Game.Entities;
-using VRage.Game.ModAPI;
 using Skytech.Engines.Shared.ModularAssemblies;
 using Skytech.Engines.Shared.ModularAssemblies.Communication;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using VRage.Game.ModAPI;
 
 namespace Skytech.Engines
 {
@@ -83,6 +85,7 @@ namespace Skytech.Engines
                 RootBlock = block;
                 RootId = RootBlock.EntityId ^ GetType().Name.GetHashCode();
             }
+            BlockInfo.Register(block, BlockInfoCallback);
         }
 
         /// <summary>
@@ -93,6 +96,7 @@ namespace Skytech.Engines
         public virtual void OnPartRemove(IMyCubeBlock block, bool isBasePart)
         {
             Blocks.Remove(block);
+            BlockInfo.Unregister(block, BlockInfoCallback);
         }
 
         /// <summary>
@@ -102,6 +106,13 @@ namespace Skytech.Engines
         /// <param name="isBasePart"></param>
         public virtual void OnPartDestroy(IMyCubeBlock block, bool isBasePart)
         {
+        }
+
+        protected virtual void BlockInfoCallback(IMyCubeBlock block, StringBuilder sb)
+        {
+            sb.AppendLine($"{GetType().Name}: {AssemblyId} ({Blocks.Count} parts)");
+            sb.AppendLine($"hi line 1 (aimed block is {block.DisplayNameText})");
+            sb.AppendLine($"hi line 2 (current time is {DateTime.Now:T})");
         }
     }
 }

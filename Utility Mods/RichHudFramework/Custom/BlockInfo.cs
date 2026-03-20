@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using RichHudFramework.Client;
-using RichHudFramework.UI;
+﻿using RichHudFramework.UI;
 using RichHudFramework.UI.Client;
 using Sandbox.ModAPI;
+using System;
+using System.Collections.Generic;
+using System.Text;
 using VRage.Game.ModAPI;
 using VRageMath;
 
@@ -13,12 +12,11 @@ namespace AriUtils.HUD
     public class BlockInfo
     {
         private const int UpdateIntervalTicks = 29;
-        private const int MaxCastDistance = 50;
+        private const int MaxCastDistance = 15;
 
         private static BlockInfo I;
 
         private Dictionary<IMyCubeBlock, Action<IMyCubeBlock, StringBuilder>> _infos = new Dictionary<IMyCubeBlock, Action<IMyCubeBlock, StringBuilder>>();
-        private int _lastUpdated = 0;
         private int _tick = 0;
         private StringBuilder _builder = new StringBuilder();
         private BlockInfoDisplay _display = new BlockInfoDisplay(HudMain.HighDpiRoot);
@@ -115,7 +113,7 @@ namespace AriUtils.HUD
             {
                 IHitInfo hitInfo;
                 MyAPIGateway.Physics.CastRay(MyAPIGateway.Session.Camera.Position,
-                    MyAPIGateway.Session.Camera.Position + MyAPIGateway.Session.Camera.WorldMatrix.Forward * 15,
+                    MyAPIGateway.Session.Camera.Position + MyAPIGateway.Session.Camera.WorldMatrix.Forward * MaxCastDistance,
                     out hitInfo);
 
                 if (hitInfo?.HitEntity != null)
@@ -152,7 +150,7 @@ namespace AriUtils.HUD
         {
             info.Invoke(block, _builder);
 
-            DebugDraw.AddGridPoint(block.Position, block.CubeGrid, Color.Red, 29/60f);
+            //DebugDraw.AddGridPoint(block.Position, block.CubeGrid, Color.Red, UpdateIntervalTicks/60f);
             _display.UpdateInfo(_builder, block.GetPosition());
             _display.Visible = true;
             
@@ -160,52 +158,84 @@ namespace AriUtils.HUD
             _builder.Clear();
         }
 
-        private class BlockInfoDisplay : WindowBase
+        private class BlockInfoDisplay : HudElementBase
         {
-            private List<LabelBox> _labels = new List<LabelBox>();
+            private HudChain<HudElementContainer<LabelBox>, LabelBox> _chain;
             private Vector3D _lastPos = Vector3D.Zero;
 
             public BlockInfoDisplay(HudParentBase parent) : base(parent)
             {
-                BodyColor = new Color(41, 54, 62, 0);
-                BorderColor = new Color(58, 68, 77);
+                //BodyColor = new Color(41, 54, 62, 0);
+                //BorderColor = new Color(0, 0, 0, 0);
                 Size = new Vector2(250, 250);
+                //this.CanDrag = false;
+                //this.AllowResizing = false;
+                this.IsMasking = false;
+
+                _chain = new HudChain<HudElementContainer<LabelBox>, LabelBox>(this)
+                {
+                    ParentAlignment = ParentAlignments.Center,
+                    AlignVertical = true,
+                    UnpaddedSize = Size,
+                    Spacing = 2f,
+                    SizingMode = HudChainSizingModes.FitMembersOffAxis | HudChainSizingModes.FitChainAlignAxis
+                };
             }
 
             public void UpdateInfo(StringBuilder sb, Vector3D worldPos)
             {
                 _lastPos = worldPos;
 
-                var lines = sb.ToString().Split('\n');
-                foreach (var l in _labels) // TODO cache the labels 3:
-                    l.Unregister();
-                _labels.Clear();
+                var lines = sb.ToString().TrimEnd().Split('\n');
+
+                // remove old extra labels
+                if (_chain.Count > lines.Length)
+                {
+                    // TODO elements are 'sticky'
+                    for (int i = lines.Length - 1; i < _chain.Count; i++)
+                    {
+                        _chain[i].Element.Unregister();
+                    }
+                    _chain.RemoveRange(lines.Length - 1, _chain.Count - lines.Length);
+                }
+
                 for (var i = 0; i < lines.Length; i++)
                 {
                     var line = lines[i];
-                    if (i == 0)
+
+                    LabelBox l;
+
+                    if (_chain.Count > i) // try to use cache first
                     {
-                        this.HeaderText = line;
-                        continue;
+                        l = _chain[i].Element;
+                    }
+                    else // create new labels if needed
+                    {
+                        l = new LabelBox
+                        {
+                            DimAlignment = DimAlignments.Width,
+                            ParentAlignment = ParentAlignments.Bottom,
+                            Padding = new Vector2(2, 2),
+                            TextPadding = new Vector2(2, 2),
+                            Background =
+                            {
+                                Color = new Color(41, 54, 62, 77),
+                            },
+                            TextBoard =
+                            {
+                                BuilderMode = TextBuilderModes.Wrapped,
+                                LineWrapWidth = this.Width,
+                                VertCenterText = true,
+                                AutoResize = false,
+                                FixedSize = new Vector2(this.Width, 0),
+                                Format = GlyphFormat.White
+                            },
+                        };
+                        _chain.Add(l);
                     }
 
-                    HudParentBase parent = i <= 1 ? (HudParentBase) this.header : (HudParentBase) _labels[i - 2];
-                    _labels.Add(new LabelBox(parent)
-                    {
-                        DimAlignment = DimAlignments.Width,
-                        ParentAlignment = ParentAlignments.Bottom,
-                        Text = line,
-                        Padding = new Vector2(2, 2),
-                        Background =
-                        {
-                            Color = new Color(41, 54, 62, 77),
-                        },
-                        TextBoard =
-                        {
-                            BuilderMode = TextBuilderModes.Wrapped,
-                            LineWrapWidth = Width
-                        }
-                    });
+                    l.Text = line;
+                    l.UnpaddedSize = new Vector2(l.UnpaddedSize.X, l.TextBoard.TextSize.Y + 4);
                 }
             }
 

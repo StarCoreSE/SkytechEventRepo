@@ -1,32 +1,199 @@
-﻿using System;
+﻿using AriUtils.HUD;
+using Skytech.Engines.Shared.ModularAssemblies;
+using Skytech.Engines.Shared.ModularAssemblies.Communication;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AriUtils.HUD;
+using AriUtils;
+using Sandbox.ModAPI;
+using VRage.Game;
 using VRage.Game.ModAPI;
+using VRage.Render.Particles;
+using VRageMath;
 
 namespace Skytech.Engines
 {
     internal class FuelEngineExhaust : AssemblyBase
     {
+        /// <summary>
+        /// Helper for BlockInfo display only.
+        /// </summary>
+        public HashSet<IMyCubeBlock> PartsExhaustBlocked { get; private set; } = new HashSet<IMyCubeBlock>();
+
+        private DefinitionDefs.ModularPhysicalDefinition _definition = new ModularDefinition().FuelEngineExhaust;
+        /// <summary>
+        /// block, open directions
+        /// </summary>
+        private Dictionary<IMyCubeBlock, ExhaustVent[]> _externalVents = new Dictionary<IMyCubeBlock, ExhaustVent[]>();
+        /// <summary>
+        /// block, internal pressure
+        /// </summary>
+        private Dictionary<IMyCubeBlock, int> _exhaustPressure = new Dictionary<IMyCubeBlock, int>();
+
+        private readonly string[] _ventBlacklist = 
+        {
+            "ST_T_Cylinder",
+            "ST_T_InlineTurboLeft",
+            "ST_T_InlineTurboRight",
+            "ST_T_TurbochargerLeft",
+            "ST_T_TurbochargerRight",
+        };
+
         public override void OnPartAdd(IMyCubeBlock block, bool isBasePart)
         {
             base.OnPartAdd(block, isBasePart);
-            
+
+            _exhaustPressure[block] = GlobalData.Random.Next(0, 10);
+            PerformVentCheck(block);
         }
 
         public override void OnPartRemove(IMyCubeBlock block, bool isBasePart)
         {
             base.OnPartRemove(block, isBasePart);
-            
+
+            ExhaustVent[] vents;
+            if (_externalVents.TryGetValue(block, out vents))
+            {
+                foreach (var vent in vents)
+                {
+                    vent.Close();
+                }
+            }
+
+            _externalVents.Remove(block);
+            PartsExhaustBlocked.Remove(block);
+            _exhaustPressure.Remove(block);
+        }
+
+        public override void UpdateTick()
+        {
+            base.UpdateTick();
+
+            //foreach (var block in _externalVents)
+            //{
+            //    foreach (var dir in block.Value)
+            //    {
+            //        DebugDraw.AddLine(block.Key.GetPosition(), Grid.GridIntegerToWorld(block.Key.Position + dir.GridDirection), Color.Red, 1/60f);
+            //    }
+            //}
         }
 
         protected override void BlockInfoCallback(IMyCubeBlock block, StringBuilder sb)
         {
             base.BlockInfoCallback(block, sb);
-            sb.AppendLine($"hi line 3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3 :3");
-            sb.AppendLine($"hi line 4 :3");
+
+            sb.AppendLine($"Pressure at {block.DisplayNameText}: {_exhaustPressure[block]}");
+
+            if (PartsExhaustBlocked.Count > 0)
+            {
+                sb.AppendLine($"{PartsExhaustBlocked.Count} exhaust{(PartsExhaustBlocked.Count == 1 ? "" : "s")} blocked!");
+            }
+
+            if (_externalVents.Count == 0)
+            {
+                sb.AppendLine("Zero exhaust vents found!");
+            }
+            // TODO pressure levels
+        }
+
+        private void PerformVentCheck(IMyCubeBlock block) // TODO vent check on add/remove blocks
+        {
+            // turbos don't vent to simplify direction logic
+            if (_ventBlacklist.Contains(block.BlockDefinition.SubtypeName))
+                return;
+
+            Dictionary<Vector3I, string[]> allowedConnections;
+            if (!_definition.AllowedConnections.TryGetValue(block.BlockDefinition.SubtypeName, out allowedConnections))
+                return;
+
+            List<ExhaustVent> validDirs = new List<ExhaustVent>(6);
+            foreach (var dir in allowedConnections.Keys)
+            {
+                Vector3I blockDir = (Vector3I) Vector3D.Rotate(dir, block.LocalMatrix);
+                Vector3I chkPos = block.Position;
+                IMySlimBlock intersectBlock;
+
+                int i = 0;
+                do
+                {
+                    chkPos += blockDir;
+                    intersectBlock = Grid.GetCubeBlock(chkPos);
+                    i++;
+                } while (intersectBlock == null && Grid.PositionComp.LocalAABB.Contains(chkPos * Grid.GridSize) == ContainmentType.Contains);
+
+                //DebugDraw.AddGridPoint(chkPos, Grid, Color.Pink, 10);
+
+                if (intersectBlock != null)
+                {
+                    if (i == 1 && _definition.AllowedConnections.ContainsKey(intersectBlock.BlockDefinition.Id.SubtypeName))
+                        continue; // don't add to exhaust-blocked list if connected normally
+
+                    PartsExhaustBlocked.Add(block);
+                    continue;
+                }
+
+                validDirs.Add(new ExhaustVent(this, block, dir));
+            }
+
+            if (validDirs.Count > 0)
+            {
+                _externalVents[block] = validDirs.ToArray();
+            }
+        }
+
+        private struct ExhaustVent
+        {
+            public readonly FuelEngineExhaust Assembly;
+            public readonly IMyCubeBlock Block;
+            public readonly Vector3I GridDirection;
+            public readonly MyParticleEffect Particle;
+
+            public ExhaustVent(FuelEngineExhaust assembly, IMyCubeBlock block, Vector3I gridDirection)
+            {
+                Assembly = assembly;
+                Block = block;
+                GridDirection = gridDirection;
+
+                Vector3D pos = (Vector3D)gridDirection * block.CubeGrid.GridSize / 2;
+                MatrixD matrix = MatrixD.CreateWorld(pos, GridDirection, Vector3D.Up);
+                // ExhaustSmokeSmall
+                if (MyParticlesManager.TryCreateParticleEffect("ExhaustSmokeSmall", ref matrix, ref Vector3D.Zero, block.Render.GetRenderObjectID(), out Particle))
+                {
+                    //MyAPIGateway.Utilities.ShowNotification("Spawned particle at " + hitEffect.WorldMatrix.Translation);
+                }
+                else
+                {
+                    Log.Exception("FuelEngineExhaust", new Exception("Could not create exhaust particle."));
+                    //throw new Exception($"Failed to create new impact particle! RenderId: {uint.MaxValue} Effect: {Definition.VisualDef.ImpactParticle}");
+                }
+
+                Update();
+            }
+
+            public void Update()
+            {
+                if (!Assembly._exhaustPressure.ContainsKey(Block) || !Assembly._externalVents.ContainsKey(Block))
+                    return;
+
+                // velocity would be cool but it's being mean 3:
+                float exhaustStrength = (float) Assembly._exhaustPressure[Block] / Assembly._externalVents[Block].Length / 2f;
+                exhaustStrength = MathHelper.Clamp(exhaustStrength, 0, 10);
+
+                if (exhaustStrength == 0 && Particle.IsEmittingStopped)
+                    Particle.StopEmitting();
+                if (exhaustStrength > 0 && !Particle.IsEmittingStopped)
+                    Particle.Play();
+
+                Particle.UserBirthMultiplier = exhaustStrength; // TODO based on pressure
+                Particle.UserLifeMultiplier = exhaustStrength; // TODO based on pressure
+            }
+
+            public void Close()
+            {
+                Particle.Close();
+            }
         }
     }
 }

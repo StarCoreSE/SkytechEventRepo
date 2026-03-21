@@ -110,9 +110,7 @@ namespace Skytech.Engines
 
         protected virtual void BlockInfoCallback(IMyCubeBlock block, StringBuilder sb)
         {
-            sb.AppendLine($"{GetType().Name}: {AssemblyId} ({Blocks.Count} parts)");
-            sb.AppendLine($"hi line 1 (aimed block is {block.DisplayNameText})");
-            sb.AppendLine($"hi line 2 (current time is {DateTime.Now:T})");
+            sb.AppendLine($"{GetType().Name}: {Blocks.Count} parts");
         }
     }
 }

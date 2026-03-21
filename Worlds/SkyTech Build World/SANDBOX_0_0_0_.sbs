@@ -22,70 +22,18 @@
   <SectorObjects>
     <MyObjectBuilder_EntityBase xsi:type="MyObjectBuilder_CubeGrid">
       <SubtypeName />
-      <EntityId>112705671047389108</EntityId>
-      <PersistentFlags>CastShadows InScene</PersistentFlags>
-      <Name>112705671047389108</Name>
-      <PositionAndOrientation>
-        <Position x="-42.103997641193928" y="270.332680981277" z="450.79185695196065" />
-        <Forward x="0.8183465" y="0.114682287" z="0.563166857" />
-        <Up x="-0.5589509" y="-0.0691871643" z="0.8263093" />
-        <Orientation>
-          <X>0.6644699</X>
-          <Y>-0.5831494</Y>
-          <Z>-0.305079222</Z>
-          <W>0.354038477</W>
-        </Orientation>
-      </PositionAndOrientation>
-      <LocalPositionAndOrientation xsi:nil="true" />
-      <ComponentContainer>
-        <Components>
-          <ComponentData>
-            <TypeId>MyModStorageComponent</TypeId>
-            <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-              <Storage>
-                <dictionary>
-                  <item>
-                    <Key>ba5bfb16-27fe-4f83-8e1b-9fe04ed919d8</Key>
-                    <Value />
-                  </item>
-                </dictionary>
-              </Storage>
-            </Component>
-          </ComponentData>
-        </Components>
-      </ComponentContainer>
-      <GridSizeEnum>Large</GridSizeEnum>
-      <CubeBlocks>
-        <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
-          <SubtypeName>GimbalThrustPart</SubtypeName>
-          <EntityId>79920037690482634</EntityId>
-          <Name>79920037690482634</Name>
-          <Min x="7" y="0" z="-1" />
-          <BlockOrientation Forward="Right" Up="Forward" />
-          <ColorMaskHSV x="0" y="-0.8" z="-0.3" />
-        </MyObjectBuilder_CubeBlock>
-      </CubeBlocks>
-      <DisplayName>Large Grid 9108</DisplayName>
-      <DestructibleBlocks>true</DestructibleBlocks>
-      <IsRespawnGrid>false</IsRespawnGrid>
-      <LocalCoordSys>0</LocalCoordSys>
-      <TargetingTargets />
-      <NPCGridClaimElapsed xsi:nil="true" />
-    </MyObjectBuilder_EntityBase>
-    <MyObjectBuilder_EntityBase xsi:type="MyObjectBuilder_CubeGrid">
-      <SubtypeName />
       <EntityId>125571205643915534</EntityId>
       <PersistentFlags>CastShadows InScene</PersistentFlags>
       <Name>125571205643915534</Name>
       <PositionAndOrientation>
-        <Position x="-35.584344320881428" y="246.215249340652" z="428.97899074102315" />
-        <Forward x="0.5584809" y="0.06922571" z="-0.8266238" />
-        <Up x="-0.7794619" y="-0.297129333" z="-0.551500738" />
+        <Position x="-35.584971710341051" y="246.21426094959224" z="428.97845285484163" />
+        <Forward x="0.558477163" y="0.06922947" z="-0.826626062" />
+        <Up x="-0.7794641" y="-0.2971284" z="-0.5514984" />
         <Orientation>
-          <X>-0.2160517</X>
-          <Y>-0.200024426</Y>
-          <Z>0.775813341</Z>
-          <W>0.558055162</W>
+          <X>-0.216048837</X>
+          <Y>-0.200024754</Y>
+          <Z>0.7758139</Z>
+          <W>0.55805546</W>
         </Orientation>
       </PositionAndOrientation>
       <LocalPositionAndOrientation xsi:nil="true" />
@@ -130,14 +78,14 @@
       <PersistentFlags>CastShadows InScene</PersistentFlags>
       <Name>89298675883704580</Name>
       <PositionAndOrientation>
-        <Position x="-46.779778891193928" y="253.175454418777" z="437.11461085821065" />
-        <Forward x="0.7973033" y="-0.3198748" z="0.511847556" />
-        <Up x="-0.228254989" y="-0.944835961" z="-0.234915167" />
+        <Position x="-46.779795929091051" y="253.17458809802974" z="437.11443918296663" />
+        <Forward x="0.7972797" y="-0.319874942" z="0.511883855" />
+        <Up x="-0.22823675" y="-0.9448347" z="-0.2349369" />
         <Orientation>
-          <X>0.8682509</X>
-          <Y>-0.04543274</Y>
-          <Z>-0.467502147</Z>
-          <W>-0.159743518</W>
+          <X>0.8682619</X>
+          <Y>-0.0454232357</Y>
+          <Z>-0.467481226</Z>
+          <W>-0.159747839</W>
         </Orientation>
       </PositionAndOrientation>
       <LocalPositionAndOrientation xsi:nil="true" />
@@ -178,18 +126,741 @@
     </MyObjectBuilder_EntityBase>
     <MyObjectBuilder_EntityBase xsi:type="MyObjectBuilder_CubeGrid">
       <SubtypeName />
+      <EntityId>112705671047389108</EntityId>
+      <PersistentFlags>CastShadows InScene</PersistentFlags>
+      <Name>112705671047389108</Name>
+      <PositionAndOrientation>
+        <Position x="-42.105601593153551" y="270.33144844959224" z="450.79070871421663" />
+        <Forward x="0.8183394" y="0.114761621" z="0.563161135" />
+        <Up x="-0.558945537" y="-0.06918782" z="0.8263129" />
+        <Orientation>
+          <X>0.664481342</X>
+          <Y>-0.5831339</Y>
+          <Z>-0.305054843</Z>
+          <W>0.354063541</W>
+        </Orientation>
+      </PositionAndOrientation>
+      <LocalPositionAndOrientation xsi:nil="true" />
+      <ComponentContainer>
+        <Components>
+          <ComponentData>
+            <TypeId>MyModStorageComponent</TypeId>
+            <Component xsi:type="MyObjectBuilder_ModStorageComponent">
+              <Storage>
+                <dictionary>
+                  <item>
+                    <Key>ba5bfb16-27fe-4f83-8e1b-9fe04ed919d8</Key>
+                    <Value />
+                  </item>
+                </dictionary>
+              </Storage>
+            </Component>
+          </ComponentData>
+        </Components>
+      </ComponentContainer>
+      <GridSizeEnum>Large</GridSizeEnum>
+      <CubeBlocks>
+        <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+          <SubtypeName>GimbalThrustPart</SubtypeName>
+          <EntityId>79920037690482634</EntityId>
+          <Name>79920037690482634</Name>
+          <Min x="7" y="0" z="-1" />
+          <BlockOrientation Forward="Right" Up="Forward" />
+          <ColorMaskHSV x="0" y="-0.8" z="-0.3" />
+        </MyObjectBuilder_CubeBlock>
+      </CubeBlocks>
+      <DisplayName>Large Grid 9108</DisplayName>
+      <DestructibleBlocks>true</DestructibleBlocks>
+      <IsRespawnGrid>false</IsRespawnGrid>
+      <LocalCoordSys>0</LocalCoordSys>
+      <TargetingTargets />
+      <NPCGridClaimElapsed xsi:nil="true" />
+    </MyObjectBuilder_EntityBase>
+    <MyObjectBuilder_EntityBase xsi:type="MyObjectBuilder_CubeGrid">
+      <SubtypeName />
+      <EntityId>133791556661670696</EntityId>
+      <PersistentFlags>CastShadows InScene</PersistentFlags>
+      <Name>124415480182334585</Name>
+      <PositionAndOrientation>
+        <Position x="-13460.280894561904" y="2986.3354767699047" z="-5910.1480119889084" />
+        <Forward x="0.242097035" y="-0.9697361" z="-0.0316409841" />
+        <Up x="0.3383965" y="0.114955068" z="-0.9339558" />
+        <Orientation>
+          <X>-0.6638396</X>
+          <Y>-0.208558366</Y>
+          <Z>-0.0428900644</Z>
+          <W>0.7169246</W>
+        </Orientation>
+      </PositionAndOrientation>
+      <LocalPositionAndOrientation xsi:nil="true" />
+      <ComponentContainer>
+        <Components>
+          <ComponentData>
+            <TypeId>MyModStorageComponent</TypeId>
+            <Component xsi:type="MyObjectBuilder_ModStorageComponent">
+              <Storage>
+                <dictionary>
+                  <item>
+                    <Key>ba5bfb16-27fe-4f83-8e1b-9fe04ed919d8</Key>
+                    <Value />
+                  </item>
+                </dictionary>
+              </Storage>
+            </Component>
+          </ComponentData>
+        </Components>
+      </ComponentContainer>
+      <GridSizeEnum>Large</GridSizeEnum>
+      <CubeBlocks>
+        <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_MotorRotor">
+          <SubtypeName>LargeRotor</SubtypeName>
+          <EntityId>91029886193349673</EntityId>
+          <Name>91029886193349673</Name>
+          <BuiltBy>144115188075855895</BuiltBy>
+          <ParentEntityId>137286905562427229</ParentEntityId>
+          <YieldLastComponent>false</YieldLastComponent>
+        </MyObjectBuilder_CubeBlock>
+        <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+          <SubtypeName>LargeBlockArmorBlock</SubtypeName>
+          <Min x="0" y="1" z="0" />
+          <BuiltBy>144115188075855895</BuiltBy>
+        </MyObjectBuilder_CubeBlock>
+        <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TextPanel">
+          <SubtypeName>LargeLCDPanel</SubtypeName>
+          <EntityId>87600251833134318</EntityId>
+          <Name>87600251833134318</Name>
+          <Min x="0" y="1" z="1" />
+          <Owner>144115188075855899</Owner>
+          <BuiltBy>144115188075855895</BuiltBy>
+          <ShareMode>Faction</ShareMode>
+          <ComponentContainer>
+            <Components>
+              <ComponentData>
+                <TypeId>MyLcdSurfaceComponent</TypeId>
+                <Component xsi:type="MyObjectBuilder_LcdSurfaceComponent">
+                  <SelectedRotationIndex>0</SelectedRotationIndex>
+                  <TextPanelContent>
+                    <ChangeInterval>0</ChangeInterval>
+                    <Font Type="MyObjectBuilder_FontDefinition" Subtype="Debug" />
+                    <FontSize>2.504</FontSize>
+                    <Text>[SHIFT + F3]
+Spawn AI 
+[SHIFT + F2]
+Infodoc
+[CTRL + F2]
+Issue Form</Text>
+                    <ShowText>NONE</ShowText>
+                    <FontColor>
+                      <PackedValue>4294967295</PackedValue>
+                      <X>255</X>
+                      <Y>255</Y>
+                      <Z>255</Z>
+                      <R>255</R>
+                      <G>255</G>
+                      <B>255</B>
+                      <A>255</A>
+                    </FontColor>
+                    <BackgroundColor>
+                      <PackedValue>4278190080</PackedValue>
+                      <X>0</X>
+                      <Y>0</Y>
+                      <Z>0</Z>
+                      <R>0</R>
+                      <G>0</G>
+                      <B>0</B>
+                      <A>255</A>
+                    </BackgroundColor>
+                    <CurrentShownTexture>0</CurrentShownTexture>
+                    <Alignment>2</Alignment>
+                    <ContentType>TEXT_AND_IMAGE</ContentType>
+                    <SelectedScript />
+                    <TextPadding>0</TextPadding>
+                    <ScriptBackgroundColor>
+                      <PackedValue>4288108544</PackedValue>
+                      <X>0</X>
+                      <Y>88</Y>
+                      <Z>151</Z>
+                      <R>0</R>
+                      <G>88</G>
+                      <B>151</B>
+                      <A>255</A>
+                    </ScriptBackgroundColor>
+                    <ScriptForegroundColor>
+                      <PackedValue>4294962611</PackedValue>
+                      <X>179</X>
+                      <Y>237</Y>
+                      <Z>255</Z>
+                      <R>179</R>
+                      <G>237</G>
+                      <B>255</B>
+                      <A>255</A>
+                    </ScriptForegroundColor>
+                    <Sprites>
+                      <Length>0</Length>
+                    </Sprites>
+                    <UpdateStartOfFirstTexture>12920632</UpdateStartOfFirstTexture>
+                  </TextPanelContent>
+                </Component>
+              </ComponentData>
+            </Components>
+          </ComponentContainer>
+          <ShowOnHUD>false</ShowOnHUD>
+          <ShowInTerminal>true</ShowInTerminal>
+          <ShowInToolbarConfig>true</ShowInToolbarConfig>
+          <ShowInInventory>true</ShowInInventory>
+          <NumberInGrid>1</NumberInGrid>
+          <Enabled>true</Enabled>
+          <Description />
+          <Title>Title</Title>
+          <AccessFlag>READ_AND_WRITE_FACTION</AccessFlag>
+          <ChangeInterval>0</ChangeInterval>
+          <Font Type="MyObjectBuilder_FontDefinition" Subtype="Debug" />
+          <FontSize>1</FontSize>
+          <PublicDescription />
+          <PublicTitle>Public title</PublicTitle>
+          <ShowText>NONE</ShowText>
+          <FontColor xsi:nil="true" />
+          <BackgroundColor xsi:nil="true" />
+          <CurrentShownTexture>0</CurrentShownTexture>
+          <TextPadding>2</TextPadding>
+          <Version>0</Version>
+          <ScriptBackgroundColor xsi:nil="true" />
+          <ScriptForegroundColor xsi:nil="true" />
+          <Sprites>
+            <Length>0</Length>
+          </Sprites>
+          <SelectedRotationIndex xsi:nil="true" />
+          <UpdateStartOfFirstTexture>-9223372036854775808</UpdateStartOfFirstTexture>
+        </MyObjectBuilder_CubeBlock>
+        <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TextPanel">
+          <SubtypeName>LargeLCDPanel</SubtypeName>
+          <EntityId>119627682650603136</EntityId>
+          <Name>119627682650603136</Name>
+          <Min x="1" y="1" z="0" />
+          <BlockOrientation Forward="Left" Up="Up" />
+          <Owner>144115188075855899</Owner>
+          <BuiltBy>144115188075855895</BuiltBy>
+          <ShareMode>Faction</ShareMode>
+          <ComponentContainer>
+            <Components>
+              <ComponentData>
+                <TypeId>MyLcdSurfaceComponent</TypeId>
+                <Component xsi:type="MyObjectBuilder_LcdSurfaceComponent">
+                  <SelectedRotationIndex>0</SelectedRotationIndex>
+                  <TextPanelContent>
+                    <ChangeInterval>0</ChangeInterval>
+                    <Font Type="MyObjectBuilder_FontDefinition" Subtype="Debug" />
+                    <FontSize>2.504</FontSize>
+                    <Text>[SHIFT + F3]
+Spawn AI 
+[SHIFT + F2]
+Infodoc
+[CTRL + F2]
+Issue Form</Text>
+                    <ShowText>NONE</ShowText>
+                    <FontColor>
+                      <PackedValue>4294967295</PackedValue>
+                      <X>255</X>
+                      <Y>255</Y>
+                      <Z>255</Z>
+                      <R>255</R>
+                      <G>255</G>
+                      <B>255</B>
+                      <A>255</A>
+                    </FontColor>
+                    <BackgroundColor>
+                      <PackedValue>4278190080</PackedValue>
+                      <X>0</X>
+                      <Y>0</Y>
+                      <Z>0</Z>
+                      <R>0</R>
+                      <G>0</G>
+                      <B>0</B>
+                      <A>255</A>
+                    </BackgroundColor>
+                    <CurrentShownTexture>0</CurrentShownTexture>
+                    <Alignment>2</Alignment>
+                    <ContentType>TEXT_AND_IMAGE</ContentType>
+                    <SelectedScript />
+                    <TextPadding>0</TextPadding>
+                    <ScriptBackgroundColor>
+                      <PackedValue>4288108544</PackedValue>
+                      <X>0</X>
+                      <Y>88</Y>
+                      <Z>151</Z>
+                      <R>0</R>
+                      <G>88</G>
+                      <B>151</B>
+                      <A>255</A>
+                    </ScriptBackgroundColor>
+                    <ScriptForegroundColor>
+                      <PackedValue>4294962611</PackedValue>
+                      <X>179</X>
+                      <Y>237</Y>
+                      <Z>255</Z>
+                      <R>179</R>
+                      <G>237</G>
+                      <B>255</B>
+                      <A>255</A>
+                    </ScriptForegroundColor>
+                    <Sprites>
+                      <Length>0</Length>
+                    </Sprites>
+                    <UpdateStartOfFirstTexture>12920632</UpdateStartOfFirstTexture>
+                  </TextPanelContent>
+                </Component>
+              </ComponentData>
+            </Components>
+          </ComponentContainer>
+          <ShowOnHUD>false</ShowOnHUD>
+          <ShowInTerminal>true</ShowInTerminal>
+          <ShowInToolbarConfig>true</ShowInToolbarConfig>
+          <ShowInInventory>true</ShowInInventory>
+          <NumberInGrid>2</NumberInGrid>
+          <Enabled>true</Enabled>
+          <Description />
+          <Title>Title</Title>
+          <AccessFlag>READ_AND_WRITE_FACTION</AccessFlag>
+          <ChangeInterval>0</ChangeInterval>
+          <Font Type="MyObjectBuilder_FontDefinition" Subtype="Debug" />
+          <FontSize>1</FontSize>
+          <PublicDescription />
+          <PublicTitle>Public title</PublicTitle>
+          <ShowText>NONE</ShowText>
+          <FontColor xsi:nil="true" />
+          <BackgroundColor xsi:nil="true" />
+          <CurrentShownTexture>0</CurrentShownTexture>
+          <TextPadding>2</TextPadding>
+          <Version>0</Version>
+          <ScriptBackgroundColor xsi:nil="true" />
+          <ScriptForegroundColor xsi:nil="true" />
+          <Sprites>
+            <Length>0</Length>
+          </Sprites>
+          <SelectedRotationIndex xsi:nil="true" />
+          <UpdateStartOfFirstTexture>-9223372036854775808</UpdateStartOfFirstTexture>
+        </MyObjectBuilder_CubeBlock>
+        <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TextPanel">
+          <SubtypeName>LargeLCDPanel</SubtypeName>
+          <EntityId>72974939877829281</EntityId>
+          <Name>72974939877829281</Name>
+          <Min x="0" y="1" z="-1" />
+          <BlockOrientation Forward="Backward" Up="Up" />
+          <Owner>144115188075855899</Owner>
+          <BuiltBy>144115188075855895</BuiltBy>
+          <ShareMode>Faction</ShareMode>
+          <ComponentContainer>
+            <Components>
+              <ComponentData>
+                <TypeId>MyLcdSurfaceComponent</TypeId>
+                <Component xsi:type="MyObjectBuilder_LcdSurfaceComponent">
+                  <SelectedRotationIndex>0</SelectedRotationIndex>
+                  <TextPanelContent>
+                    <ChangeInterval>0</ChangeInterval>
+                    <Font Type="MyObjectBuilder_FontDefinition" Subtype="Debug" />
+                    <FontSize>2.504</FontSize>
+                    <Text>[SHIFT + F3]
+Spawn AI 
+[SHIFT + F2]
+Infodoc
+[CTRL + F2]
+Issue Form</Text>
+                    <ShowText>NONE</ShowText>
+                    <FontColor>
+                      <PackedValue>4294967295</PackedValue>
+                      <X>255</X>
+                      <Y>255</Y>
+                      <Z>255</Z>
+                      <R>255</R>
+                      <G>255</G>
+                      <B>255</B>
+                      <A>255</A>
+                    </FontColor>
+                    <BackgroundColor>
+                      <PackedValue>4278190080</PackedValue>
+                      <X>0</X>
+                      <Y>0</Y>
+                      <Z>0</Z>
+                      <R>0</R>
+                      <G>0</G>
+                      <B>0</B>
+                      <A>255</A>
+                    </BackgroundColor>
+                    <CurrentShownTexture>0</CurrentShownTexture>
+                    <Alignment>2</Alignment>
+                    <ContentType>TEXT_AND_IMAGE</ContentType>
+                    <SelectedScript />
+                    <TextPadding>0</TextPadding>
+                    <ScriptBackgroundColor>
+                      <PackedValue>4288108544</PackedValue>
+                      <X>0</X>
+                      <Y>88</Y>
+                      <Z>151</Z>
+                      <R>0</R>
+                      <G>88</G>
+                      <B>151</B>
+                      <A>255</A>
+                    </ScriptBackgroundColor>
+                    <ScriptForegroundColor>
+                      <PackedValue>4294962611</PackedValue>
+                      <X>179</X>
+                      <Y>237</Y>
+                      <Z>255</Z>
+                      <R>179</R>
+                      <G>237</G>
+                      <B>255</B>
+                      <A>255</A>
+                    </ScriptForegroundColor>
+                    <Sprites>
+                      <Length>0</Length>
+                    </Sprites>
+                    <UpdateStartOfFirstTexture>12920632</UpdateStartOfFirstTexture>
+                  </TextPanelContent>
+                </Component>
+              </ComponentData>
+            </Components>
+          </ComponentContainer>
+          <ShowOnHUD>false</ShowOnHUD>
+          <ShowInTerminal>true</ShowInTerminal>
+          <ShowInToolbarConfig>true</ShowInToolbarConfig>
+          <ShowInInventory>true</ShowInInventory>
+          <NumberInGrid>3</NumberInGrid>
+          <Enabled>true</Enabled>
+          <Description />
+          <Title>Title</Title>
+          <AccessFlag>READ_AND_WRITE_FACTION</AccessFlag>
+          <ChangeInterval>0</ChangeInterval>
+          <Font Type="MyObjectBuilder_FontDefinition" Subtype="Debug" />
+          <FontSize>1</FontSize>
+          <PublicDescription />
+          <PublicTitle>Public title</PublicTitle>
+          <ShowText>NONE</ShowText>
+          <FontColor xsi:nil="true" />
+          <BackgroundColor xsi:nil="true" />
+          <CurrentShownTexture>0</CurrentShownTexture>
+          <TextPadding>2</TextPadding>
+          <Version>0</Version>
+          <ScriptBackgroundColor xsi:nil="true" />
+          <ScriptForegroundColor xsi:nil="true" />
+          <Sprites>
+            <Length>0</Length>
+          </Sprites>
+          <SelectedRotationIndex xsi:nil="true" />
+          <UpdateStartOfFirstTexture>-9223372036854775808</UpdateStartOfFirstTexture>
+        </MyObjectBuilder_CubeBlock>
+        <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TextPanel">
+          <SubtypeName>LargeLCDPanel</SubtypeName>
+          <EntityId>93362276487370938</EntityId>
+          <Name>93362276487370938</Name>
+          <Min x="-1" y="1" z="0" />
+          <BlockOrientation Forward="Right" Up="Up" />
+          <Owner>144115188075855899</Owner>
+          <BuiltBy>144115188075855895</BuiltBy>
+          <ShareMode>Faction</ShareMode>
+          <ComponentContainer>
+            <Components>
+              <ComponentData>
+                <TypeId>MyLcdSurfaceComponent</TypeId>
+                <Component xsi:type="MyObjectBuilder_LcdSurfaceComponent">
+                  <SelectedRotationIndex>0</SelectedRotationIndex>
+                  <TextPanelContent>
+                    <ChangeInterval>0</ChangeInterval>
+                    <Font Type="MyObjectBuilder_FontDefinition" Subtype="Debug" />
+                    <FontSize>2.504</FontSize>
+                    <Text>[SHIFT + F3]
+Spawn AI 
+[SHIFT + F2]
+Infodoc
+[CTRL + F2]
+Issue Form</Text>
+                    <ShowText>NONE</ShowText>
+                    <FontColor>
+                      <PackedValue>4294967295</PackedValue>
+                      <X>255</X>
+                      <Y>255</Y>
+                      <Z>255</Z>
+                      <R>255</R>
+                      <G>255</G>
+                      <B>255</B>
+                      <A>255</A>
+                    </FontColor>
+                    <BackgroundColor>
+                      <PackedValue>4278190080</PackedValue>
+                      <X>0</X>
+                      <Y>0</Y>
+                      <Z>0</Z>
+                      <R>0</R>
+                      <G>0</G>
+                      <B>0</B>
+                      <A>255</A>
+                    </BackgroundColor>
+                    <CurrentShownTexture>0</CurrentShownTexture>
+                    <Alignment>2</Alignment>
+                    <ContentType>TEXT_AND_IMAGE</ContentType>
+                    <SelectedScript />
+                    <TextPadding>0</TextPadding>
+                    <ScriptBackgroundColor>
+                      <PackedValue>4288108544</PackedValue>
+                      <X>0</X>
+                      <Y>88</Y>
+                      <Z>151</Z>
+                      <R>0</R>
+                      <G>88</G>
+                      <B>151</B>
+                      <A>255</A>
+                    </ScriptBackgroundColor>
+                    <ScriptForegroundColor>
+                      <PackedValue>4294962611</PackedValue>
+                      <X>179</X>
+                      <Y>237</Y>
+                      <Z>255</Z>
+                      <R>179</R>
+                      <G>237</G>
+                      <B>255</B>
+                      <A>255</A>
+                    </ScriptForegroundColor>
+                    <Sprites>
+                      <Length>0</Length>
+                    </Sprites>
+                    <UpdateStartOfFirstTexture>12920632</UpdateStartOfFirstTexture>
+                  </TextPanelContent>
+                </Component>
+              </ComponentData>
+            </Components>
+          </ComponentContainer>
+          <ShowOnHUD>false</ShowOnHUD>
+          <ShowInTerminal>true</ShowInTerminal>
+          <ShowInToolbarConfig>true</ShowInToolbarConfig>
+          <ShowInInventory>true</ShowInInventory>
+          <NumberInGrid>4</NumberInGrid>
+          <Enabled>true</Enabled>
+          <Description />
+          <Title>Title</Title>
+          <AccessFlag>READ_AND_WRITE_FACTION</AccessFlag>
+          <ChangeInterval>0</ChangeInterval>
+          <Font Type="MyObjectBuilder_FontDefinition" Subtype="Debug" />
+          <FontSize>1</FontSize>
+          <PublicDescription />
+          <PublicTitle>Public title</PublicTitle>
+          <ShowText>NONE</ShowText>
+          <FontColor xsi:nil="true" />
+          <BackgroundColor xsi:nil="true" />
+          <CurrentShownTexture>0</CurrentShownTexture>
+          <TextPadding>2</TextPadding>
+          <Version>0</Version>
+          <ScriptBackgroundColor xsi:nil="true" />
+          <ScriptForegroundColor xsi:nil="true" />
+          <Sprites>
+            <Length>0</Length>
+          </Sprites>
+          <SelectedRotationIndex xsi:nil="true" />
+          <UpdateStartOfFirstTexture>-9223372036854775808</UpdateStartOfFirstTexture>
+        </MyObjectBuilder_CubeBlock>
+        <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_ReflectorLight">
+          <SubtypeName>RotatingLightLarge</SubtypeName>
+          <EntityId>139522694531499744</EntityId>
+          <Name>139522694531499744</Name>
+          <Min x="0" y="2" z="0" />
+          <BlockOrientation Forward="Up" Up="Backward" />
+          <ColorMaskHSV x="0" y="-0.8" z="0.55" />
+          <SkinSubtypeId>SciFi_Armor</SkinSubtypeId>
+          <BuiltBy>144115188075855895</BuiltBy>
+          <ShowOnHUD>false</ShowOnHUD>
+          <ShowInTerminal>true</ShowInTerminal>
+          <ShowInToolbarConfig>true</ShowInToolbarConfig>
+          <ShowInInventory>true</ShowInInventory>
+          <NumberInGrid>1</NumberInGrid>
+          <Enabled>true</Enabled>
+          <Radius>6.666667</Radius>
+          <ReflectorRadius>20</ReflectorRadius>
+          <ColorGreen>0</ColorGreen>
+          <ColorBlue>0</ColorBlue>
+          <Falloff>0.5</Falloff>
+          <Intensity>6</Intensity>
+          <BlinkIntervalSeconds>0</BlinkIntervalSeconds>
+          <BlinkLenght>10</BlinkLenght>
+          <BlinkOffset>0</BlinkOffset>
+          <Offset>0.5</Offset>
+          <RotationSpeed>0.08</RotationSpeed>
+        </MyObjectBuilder_CubeBlock>
+      </CubeBlocks>
+      <LinearVelocity x="74.8073044" y="-16.6741714" z="32.9250641" />
+      <AngularVelocity x="-0.0477825962" y="-0.184958562" z="0.072054036" />
+      <DisplayName>redspinny</DisplayName>
+      <DestructibleBlocks>false</DestructibleBlocks>
+      <IsRespawnGrid>false</IsRespawnGrid>
+      <LocalCoordSys>9</LocalCoordSys>
+      <TargetingTargets />
+      <NPCGridClaimElapsed xsi:nil="true" />
+    </MyObjectBuilder_EntityBase>
+    <MyObjectBuilder_EntityBase xsi:type="MyObjectBuilder_CubeGrid">
+      <SubtypeName />
+      <EntityId>133447940010295900</EntityId>
+      <PersistentFlags>CastShadows InScene</PersistentFlags>
+      <Name>133447940010295900</Name>
+      <PositionAndOrientation>
+        <Position x="-27.431651397841051" y="241.33450020740474" z="452.21758859702913" />
+        <Forward x="-0.5604447" y="-0.07046227" z="0.8251887" />
+        <Up x="0.822871447" y="0.065380156" z="0.5644536" />
+        <Orientation>
+          <X>0.6453846</X>
+          <Y>0.7043246</Y>
+          <Z>0.225363418</Z>
+          <W>0.191355452</W>
+        </Orientation>
+      </PositionAndOrientation>
+      <LocalPositionAndOrientation xsi:nil="true" />
+      <ComponentContainer>
+        <Components>
+          <ComponentData>
+            <TypeId>MyModStorageComponent</TypeId>
+            <Component xsi:type="MyObjectBuilder_ModStorageComponent">
+              <Storage>
+                <dictionary>
+                  <item>
+                    <Key>ba5bfb16-27fe-4f83-8e1b-9fe04ed919d8</Key>
+                    <Value />
+                  </item>
+                </dictionary>
+              </Storage>
+            </Component>
+          </ComponentData>
+        </Components>
+      </ComponentContainer>
+      <GridSizeEnum>Large</GridSizeEnum>
+      <CubeBlocks>
+        <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_Thrust">
+          <SubtypeName>LargeBlockSmallAtmosphericThrust</SubtypeName>
+          <EntityId>130970146367824356</EntityId>
+          <Name>130970146367824356</Name>
+          <Min x="6" y="-1" z="-2" />
+          <BlockOrientation Forward="Down" Up="Forward" />
+          <ColorMaskHSV x="0" y="-0.8" z="-0.3" />
+          <BuiltBy>144115188075855895</BuiltBy>
+          <ComponentContainer>
+            <Components>
+              <ComponentData>
+                <TypeId>MyTimerComponent</TypeId>
+                <Component xsi:type="MyObjectBuilder_TimerComponent">
+                  <Repeat>true</Repeat>
+                  <TimeToEvent>0</TimeToEvent>
+                  <SetTimeMinutes>0</SetTimeMinutes>
+                  <TimerEnabled>false</TimerEnabled>
+                  <RemoveEntityOnTimer>false</RemoveEntityOnTimer>
+                  <TimerType>Frame100</TimerType>
+                  <FramesFromLastTrigger>0</FramesFromLastTrigger>
+                  <TimerTickInFrames>100</TimerTickInFrames>
+                  <IsSessionUpdateEnabled>false</IsSessionUpdateEnabled>
+                </Component>
+              </ComponentData>
+            </Components>
+          </ComponentContainer>
+          <ShowOnHUD>false</ShowOnHUD>
+          <ShowInTerminal>true</ShowInTerminal>
+          <ShowInToolbarConfig>true</ShowInToolbarConfig>
+          <ShowInInventory>true</ShowInInventory>
+          <NumberInGrid>18</NumberInGrid>
+          <Enabled>true</Enabled>
+        </MyObjectBuilder_CubeBlock>
+      </CubeBlocks>
+      <DisplayName>Large Grid 5900</DisplayName>
+      <DestructibleBlocks>true</DestructibleBlocks>
+      <IsRespawnGrid>false</IsRespawnGrid>
+      <LocalCoordSys>0</LocalCoordSys>
+      <TargetingTargets />
+      <NPCGridClaimElapsed xsi:nil="true" />
+    </MyObjectBuilder_EntityBase>
+    <MyObjectBuilder_EntityBase xsi:type="MyObjectBuilder_CubeGrid">
+      <SubtypeName />
+      <EntityId>92648995846550369</EntityId>
+      <PersistentFlags>CastShadows InScene</PersistentFlags>
+      <Name>92648995846550369</Name>
+      <PositionAndOrientation>
+        <Position x="-27.303721710341051" y="284.72707833240474" z="443.88445871421663" />
+        <Forward x="0.8215926" y="0.08717275" z="0.5633708" />
+        <Up x="-0.111277759" y="0.9937529" z="0.00851449" />
+        <Orientation>
+          <X>-0.0512562543</X>
+          <Y>0.882642746</Y>
+          <Z>-0.0222791862</Z>
+          <W>-0.466710061</W>
+        </Orientation>
+      </PositionAndOrientation>
+      <LocalPositionAndOrientation xsi:nil="true" />
+      <ComponentContainer>
+        <Components>
+          <ComponentData>
+            <TypeId>MyModStorageComponent</TypeId>
+            <Component xsi:type="MyObjectBuilder_ModStorageComponent">
+              <Storage>
+                <dictionary>
+                  <item>
+                    <Key>ba5bfb16-27fe-4f83-8e1b-9fe04ed919d8</Key>
+                    <Value />
+                  </item>
+                </dictionary>
+              </Storage>
+            </Component>
+          </ComponentData>
+        </Components>
+      </ComponentContainer>
+      <GridSizeEnum>Large</GridSizeEnum>
+      <CubeBlocks>
+        <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_Thrust">
+          <SubtypeName>LargeBlockSmallAtmosphericThrust</SubtypeName>
+          <EntityId>98961023037839074</EntityId>
+          <Name>98961023037839074</Name>
+          <Min x="6" y="-1" z="9" />
+          <BlockOrientation Forward="Down" Up="Forward" />
+          <ColorMaskHSV x="0" y="-0.8" z="-0.3" />
+          <BuiltBy>144115188075855895</BuiltBy>
+          <ComponentContainer>
+            <Components>
+              <ComponentData>
+                <TypeId>MyTimerComponent</TypeId>
+                <Component xsi:type="MyObjectBuilder_TimerComponent">
+                  <Repeat>true</Repeat>
+                  <TimeToEvent>0</TimeToEvent>
+                  <SetTimeMinutes>0</SetTimeMinutes>
+                  <TimerEnabled>false</TimerEnabled>
+                  <RemoveEntityOnTimer>false</RemoveEntityOnTimer>
+                  <TimerType>Frame100</TimerType>
+                  <FramesFromLastTrigger>0</FramesFromLastTrigger>
+                  <TimerTickInFrames>100</TimerTickInFrames>
+                  <IsSessionUpdateEnabled>false</IsSessionUpdateEnabled>
+                </Component>
+              </ComponentData>
+            </Components>
+          </ComponentContainer>
+          <ShowOnHUD>false</ShowOnHUD>
+          <ShowInTerminal>true</ShowInTerminal>
+          <ShowInToolbarConfig>true</ShowInToolbarConfig>
+          <ShowInInventory>true</ShowInInventory>
+          <NumberInGrid>15</NumberInGrid>
+          <Enabled>true</Enabled>
+        </MyObjectBuilder_CubeBlock>
+      </CubeBlocks>
+      <DisplayName>Large Grid 369</DisplayName>
+      <DestructibleBlocks>true</DestructibleBlocks>
+      <IsRespawnGrid>false</IsRespawnGrid>
+      <LocalCoordSys>0</LocalCoordSys>
+      <TargetingTargets />
+      <NPCGridClaimElapsed xsi:nil="true" />
+    </MyObjectBuilder_EntityBase>
+    <MyObjectBuilder_EntityBase xsi:type="MyObjectBuilder_CubeGrid">
+      <SubtypeName />
       <EntityId>82601732460298373</EntityId>
       <PersistentFlags>CastShadows InScene</PersistentFlags>
       <Name>119799406050592471</Name>
       <PositionAndOrientation>
-        <Position x="10665.107550210369" y="1852.3347104002223" z="10380.056627459773" />
-        <Forward x="0.07143009" y="0.9730194" z="0.219388366" />
-        <Up x="0.740575254" y="0.095603466" z="-0.665137947" />
+        <Position x="10665.105824188096" y="1852.3346985716626" z="10380.055601292341" />
+        <Forward x="-0.053183496" y="-0.978381038" z="-0.199855223" />
+        <Up x="0.740571737" y="0.0956126451" z="-0.6651404" />
         <Orientation>
-          <X>0.3374976</X>
-          <Y>0.704123259</Y>
-          <Z>-0.5816301</Z>
-          <W>0.228061959</W>
+          <X>-0.586174369</X>
+          <Y>-0.2376384</Y>
+          <Z>-0.329534978</Z>
+          <W>0.7009524</W>
         </Orientation>
       </PositionAndOrientation>
       <LocalPositionAndOrientation xsi:nil="true" />
@@ -299,7 +970,7 @@ Issue Form</Text>
                     <Sprites>
                       <Length>0</Length>
                     </Sprites>
-                    <UpdateStartOfFirstTexture>12569064</UpdateStartOfFirstTexture>
+                    <UpdateStartOfFirstTexture>12920632</UpdateStartOfFirstTexture>
                   </TextPanelContent>
                 </Component>
               </ComponentData>
@@ -406,7 +1077,7 @@ Issue Form</Text>
                     <Sprites>
                       <Length>0</Length>
                     </Sprites>
-                    <UpdateStartOfFirstTexture>12569064</UpdateStartOfFirstTexture>
+                    <UpdateStartOfFirstTexture>12920632</UpdateStartOfFirstTexture>
                   </TextPanelContent>
                 </Component>
               </ComponentData>
@@ -514,7 +1185,7 @@ Issue Form</Text>
                     <Sprites>
                       <Length>0</Length>
                     </Sprites>
-                    <UpdateStartOfFirstTexture>12569064</UpdateStartOfFirstTexture>
+                    <UpdateStartOfFirstTexture>12920632</UpdateStartOfFirstTexture>
                   </TextPanelContent>
                 </Component>
               </ComponentData>
@@ -622,7 +1293,7 @@ Issue Form</Text>
                     <Sprites>
                       <Length>0</Length>
                     </Sprites>
-                    <UpdateStartOfFirstTexture>12569064</UpdateStartOfFirstTexture>
+                    <UpdateStartOfFirstTexture>12920632</UpdateStartOfFirstTexture>
                   </TextPanelContent>
                 </Component>
               </ComponentData>
@@ -742,683 +1413,12 @@ Issue Form</Text>
           <BoneOffset x="120" y="145" z="104" />
         </BoneInfo>
       </Skeleton>
-      <LinearVelocity x="-59.49057" y="-10.3191214" z="-57.8363037" />
-      <AngularVelocity x="-0.09896814" y="0.08838437" z="0.05995326" />
+      <LinearVelocity x="-59.2954063" y="-10.3079824" z="-58.00679" />
+      <AngularVelocity x="-0.09548859" y="0.1321626" z="0.07011589" />
       <DisplayName>bluspinny</DisplayName>
       <DestructibleBlocks>false</DestructibleBlocks>
       <IsRespawnGrid>false</IsRespawnGrid>
       <LocalCoordSys>7</LocalCoordSys>
-      <TargetingTargets />
-      <NPCGridClaimElapsed xsi:nil="true" />
-    </MyObjectBuilder_EntityBase>
-    <MyObjectBuilder_EntityBase xsi:type="MyObjectBuilder_CubeGrid">
-      <SubtypeName />
-      <EntityId>133791556661670696</EntityId>
-      <PersistentFlags>CastShadows InScene</PersistentFlags>
-      <Name>124415480182334585</Name>
-      <PositionAndOrientation>
-        <Position x="-13460.280145102131" y="2986.3357327390895" z="-5910.1484506652268" />
-        <Forward x="-0.217217058" y="0.9752474" z="0.0413458347" />
-        <Up x="0.338353157" y="0.114957176" z="-0.933971167" />
-        <Orientation>
-          <X>0.0519198366</X>
-          <Y>0.719706357</Y>
-          <Z>-0.6631935</Z>
-          <W>0.198749691</W>
-        </Orientation>
-      </PositionAndOrientation>
-      <LocalPositionAndOrientation xsi:nil="true" />
-      <ComponentContainer>
-        <Components>
-          <ComponentData>
-            <TypeId>MyModStorageComponent</TypeId>
-            <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-              <Storage>
-                <dictionary>
-                  <item>
-                    <Key>ba5bfb16-27fe-4f83-8e1b-9fe04ed919d8</Key>
-                    <Value />
-                  </item>
-                </dictionary>
-              </Storage>
-            </Component>
-          </ComponentData>
-        </Components>
-      </ComponentContainer>
-      <GridSizeEnum>Large</GridSizeEnum>
-      <CubeBlocks>
-        <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_MotorRotor">
-          <SubtypeName>LargeRotor</SubtypeName>
-          <EntityId>91029886193349673</EntityId>
-          <Name>91029886193349673</Name>
-          <BuiltBy>144115188075855895</BuiltBy>
-          <ParentEntityId>137286905562427229</ParentEntityId>
-          <YieldLastComponent>false</YieldLastComponent>
-        </MyObjectBuilder_CubeBlock>
-        <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
-          <SubtypeName>LargeBlockArmorBlock</SubtypeName>
-          <Min x="0" y="1" z="0" />
-          <BuiltBy>144115188075855895</BuiltBy>
-        </MyObjectBuilder_CubeBlock>
-        <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TextPanel">
-          <SubtypeName>LargeLCDPanel</SubtypeName>
-          <EntityId>87600251833134318</EntityId>
-          <Name>87600251833134318</Name>
-          <Min x="0" y="1" z="1" />
-          <Owner>144115188075855899</Owner>
-          <BuiltBy>144115188075855895</BuiltBy>
-          <ShareMode>Faction</ShareMode>
-          <ComponentContainer>
-            <Components>
-              <ComponentData>
-                <TypeId>MyLcdSurfaceComponent</TypeId>
-                <Component xsi:type="MyObjectBuilder_LcdSurfaceComponent">
-                  <SelectedRotationIndex>0</SelectedRotationIndex>
-                  <TextPanelContent>
-                    <ChangeInterval>0</ChangeInterval>
-                    <Font Type="MyObjectBuilder_FontDefinition" Subtype="Debug" />
-                    <FontSize>2.504</FontSize>
-                    <Text>[SHIFT + F3]
-Spawn AI 
-[SHIFT + F2]
-Infodoc
-[CTRL + F2]
-Issue Form</Text>
-                    <ShowText>NONE</ShowText>
-                    <FontColor>
-                      <PackedValue>4294967295</PackedValue>
-                      <X>255</X>
-                      <Y>255</Y>
-                      <Z>255</Z>
-                      <R>255</R>
-                      <G>255</G>
-                      <B>255</B>
-                      <A>255</A>
-                    </FontColor>
-                    <BackgroundColor>
-                      <PackedValue>4278190080</PackedValue>
-                      <X>0</X>
-                      <Y>0</Y>
-                      <Z>0</Z>
-                      <R>0</R>
-                      <G>0</G>
-                      <B>0</B>
-                      <A>255</A>
-                    </BackgroundColor>
-                    <CurrentShownTexture>0</CurrentShownTexture>
-                    <Alignment>2</Alignment>
-                    <ContentType>TEXT_AND_IMAGE</ContentType>
-                    <SelectedScript />
-                    <TextPadding>0</TextPadding>
-                    <ScriptBackgroundColor>
-                      <PackedValue>4288108544</PackedValue>
-                      <X>0</X>
-                      <Y>88</Y>
-                      <Z>151</Z>
-                      <R>0</R>
-                      <G>88</G>
-                      <B>151</B>
-                      <A>255</A>
-                    </ScriptBackgroundColor>
-                    <ScriptForegroundColor>
-                      <PackedValue>4294962611</PackedValue>
-                      <X>179</X>
-                      <Y>237</Y>
-                      <Z>255</Z>
-                      <R>179</R>
-                      <G>237</G>
-                      <B>255</B>
-                      <A>255</A>
-                    </ScriptForegroundColor>
-                    <Sprites>
-                      <Length>0</Length>
-                    </Sprites>
-                    <UpdateStartOfFirstTexture>12569064</UpdateStartOfFirstTexture>
-                  </TextPanelContent>
-                </Component>
-              </ComponentData>
-            </Components>
-          </ComponentContainer>
-          <ShowOnHUD>false</ShowOnHUD>
-          <ShowInTerminal>true</ShowInTerminal>
-          <ShowInToolbarConfig>true</ShowInToolbarConfig>
-          <ShowInInventory>true</ShowInInventory>
-          <NumberInGrid>1</NumberInGrid>
-          <Enabled>true</Enabled>
-          <Description />
-          <Title>Title</Title>
-          <AccessFlag>READ_AND_WRITE_FACTION</AccessFlag>
-          <ChangeInterval>0</ChangeInterval>
-          <Font Type="MyObjectBuilder_FontDefinition" Subtype="Debug" />
-          <FontSize>1</FontSize>
-          <PublicDescription />
-          <PublicTitle>Public title</PublicTitle>
-          <ShowText>NONE</ShowText>
-          <FontColor xsi:nil="true" />
-          <BackgroundColor xsi:nil="true" />
-          <CurrentShownTexture>0</CurrentShownTexture>
-          <TextPadding>2</TextPadding>
-          <Version>0</Version>
-          <ScriptBackgroundColor xsi:nil="true" />
-          <ScriptForegroundColor xsi:nil="true" />
-          <Sprites>
-            <Length>0</Length>
-          </Sprites>
-          <SelectedRotationIndex xsi:nil="true" />
-          <UpdateStartOfFirstTexture>-9223372036854775808</UpdateStartOfFirstTexture>
-        </MyObjectBuilder_CubeBlock>
-        <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TextPanel">
-          <SubtypeName>LargeLCDPanel</SubtypeName>
-          <EntityId>119627682650603136</EntityId>
-          <Name>119627682650603136</Name>
-          <Min x="1" y="1" z="0" />
-          <BlockOrientation Forward="Left" Up="Up" />
-          <Owner>144115188075855899</Owner>
-          <BuiltBy>144115188075855895</BuiltBy>
-          <ShareMode>Faction</ShareMode>
-          <ComponentContainer>
-            <Components>
-              <ComponentData>
-                <TypeId>MyLcdSurfaceComponent</TypeId>
-                <Component xsi:type="MyObjectBuilder_LcdSurfaceComponent">
-                  <SelectedRotationIndex>0</SelectedRotationIndex>
-                  <TextPanelContent>
-                    <ChangeInterval>0</ChangeInterval>
-                    <Font Type="MyObjectBuilder_FontDefinition" Subtype="Debug" />
-                    <FontSize>2.504</FontSize>
-                    <Text>[SHIFT + F3]
-Spawn AI 
-[SHIFT + F2]
-Infodoc
-[CTRL + F2]
-Issue Form</Text>
-                    <ShowText>NONE</ShowText>
-                    <FontColor>
-                      <PackedValue>4294967295</PackedValue>
-                      <X>255</X>
-                      <Y>255</Y>
-                      <Z>255</Z>
-                      <R>255</R>
-                      <G>255</G>
-                      <B>255</B>
-                      <A>255</A>
-                    </FontColor>
-                    <BackgroundColor>
-                      <PackedValue>4278190080</PackedValue>
-                      <X>0</X>
-                      <Y>0</Y>
-                      <Z>0</Z>
-                      <R>0</R>
-                      <G>0</G>
-                      <B>0</B>
-                      <A>255</A>
-                    </BackgroundColor>
-                    <CurrentShownTexture>0</CurrentShownTexture>
-                    <Alignment>2</Alignment>
-                    <ContentType>TEXT_AND_IMAGE</ContentType>
-                    <SelectedScript />
-                    <TextPadding>0</TextPadding>
-                    <ScriptBackgroundColor>
-                      <PackedValue>4288108544</PackedValue>
-                      <X>0</X>
-                      <Y>88</Y>
-                      <Z>151</Z>
-                      <R>0</R>
-                      <G>88</G>
-                      <B>151</B>
-                      <A>255</A>
-                    </ScriptBackgroundColor>
-                    <ScriptForegroundColor>
-                      <PackedValue>4294962611</PackedValue>
-                      <X>179</X>
-                      <Y>237</Y>
-                      <Z>255</Z>
-                      <R>179</R>
-                      <G>237</G>
-                      <B>255</B>
-                      <A>255</A>
-                    </ScriptForegroundColor>
-                    <Sprites>
-                      <Length>0</Length>
-                    </Sprites>
-                    <UpdateStartOfFirstTexture>12569064</UpdateStartOfFirstTexture>
-                  </TextPanelContent>
-                </Component>
-              </ComponentData>
-            </Components>
-          </ComponentContainer>
-          <ShowOnHUD>false</ShowOnHUD>
-          <ShowInTerminal>true</ShowInTerminal>
-          <ShowInToolbarConfig>true</ShowInToolbarConfig>
-          <ShowInInventory>true</ShowInInventory>
-          <NumberInGrid>2</NumberInGrid>
-          <Enabled>true</Enabled>
-          <Description />
-          <Title>Title</Title>
-          <AccessFlag>READ_AND_WRITE_FACTION</AccessFlag>
-          <ChangeInterval>0</ChangeInterval>
-          <Font Type="MyObjectBuilder_FontDefinition" Subtype="Debug" />
-          <FontSize>1</FontSize>
-          <PublicDescription />
-          <PublicTitle>Public title</PublicTitle>
-          <ShowText>NONE</ShowText>
-          <FontColor xsi:nil="true" />
-          <BackgroundColor xsi:nil="true" />
-          <CurrentShownTexture>0</CurrentShownTexture>
-          <TextPadding>2</TextPadding>
-          <Version>0</Version>
-          <ScriptBackgroundColor xsi:nil="true" />
-          <ScriptForegroundColor xsi:nil="true" />
-          <Sprites>
-            <Length>0</Length>
-          </Sprites>
-          <SelectedRotationIndex xsi:nil="true" />
-          <UpdateStartOfFirstTexture>-9223372036854775808</UpdateStartOfFirstTexture>
-        </MyObjectBuilder_CubeBlock>
-        <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TextPanel">
-          <SubtypeName>LargeLCDPanel</SubtypeName>
-          <EntityId>72974939877829281</EntityId>
-          <Name>72974939877829281</Name>
-          <Min x="0" y="1" z="-1" />
-          <BlockOrientation Forward="Backward" Up="Up" />
-          <Owner>144115188075855899</Owner>
-          <BuiltBy>144115188075855895</BuiltBy>
-          <ShareMode>Faction</ShareMode>
-          <ComponentContainer>
-            <Components>
-              <ComponentData>
-                <TypeId>MyLcdSurfaceComponent</TypeId>
-                <Component xsi:type="MyObjectBuilder_LcdSurfaceComponent">
-                  <SelectedRotationIndex>0</SelectedRotationIndex>
-                  <TextPanelContent>
-                    <ChangeInterval>0</ChangeInterval>
-                    <Font Type="MyObjectBuilder_FontDefinition" Subtype="Debug" />
-                    <FontSize>2.504</FontSize>
-                    <Text>[SHIFT + F3]
-Spawn AI 
-[SHIFT + F2]
-Infodoc
-[CTRL + F2]
-Issue Form</Text>
-                    <ShowText>NONE</ShowText>
-                    <FontColor>
-                      <PackedValue>4294967295</PackedValue>
-                      <X>255</X>
-                      <Y>255</Y>
-                      <Z>255</Z>
-                      <R>255</R>
-                      <G>255</G>
-                      <B>255</B>
-                      <A>255</A>
-                    </FontColor>
-                    <BackgroundColor>
-                      <PackedValue>4278190080</PackedValue>
-                      <X>0</X>
-                      <Y>0</Y>
-                      <Z>0</Z>
-                      <R>0</R>
-                      <G>0</G>
-                      <B>0</B>
-                      <A>255</A>
-                    </BackgroundColor>
-                    <CurrentShownTexture>0</CurrentShownTexture>
-                    <Alignment>2</Alignment>
-                    <ContentType>TEXT_AND_IMAGE</ContentType>
-                    <SelectedScript />
-                    <TextPadding>0</TextPadding>
-                    <ScriptBackgroundColor>
-                      <PackedValue>4288108544</PackedValue>
-                      <X>0</X>
-                      <Y>88</Y>
-                      <Z>151</Z>
-                      <R>0</R>
-                      <G>88</G>
-                      <B>151</B>
-                      <A>255</A>
-                    </ScriptBackgroundColor>
-                    <ScriptForegroundColor>
-                      <PackedValue>4294962611</PackedValue>
-                      <X>179</X>
-                      <Y>237</Y>
-                      <Z>255</Z>
-                      <R>179</R>
-                      <G>237</G>
-                      <B>255</B>
-                      <A>255</A>
-                    </ScriptForegroundColor>
-                    <Sprites>
-                      <Length>0</Length>
-                    </Sprites>
-                    <UpdateStartOfFirstTexture>12569064</UpdateStartOfFirstTexture>
-                  </TextPanelContent>
-                </Component>
-              </ComponentData>
-            </Components>
-          </ComponentContainer>
-          <ShowOnHUD>false</ShowOnHUD>
-          <ShowInTerminal>true</ShowInTerminal>
-          <ShowInToolbarConfig>true</ShowInToolbarConfig>
-          <ShowInInventory>true</ShowInInventory>
-          <NumberInGrid>3</NumberInGrid>
-          <Enabled>true</Enabled>
-          <Description />
-          <Title>Title</Title>
-          <AccessFlag>READ_AND_WRITE_FACTION</AccessFlag>
-          <ChangeInterval>0</ChangeInterval>
-          <Font Type="MyObjectBuilder_FontDefinition" Subtype="Debug" />
-          <FontSize>1</FontSize>
-          <PublicDescription />
-          <PublicTitle>Public title</PublicTitle>
-          <ShowText>NONE</ShowText>
-          <FontColor xsi:nil="true" />
-          <BackgroundColor xsi:nil="true" />
-          <CurrentShownTexture>0</CurrentShownTexture>
-          <TextPadding>2</TextPadding>
-          <Version>0</Version>
-          <ScriptBackgroundColor xsi:nil="true" />
-          <ScriptForegroundColor xsi:nil="true" />
-          <Sprites>
-            <Length>0</Length>
-          </Sprites>
-          <SelectedRotationIndex xsi:nil="true" />
-          <UpdateStartOfFirstTexture>-9223372036854775808</UpdateStartOfFirstTexture>
-        </MyObjectBuilder_CubeBlock>
-        <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_TextPanel">
-          <SubtypeName>LargeLCDPanel</SubtypeName>
-          <EntityId>93362276487370938</EntityId>
-          <Name>93362276487370938</Name>
-          <Min x="-1" y="1" z="0" />
-          <BlockOrientation Forward="Right" Up="Up" />
-          <Owner>144115188075855899</Owner>
-          <BuiltBy>144115188075855895</BuiltBy>
-          <ShareMode>Faction</ShareMode>
-          <ComponentContainer>
-            <Components>
-              <ComponentData>
-                <TypeId>MyLcdSurfaceComponent</TypeId>
-                <Component xsi:type="MyObjectBuilder_LcdSurfaceComponent">
-                  <SelectedRotationIndex>0</SelectedRotationIndex>
-                  <TextPanelContent>
-                    <ChangeInterval>0</ChangeInterval>
-                    <Font Type="MyObjectBuilder_FontDefinition" Subtype="Debug" />
-                    <FontSize>2.504</FontSize>
-                    <Text>[SHIFT + F3]
-Spawn AI 
-[SHIFT + F2]
-Infodoc
-[CTRL + F2]
-Issue Form</Text>
-                    <ShowText>NONE</ShowText>
-                    <FontColor>
-                      <PackedValue>4294967295</PackedValue>
-                      <X>255</X>
-                      <Y>255</Y>
-                      <Z>255</Z>
-                      <R>255</R>
-                      <G>255</G>
-                      <B>255</B>
-                      <A>255</A>
-                    </FontColor>
-                    <BackgroundColor>
-                      <PackedValue>4278190080</PackedValue>
-                      <X>0</X>
-                      <Y>0</Y>
-                      <Z>0</Z>
-                      <R>0</R>
-                      <G>0</G>
-                      <B>0</B>
-                      <A>255</A>
-                    </BackgroundColor>
-                    <CurrentShownTexture>0</CurrentShownTexture>
-                    <Alignment>2</Alignment>
-                    <ContentType>TEXT_AND_IMAGE</ContentType>
-                    <SelectedScript />
-                    <TextPadding>0</TextPadding>
-                    <ScriptBackgroundColor>
-                      <PackedValue>4288108544</PackedValue>
-                      <X>0</X>
-                      <Y>88</Y>
-                      <Z>151</Z>
-                      <R>0</R>
-                      <G>88</G>
-                      <B>151</B>
-                      <A>255</A>
-                    </ScriptBackgroundColor>
-                    <ScriptForegroundColor>
-                      <PackedValue>4294962611</PackedValue>
-                      <X>179</X>
-                      <Y>237</Y>
-                      <Z>255</Z>
-                      <R>179</R>
-                      <G>237</G>
-                      <B>255</B>
-                      <A>255</A>
-                    </ScriptForegroundColor>
-                    <Sprites>
-                      <Length>0</Length>
-                    </Sprites>
-                    <UpdateStartOfFirstTexture>12569064</UpdateStartOfFirstTexture>
-                  </TextPanelContent>
-                </Component>
-              </ComponentData>
-            </Components>
-          </ComponentContainer>
-          <ShowOnHUD>false</ShowOnHUD>
-          <ShowInTerminal>true</ShowInTerminal>
-          <ShowInToolbarConfig>true</ShowInToolbarConfig>
-          <ShowInInventory>true</ShowInInventory>
-          <NumberInGrid>4</NumberInGrid>
-          <Enabled>true</Enabled>
-          <Description />
-          <Title>Title</Title>
-          <AccessFlag>READ_AND_WRITE_FACTION</AccessFlag>
-          <ChangeInterval>0</ChangeInterval>
-          <Font Type="MyObjectBuilder_FontDefinition" Subtype="Debug" />
-          <FontSize>1</FontSize>
-          <PublicDescription />
-          <PublicTitle>Public title</PublicTitle>
-          <ShowText>NONE</ShowText>
-          <FontColor xsi:nil="true" />
-          <BackgroundColor xsi:nil="true" />
-          <CurrentShownTexture>0</CurrentShownTexture>
-          <TextPadding>2</TextPadding>
-          <Version>0</Version>
-          <ScriptBackgroundColor xsi:nil="true" />
-          <ScriptForegroundColor xsi:nil="true" />
-          <Sprites>
-            <Length>0</Length>
-          </Sprites>
-          <SelectedRotationIndex xsi:nil="true" />
-          <UpdateStartOfFirstTexture>-9223372036854775808</UpdateStartOfFirstTexture>
-        </MyObjectBuilder_CubeBlock>
-        <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_ReflectorLight">
-          <SubtypeName>RotatingLightLarge</SubtypeName>
-          <EntityId>139522694531499744</EntityId>
-          <Name>139522694531499744</Name>
-          <Min x="0" y="2" z="0" />
-          <BlockOrientation Forward="Up" Up="Backward" />
-          <ColorMaskHSV x="0" y="-0.8" z="0.55" />
-          <SkinSubtypeId>SciFi_Armor</SkinSubtypeId>
-          <BuiltBy>144115188075855895</BuiltBy>
-          <ShowOnHUD>false</ShowOnHUD>
-          <ShowInTerminal>true</ShowInTerminal>
-          <ShowInToolbarConfig>true</ShowInToolbarConfig>
-          <ShowInInventory>true</ShowInInventory>
-          <NumberInGrid>1</NumberInGrid>
-          <Enabled>true</Enabled>
-          <Radius>6.666667</Radius>
-          <ReflectorRadius>20</ReflectorRadius>
-          <ColorGreen>0</ColorGreen>
-          <ColorBlue>0</ColorBlue>
-          <Falloff>0.5</Falloff>
-          <Intensity>6</Intensity>
-          <BlinkIntervalSeconds>0</BlinkIntervalSeconds>
-          <BlinkLenght>10</BlinkLenght>
-          <BlinkOffset>0</BlinkOffset>
-          <Offset>0.5</Offset>
-          <RotationSpeed>0.08</RotationSpeed>
-        </MyObjectBuilder_CubeBlock>
-      </CubeBlocks>
-      <LinearVelocity x="74.92081" y="-16.6538887" z="32.9701767" />
-      <AngularVelocity x="-0.0479740426" y="-0.217827886" z="0.0679477751" />
-      <DisplayName>redspinny</DisplayName>
-      <DestructibleBlocks>false</DestructibleBlocks>
-      <IsRespawnGrid>false</IsRespawnGrid>
-      <LocalCoordSys>9</LocalCoordSys>
-      <TargetingTargets />
-      <NPCGridClaimElapsed xsi:nil="true" />
-    </MyObjectBuilder_EntityBase>
-    <MyObjectBuilder_EntityBase xsi:type="MyObjectBuilder_CubeGrid">
-      <SubtypeName />
-      <EntityId>133447940010295900</EntityId>
-      <PersistentFlags>CastShadows InScene</PersistentFlags>
-      <Name>133447940010295900</Name>
-      <PositionAndOrientation>
-        <Position x="-27.432366781818928" y="241.33524445783951" z="452.21812648321065" />
-        <Forward x="-0.5604019" y="-0.07040945" z="0.8252223" />
-        <Up x="0.8229039" y="0.0653829" z="0.5644059" />
-        <Orientation>
-          <X>0.6453961</X>
-          <Y>0.704326</Y>
-          <Z>0.225327328</Z>
-          <W>0.191354051</W>
-        </Orientation>
-      </PositionAndOrientation>
-      <LocalPositionAndOrientation xsi:nil="true" />
-      <ComponentContainer>
-        <Components>
-          <ComponentData>
-            <TypeId>MyModStorageComponent</TypeId>
-            <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-              <Storage>
-                <dictionary>
-                  <item>
-                    <Key>ba5bfb16-27fe-4f83-8e1b-9fe04ed919d8</Key>
-                    <Value />
-                  </item>
-                </dictionary>
-              </Storage>
-            </Component>
-          </ComponentData>
-        </Components>
-      </ComponentContainer>
-      <GridSizeEnum>Large</GridSizeEnum>
-      <CubeBlocks>
-        <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_Thrust">
-          <SubtypeName>LargeBlockSmallAtmosphericThrust</SubtypeName>
-          <EntityId>130970146367824356</EntityId>
-          <Name>130970146367824356</Name>
-          <Min x="6" y="-1" z="-2" />
-          <BlockOrientation Forward="Down" Up="Forward" />
-          <ColorMaskHSV x="0" y="-0.8" z="-0.3" />
-          <BuiltBy>144115188075855895</BuiltBy>
-          <ComponentContainer>
-            <Components>
-              <ComponentData>
-                <TypeId>MyTimerComponent</TypeId>
-                <Component xsi:type="MyObjectBuilder_TimerComponent">
-                  <Repeat>true</Repeat>
-                  <TimeToEvent>0</TimeToEvent>
-                  <SetTimeMinutes>0</SetTimeMinutes>
-                  <TimerEnabled>false</TimerEnabled>
-                  <RemoveEntityOnTimer>false</RemoveEntityOnTimer>
-                  <TimerType>Frame100</TimerType>
-                  <FramesFromLastTrigger>0</FramesFromLastTrigger>
-                  <TimerTickInFrames>100</TimerTickInFrames>
-                  <IsSessionUpdateEnabled>false</IsSessionUpdateEnabled>
-                </Component>
-              </ComponentData>
-            </Components>
-          </ComponentContainer>
-          <ShowOnHUD>false</ShowOnHUD>
-          <ShowInTerminal>true</ShowInTerminal>
-          <ShowInToolbarConfig>true</ShowInToolbarConfig>
-          <ShowInInventory>true</ShowInInventory>
-          <NumberInGrid>18</NumberInGrid>
-          <Enabled>true</Enabled>
-        </MyObjectBuilder_CubeBlock>
-      </CubeBlocks>
-      <DisplayName>Large Grid 5900</DisplayName>
-      <DestructibleBlocks>true</DestructibleBlocks>
-      <IsRespawnGrid>false</IsRespawnGrid>
-      <LocalCoordSys>0</LocalCoordSys>
-      <TargetingTargets />
-      <NPCGridClaimElapsed xsi:nil="true" />
-    </MyObjectBuilder_EntityBase>
-    <MyObjectBuilder_EntityBase xsi:type="MyObjectBuilder_CubeGrid">
-      <SubtypeName />
-      <EntityId>92648995846550369</EntityId>
-      <PersistentFlags>CastShadows InScene</PersistentFlags>
-      <Name>92648995846550369</Name>
-      <PositionAndOrientation>
-        <Position x="-27.303460531818928" y="284.72806672346451" z="443.88475245977315" />
-        <Forward x="0.821591735" y="0.08717315" z="0.5633717" />
-        <Up x="-0.111278363" y="0.993752837" z="0.008514494" />
-        <Orientation>
-          <X>-0.0512565374</X>
-          <Y>0.882643</Y>
-          <Z>-0.0222792979</Z>
-          <W>-0.4667095</W>
-        </Orientation>
-      </PositionAndOrientation>
-      <LocalPositionAndOrientation xsi:nil="true" />
-      <ComponentContainer>
-        <Components>
-          <ComponentData>
-            <TypeId>MyModStorageComponent</TypeId>
-            <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-              <Storage>
-                <dictionary>
-                  <item>
-                    <Key>ba5bfb16-27fe-4f83-8e1b-9fe04ed919d8</Key>
-                    <Value />
-                  </item>
-                </dictionary>
-              </Storage>
-            </Component>
-          </ComponentData>
-        </Components>
-      </ComponentContainer>
-      <GridSizeEnum>Large</GridSizeEnum>
-      <CubeBlocks>
-        <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_Thrust">
-          <SubtypeName>LargeBlockSmallAtmosphericThrust</SubtypeName>
-          <EntityId>98961023037839074</EntityId>
-          <Name>98961023037839074</Name>
-          <Min x="6" y="-1" z="9" />
-          <BlockOrientation Forward="Down" Up="Forward" />
-          <ColorMaskHSV x="0" y="-0.8" z="-0.3" />
-          <BuiltBy>144115188075855895</BuiltBy>
-          <ComponentContainer>
-            <Components>
-              <ComponentData>
-                <TypeId>MyTimerComponent</TypeId>
-                <Component xsi:type="MyObjectBuilder_TimerComponent">
-                  <Repeat>true</Repeat>
-                  <TimeToEvent>0</TimeToEvent>
-                  <SetTimeMinutes>0</SetTimeMinutes>
-                  <TimerEnabled>false</TimerEnabled>
-                  <RemoveEntityOnTimer>false</RemoveEntityOnTimer>
-                  <TimerType>Frame100</TimerType>
-                  <FramesFromLastTrigger>0</FramesFromLastTrigger>
-                  <TimerTickInFrames>100</TimerTickInFrames>
-                  <IsSessionUpdateEnabled>false</IsSessionUpdateEnabled>
-                </Component>
-              </ComponentData>
-            </Components>
-          </ComponentContainer>
-          <ShowOnHUD>false</ShowOnHUD>
-          <ShowInTerminal>true</ShowInTerminal>
-          <ShowInToolbarConfig>true</ShowInToolbarConfig>
-          <ShowInInventory>true</ShowInInventory>
-          <NumberInGrid>15</NumberInGrid>
-          <Enabled>true</Enabled>
-        </MyObjectBuilder_CubeBlock>
-      </CubeBlocks>
-      <DisplayName>Large Grid 369</DisplayName>
-      <DestructibleBlocks>true</DestructibleBlocks>
-      <IsRespawnGrid>false</IsRespawnGrid>
-      <LocalCoordSys>0</LocalCoordSys>
       <TargetingTargets />
       <NPCGridClaimElapsed xsi:nil="true" />
     </MyObjectBuilder_EntityBase>
@@ -1428,14 +1428,14 @@ Issue Form</Text>
       <PersistentFlags>CastShadows InScene</PersistentFlags>
       <Name>121146153636173499</Name>
       <PositionAndOrientation>
-        <Position x="-5.3081555105226812" y="218.06425749410897" z="461.23718506206939" />
-        <Forward x="-0.5166063" y="-0.779712558" z="0.3537885" />
-        <Up x="0.320429355" y="-0.5592279" z="-0.7645844" />
+        <Position x="2.2290846356198841" y="221.26102219718402" z="462.31300070434037" />
+        <Forward x="-0.6182006" y="-0.770690143" z="-0.154481873" />
+        <Up x="0.38089332" y="-0.12180841" z="-0.916560352" />
         <Orientation>
-          <X>0.8226513</X>
-          <Y>0.0117925033</Y>
-          <Z>0.320715964</Z>
-          <W>-0.4693048</W>
+          <X>-0.6432133</X>
+          <Y>0.0950563252</Y>
+          <Z>-0.383641541</Z>
+          <W>0.6557897</W>
         </Orientation>
       </PositionAndOrientation>
       <LocalPositionAndOrientation xsi:nil="true" />
@@ -1615,7 +1615,7 @@ Issue Form</Text>
       <IsInFirstPersonView>true</IsInFirstPersonView>
       <EnableBroadcasting>true</EnableBroadcasting>
       <OxygenLevel>1</OxygenLevel>
-      <EnvironmentOxygenLevel>0.8588956</EnvironmentOxygenLevel>
+      <EnvironmentOxygenLevel>0.8586738</EnvironmentOxygenLevel>
       <StoredGases>
         <StoredGas>
           <Id Type="MyObjectBuilder_GasProperties" Subtype="Hydrogen" />
@@ -1631,7 +1631,7 @@ Issue Form</Text>
         <string>RagdollComponent</string>
         <string>InventorySpawnComponent</string>
       </EnabledComponents>
-      <NeedsOxygenFromSuit>false</NeedsOxygenFromSuit>
+      <NeedsOxygenFromSuit>true</NeedsOxygenFromSuit>
       <OwningPlayerIdentityId>144115188075855895</OwningPlayerIdentityId>
       <IsPersistenceCharacter>false</IsPersistenceCharacter>
       <IsStartingCharacterForLobby>false</IsStartingCharacterForLobby>
@@ -1950,7 +1950,7 @@ Issue Form</Text>
                   <TimerEnabled>true</TimerEnabled>
                   <RemoveEntityOnTimer>false</RemoveEntityOnTimer>
                   <TimerType>Frame10</TimerType>
-                  <FramesFromLastTrigger>40</FramesFromLastTrigger>
+                  <FramesFromLastTrigger>30</FramesFromLastTrigger>
                   <TimerTickInFrames>60</TimerTickInFrames>
                   <IsSessionUpdateEnabled>false</IsSessionUpdateEnabled>
                 </Component>
@@ -2010,7 +2010,7 @@ Issue Form</Text>
                       <Sprites>
                         <Length>0</Length>
                       </Sprites>
-                      <UpdateStartOfFirstTexture>12569064</UpdateStartOfFirstTexture>
+                      <UpdateStartOfFirstTexture>12920632</UpdateStartOfFirstTexture>
                     </MySerializedTextPanelData>
                     <MySerializedTextPanelData>
                       <ChangeInterval>0</ChangeInterval>
@@ -2063,7 +2063,7 @@ Issue Form</Text>
                       <Sprites>
                         <Length>0</Length>
                       </Sprites>
-                      <UpdateStartOfFirstTexture>12569064</UpdateStartOfFirstTexture>
+                      <UpdateStartOfFirstTexture>12920632</UpdateStartOfFirstTexture>
                     </MySerializedTextPanelData>
                   </TextPanelsContents>
                 </Component>
@@ -2972,7 +2972,7 @@ Issue Form</Text>
                       <Sprites>
                         <Length>0</Length>
                       </Sprites>
-                      <UpdateStartOfFirstTexture>12569064</UpdateStartOfFirstTexture>
+                      <UpdateStartOfFirstTexture>12920632</UpdateStartOfFirstTexture>
                     </MySerializedTextPanelData>
                   </TextPanelsContents>
                 </Component>
@@ -3017,7 +3017,7 @@ Issue Form</Text>
                   <TimerEnabled>true</TimerEnabled>
                   <RemoveEntityOnTimer>false</RemoveEntityOnTimer>
                   <TimerType>Frame10</TimerType>
-                  <FramesFromLastTrigger>40</FramesFromLastTrigger>
+                  <FramesFromLastTrigger>30</FramesFromLastTrigger>
                   <TimerTickInFrames>60</TimerTickInFrames>
                   <IsSessionUpdateEnabled>false</IsSessionUpdateEnabled>
                 </Component>
@@ -3252,7 +3252,7 @@ Issue Form</Text>
       <PersistentFlags>CastShadows InScene</PersistentFlags>
       <Name>112406559527366998</Name>
       <PositionAndOrientation>
-        <Position x="10667.611456460369" y="1851.3052761961208" z="10394.605455584773" />
+        <Position x="10667.610707000596" y="1851.30527962635" z="10394.605894261091" />
         <Forward x="0.7405935" y="0.09561505" z="-0.665115833" />
         <Up x="-0.05650746" y="0.9951803" z="0.0801441744" />
         <Orientation>
@@ -4434,7 +4434,7 @@ http://starcore.tv/discord
                     <Sprites>
                       <Length>0</Length>
                     </Sprites>
-                    <UpdateStartOfFirstTexture>12569064</UpdateStartOfFirstTexture>
+                    <UpdateStartOfFirstTexture>12920632</UpdateStartOfFirstTexture>
                   </TextPanelContent>
                 </Component>
               </ComponentData>
@@ -4552,7 +4552,7 @@ http://starcore.tv/discord
                     <Sprites>
                       <Length>0</Length>
                     </Sprites>
-                    <UpdateStartOfFirstTexture>12569064</UpdateStartOfFirstTexture>
+                    <UpdateStartOfFirstTexture>12920632</UpdateStartOfFirstTexture>
                   </TextPanelContent>
                 </Component>
               </ComponentData>
@@ -5494,7 +5494,7 @@ SPAWN</Text>
                       <Sprites>
                         <Length>0</Length>
                       </Sprites>
-                      <UpdateStartOfFirstTexture>12569064</UpdateStartOfFirstTexture>
+                      <UpdateStartOfFirstTexture>12920632</UpdateStartOfFirstTexture>
                     </MySerializedTextPanelData>
                     <MySerializedTextPanelData>
                       <ChangeInterval>0</ChangeInterval>
@@ -5547,7 +5547,7 @@ SPAWN</Text>
                       <Sprites>
                         <Length>0</Length>
                       </Sprites>
-                      <UpdateStartOfFirstTexture>12569064</UpdateStartOfFirstTexture>
+                      <UpdateStartOfFirstTexture>12920632</UpdateStartOfFirstTexture>
                     </MySerializedTextPanelData>
                   </TextPanelsContents>
                 </Component>
@@ -5870,7 +5870,7 @@ SPAWN</Text>
           <TargetVelocity>0.0333333</TargetVelocity>
           <MinAngle xsi:nil="true" />
           <MaxAngle xsi:nil="true" />
-          <CurrentAngle>4.52171135</CurrentAngle>
+          <CurrentAngle>1.40738142</CurrentAngle>
           <LimitsActive>false</LimitsActive>
           <RotorLock>false</RotorLock>
           <Torque>3.36E+07</Torque>
@@ -6000,7 +6000,7 @@ VARIANTS
                     <Sprites>
                       <Length>0</Length>
                     </Sprites>
-                    <UpdateStartOfFirstTexture>12568064</UpdateStartOfFirstTexture>
+                    <UpdateStartOfFirstTexture>12919632</UpdateStartOfFirstTexture>
                   </TextPanelContent>
                 </Component>
               </ComponentData>
@@ -6052,7 +6052,7 @@ VARIANTS
       <PersistentFlags>CastShadows InScene</PersistentFlags>
       <Name>111920470240547304</Name>
       <PositionAndOrientation>
-        <Position x="-13473.016473227131" y="2992.3054593015895" z="-5905.5454233214768" />
+        <Position x="-13473.017222686904" y="2992.3054474730297" z="-5905.5449846451584" />
         <Forward x="0.338195175" y="0.114960521" z="-0.9340279" />
         <Up x="-0.4884095" y="-0.8269369" z="-0.278624266" />
         <Orientation>
@@ -7237,7 +7237,7 @@ http://starcore.tv/discord
                     <Sprites>
                       <Length>0</Length>
                     </Sprites>
-                    <UpdateStartOfFirstTexture>12569064</UpdateStartOfFirstTexture>
+                    <UpdateStartOfFirstTexture>12920632</UpdateStartOfFirstTexture>
                   </TextPanelContent>
                 </Component>
               </ComponentData>
@@ -7794,7 +7794,7 @@ http://starcore.tv/discord
                     <Sprites>
                       <Length>0</Length>
                     </Sprites>
-                    <UpdateStartOfFirstTexture>12569064</UpdateStartOfFirstTexture>
+                    <UpdateStartOfFirstTexture>12920632</UpdateStartOfFirstTexture>
                   </TextPanelContent>
                 </Component>
               </ComponentData>
@@ -8297,7 +8297,7 @@ SPAWN</Text>
                       <Sprites>
                         <Length>0</Length>
                       </Sprites>
-                      <UpdateStartOfFirstTexture>12569064</UpdateStartOfFirstTexture>
+                      <UpdateStartOfFirstTexture>12920632</UpdateStartOfFirstTexture>
                     </MySerializedTextPanelData>
                     <MySerializedTextPanelData>
                       <ChangeInterval>0</ChangeInterval>
@@ -8350,7 +8350,7 @@ SPAWN</Text>
                       <Sprites>
                         <Length>0</Length>
                       </Sprites>
-                      <UpdateStartOfFirstTexture>12569064</UpdateStartOfFirstTexture>
+                      <UpdateStartOfFirstTexture>12920632</UpdateStartOfFirstTexture>
                     </MySerializedTextPanelData>
                   </TextPanelsContents>
                 </Component>
@@ -8712,7 +8712,7 @@ SPAWN</Text>
           <TargetVelocity>0.0333333</TargetVelocity>
           <MinAngle xsi:nil="true" />
           <MaxAngle xsi:nil="true" />
-          <CurrentAngle>2.349397</CurrentAngle>
+          <CurrentAngle>5.518259</CurrentAngle>
           <LimitsActive>false</LimitsActive>
           <RotorLock>false</RotorLock>
           <Torque>3.36E+07</Torque>
@@ -8803,7 +8803,7 @@ VARIANTS
                     <Sprites>
                       <Length>0</Length>
                     </Sprites>
-                    <UpdateStartOfFirstTexture>12568064</UpdateStartOfFirstTexture>
+                    <UpdateStartOfFirstTexture>12919632</UpdateStartOfFirstTexture>
                   </TextPanelContent>
                 </Component>
               </ComponentData>
@@ -8875,7 +8875,7 @@ VARIANTS
                 <dictionary>
                   <item>
                     <Key>ba5bfb16-27fe-4f83-8e1b-9fe04ed919d8</Key>
-                    <Value>CvsBEgpGdWVsRW5naW5lGgYIAiABOAQaBggBIAE4BBoGCAAgATgEGg8I////////////ASABOAQaBggFIAE4BBoGCAQgATgEGgYIAyABOAQaBggCIAI4BBoGCAIgBDgEGgYIAiACOAMaBggCIAM4BBoGCAAgAjgEGgYIACABOAUaBggAIAE4AxoGCAAgAjgDGg8I/v//////////ASABOAQaDwj9//////////8BIAE4AxoYCP3//////////wEg////////////ATgEGg8I/f//////////ASABOAQaDwj9//////////8BIAE4BRoGCAAgAjgFGgYIAiACOAUKgwESCkZ1ZWxFbmdpbmUaDwgHIAI49v//////////ARoPCAYgAjj2//////////8BGg8IBSACOPb//////////wEaDwgGIAM49v//////////ARoPCAYgATj2//////////8BGg8IBiACOPX//////////wEaDwgGIAI49///////////AQokEhJGdWVsRW5naW5lQ3lsaW5kZXIaBggCIAI4BBoGCAIgAzgECisSEUZ1ZWxFbmdpbmVFeGhhdXN0GgYIBiABOAcaBggEIAE4BxoGCAUgATgHCisSEUZ1ZWxFbmdpbmVFeGhhdXN0GgYIAiACOAQaBggCIAI4AxoGCAIgAjgFChsSEUZ1ZWxFbmdpbmVFeGhhdXN0GgYIACACOAQKNxIVRnVlbEVuZ2luZUNhcmJ1cmV0dG9yGgYIAiAEOAQaBggCIAI4AxoGCAIgAzgEGgYIAiACOAUKPBISRnVlbEVuZ2luZUN5bGluZGVyGgYIACACOAQaBggAIAE4BRoGCAAgATgDGgYIACACOAMaBggAIAI4BQobEhFGdWVsRW5naW5lRXhoYXVzdBoGCAAgATgFChsSEUZ1ZWxFbmdpbmVFeGhhdXN0GgYIACABOAMKNhISRnVlbEVuZ2luZUN5bGluZGVyGg8IBiACOPb//////////wEaDwgFIAI49v//////////AQrfARIRRnVlbEVuZ2luZUV4aGF1c3QaDwgGIAI49v//////////ARoPCAYgAzj2//////////8BGg8IBiABOPb//////////wEaDwgGIAI49f//////////ARoPCAYgAjj3//////////8BGg8IBiADOPf//////////wEaDwgGIAE49f//////////ARoPCAcgATj1//////////8BGg8IByADOPf//////////wEaDwgHIAM49v//////////ARoPCAcgAjj1//////////8BGg8IByADOPX//////////wEKbBIVRnVlbEVuZ2luZUNhcmJ1cmV0dG9yGg8IBSACOPb//////////wEaDwgGIAM49v//////////ARoPCAYgATj2//////////8BGg8IBiACOPX//////////wEaDwgGIAI49///////////AQobEhFGdWVsRW5naW5lRXhoYXVzdBoGCAIgBDgE</Value>
+                    <Value>CvsBEgpGdWVsRW5naW5lGgYIAiABOAQaBggBIAE4BBoGCAAgATgEGg8I////////////ASABOAQaBggFIAE4BBoGCAQgATgEGgYIAyABOAQaBggCIAI4BBoGCAIgBDgEGgYIAiACOAMaBggCIAM4BBoGCAAgAjgEGgYIACABOAUaBggAIAE4AxoGCAAgAjgDGg8I/v//////////ASABOAQaDwj9//////////8BIAE4AxoYCP3//////////wEg////////////ATgEGg8I/f//////////ASABOAQaDwj9//////////8BIAE4BRoGCAAgAjgFGgYIAiACOAUKbBIVRnVlbEVuZ2luZUNhcmJ1cmV0dG9yGg8IBiACOPf//////////wEaDwgGIAI49f//////////ARoPCAYgAzj2//////////8BGg8IBiABOPb//////////wEaDwgFIAI49v//////////AQokEhJGdWVsRW5naW5lQ3lsaW5kZXIaBggCIAI4BBoGCAIgAzgECisSEUZ1ZWxFbmdpbmVFeGhhdXN0GgYIBiABOAcaBggEIAE4BxoGCAUgATgHCisSEUZ1ZWxFbmdpbmVFeGhhdXN0GgYIAiACOAQaBggCIAI4AxoGCAIgAjgFChsSEUZ1ZWxFbmdpbmVFeGhhdXN0GgYIACACOAQKNxIVRnVlbEVuZ2luZUNhcmJ1cmV0dG9yGgYIAiAEOAQaBggCIAI4AxoGCAIgAzgEGgYIAiACOAUKPBISRnVlbEVuZ2luZUN5bGluZGVyGgYIACACOAQaBggAIAE4BRoGCAAgATgDGgYIACACOAMaBggAIAI4BQolEhJGdWVsRW5naW5lQ3lsaW5kZXIaDwgGIAI48v//////////AQokEhFGdWVsRW5naW5lRXhoYXVzdBoPCAYgAjjy//////////8BCjYSEkZ1ZWxFbmdpbmVDeWxpbmRlchoPCAUgAjj2//////////8BGg8IBiACOPb//////////wEK3wESEUZ1ZWxFbmdpbmVFeGhhdXN0Gg8IByADOPX//////////wEaDwgHIAI49f//////////ARoPCAcgAzj2//////////8BGg8IByABOPX//////////wEaDwgHIAM49///////////ARoPCAYgATj1//////////8BGg8IBiADOPf//////////wEaDwgGIAI49///////////ARoPCAYgAjj1//////////8BGg8IBiADOPb//////////wEaDwgGIAE49v//////////ARoPCAYgAjj2//////////8BCi4SCkZ1ZWxFbmdpbmUaDwgGIAI49v//////////ARoPCAcgAjj2//////////8BCi4SCkZ1ZWxFbmdpbmUaDwgHIAI48v//////////ARoPCAYgAjjy//////////8BChsSEUZ1ZWxFbmdpbmVFeGhhdXN0GgYIACABOAUKJBIRRnVlbEVuZ2luZUV4aGF1c3QaDwgCIAE4/v//////////AQobEhFGdWVsRW5naW5lRXhoYXVzdBoGCAAgATgDCiQSEUZ1ZWxFbmdpbmVFeGhhdXN0Gg8ICSABOP3//////////wEKGxIRRnVlbEVuZ2luZUV4aGF1c3QaBggCIAQ4BA==</Value>
                   </item>
                 </dictionary>
               </Storage>
@@ -14810,90 +14810,30 @@ VARIANTS
           <BuiltBy>144115188075855895</BuiltBy>
         </MyObjectBuilder_CubeBlock>
         <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
-          <SubtypeName>ST_T_FuelEngineGenerator</SubtypeName>
-          <EntityId>105844053256915387</EntityId>
-          <Name>105844053256915387</Name>
-          <Min x="7" y="2" z="-10" />
-          <BlockOrientation Forward="Left" Up="Up" />
+          <SubtypeName>ST_T_JunctionPipe</SubtypeName>
+          <EntityId>87812810729107887</EntityId>
+          <Name>87812810729107887</Name>
+          <Min x="7" y="3" z="-11" />
+          <BlockOrientation Forward="Right" Up="Backward" />
           <ColorMaskHSV x="0" y="-0.8" z="0" />
           <SkinSubtypeId>Clean_Armor</SkinSubtypeId>
           <BuiltBy>144115188075855895</BuiltBy>
         </MyObjectBuilder_CubeBlock>
         <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
-          <SubtypeName>ST_T_Cylinder</SubtypeName>
-          <EntityId>88552859813310269</EntityId>
-          <Name>88552859813310269</Name>
-          <Min x="6" y="2" z="-10" />
-          <BlockOrientation Forward="Forward" Up="Left" />
+          <SubtypeName>ST_T_StraightPipe</SubtypeName>
+          <EntityId>80907980944793658</EntityId>
+          <Name>80907980944793658</Name>
+          <Min x="7" y="2" z="-11" />
+          <BlockOrientation Forward="Up" Up="Backward" />
           <ColorMaskHSV x="0" y="-0.8" z="0" />
           <SkinSubtypeId>Clean_Armor</SkinSubtypeId>
           <BuiltBy>144115188075855895</BuiltBy>
         </MyObjectBuilder_CubeBlock>
         <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
-          <SubtypeName>ST_T_Carburettor</SubtypeName>
-          <EntityId>85006841103468684</EntityId>
-          <Name>85006841103468684</Name>
-          <Min x="5" y="2" z="-10" />
-          <BlockOrientation Forward="Forward" Up="Left" />
-          <ColorMaskHSV x="0" y="-0.8" z="0" />
-          <SkinSubtypeId>Clean_Armor</SkinSubtypeId>
-          <BuiltBy>144115188075855895</BuiltBy>
-        </MyObjectBuilder_CubeBlock>
-        <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
-          <SubtypeName>ST_T_TurbochargerRight</SubtypeName>
-          <EntityId>127483911886586154</EntityId>
-          <Name>127483911886586154</Name>
-          <Min x="5" y="3" z="-10" />
-          <BlockOrientation Forward="Down" Up="Left" />
-          <ColorMaskHSV x="0" y="-0.8" z="0" />
-          <SkinSubtypeId>Clean_Armor</SkinSubtypeId>
-          <BuiltBy>144115188075855895</BuiltBy>
-        </MyObjectBuilder_CubeBlock>
-        <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
-          <SubtypeName>ST_T_TurbochargerRight</SubtypeName>
-          <EntityId>137457641309819194</EntityId>
-          <Name>137457641309819194</Name>
-          <Min x="5" y="1" z="-10" />
-          <BlockOrientation Forward="Up" Up="Left" />
-          <ColorMaskHSV x="0" y="-0.8" z="0" />
-          <SkinSubtypeId>Clean_Armor</SkinSubtypeId>
-          <BuiltBy>144115188075855895</BuiltBy>
-        </MyObjectBuilder_CubeBlock>
-        <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
-          <SubtypeName>ST_T_TurbochargerLeft</SubtypeName>
-          <EntityId>73830009593105133</EntityId>
-          <Name>73830009593105133</Name>
-          <Min x="5" y="2" z="-11" />
-          <BlockOrientation Forward="Backward" Up="Left" />
-          <ColorMaskHSV x="0" y="-0.8" z="0" />
-          <SkinSubtypeId>Clean_Armor</SkinSubtypeId>
-          <BuiltBy>144115188075855895</BuiltBy>
-        </MyObjectBuilder_CubeBlock>
-        <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
-          <SubtypeName>ST_T_TurbochargerLeft</SubtypeName>
-          <EntityId>137720921836932661</EntityId>
-          <Name>137720921836932661</Name>
-          <Min x="5" y="2" z="-9" />
-          <BlockOrientation Forward="Forward" Up="Left" />
-          <ColorMaskHSV x="0" y="-0.8" z="0" />
-          <SkinSubtypeId>Clean_Armor</SkinSubtypeId>
-          <BuiltBy>144115188075855895</BuiltBy>
-        </MyObjectBuilder_CubeBlock>
-        <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
-          <SubtypeName>ST_T_LJunctionPipe</SubtypeName>
-          <EntityId>101122352039579850</EntityId>
-          <Name>101122352039579850</Name>
-          <Min x="6" y="3" z="-9" />
-          <ColorMaskHSV x="0" y="-0.8" z="0" />
-          <SkinSubtypeId>Clean_Armor</SkinSubtypeId>
-          <BuiltBy>144115188075855895</BuiltBy>
-        </MyObjectBuilder_CubeBlock>
-        <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
-          <SubtypeName>ST_T_LJunctionPipe</SubtypeName>
-          <EntityId>113651905168311032</EntityId>
-          <Name>113651905168311032</Name>
-          <Min x="6" y="1" z="-11" />
-          <BlockOrientation Forward="Backward" Up="Down" />
+          <SubtypeName>ST_T_StraightPipe</SubtypeName>
+          <EntityId>90567871423783807</EntityId>
+          <Name>90567871423783807</Name>
+          <Min x="7" y="3" z="-10" />
           <ColorMaskHSV x="0" y="-0.8" z="0" />
           <SkinSubtypeId>Clean_Armor</SkinSubtypeId>
           <BuiltBy>144115188075855895</BuiltBy>
@@ -14919,30 +14859,137 @@ VARIANTS
           <BuiltBy>144115188075855895</BuiltBy>
         </MyObjectBuilder_CubeBlock>
         <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
-          <SubtypeName>ST_T_StraightPipe</SubtypeName>
-          <EntityId>90567871423783807</EntityId>
-          <Name>90567871423783807</Name>
-          <Min x="7" y="3" z="-10" />
+          <SubtypeName>ST_T_LJunctionPipe</SubtypeName>
+          <EntityId>113651905168311032</EntityId>
+          <Name>113651905168311032</Name>
+          <Min x="6" y="1" z="-11" />
+          <BlockOrientation Forward="Backward" Up="Down" />
           <ColorMaskHSV x="0" y="-0.8" z="0" />
           <SkinSubtypeId>Clean_Armor</SkinSubtypeId>
           <BuiltBy>144115188075855895</BuiltBy>
         </MyObjectBuilder_CubeBlock>
         <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
-          <SubtypeName>ST_T_StraightPipe</SubtypeName>
-          <EntityId>80907980944793658</EntityId>
-          <Name>80907980944793658</Name>
-          <Min x="7" y="2" z="-11" />
-          <BlockOrientation Forward="Up" Up="Backward" />
+          <SubtypeName>ST_T_LJunctionPipe</SubtypeName>
+          <EntityId>101122352039579850</EntityId>
+          <Name>101122352039579850</Name>
+          <Min x="6" y="3" z="-9" />
           <ColorMaskHSV x="0" y="-0.8" z="0" />
           <SkinSubtypeId>Clean_Armor</SkinSubtypeId>
           <BuiltBy>144115188075855895</BuiltBy>
         </MyObjectBuilder_CubeBlock>
         <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
-          <SubtypeName>ST_T_JunctionPipe</SubtypeName>
-          <EntityId>87812810729107887</EntityId>
-          <Name>87812810729107887</Name>
-          <Min x="7" y="3" z="-11" />
-          <BlockOrientation Forward="Right" Up="Backward" />
+          <SubtypeName>ST_T_TurbochargerLeft</SubtypeName>
+          <EntityId>137720921836932661</EntityId>
+          <Name>137720921836932661</Name>
+          <Min x="5" y="2" z="-9" />
+          <BlockOrientation Forward="Forward" Up="Left" />
+          <ColorMaskHSV x="0" y="-0.8" z="0" />
+          <SkinSubtypeId>Clean_Armor</SkinSubtypeId>
+          <BuiltBy>144115188075855895</BuiltBy>
+        </MyObjectBuilder_CubeBlock>
+        <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+          <SubtypeName>ST_T_TurbochargerLeft</SubtypeName>
+          <EntityId>73830009593105133</EntityId>
+          <Name>73830009593105133</Name>
+          <Min x="5" y="2" z="-11" />
+          <BlockOrientation Forward="Backward" Up="Left" />
+          <ColorMaskHSV x="0" y="-0.8" z="0" />
+          <SkinSubtypeId>Clean_Armor</SkinSubtypeId>
+          <BuiltBy>144115188075855895</BuiltBy>
+        </MyObjectBuilder_CubeBlock>
+        <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+          <SubtypeName>ST_T_TurbochargerRight</SubtypeName>
+          <EntityId>127483911886586154</EntityId>
+          <Name>127483911886586154</Name>
+          <Min x="5" y="3" z="-10" />
+          <BlockOrientation Forward="Down" Up="Left" />
+          <ColorMaskHSV x="0" y="-0.8" z="0" />
+          <SkinSubtypeId>Clean_Armor</SkinSubtypeId>
+          <BuiltBy>144115188075855895</BuiltBy>
+        </MyObjectBuilder_CubeBlock>
+        <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+          <SubtypeName>ST_T_TurbochargerRight</SubtypeName>
+          <EntityId>137457641309819194</EntityId>
+          <Name>137457641309819194</Name>
+          <Min x="5" y="1" z="-10" />
+          <BlockOrientation Forward="Up" Up="Left" />
+          <ColorMaskHSV x="0" y="-0.8" z="0" />
+          <SkinSubtypeId>Clean_Armor</SkinSubtypeId>
+          <BuiltBy>144115188075855895</BuiltBy>
+        </MyObjectBuilder_CubeBlock>
+        <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+          <SubtypeName>ST_T_Carburettor</SubtypeName>
+          <EntityId>85006841103468684</EntityId>
+          <Name>85006841103468684</Name>
+          <Min x="5" y="2" z="-10" />
+          <BlockOrientation Forward="Forward" Up="Left" />
+          <ColorMaskHSV x="0" y="-0.8" z="0" />
+          <SkinSubtypeId>Clean_Armor</SkinSubtypeId>
+          <BuiltBy>144115188075855895</BuiltBy>
+        </MyObjectBuilder_CubeBlock>
+        <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+          <SubtypeName>ST_T_Cylinder</SubtypeName>
+          <EntityId>88552859813310269</EntityId>
+          <Name>88552859813310269</Name>
+          <Min x="6" y="2" z="-10" />
+          <BlockOrientation Forward="Forward" Up="Left" />
+          <ColorMaskHSV x="0" y="-0.8" z="0" />
+          <SkinSubtypeId>Clean_Armor</SkinSubtypeId>
+          <BuiltBy>144115188075855895</BuiltBy>
+        </MyObjectBuilder_CubeBlock>
+        <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+          <SubtypeName>ST_T_FuelEngineGenerator</SubtypeName>
+          <EntityId>139259424147812434</EntityId>
+          <Name>139259424147812434</Name>
+          <Min x="7" y="2" z="-10" />
+          <BlockOrientation Forward="Left" Up="Up" />
+          <ColorMaskHSV x="0" y="-0.8" z="0" />
+          <SkinSubtypeId>Clean_Armor</SkinSubtypeId>
+          <BuiltBy>144115188075855895</BuiltBy>
+        </MyObjectBuilder_CubeBlock>
+        <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+          <SubtypeName>LargeBlockArmorBlock</SubtypeName>
+          <Min x="7" y="1" z="-14" />
+          <ColorMaskHSV x="0" y="-0.8" z="0" />
+          <SkinSubtypeId>Clean_Armor</SkinSubtypeId>
+          <BuiltBy>144115188075855895</BuiltBy>
+        </MyObjectBuilder_CubeBlock>
+        <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+          <SubtypeName>ST_T_FuelEngineGenerator</SubtypeName>
+          <EntityId>82694169974012101</EntityId>
+          <Name>82694169974012101</Name>
+          <Min x="7" y="2" z="-14" />
+          <BlockOrientation Forward="Left" Up="Up" />
+          <ColorMaskHSV x="0" y="-0.8" z="0" />
+          <SkinSubtypeId>Clean_Armor</SkinSubtypeId>
+          <BuiltBy>144115188075855895</BuiltBy>
+        </MyObjectBuilder_CubeBlock>
+        <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+          <SubtypeName>ST_T_Cylinder</SubtypeName>
+          <EntityId>112750382873201408</EntityId>
+          <Name>112750382873201408</Name>
+          <Min x="6" y="2" z="-14" />
+          <BlockOrientation Forward="Forward" Up="Left" />
+          <ColorMaskHSV x="0" y="-0.8" z="0" />
+          <SkinSubtypeId>Clean_Armor</SkinSubtypeId>
+          <BuiltBy>144115188075855895</BuiltBy>
+        </MyObjectBuilder_CubeBlock>
+        <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+          <SubtypeName>ST_T_5WayPipe</SubtypeName>
+          <EntityId>105621676076781875</EntityId>
+          <Name>105621676076781875</Name>
+          <Min x="2" y="1" z="-2" />
+          <BlockOrientation Forward="Forward" Up="Left" />
+          <ColorMaskHSV x="0" y="-0.8" z="0" />
+          <SkinSubtypeId>Clean_Armor</SkinSubtypeId>
+          <BuiltBy>144115188075855895</BuiltBy>
+        </MyObjectBuilder_CubeBlock>
+        <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+          <SubtypeName>ST_T_HullPipe</SubtypeName>
+          <EntityId>126851951118545863</EntityId>
+          <Name>126851951118545863</Name>
+          <Min x="9" y="1" z="-3" />
+          <BlockOrientation Forward="Right" Up="Up" />
           <ColorMaskHSV x="0" y="-0.8" z="0" />
           <SkinSubtypeId>Clean_Armor</SkinSubtypeId>
           <BuiltBy>144115188075855895</BuiltBy>

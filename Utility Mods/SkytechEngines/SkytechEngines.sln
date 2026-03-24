@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36811.4 d17.14
+VisualStudioVersion = 17.14.36811.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkytechEngines", "SkytechEngines.csproj", "{91DE8BD8-7375-CE10-AB3F-F179AC182FE9}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "AriUtils", "..\..\..\..\..\..\source\repos\AriUtils\AriUtils.shproj", "{8A3CDCC5-4B55-4D87-A415-698A0E1FF06F}"
-EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "RichHudFramework", "..\RichHudFramework\RichHudFramework.shproj", "{0CB63448-8C77-4CF0-830C-395CE215D9AA}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "AriUtils", "..\AriUtils\AriUtils.shproj", "{8A3CDCC5-4B55-4D87-A415-698A0E1FF06F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,8 +28,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		..\RichHudFramework\RichHudFramework.projitems*{0cb63448-8c77-4cf0-830c-395ce215d9aa}*SharedItemsImports = 13
-		..\..\..\..\..\..\source\repos\AriUtils\AriUtils.projitems*{8a3cdcc5-4b55-4d87-a415-698a0e1ff06f}*SharedItemsImports = 13
+		..\AriUtils\AriUtils.projitems*{8a3cdcc5-4b55-4d87-a415-698a0e1ff06f}*SharedItemsImports = 13
+		..\AriUtils\AriUtils.projitems*{91de8bd8-7375-ce10-ab3f-f179ac182fe9}*SharedItemsImports = 5
 		..\RichHudFramework\RichHudFramework.projitems*{91de8bd8-7375-ce10-ab3f-f179ac182fe9}*SharedItemsImports = 5
-		..\..\..\..\..\..\source\repos\AriUtils\AriUtils.projitems*{91de8bd8-7375-ce10-ab3f-f179ac182fe9}*SharedItemsImports = 5
 	EndGlobalSection
 EndGlobal

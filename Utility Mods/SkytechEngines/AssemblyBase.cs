@@ -70,6 +70,11 @@ namespace Skytech.Engines
         public virtual void Unload()
         {
             OnClose?.Invoke();
+
+            foreach (var block in Blocks)
+            {
+                BlockInfo.Unregister(block, BlockInfoCallback);
+            }
         }
 
         /// <summary>

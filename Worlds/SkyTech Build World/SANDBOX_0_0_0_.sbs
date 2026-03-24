@@ -22,18 +22,70 @@
   <SectorObjects>
     <MyObjectBuilder_EntityBase xsi:type="MyObjectBuilder_CubeGrid">
       <SubtypeName />
+      <EntityId>112705671047389108</EntityId>
+      <PersistentFlags>CastShadows InScene</PersistentFlags>
+      <Name>112705671047389108</Name>
+      <PositionAndOrientation>
+        <Position x="-42.10764560253665" y="270.33141457494821" z="450.79354605551544" />
+        <Forward x="0.818211734" y="0.114745528" z="0.563349843" />
+        <Up x="-0.559101343" y="-0.06944442" z="0.826185942" />
+        <Orientation>
+          <X>0.6645895</X>
+          <Y>-0.5830915</Y>
+          <Z>-0.305029482</Z>
+          <W>0.3539521</W>
+        </Orientation>
+      </PositionAndOrientation>
+      <LocalPositionAndOrientation xsi:nil="true" />
+      <ComponentContainer>
+        <Components>
+          <ComponentData>
+            <TypeId>MyModStorageComponent</TypeId>
+            <Component xsi:type="MyObjectBuilder_ModStorageComponent">
+              <Storage>
+                <dictionary>
+                  <item>
+                    <Key>ba5bfb16-27fe-4f83-8e1b-9fe04ed919d8</Key>
+                    <Value />
+                  </item>
+                </dictionary>
+              </Storage>
+            </Component>
+          </ComponentData>
+        </Components>
+      </ComponentContainer>
+      <GridSizeEnum>Large</GridSizeEnum>
+      <CubeBlocks>
+        <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+          <SubtypeName>GimbalThrustPart</SubtypeName>
+          <EntityId>79920037690482634</EntityId>
+          <Name>79920037690482634</Name>
+          <Min x="7" y="0" z="-1" />
+          <BlockOrientation Forward="Right" Up="Forward" />
+          <ColorMaskHSV x="0" y="-0.8" z="-0.3" />
+        </MyObjectBuilder_CubeBlock>
+      </CubeBlocks>
+      <DisplayName>Large Grid 9108</DisplayName>
+      <DestructibleBlocks>true</DestructibleBlocks>
+      <IsRespawnGrid>false</IsRespawnGrid>
+      <LocalCoordSys>0</LocalCoordSys>
+      <TargetingTargets />
+      <NPCGridClaimElapsed xsi:nil="true" />
+    </MyObjectBuilder_EntityBase>
+    <MyObjectBuilder_EntityBase xsi:type="MyObjectBuilder_CubeGrid">
+      <SubtypeName />
       <EntityId>125571205643915534</EntityId>
       <PersistentFlags>CastShadows InScene</PersistentFlags>
       <Name>125571205643915534</Name>
       <PositionAndOrientation>
-        <Position x="-35.584971710341051" y="246.21426094959224" z="428.97845285484163" />
-        <Forward x="0.558477163" y="0.06922947" z="-0.826626062" />
-        <Up x="-0.7794641" y="-0.2971284" z="-0.5514984" />
+        <Position x="-35.58481845409915" y="246.21410500463571" z="428.97836050864044" />
+        <Forward x="0.5584747" y="0.06923324" z="-0.8266274" />
+        <Up x="-0.779465" y="-0.29712832" z="-0.551497161" />
         <Orientation>
-          <X>-0.216048837</X>
-          <Y>-0.200024754</Y>
-          <Z>0.7758139</Z>
-          <W>0.55805546</W>
+          <X>-0.216046646</X>
+          <Y>-0.2000254</Y>
+          <Z>0.775814354</Z>
+          <W>0.5580553</W>
         </Orientation>
       </PositionAndOrientation>
       <LocalPositionAndOrientation xsi:nil="true" />
@@ -78,14 +130,14 @@
       <PersistentFlags>CastShadows InScene</PersistentFlags>
       <Name>89298675883704580</Name>
       <PositionAndOrientation>
-        <Position x="-46.779795929091051" y="253.17458809802974" z="437.11443918296663" />
-        <Forward x="0.7972797" y="-0.319874942" z="0.511883855" />
-        <Up x="-0.22823675" y="-0.9448347" z="-0.2349369" />
+        <Position x="-46.78061923534915" y="253.17406594213571" z="437.11398062582794" />
+        <Forward x="0.7973157" y="-0.3198695" z="0.511831045" />
+        <Up x="-0.22825712" y="-0.94483757" z="-0.234905109" />
         <Orientation>
-          <X>0.8682619</X>
-          <Y>-0.0454232357</Y>
-          <Z>-0.467481226</Z>
-          <W>-0.159747839</W>
+          <X>0.8682461</X>
+          <Y>-0.04543432</Y>
+          <Z>-0.467512131</Z>
+          <W>-0.159740046</W>
         </Orientation>
       </PositionAndOrientation>
       <LocalPositionAndOrientation xsi:nil="true" />
@@ -126,70 +178,18 @@
     </MyObjectBuilder_EntityBase>
     <MyObjectBuilder_EntityBase xsi:type="MyObjectBuilder_CubeGrid">
       <SubtypeName />
-      <EntityId>112705671047389108</EntityId>
-      <PersistentFlags>CastShadows InScene</PersistentFlags>
-      <Name>112705671047389108</Name>
-      <PositionAndOrientation>
-        <Position x="-42.105601593153551" y="270.33144844959224" z="450.79070871421663" />
-        <Forward x="0.8183394" y="0.114761621" z="0.563161135" />
-        <Up x="-0.558945537" y="-0.06918782" z="0.8263129" />
-        <Orientation>
-          <X>0.664481342</X>
-          <Y>-0.5831339</Y>
-          <Z>-0.305054843</Z>
-          <W>0.354063541</W>
-        </Orientation>
-      </PositionAndOrientation>
-      <LocalPositionAndOrientation xsi:nil="true" />
-      <ComponentContainer>
-        <Components>
-          <ComponentData>
-            <TypeId>MyModStorageComponent</TypeId>
-            <Component xsi:type="MyObjectBuilder_ModStorageComponent">
-              <Storage>
-                <dictionary>
-                  <item>
-                    <Key>ba5bfb16-27fe-4f83-8e1b-9fe04ed919d8</Key>
-                    <Value />
-                  </item>
-                </dictionary>
-              </Storage>
-            </Component>
-          </ComponentData>
-        </Components>
-      </ComponentContainer>
-      <GridSizeEnum>Large</GridSizeEnum>
-      <CubeBlocks>
-        <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
-          <SubtypeName>GimbalThrustPart</SubtypeName>
-          <EntityId>79920037690482634</EntityId>
-          <Name>79920037690482634</Name>
-          <Min x="7" y="0" z="-1" />
-          <BlockOrientation Forward="Right" Up="Forward" />
-          <ColorMaskHSV x="0" y="-0.8" z="-0.3" />
-        </MyObjectBuilder_CubeBlock>
-      </CubeBlocks>
-      <DisplayName>Large Grid 9108</DisplayName>
-      <DestructibleBlocks>true</DestructibleBlocks>
-      <IsRespawnGrid>false</IsRespawnGrid>
-      <LocalCoordSys>0</LocalCoordSys>
-      <TargetingTargets />
-      <NPCGridClaimElapsed xsi:nil="true" />
-    </MyObjectBuilder_EntityBase>
-    <MyObjectBuilder_EntityBase xsi:type="MyObjectBuilder_CubeGrid">
-      <SubtypeName />
       <EntityId>133791556661670696</EntityId>
       <PersistentFlags>CastShadows InScene</PersistentFlags>
       <Name>124415480182334585</Name>
       <PositionAndOrientation>
-        <Position x="-13460.280894561904" y="2986.3354767699047" z="-5910.1480119889084" />
-        <Forward x="0.242097035" y="-0.9697361" z="-0.0316409841" />
-        <Up x="0.3383965" y="0.114955068" z="-0.9339558" />
+        <Position x="-13460.2811075166" y="2986.3355649655732" z="-5910.1483484757346" />
+        <Forward x="-0.433192521" y="-0.86207974" z="-0.262987971" />
+        <Up x="0.338271856" y="0.114947975" z="-0.934001565" />
         <Orientation>
-          <X>-0.6638396</X>
-          <Y>-0.208558366</Y>
-          <Z>-0.0428900644</Z>
-          <W>0.7169246</W>
+          <X>-0.603630245</X>
+          <Y>0.0643159</Y>
+          <Z>-0.2795649</Z>
+          <W>0.743866563</W>
         </Orientation>
       </PositionAndOrientation>
       <LocalPositionAndOrientation xsi:nil="true" />
@@ -298,7 +298,7 @@ Issue Form</Text>
                     <Sprites>
                       <Length>0</Length>
                     </Sprites>
-                    <UpdateStartOfFirstTexture>12920632</UpdateStartOfFirstTexture>
+                    <UpdateStartOfFirstTexture>12974840</UpdateStartOfFirstTexture>
                   </TextPanelContent>
                 </Component>
               </ComponentData>
@@ -406,7 +406,7 @@ Issue Form</Text>
                     <Sprites>
                       <Length>0</Length>
                     </Sprites>
-                    <UpdateStartOfFirstTexture>12920632</UpdateStartOfFirstTexture>
+                    <UpdateStartOfFirstTexture>12974840</UpdateStartOfFirstTexture>
                   </TextPanelContent>
                 </Component>
               </ComponentData>
@@ -514,7 +514,7 @@ Issue Form</Text>
                     <Sprites>
                       <Length>0</Length>
                     </Sprites>
-                    <UpdateStartOfFirstTexture>12920632</UpdateStartOfFirstTexture>
+                    <UpdateStartOfFirstTexture>12974840</UpdateStartOfFirstTexture>
                   </TextPanelContent>
                 </Component>
               </ComponentData>
@@ -622,7 +622,7 @@ Issue Form</Text>
                     <Sprites>
                       <Length>0</Length>
                     </Sprites>
-                    <UpdateStartOfFirstTexture>12920632</UpdateStartOfFirstTexture>
+                    <UpdateStartOfFirstTexture>12974840</UpdateStartOfFirstTexture>
                   </TextPanelContent>
                 </Component>
               </ComponentData>
@@ -684,8 +684,8 @@ Issue Form</Text>
           <RotationSpeed>0.08</RotationSpeed>
         </MyObjectBuilder_CubeBlock>
       </CubeBlocks>
-      <LinearVelocity x="74.8073044" y="-16.6741714" z="32.9250641" />
-      <AngularVelocity x="-0.0477825962" y="-0.184958562" z="0.072054036" />
+      <LinearVelocity x="74.9612656" y="-16.6206017" z="32.8084373" />
+      <AngularVelocity x="-0.05759366" y="-0.130734459" z="0.0751685351" />
       <DisplayName>redspinny</DisplayName>
       <DestructibleBlocks>false</DestructibleBlocks>
       <IsRespawnGrid>false</IsRespawnGrid>
@@ -699,14 +699,14 @@ Issue Form</Text>
       <PersistentFlags>CastShadows InScene</PersistentFlags>
       <Name>133447940010295900</Name>
       <PositionAndOrientation>
-        <Position x="-27.431651397841051" y="241.33450020740474" z="452.21758859702913" />
-        <Forward x="-0.5604447" y="-0.07046227" z="0.8251887" />
-        <Up x="0.822871447" y="0.065380156" z="0.5644536" />
+        <Position x="-27.43174228222415" y="241.33397805151071" z="452.21798453207794" />
+        <Forward x="-0.560422242" y="-0.07042375" z="0.825207651" />
+        <Up x="0.8228893" y="0.065381825" z="0.5644276" />
         <Orientation>
-          <X>0.6453846</X>
-          <Y>0.7043246</Y>
-          <Z>0.225363418</Z>
-          <W>0.191355452</W>
+          <X>0.645392</X>
+          <Y>0.7043245</Y>
+          <Z>0.225340486</Z>
+          <W>0.19135806</W>
         </Orientation>
       </PositionAndOrientation>
       <LocalPositionAndOrientation xsi:nil="true" />
@@ -776,14 +776,14 @@ Issue Form</Text>
       <PersistentFlags>CastShadows InScene</PersistentFlags>
       <Name>92648995846550369</Name>
       <PositionAndOrientation>
-        <Position x="-27.303721710341051" y="284.72707833240474" z="443.88445871421663" />
-        <Forward x="0.8215926" y="0.08717275" z="0.5633708" />
-        <Up x="-0.111277759" y="0.9937529" z="0.00851449" />
+        <Position x="-27.30381259472415" y="284.72680031713571" z="443.88436636801544" />
+        <Forward x="0.821592867" y="0.08717267" z="0.5633708" />
+        <Up x="-0.111277655" y="0.9937529" z="0.008514497" />
         <Orientation>
-          <X>-0.0512562543</X>
-          <Y>0.882642746</Y>
-          <Z>-0.0222791862</Z>
-          <W>-0.466710061</W>
+          <X>-0.0512562022</X>
+          <Y>0.8826427</Y>
+          <Z>-0.0222791564</Z>
+          <W>-0.4667101</W>
         </Orientation>
       </PositionAndOrientation>
       <LocalPositionAndOrientation xsi:nil="true" />
@@ -853,14 +853,14 @@ Issue Form</Text>
       <PersistentFlags>CastShadows InScene</PersistentFlags>
       <Name>119799406050592471</Name>
       <PositionAndOrientation>
-        <Position x="10665.105824188096" y="1852.3346985716626" z="10380.055601292341" />
-        <Forward x="-0.053183496" y="-0.978381038" z="-0.199855223" />
-        <Up x="0.740571737" y="0.0956126451" z="-0.6651404" />
+        <Position x="10665.1065877959" y="1852.3347409909638" z="10380.057706211766" />
+        <Forward x="-0.490272582" y="-0.599983454" z="-0.6321809" />
+        <Up x="0.7406083" y="0.09560895" z="-0.665100336" />
         <Orientation>
-          <X>-0.586174369</X>
-          <Y>-0.2376384</Y>
-          <Z>-0.329534978</Z>
-          <W>0.7009524</W>
+          <X>-0.427697748</X>
+          <Y>0.0313717835</Y>
+          <Z>-0.5189125</Z>
+          <W>0.739473</W>
         </Orientation>
       </PositionAndOrientation>
       <LocalPositionAndOrientation xsi:nil="true" />
@@ -970,7 +970,7 @@ Issue Form</Text>
                     <Sprites>
                       <Length>0</Length>
                     </Sprites>
-                    <UpdateStartOfFirstTexture>12920632</UpdateStartOfFirstTexture>
+                    <UpdateStartOfFirstTexture>12974840</UpdateStartOfFirstTexture>
                   </TextPanelContent>
                 </Component>
               </ComponentData>
@@ -1077,7 +1077,7 @@ Issue Form</Text>
                     <Sprites>
                       <Length>0</Length>
                     </Sprites>
-                    <UpdateStartOfFirstTexture>12920632</UpdateStartOfFirstTexture>
+                    <UpdateStartOfFirstTexture>12974840</UpdateStartOfFirstTexture>
                   </TextPanelContent>
                 </Component>
               </ComponentData>
@@ -1185,7 +1185,7 @@ Issue Form</Text>
                     <Sprites>
                       <Length>0</Length>
                     </Sprites>
-                    <UpdateStartOfFirstTexture>12920632</UpdateStartOfFirstTexture>
+                    <UpdateStartOfFirstTexture>12974840</UpdateStartOfFirstTexture>
                   </TextPanelContent>
                 </Component>
               </ComponentData>
@@ -1293,7 +1293,7 @@ Issue Form</Text>
                     <Sprites>
                       <Length>0</Length>
                     </Sprites>
-                    <UpdateStartOfFirstTexture>12920632</UpdateStartOfFirstTexture>
+                    <UpdateStartOfFirstTexture>12974840</UpdateStartOfFirstTexture>
                   </TextPanelContent>
                 </Component>
               </ComponentData>
@@ -1405,16 +1405,16 @@ Issue Form</Text>
           <BoneOffset x="122" y="144" z="121" />
         </BoneInfo>
         <BoneInfo>
-          <BonePosition x="0" y="1" z="0" />
-          <BoneOffset x="134" y="127" z="114" />
-        </BoneInfo>
-        <BoneInfo>
           <BonePosition x="2" y="2" z="2" />
           <BoneOffset x="120" y="145" z="104" />
         </BoneInfo>
+        <BoneInfo>
+          <BonePosition x="0" y="1" z="0" />
+          <BoneOffset x="134" y="127" z="114" />
+        </BoneInfo>
       </Skeleton>
-      <LinearVelocity x="-59.2954063" y="-10.3079824" z="-58.00679" />
-      <AngularVelocity x="-0.09548859" y="0.1321626" z="0.07011589" />
+      <LinearVelocity x="-59.4831238" y="-10.3167067" z="-57.8835945" />
+      <AngularVelocity x="-0.0949233845" y="0.0649717" z="0.0610895455" />
       <DisplayName>bluspinny</DisplayName>
       <DestructibleBlocks>false</DestructibleBlocks>
       <IsRespawnGrid>false</IsRespawnGrid>
@@ -1428,14 +1428,14 @@ Issue Form</Text>
       <PersistentFlags>CastShadows InScene</PersistentFlags>
       <Name>121146153636173499</Name>
       <PositionAndOrientation>
-        <Position x="2.2290846356198841" y="221.26102219718402" z="462.31300070434037" />
-        <Forward x="-0.6182006" y="-0.770690143" z="-0.154481873" />
-        <Up x="0.38089332" y="-0.12180841" z="-0.916560352" />
+        <Position x="-20.329579257055666" y="219.51218943931141" z="456.72798670117947" />
+        <Forward x="0.5410885" y="-0.7853745" z="0.3006827" />
+        <Up x="0.559220552" y="0.06898719" z="-0.8261436" />
         <Orientation>
-          <X>-0.6432133</X>
-          <Y>0.0950563252</Y>
-          <Z>-0.383641541</Z>
-          <W>0.6557897</W>
+          <X>-0.681869566</X>
+          <Y>-0.4305755</Y>
+          <Z>0.0236712452</Z>
+          <W>0.5908454</W>
         </Orientation>
       </PositionAndOrientation>
       <LocalPositionAndOrientation xsi:nil="true" />
@@ -1605,17 +1605,17 @@ Issue Form</Text>
       </Battery>
       <LightEnabled>false</LightEnabled>
       <UsingLadder xsi:nil="true" />
-      <HeadAngle x="0" y="0" />
-      <LinearVelocity x="0" y="0" z="0" />
+      <HeadAngle x="-9.663218" y="0" />
+      <LinearVelocity x="5.86011447E-06" y="7.368217E-07" z="-8.654781E-06" />
       <AutoenableJetpackDelay>0</AutoenableJetpackDelay>
-      <JetpackEnabled>true</JetpackEnabled>
+      <JetpackEnabled>false</JetpackEnabled>
       <ColorMaskHSV x="0.566666663" y="-0.528525352" z="0.133391291" />
       <LootingCounter>0</LootingCounter>
       <DisplayName>Aristeas</DisplayName>
       <IsInFirstPersonView>true</IsInFirstPersonView>
       <EnableBroadcasting>true</EnableBroadcasting>
       <OxygenLevel>1</OxygenLevel>
-      <EnvironmentOxygenLevel>0.8586738</EnvironmentOxygenLevel>
+      <EnvironmentOxygenLevel>0.8591817</EnvironmentOxygenLevel>
       <StoredGases>
         <StoredGas>
           <Id Type="MyObjectBuilder_GasProperties" Subtype="Hydrogen" />
@@ -1626,7 +1626,6 @@ Issue Form</Text>
           <FillLevel>1</FillLevel>
         </StoredGas>
       </StoredGases>
-      <MovementState>Flying</MovementState>
       <EnabledComponents>
         <string>RagdollComponent</string>
         <string>InventorySpawnComponent</string>
@@ -1638,6 +1637,7 @@ Issue Form</Text>
       <RelativeDampeningEntity>135021567501630321</RelativeDampeningEntity>
       <UsingLadderInfo xsi:nil="true" />
       <EnableBroadcastingPlayerToggle>true</EnableBroadcastingPlayerToggle>
+      <CharacterFeetOffset>0.0274911541</CharacterFeetOffset>
     </MyObjectBuilder_EntityBase>
     <MyObjectBuilder_EntityBase xsi:type="MyObjectBuilder_CubeGrid">
       <SubtypeName />
@@ -1950,7 +1950,7 @@ Issue Form</Text>
                   <TimerEnabled>true</TimerEnabled>
                   <RemoveEntityOnTimer>false</RemoveEntityOnTimer>
                   <TimerType>Frame10</TimerType>
-                  <FramesFromLastTrigger>30</FramesFromLastTrigger>
+                  <FramesFromLastTrigger>20</FramesFromLastTrigger>
                   <TimerTickInFrames>60</TimerTickInFrames>
                   <IsSessionUpdateEnabled>false</IsSessionUpdateEnabled>
                 </Component>
@@ -2010,7 +2010,7 @@ Issue Form</Text>
                       <Sprites>
                         <Length>0</Length>
                       </Sprites>
-                      <UpdateStartOfFirstTexture>12920632</UpdateStartOfFirstTexture>
+                      <UpdateStartOfFirstTexture>12974840</UpdateStartOfFirstTexture>
                     </MySerializedTextPanelData>
                     <MySerializedTextPanelData>
                       <ChangeInterval>0</ChangeInterval>
@@ -2063,7 +2063,7 @@ Issue Form</Text>
                       <Sprites>
                         <Length>0</Length>
                       </Sprites>
-                      <UpdateStartOfFirstTexture>12920632</UpdateStartOfFirstTexture>
+                      <UpdateStartOfFirstTexture>12974840</UpdateStartOfFirstTexture>
                     </MySerializedTextPanelData>
                   </TextPanelsContents>
                 </Component>
@@ -2972,7 +2972,7 @@ Issue Form</Text>
                       <Sprites>
                         <Length>0</Length>
                       </Sprites>
-                      <UpdateStartOfFirstTexture>12920632</UpdateStartOfFirstTexture>
+                      <UpdateStartOfFirstTexture>12974840</UpdateStartOfFirstTexture>
                     </MySerializedTextPanelData>
                   </TextPanelsContents>
                 </Component>
@@ -3017,7 +3017,7 @@ Issue Form</Text>
                   <TimerEnabled>true</TimerEnabled>
                   <RemoveEntityOnTimer>false</RemoveEntityOnTimer>
                   <TimerType>Frame10</TimerType>
-                  <FramesFromLastTrigger>30</FramesFromLastTrigger>
+                  <FramesFromLastTrigger>20</FramesFromLastTrigger>
                   <TimerTickInFrames>60</TimerTickInFrames>
                   <IsSessionUpdateEnabled>false</IsSessionUpdateEnabled>
                 </Component>
@@ -3252,7 +3252,7 @@ Issue Form</Text>
       <PersistentFlags>CastShadows InScene</PersistentFlags>
       <Name>112406559527366998</Name>
       <PositionAndOrientation>
-        <Position x="10667.610707000596" y="1851.30527962635" z="10394.605894261091" />
+        <Position x="10667.6104940459" y="1851.3052762692841" z="10394.606046055516" />
         <Forward x="0.7405935" y="0.09561505" z="-0.665115833" />
         <Up x="-0.05650746" y="0.9951803" z="0.0801441744" />
         <Orientation>
@@ -4434,7 +4434,7 @@ http://starcore.tv/discord
                     <Sprites>
                       <Length>0</Length>
                     </Sprites>
-                    <UpdateStartOfFirstTexture>12920632</UpdateStartOfFirstTexture>
+                    <UpdateStartOfFirstTexture>12974840</UpdateStartOfFirstTexture>
                   </TextPanelContent>
                 </Component>
               </ComponentData>
@@ -4552,7 +4552,7 @@ http://starcore.tv/discord
                     <Sprites>
                       <Length>0</Length>
                     </Sprites>
-                    <UpdateStartOfFirstTexture>12920632</UpdateStartOfFirstTexture>
+                    <UpdateStartOfFirstTexture>12974840</UpdateStartOfFirstTexture>
                   </TextPanelContent>
                 </Component>
               </ComponentData>
@@ -5494,7 +5494,7 @@ SPAWN</Text>
                       <Sprites>
                         <Length>0</Length>
                       </Sprites>
-                      <UpdateStartOfFirstTexture>12920632</UpdateStartOfFirstTexture>
+                      <UpdateStartOfFirstTexture>12974840</UpdateStartOfFirstTexture>
                     </MySerializedTextPanelData>
                     <MySerializedTextPanelData>
                       <ChangeInterval>0</ChangeInterval>
@@ -5547,7 +5547,7 @@ SPAWN</Text>
                       <Sprites>
                         <Length>0</Length>
                       </Sprites>
-                      <UpdateStartOfFirstTexture>12920632</UpdateStartOfFirstTexture>
+                      <UpdateStartOfFirstTexture>12974840</UpdateStartOfFirstTexture>
                     </MySerializedTextPanelData>
                   </TextPanelsContents>
                 </Component>
@@ -5870,7 +5870,7 @@ SPAWN</Text>
           <TargetVelocity>0.0333333</TargetVelocity>
           <MinAngle xsi:nil="true" />
           <MaxAngle xsi:nil="true" />
-          <CurrentAngle>1.40738142</CurrentAngle>
+          <CurrentAngle>0.6688104</CurrentAngle>
           <LimitsActive>false</LimitsActive>
           <RotorLock>false</RotorLock>
           <Torque>3.36E+07</Torque>
@@ -6000,7 +6000,7 @@ VARIANTS
                     <Sprites>
                       <Length>0</Length>
                     </Sprites>
-                    <UpdateStartOfFirstTexture>12919632</UpdateStartOfFirstTexture>
+                    <UpdateStartOfFirstTexture>12973840</UpdateStartOfFirstTexture>
                   </TextPanelContent>
                 </Component>
               </ComponentData>
@@ -6052,7 +6052,7 @@ VARIANTS
       <PersistentFlags>CastShadows InScene</PersistentFlags>
       <Name>111920470240547304</Name>
       <PositionAndOrientation>
-        <Position x="-13473.017222686904" y="2992.3054474730297" z="-5905.5449846451584" />
+        <Position x="-13473.0174356416" y="2992.3054135983857" z="-5905.5448328507346" />
         <Forward x="0.338195175" y="0.114960521" z="-0.9340279" />
         <Up x="-0.4884095" y="-0.8269369" z="-0.278624266" />
         <Orientation>
@@ -7237,7 +7237,7 @@ http://starcore.tv/discord
                     <Sprites>
                       <Length>0</Length>
                     </Sprites>
-                    <UpdateStartOfFirstTexture>12920632</UpdateStartOfFirstTexture>
+                    <UpdateStartOfFirstTexture>12974840</UpdateStartOfFirstTexture>
                   </TextPanelContent>
                 </Component>
               </ComponentData>
@@ -7794,7 +7794,7 @@ http://starcore.tv/discord
                     <Sprites>
                       <Length>0</Length>
                     </Sprites>
-                    <UpdateStartOfFirstTexture>12920632</UpdateStartOfFirstTexture>
+                    <UpdateStartOfFirstTexture>12974840</UpdateStartOfFirstTexture>
                   </TextPanelContent>
                 </Component>
               </ComponentData>
@@ -8297,7 +8297,7 @@ SPAWN</Text>
                       <Sprites>
                         <Length>0</Length>
                       </Sprites>
-                      <UpdateStartOfFirstTexture>12920632</UpdateStartOfFirstTexture>
+                      <UpdateStartOfFirstTexture>12974840</UpdateStartOfFirstTexture>
                     </MySerializedTextPanelData>
                     <MySerializedTextPanelData>
                       <ChangeInterval>0</ChangeInterval>
@@ -8350,7 +8350,7 @@ SPAWN</Text>
                       <Sprites>
                         <Length>0</Length>
                       </Sprites>
-                      <UpdateStartOfFirstTexture>12920632</UpdateStartOfFirstTexture>
+                      <UpdateStartOfFirstTexture>12974840</UpdateStartOfFirstTexture>
                     </MySerializedTextPanelData>
                   </TextPanelsContents>
                 </Component>
@@ -8712,7 +8712,7 @@ SPAWN</Text>
           <TargetVelocity>0.0333333</TargetVelocity>
           <MinAngle xsi:nil="true" />
           <MaxAngle xsi:nil="true" />
-          <CurrentAngle>5.518259</CurrentAngle>
+          <CurrentAngle>4.77969551</CurrentAngle>
           <LimitsActive>false</LimitsActive>
           <RotorLock>false</RotorLock>
           <Torque>3.36E+07</Torque>
@@ -8803,7 +8803,7 @@ VARIANTS
                     <Sprites>
                       <Length>0</Length>
                     </Sprites>
-                    <UpdateStartOfFirstTexture>12919632</UpdateStartOfFirstTexture>
+                    <UpdateStartOfFirstTexture>12973840</UpdateStartOfFirstTexture>
                   </TextPanelContent>
                 </Component>
               </ComponentData>
@@ -8875,7 +8875,7 @@ VARIANTS
                 <dictionary>
                   <item>
                     <Key>ba5bfb16-27fe-4f83-8e1b-9fe04ed919d8</Key>
-                    <Value>CvsBEgpGdWVsRW5naW5lGgYIAiABOAQaBggBIAE4BBoGCAAgATgEGg8I////////////ASABOAQaBggFIAE4BBoGCAQgATgEGgYIAyABOAQaBggCIAI4BBoGCAIgBDgEGgYIAiACOAMaBggCIAM4BBoGCAAgAjgEGgYIACABOAUaBggAIAE4AxoGCAAgAjgDGg8I/v//////////ASABOAQaDwj9//////////8BIAE4AxoYCP3//////////wEg////////////ATgEGg8I/f//////////ASABOAQaDwj9//////////8BIAE4BRoGCAAgAjgFGgYIAiACOAUKbBIVRnVlbEVuZ2luZUNhcmJ1cmV0dG9yGg8IBiACOPf//////////wEaDwgGIAI49f//////////ARoPCAYgAzj2//////////8BGg8IBiABOPb//////////wEaDwgFIAI49v//////////AQokEhJGdWVsRW5naW5lQ3lsaW5kZXIaBggCIAI4BBoGCAIgAzgECisSEUZ1ZWxFbmdpbmVFeGhhdXN0GgYIBiABOAcaBggEIAE4BxoGCAUgATgHCisSEUZ1ZWxFbmdpbmVFeGhhdXN0GgYIAiACOAQaBggCIAI4AxoGCAIgAjgFChsSEUZ1ZWxFbmdpbmVFeGhhdXN0GgYIACACOAQKNxIVRnVlbEVuZ2luZUNhcmJ1cmV0dG9yGgYIAiAEOAQaBggCIAI4AxoGCAIgAzgEGgYIAiACOAUKPBISRnVlbEVuZ2luZUN5bGluZGVyGgYIACACOAQaBggAIAE4BRoGCAAgATgDGgYIACACOAMaBggAIAI4BQolEhJGdWVsRW5naW5lQ3lsaW5kZXIaDwgGIAI48v//////////AQokEhFGdWVsRW5naW5lRXhoYXVzdBoPCAYgAjjy//////////8BCjYSEkZ1ZWxFbmdpbmVDeWxpbmRlchoPCAUgAjj2//////////8BGg8IBiACOPb//////////wEK3wESEUZ1ZWxFbmdpbmVFeGhhdXN0Gg8IByADOPX//////////wEaDwgHIAI49f//////////ARoPCAcgAzj2//////////8BGg8IByABOPX//////////wEaDwgHIAM49///////////ARoPCAYgATj1//////////8BGg8IBiADOPf//////////wEaDwgGIAI49///////////ARoPCAYgAjj1//////////8BGg8IBiADOPb//////////wEaDwgGIAE49v//////////ARoPCAYgAjj2//////////8BCi4SCkZ1ZWxFbmdpbmUaDwgGIAI49v//////////ARoPCAcgAjj2//////////8BCi4SCkZ1ZWxFbmdpbmUaDwgHIAI48v//////////ARoPCAYgAjjy//////////8BChsSEUZ1ZWxFbmdpbmVFeGhhdXN0GgYIACABOAUKJBIRRnVlbEVuZ2luZUV4aGF1c3QaDwgCIAE4/v//////////AQobEhFGdWVsRW5naW5lRXhoYXVzdBoGCAAgATgDCiQSEUZ1ZWxFbmdpbmVFeGhhdXN0Gg8ICSABOP3//////////wEKGxIRRnVlbEVuZ2luZUV4aGF1c3QaBggCIAQ4BA==</Value>
+                    <Value>CvsBEgpGdWVsRW5naW5lGgYIAiABOAQaBggBIAE4BBoGCAAgATgEGg8I////////////ASABOAQaBggFIAE4BBoGCAQgATgEGgYIAyABOAQaBggCIAI4BBoGCAIgBDgEGgYIAiACOAMaBggCIAM4BBoGCAAgAjgEGgYIACABOAUaBggAIAE4AxoGCAAgAjgDGg8I/v//////////ASABOAQaDwj9//////////8BIAE4AxoYCP3//////////wEg////////////ATgEGg8I/f//////////ASABOAQaDwj9//////////8BIAE4BRoGCAAgAjgFGgYIAiACOAUKbBIVRnVlbEVuZ2luZUNhcmJ1cmV0dG9yGg8IBiACOPf//////////wEaDwgGIAI49f//////////ARoPCAYgAzj2//////////8BGg8IBiABOPb//////////wEaDwgFIAI49v//////////AQokEhJGdWVsRW5naW5lQ3lsaW5kZXIaBggCIAI4BBoGCAIgAzgECisSEUZ1ZWxFbmdpbmVFeGhhdXN0GgYIBiABOAcaBggEIAE4BxoGCAUgATgHCisSEUZ1ZWxFbmdpbmVFeGhhdXN0GgYIAiACOAQaBggCIAI4AxoGCAIgAjgFCiUSEkZ1ZWxFbmdpbmVDeWxpbmRlchoPCAYgAjjy//////////8BCjcSFUZ1ZWxFbmdpbmVDYXJidXJldHRvchoGCAIgBDgEGgYIAiACOAMaBggCIAM4BBoGCAIgAjgFCjwSEkZ1ZWxFbmdpbmVDeWxpbmRlchoGCAAgAjgEGgYIACABOAUaBggAIAE4AxoGCAAgAjgDGgYIACACOAUKJBIRRnVlbEVuZ2luZUV4aGF1c3QaDwgGIAI48v//////////AQobEhFGdWVsRW5naW5lRXhoYXVzdBoGCAAgATgFCjYSEkZ1ZWxFbmdpbmVDeWxpbmRlchoPCAUgAjj2//////////8BGg8IBiACOPb//////////wEK3wESEUZ1ZWxFbmdpbmVFeGhhdXN0Gg8IByADOPX//////////wEaDwgHIAI49f//////////ARoPCAcgAzj2//////////8BGg8IByABOPX//////////wEaDwgHIAM49///////////ARoPCAYgATj1//////////8BGg8IBiADOPf//////////wEaDwgGIAI49///////////ARoPCAYgAjj1//////////8BGg8IBiADOPb//////////wEaDwgGIAE49v//////////ARoPCAYgAjj2//////////8BCi4SCkZ1ZWxFbmdpbmUaDwgGIAI49v//////////ARoPCAcgAjj2//////////8BCi4SCkZ1ZWxFbmdpbmUaDwgHIAI48v//////////ARoPCAYgAjjy//////////8BCnkSEUZ1ZWxFbmdpbmVFeGhhdXN0Gg8IAiABOPr//////////wEaDwgDIAE4+v//////////ARoPCAQgATj6//////////8BGg8IByABOPr//////////wEaDwgGIAE4+v//////////ARoPCAUgATj6//////////8BChsSEUZ1ZWxFbmdpbmVFeGhhdXN0GgYIACABOAMKGxIRRnVlbEVuZ2luZUV4aGF1c3QaBggCIAQ4BAobEhFGdWVsRW5naW5lRXhoYXVzdBoGCAAgAjgE</Value>
                   </item>
                 </dictionary>
               </Storage>
@@ -14975,21 +14975,60 @@ VARIANTS
           <BuiltBy>144115188075855895</BuiltBy>
         </MyObjectBuilder_CubeBlock>
         <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
-          <SubtypeName>ST_T_5WayPipe</SubtypeName>
-          <EntityId>105621676076781875</EntityId>
-          <Name>105621676076781875</Name>
-          <Min x="2" y="1" z="-2" />
-          <BlockOrientation Forward="Forward" Up="Left" />
+          <SubtypeName>ST_T_HullPipe</SubtypeName>
+          <EntityId>125279909103720337</EntityId>
+          <Name>125279909103720337</Name>
+          <Min x="2" y="1" z="-6" />
+          <BlockOrientation Forward="Right" Up="Up" />
           <ColorMaskHSV x="0" y="-0.8" z="0" />
           <SkinSubtypeId>Clean_Armor</SkinSubtypeId>
           <BuiltBy>144115188075855895</BuiltBy>
         </MyObjectBuilder_CubeBlock>
         <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
           <SubtypeName>ST_T_HullPipe</SubtypeName>
-          <EntityId>126851951118545863</EntityId>
-          <Name>126851951118545863</Name>
-          <Min x="9" y="1" z="-3" />
+          <EntityId>111426571876866883</EntityId>
+          <Name>111426571876866883</Name>
+          <Min x="7" y="1" z="-6" />
           <BlockOrientation Forward="Right" Up="Up" />
+          <ColorMaskHSV x="0" y="-0.8" z="0" />
+          <SkinSubtypeId>Clean_Armor</SkinSubtypeId>
+          <BuiltBy>144115188075855895</BuiltBy>
+        </MyObjectBuilder_CubeBlock>
+        <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+          <SubtypeName>ST_T_StraightPipe</SubtypeName>
+          <EntityId>94883767625093242</EntityId>
+          <Name>94883767625093242</Name>
+          <Min x="3" y="1" z="-6" />
+          <BlockOrientation Forward="Right" Up="Up" />
+          <ColorMaskHSV x="0" y="-0.8" z="0" />
+          <SkinSubtypeId>Clean_Armor</SkinSubtypeId>
+          <BuiltBy>144115188075855895</BuiltBy>
+        </MyObjectBuilder_CubeBlock>
+        <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+          <SubtypeName>ST_T_StraightPipe</SubtypeName>
+          <EntityId>105835683755002751</EntityId>
+          <Name>105835683755002751</Name>
+          <Min x="4" y="1" z="-6" />
+          <BlockOrientation Forward="Right" Up="Up" />
+          <ColorMaskHSV x="0" y="-0.8" z="0" />
+          <SkinSubtypeId>Clean_Armor</SkinSubtypeId>
+          <BuiltBy>144115188075855895</BuiltBy>
+        </MyObjectBuilder_CubeBlock>
+        <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+          <SubtypeName>ST_T_StraightPipe</SubtypeName>
+          <EntityId>110403042446699186</EntityId>
+          <Name>110403042446699186</Name>
+          <Min x="6" y="1" z="-6" />
+          <BlockOrientation Forward="Right" Up="Up" />
+          <ColorMaskHSV x="0" y="-0.8" z="0" />
+          <SkinSubtypeId>Clean_Armor</SkinSubtypeId>
+          <BuiltBy>144115188075855895</BuiltBy>
+        </MyObjectBuilder_CubeBlock>
+        <MyObjectBuilder_CubeBlock xsi:type="MyObjectBuilder_CubeBlock">
+          <SubtypeName>ST_T_JunctionPipe</SubtypeName>
+          <EntityId>134652511824838267</EntityId>
+          <Name>134652511824838267</Name>
+          <Min x="5" y="1" z="-6" />
           <ColorMaskHSV x="0" y="-0.8" z="0" />
           <SkinSubtypeId>Clean_Armor</SkinSubtypeId>
           <BuiltBy>144115188075855895</BuiltBy>
@@ -15015,12 +15054,12 @@ VARIANTS
           <BoneOffset x="127" y="127" z="145" />
         </BoneInfo>
         <BoneInfo>
-          <BonePosition x="13" y="2" z="13" />
-          <BoneOffset x="127" y="123" z="129" />
-        </BoneInfo>
-        <BoneInfo>
           <BonePosition x="11" y="0" z="16" />
           <BoneOffset x="129" y="123" z="135" />
+        </BoneInfo>
+        <BoneInfo>
+          <BonePosition x="13" y="2" z="13" />
+          <BoneOffset x="127" y="123" z="129" />
         </BoneInfo>
         <BoneInfo>
           <BonePosition x="12" y="2" z="13" />
@@ -15043,12 +15082,12 @@ VARIANTS
           <BoneOffset x="128" y="134" z="115" />
         </BoneInfo>
         <BoneInfo>
-          <BonePosition x="11" y="-2" z="14" />
-          <BoneOffset x="127" y="131" z="124" />
-        </BoneInfo>
-        <BoneInfo>
           <BonePosition x="11" y="-1" z="16" />
           <BoneOffset x="127" y="127" z="132" />
+        </BoneInfo>
+        <BoneInfo>
+          <BonePosition x="11" y="-2" z="14" />
+          <BoneOffset x="127" y="131" z="124" />
         </BoneInfo>
       </Skeleton>
       <ZMirroxPlane x="2" y="3" z="4" />

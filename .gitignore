@@ -417,3 +417,6 @@ FodyWeavers.xsd
 *.msm
 *.msp
 *.blend1
+
+# MDK local configs
+mdk.local.ini

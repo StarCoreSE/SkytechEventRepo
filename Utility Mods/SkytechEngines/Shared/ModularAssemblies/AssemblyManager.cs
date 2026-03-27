@@ -12,7 +12,7 @@ namespace Skytech.Engines.Shared.ModularAssemblies
         private static ModularDefinitionApi ModularApi => ModularDefinition.ModularApi;
 
 
-        private Dictionary<int, AssemblyBase> _assemblies = new Dictionary<int, AssemblyBase>();
+        private Dictionary<int, TAssembly> _assemblies = new Dictionary<int, TAssembly>();
 
 
         public static void Load()
@@ -42,6 +42,14 @@ namespace Skytech.Engines.Shared.ModularAssemblies
             }
         }
 
+        public static TAssembly Get(int assemblyId)
+        {
+            TAssembly asm;
+            if (!I._assemblies.TryGetValue(assemblyId, out asm))
+                return null;
+            return asm;
+        }
+
         public static void OnPartAdd(int assemblyId, IMyCubeBlock block, bool isBaseBlock)
         {
             if (I == null)
@@ -49,7 +57,7 @@ namespace Skytech.Engines.Shared.ModularAssemblies
 
             // find assembly, and register new one if not present.
             // ID is unique per-session
-            AssemblyBase assemblyBase;
+            TAssembly assemblyBase;
             if (!I._assemblies.TryGetValue(assemblyId, out assemblyBase))
             {
                 assemblyBase = AssemblyBase.Create<TAssembly>(assemblyId);
@@ -63,7 +71,7 @@ namespace Skytech.Engines.Shared.ModularAssemblies
         public static void OnPartRemove(int assemblyId, IMyCubeBlock block, bool isBaseBlock)
         {
             // find assembly, and skip if not present.
-            AssemblyBase assemblyBase;
+            TAssembly assemblyBase;
             if (I == null || !I._assemblies.TryGetValue(assemblyId, out assemblyBase))
                 return;
 
@@ -73,7 +81,7 @@ namespace Skytech.Engines.Shared.ModularAssemblies
         public static void OnPartDestroy(int assemblyId, IMyCubeBlock block, bool isBaseBlock)
         {
             // find assembly, and skip if not present.
-            AssemblyBase assemblyBase;
+            TAssembly assemblyBase;
             if (I == null || !I._assemblies.TryGetValue(assemblyId, out assemblyBase))
                 return;
 
@@ -83,7 +91,7 @@ namespace Skytech.Engines.Shared.ModularAssemblies
         public static void OnAssemblyClose(int assemblyId)
         {
             // find assembly, and skip if not present.
-            AssemblyBase assemblyBase;
+            TAssembly assemblyBase;
             if (I == null || !I._assemblies.TryGetValue(assemblyId, out assemblyBase))
                 return;
 

@@ -28,9 +28,13 @@ namespace Skytech.Engines
         /// </summary>
         private Dictionary<IMyCubeBlock, ExhaustVent[]> _externalVents = new Dictionary<IMyCubeBlock, ExhaustVent[]>();
         /// <summary>
-        /// block, internal pressure
+        /// block, (internal amt, pressure)
         /// </summary>
-        private Dictionary<IMyCubeBlock, int> _exhaustPressure = new Dictionary<IMyCubeBlock, int>();
+        private Dictionary<IMyCubeBlock, Vector2> _exhaustPressure = new Dictionary<IMyCubeBlock, Vector2>();
+        /// <summary>
+        /// block, (internal amt, pressure)
+        /// </summary>
+        private Dictionary<IMyCubeBlock, float> _inlets = new Dictionary<IMyCubeBlock, float>();
 
         private readonly string[] _ventBlacklist = 
         {
@@ -42,7 +46,7 @@ namespace Skytech.Engines
         };
 
         private bool _needsPressureUpdate = false;
-        private Dictionary<IMyCubeBlock, int> _pressureProviders = new Dictionary<IMyCubeBlock, int>();
+        private Dictionary<IMyCubeBlock, FuelEngineCylinder> _cylinders = new Dictionary<IMyCubeBlock, FuelEngineCylinder>();
 
         protected override void Init()
         {
@@ -69,14 +73,44 @@ namespace Skytech.Engines
         {
             base.OnPartAdd(block, isBasePart);
 
-            _exhaustPressure[block] = 0;
+            _exhaustPressure[block] = Vector2I.Zero;
             PerformVentCheck(block);
             _needsPressureUpdate = true;
 
-            if (block.BlockDefinition.SubtypeName == "ST_T_Cylinder")
+            // delay cylinder check by a tick to give everything time to init
+            MyAPIGateway.Utilities.InvokeOnGameThread(() =>
             {
-                SetPressure(block, 4); // TODO remove
-            }
+                if (block.BlockDefinition.SubtypeName == "ST_T_Cylinder")
+                {
+                
+                    int cylId = ModularApi.GetContainingAssembly(block, "FuelEngineCylinder");
+                    if (cylId != -1)
+                    {
+                        FuelEngineCylinder cyl = AssemblyManager<FuelEngineCylinder>.Get(cylId);
+                        if (cyl == null)
+                            throw new Exception("Missing cylinder assembly!");
+                        _cylinders[block] = cyl;
+
+                        foreach (var conn in ModularApi.GetConnectedBlocks(block, _definition.Name))
+                        {
+                            if (conn.BlockDefinition.SubtypeName == "ST_T_Cylinder")
+                                continue;
+
+                            cyl.Exhausts[conn] = this;
+                        }
+                    }
+                }
+                else
+                {
+                    foreach (var conn in ModularApi.GetConnectedBlocks(block, _definition.Name))
+                    {
+                        FuelEngineCylinder cyl;
+                        if (!_cylinders.TryGetValue(conn, out cyl))
+                            continue;
+                        cyl.Exhausts[block] = this;
+                    }
+                }
+            });
         }
 
         public override void OnPartRemove(IMyCubeBlock block, bool isBasePart)
@@ -89,6 +123,26 @@ namespace Skytech.Engines
                 foreach (var vent in vents)
                 {
                     vent.Close();
+                }
+            }
+
+            FuelEngineCylinder cyl;
+            if (_cylinders.TryGetValue(block, out cyl))
+            {
+                List<IMyCubeBlock> thisExhausts = new List<IMyCubeBlock>();
+                foreach (var ex in cyl.Exhausts)
+                    if (ex.Value == this)
+                        thisExhausts.Add(ex.Key);
+                foreach (var ex in thisExhausts)
+                    cyl.Exhausts.Remove(ex);
+            }
+            else
+            {
+                foreach (var conn in ModularApi.GetConnectedBlocks(block, _definition.Name))
+                {
+                    if (!_cylinders.TryGetValue(conn, out cyl))
+                        continue;
+                    cyl.Exhausts.Remove(block);
                 }
             }
 
@@ -114,41 +168,71 @@ namespace Skytech.Engines
             {
                 // set all pressure to zero
                 foreach (var block in Blocks)
-                    _exhaustPressure[block] = 0;
+                    _exhaustPressure[block] = Vector2I.Zero;
 
-                if (_pressureProviders.Count > 0)
+                if (_cylinders.Count > 0)
                 {
-                    foreach (var provider in _pressureProviders)
-                        _exhaustPressure[provider.Key] = provider.Value;
-
+                    foreach (var inlet in _inlets)
+                        _exhaustPressure[inlet.Key] = new Vector2(inlet.Value);
+                    
                     Queue<IMyCubeBlock> scanSet = new Queue<IMyCubeBlock>();
                     HashSet<IMyCubeBlock> visited = new HashSet<IMyCubeBlock>();
-
-                    foreach (var provider in _pressureProviders)
+                    
+                    foreach (var inlet in _inlets)
                     {
-                        scanSet.Enqueue(provider.Key);
+                        scanSet.Enqueue(inlet.Key);
 
                         while (scanSet.Count > 0)
                         {
                             IMyCubeBlock block = scanSet.Dequeue();
+                            if (block.BlockDefinition.SubtypeName == "ST_T_Cylinder" || _externalVents.ContainsKey(block))
+                                continue;
+
                             var connected = ModularApi.GetConnectedBlocks(block, _definition.Name);
 
+                            // evenly split amount and pressure
+                            int conCount = 0;
                             foreach (var con in connected)
                             {
-                                if (!visited.Add(con) || _pressureProviders.ContainsKey(con))
+                                if (con.BlockDefinition.SubtypeName == "ST_T_Cylinder")
                                     continue;
-
-                                _exhaustPressure[con] += provider.Value;
+                                conCount++;
+                            }
+                    
+                            foreach (var con in connected)
+                            {
+                                if (!visited.Add(con) || _cylinders.ContainsKey(con))
+                                    continue;
+                    
+                                _exhaustPressure[con] += inlet.Value / conCount;
                                 scanSet.Enqueue(con);
                             }
-                        } // TODO update turbos, also how tf do cylinders split pressure
-
+                        } // TODO update turbos and turbo directionality.
+                    
                         visited.Clear();
                     }
                 }
                 
                 _needsPressureUpdate = false;
             }
+        }
+
+        /// <summary>
+        /// exhaust amount, pressure
+        /// </summary>
+        /// <param name="block"></param>
+        /// <param name="data"></param>
+        public void UpdateInlet(IMyCubeBlock block, float exhaust)
+        {
+            float prev;
+            if (_inlets.TryGetValue(block, out prev) && prev == exhaust)
+                return;
+            
+            if (exhaust == 0)
+                _inlets.Remove(block);
+            else
+                _inlets[block] = exhaust;
+            _needsPressureUpdate = true;
         }
 
         private void OnGridBlockAdd(IMySlimBlock block)
@@ -238,9 +322,13 @@ namespace Skytech.Engines
 
         protected override void BlockInfoCallback(IMyCubeBlock block, StringBuilder sb)
         {
+            if (block.BlockDefinition.SubtypeName == "ST_T_Cylinder")
+                return;
+
             base.BlockInfoCallback(block, sb);
 
-            sb.AppendLine($"Pressure at {block.DisplayNameText}: {_exhaustPressure[block]}");
+            sb.AppendLine($"Exhaust Volume: {_exhaustPressure[block].X:N1}");
+            sb.AppendLine($"Exhaust Pressure: {_exhaustPressure[block].Y:N1}");
 
             if (PartsExhaustBlocked.Count > 0)
             {
@@ -252,18 +340,6 @@ namespace Skytech.Engines
                 sb.AppendLine("Zero exhaust vents found!");
             }
             // TODO pressure levels
-        }
-
-        public void SetPressure(IMyCubeBlock block, int pressure)
-        {
-            if (!Blocks.Contains(block))
-                return;
-
-            if (pressure == 0)
-                _pressureProviders.Remove(block);
-            else
-                _pressureProviders[block] = pressure;
-            _needsPressureUpdate = true;
         }
 
         private void PerformVentCheck(IMyCubeBlock block)
@@ -361,20 +437,17 @@ namespace Skytech.Engines
 
             public void Update()
             {
-                if (!Assembly._exhaustPressure.ContainsKey(Block) || !Assembly._externalVents.ContainsKey(Block))
-                    return;
-
                 // velocity would be cool but it's being mean 3:
-                float exhaustStrength = ((float) Assembly._exhaustPressure[Block] / Assembly._externalVents[Block].Length) / 2f;
-                exhaustStrength = MathHelper.Clamp(exhaustStrength, 0, 10);
+                Vector2 exhaustStrength = Assembly._exhaustPressure[Block];
 
-                if (exhaustStrength == 0 && Particle.IsEmittingStopped)
+                if (exhaustStrength.X == 0 && !Particle.IsEmittingStopped)
                     Particle.StopEmitting();
-                if (exhaustStrength > 0 && !Particle.IsEmittingStopped)
+                if (exhaustStrength.X > 0 && Particle.IsEmittingStopped)
                     Particle.Play();
 
-                Particle.UserBirthMultiplier = exhaustStrength; // TODO based on exhaust volume
-                Particle.UserLifeMultiplier = exhaustStrength; // TODO based on exhaust volume
+                Particle.UserBirthMultiplier = exhaustStrength.X;
+                Particle.UserLifeMultiplier = exhaustStrength.X;
+                Particle.UserVelocityMultiplier = exhaustStrength.Y; // TODO new particle with working velocity
             }
 
             public void Close()

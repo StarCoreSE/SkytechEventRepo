@@ -3,7 +3,7 @@ using VRage.Game.ModAPI;
 
 namespace Skytech.Engines
 {
-    internal class FuelEngineCylinder : AssemblyBase
+    internal class FuelEngineCarburettor : AssemblyBase
     {
         public override void OnPartAdd(IMyCubeBlock block, bool isBasePart)
         {

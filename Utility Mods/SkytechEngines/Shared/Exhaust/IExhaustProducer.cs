@@ -1,10 +1,14 @@
-﻿using System;
+﻿using Collections;
+using VRage.Game.ModAPI;
 
 namespace Skytech.Engines.Shared.Exhaust
 {
-    internal interface IExhaustProducer
+    internal interface IExhaustProducer : IClosable
     {
-        FuelEngineExhaust.Exhaust GetExhaustProduced(int id);
-        Action<IExhaustProducer> OnClose { get; set; }
+        // TODO isconnected of some kind
+        FuelEngineExhaust.Exhaust ExhaustProduced { get; }
+        IMyCubeBlock Block { get; }
+
+        bool IsOutlet(IMyCubeBlock block);
     }
 }

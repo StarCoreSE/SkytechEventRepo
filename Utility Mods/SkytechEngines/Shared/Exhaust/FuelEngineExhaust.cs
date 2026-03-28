@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AriUtils;
+using Collections;
 using Sandbox.ModAPI;
 using VRage.Game;
 using VRage.Game.ModAPI;
@@ -33,11 +34,11 @@ namespace Skytech.Engines.Shared.Exhaust
         /// <summary>
         /// Inlet PARTS; i.e. cylinders, turbos
         /// </summary>
-        private HashSet<IExhaustProducer> _inlets = new HashSet<IExhaustProducer>(); // TODO inlet/outlet loops are bad!!!
+        private CleanedSet<IExhaustProducer> _inlets = new CleanedSet<IExhaustProducer>(); // TODO inlet/outlet loops are bad!!!
         /// <summary>
         /// Outlet PARTS; i.e. turbos
         /// </summary>
-        private SortedSet<IExhaustConsumer> _outlets = new SortedSet<IExhaustConsumer>(new ExhaustConsumerComparer());
+        private CleanedSet<IExhaustConsumer> _outlets = new CleanedSet<IExhaustConsumer>();
 
         private readonly string[] _ventBlacklist = 
         {
@@ -83,26 +84,16 @@ namespace Skytech.Engines.Shared.Exhaust
                 // Check for turbo and cylinder connections
                 foreach (var pos in ModularApi.GetGridConnectingPositions(block, Definition.Name))
                 {
-                    var adjBlock = Grid.GetCubeBlock(pos)?.FatBlock;
-                    
-                    if (adjBlock == null)
-                        continue;
-
-                    Turbo turbo;
-                    if (TurboManager.I.TryGetTurbo(adjBlock, out turbo) && turbo.IsExhaustInlet(block)) // turbo itself checks its outlets
+                    IExhaustConsumer c;
+                    if (TryGetConsumer(pos, out c) && c.IsInlet(block))
                     {
-                        TryRegisterOutlet(turbo);
+                        TryRegisterOutlet(c);
                     }
 
-                    FuelEngineCylinder cyl;
-                    if (AssemblyManager<FuelEngineCylinder>.TryGet(adjBlock, out cyl))
+                    IExhaustProducer p;
+                    if (TryGetProducer(pos, out p) && p.IsOutlet(block))
                     {
-                        TryRegisterInlet(cyl);
-
-                        if (cyl.Exhausts.ContainsKey(AssemblyId))
-                            cyl.Exhausts[AssemblyId]++;
-                        else
-                            cyl.Exhausts[AssemblyId] = 1;
+                        TryRegisterInlet(p);
                     }
                 }
             });
@@ -124,28 +115,16 @@ namespace Skytech.Engines.Shared.Exhaust
             // Check for turbo and cylinder connections
             foreach (var pos in ModularApi.GetGridConnectingPositions(block, Definition.Name))
             {
-                var adjBlock = Grid.GetCubeBlock(pos)?.FatBlock;
-                    
-                if (adjBlock == null)
-                    continue;
-
-                Turbo turbo;
-                if (TurboManager.I.TryGetTurbo(adjBlock, out turbo) && turbo.IsExhaustInlet(block)) // turbo itself checks its outlets
+                IExhaustConsumer c;
+                if (TryGetConsumer(pos, out c) && c.IsInlet(block))
                 {
-                    RemoveOutlet(turbo);
+                    RemoveOutlet(c);
                 }
 
-                FuelEngineCylinder cyl;
-                if (AssemblyManager<FuelEngineCylinder>.TryGet(adjBlock, out cyl))
+                IExhaustProducer p;
+                if (TryGetProducer(pos, out p) && p.IsOutlet(block))
                 {
-                    RemoveInlet(cyl);
-
-                    if (cyl.Exhausts.ContainsKey(AssemblyId))
-                    {
-                        int ct = --cyl.Exhausts[AssemblyId];
-                        if (ct == 0)
-                            cyl.Exhausts.Remove(AssemblyId);
-                    }
+                    RemoveInlet(p);
                 }
             }
 
@@ -157,28 +136,22 @@ namespace Skytech.Engines.Shared.Exhaust
         {
             base.UpdateTick();
 
-            //foreach (var block in _externalVents)
-            //{
-            //    foreach (var dir in block.Value)
-            //    {
-            //        DebugDraw.AddLine(block.Key.GetPosition(), Grid.GridIntegerToWorld(block.Key.Position + dir.GridDirection), Color.Red, 1/60f);
-            //    }
-            //}
-
+            NeedsPressureUpdate |= _inlets.RunCleanup();
+            NeedsPressureUpdate |= _outlets.RunCleanup();
+            
             if (NeedsPressureUpdate)
             {
                 NeedsPressureUpdate = false;
 
                 _exhaust = Exhaust.Zero;
                 foreach (var inlet in _inlets)
-                    _exhaust += inlet.GetExhaustProduced(AssemblyId);
+                    _exhaust += inlet.ExhaustProduced;
 
                 Exhaust split = _exhaust / TotalOutlets;
 
                 foreach (var outlet in _outlets)
                 {
-                    float thisUsage;
-                    outlet.UpdateExhaust(split, out thisUsage); // NOTE - this only works if ALL consumers have the same consumption.
+                    outlet.UpdateExhaust(split); // NOTE - this only works if ALL consumers have the same consumption. Which they do.
                 }
             }
         }
@@ -187,7 +160,7 @@ namespace Skytech.Engines.Shared.Exhaust
         {
             if (_inlets.Add(inlet))
             {
-                inlet.OnClose += RemoveInlet;
+                NeedsPressureUpdate = true;
                 return true;
             }
             return false;
@@ -197,7 +170,6 @@ namespace Skytech.Engines.Shared.Exhaust
         {
             if (_inlets.Remove(inlet))
             {
-                inlet.OnClose -= RemoveInlet;
                 NeedsPressureUpdate = true;
             }
         }
@@ -206,7 +178,7 @@ namespace Skytech.Engines.Shared.Exhaust
         {
             if (_outlets.Add(outlet))
             {
-                outlet.OnClose += RemoveOutlet;
+                NeedsPressureUpdate = true;
                 return true;
             }
             return false;
@@ -216,13 +188,43 @@ namespace Skytech.Engines.Shared.Exhaust
         {
             if (_outlets.Remove(outlet))
             {
-                outlet.OnClose -= RemoveOutlet;
                 NeedsPressureUpdate = true;
             }
         }
 
         private void OnGridBlockAdd(IMySlimBlock block)
         {
+            // check for in/outlets
+            IMyCubeBlock fatBlock = block.FatBlock;
+            if (fatBlock != null)
+            {
+                IExhaustConsumer c;
+                if (TryGetConsumer(fatBlock, out c))
+                {
+                    foreach (var part in Blocks) // actually horrible but it'll have to do. TODO replace with get block from position in interface, then check against this blocks hashset
+                    {
+                        if (c.IsInlet(part))
+                        {
+                            TryRegisterOutlet(c);
+                            break;
+                        }
+                    }
+                }
+
+                IExhaustProducer p;
+                if (TryGetProducer(fatBlock, out p))
+                {
+                    foreach (var part in Blocks) // actually horrible but it'll have to do. TODO replace with get block from position in interface, then check against this blocks hashset
+                    {
+                        if (p.IsOutlet(part))
+                        {
+                            TryRegisterInlet(p);
+                            break;
+                        }
+                    }
+                }
+            }
+
             // check for occluded exhausts
 
             BoundingBoxI bounds = new BoundingBoxI(block.Min, block.Max);
@@ -321,18 +323,19 @@ namespace Skytech.Engines.Shared.Exhaust
                 sb.AppendLine($"{PartsExhaustBlocked.Count} exhaust{(PartsExhaustBlocked.Count == 1 ? "" : "s")} blocked!");
             }
 
-            if (_externalVents.Count == 0)
+            if (_externalVents.Count == 0 && _outlets.Count == 0)
             {
                 sb.AppendLine("Zero exhaust vents found!");
             }
-            // TODO pressure levels
+            
+            sb.AppendLine($"Out: {_outlets.Count} In: {_inlets.Count}");
         }
 
         private void PerformVentCheck(IMyCubeBlock block)
         {
-            // turbos don't vent to simplify direction logic
-            if (_ventBlacklist.Contains(block.BlockDefinition.SubtypeName))
-                return;
+            //// turbos don't vent to simplify direction logic
+            //if (_ventBlacklist.Contains(block.BlockDefinition.SubtypeName))
+            //    return;
 
             Dictionary<Vector3I, string[]> allowedConnections;
             if (!Definition.AllowedConnections.TryGetValue(block.BlockDefinition.SubtypeName, out allowedConnections))
@@ -374,7 +377,7 @@ namespace Skytech.Engines.Shared.Exhaust
 
                 if (intersectBlock != null)
                 {
-                    if (i == 1 && Definition.AllowedConnections.ContainsKey(intersectBlock.BlockDefinition.Id.SubtypeName))
+                    if (i == 1 && (Definition.AllowedConnections.ContainsKey(intersectBlock.BlockDefinition.Id.SubtypeName) || _ventBlacklist.Contains(intersectBlock.BlockDefinition.Id.SubtypeName)))
                         continue; // don't add to exhaust-blocked list if connected normally
 
                     PartsExhaustBlocked.Add(block);
@@ -462,6 +465,80 @@ namespace Skytech.Engines.Shared.Exhaust
             }
         }
 
+        public bool TryGetProducer(Vector3I blockPos, out IExhaustProducer producer)
+        {
+            var block = Grid.GetCubeBlock(blockPos)?.FatBlock;
+            if (block != null)
+            {
+                Turbo t;
+                if (TurboManager.I.TryGetTurbo(block, out t))
+                {
+                    producer = t;
+                    return true;
+                }
+
+                FuelEngineCylinder c;
+                if (AssemblyManager<FuelEngineCylinder>.TryGet(block, out c))
+                {
+                    producer = c;
+                    return true;
+                }
+            }
+
+            producer = null;
+            return false;
+        }
+
+        public bool TryGetProducer(IMyCubeBlock block, out IExhaustProducer producer)
+        {
+            Turbo t;
+            if (TurboManager.I.TryGetTurbo(block, out t))
+            {
+                producer = t;
+                return true;
+            }
+
+            FuelEngineCylinder c;
+            if (AssemblyManager<FuelEngineCylinder>.TryGet(block, out c))
+            {
+                producer = c;
+                return true;
+            }
+
+            producer = null;
+            return false;
+        }
+
+        public bool TryGetConsumer(Vector3I blockPos, out IExhaustConsumer consumer)
+        {
+            var block = Grid.GetCubeBlock(blockPos)?.FatBlock;
+            if (block != null)
+            {
+                Turbo t;
+                if (TurboManager.I.TryGetTurbo(block, out t))
+                {
+                    consumer = t;
+                    return true;
+                }
+            }
+            
+            consumer = null;
+            return false;
+        }
+
+        public bool TryGetConsumer(IMyCubeBlock block, out IExhaustConsumer consumer)
+        {
+            Turbo t;
+            if (TurboManager.I.TryGetTurbo(block, out t))
+            {
+                consumer = t;
+                return true;
+            }
+            
+            consumer = null;
+            return false;
+        }
+
         public struct Exhaust : IEquatable<Exhaust>
         {
             public static readonly Exhaust Zero = new Exhaust(0, 0);
@@ -539,16 +616,6 @@ namespace Skytech.Engines.Shared.Exhaust
             public static bool operator !=(Exhaust a, Exhaust b)
             {
                 return Math.Abs(a.Amount - b.Amount) >= 0.0001f || Math.Abs(a.Pressure - b.Pressure) >= 0.0001f;
-            }
-        }
-
-        private class ExhaustConsumerComparer : IComparer<IExhaustConsumer>
-        {
-            public int Compare(IExhaustConsumer x, IExhaustConsumer y)
-            {
-                if (ReferenceEquals(null, y)) return 1;
-                if (ReferenceEquals(null, x)) return -1;
-                return x.MaxPressureUsage.CompareTo(y.MaxPressureUsage);
             }
         }
     }

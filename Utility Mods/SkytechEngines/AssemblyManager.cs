@@ -35,7 +35,7 @@ namespace Skytech.Engines
                 system.Unload();
             }
 
-            if (isSessionUnload)
+            if (!isSessionUnload)
             {
                 SharedMain.I.AssemblyManagers.Remove(I);
             }

@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Sandbox.ModAPI;
+using Skytech.Engines.Shared.Exhaust;
+using System;
 using System.Collections.Generic;
 using System.Text;
-using Sandbox.ModAPI;
-using Skytech.Engines.Shared.Exhaust;
 using VRage.Game.ModAPI;
 
 namespace Skytech.Engines
@@ -15,14 +15,15 @@ namespace Skytech.Engines
         public const float InjectorFuelRate = 8f;
 
         public FuelEngine Engine = null; // Set by owning engine
-        public Dictionary<int, int> Exhausts = new Dictionary<int, int>(); // Set by owning exhaust. ID, count.
         public List<FuelEngineCarburettor> Carburettors = new List<FuelEngineCarburettor>();
         public List<IMyCubeBlock> Injectors = new List<IMyCubeBlock>();
 
-        Action<IExhaustProducer> IExhaustProducer.OnClose { get; set; }
-
         public bool Overheated = false;
         public float FuelBurnRate = 0;
+
+        public FuelEngineExhaust.Exhaust ExhaustProduced { get; private set; } = FuelEngineExhaust.Exhaust.Zero;
+        public IMyCubeBlock Block { get; private set; }
+        public bool IsClosed { get; private set; } = false;
 
         private float _exhaustPerSide = 0;
 
@@ -47,19 +48,7 @@ namespace Skytech.Engines
 
             if (isBasePart)
             {
-                foreach (var pos in ModularApi.GetGridConnectingPositions(block, Definition.Name))
-                {
-                    var adjBlock = Grid.GetCubeBlock(pos)?.FatBlock;
-                    
-                    if (adjBlock == null)
-                        continue;
-
-                    FuelEngineExhaust exhaust;
-                    if (AssemblyManager<FuelEngineExhaust>.TryGet(adjBlock, out exhaust))
-                    {
-                        exhaust.TryRegisterInlet(this);
-                    }
-                }
+                Block = block;
             }
         }
 
@@ -76,7 +65,6 @@ namespace Skytech.Engines
         protected override void BlockInfoCallback(IMyCubeBlock block, StringBuilder sb)
         {
             base.BlockInfoCallback(block, sb);
-            sb.AppendLine($"Exhausts: {Exhausts.Count:N0}");
             sb.AppendLine($"Carburettors: {Carburettors.Count:N0}");
             sb.AppendLine($"Injectors: {Injectors.Count:N0}");
             sb.AppendLine($"Fuel Use: {FuelBurnRate:N}/s");
@@ -93,7 +81,12 @@ namespace Skytech.Engines
         public override void Unload()
         {
             base.Unload();
-            ((IExhaustProducer) this).OnClose?.Invoke(this);
+            IsClosed = true;
+        }
+
+        public bool IsOutlet(IMyCubeBlock block)
+        {
+            return block.Position.RectangularDistance(RootBlock.Position) == 1;
         }
 
         public void UpdateExhaust()
@@ -102,14 +95,15 @@ namespace Skytech.Engines
             FuelBurnRate = GetFuelRate(rpm, true);
 
             float exhaust = ExhaustPerFuel * FuelBurnRate;
-            float exhaustPerInlet = exhaust / Exhausts.Count;
-
-            _exhaustPerSide = exhaustPerInlet;
-        }
-
-        public FuelEngineExhaust.Exhaust GetExhaustProduced(int id)
-        {
-            return new FuelEngineExhaust.Exhaust(_exhaustPerSide * Exhausts.GetValueOrDefault(id, 0));
+            //float exhaustPerInlet = exhaust / Exhausts.Count;
+            //
+            //if (Math.Abs(_exhaustPerSide - exhaustPerInlet) > 0.0001)
+            //{
+            //    foreach (var ex in Exhausts.Keys)
+            //        ex.NeedsPressureUpdate = true;
+            //}
+            //_exhaustPerSide = exhaustPerInlet;
+            ExhaustProduced = new FuelEngineExhaust.Exhaust(exhaust);
         }
 
         public float GetFuelRate(float rpmFrac, bool ignoreOverheated)

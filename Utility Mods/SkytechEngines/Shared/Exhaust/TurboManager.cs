@@ -16,22 +16,22 @@ namespace Skytech.Engines.Shared.Exhaust
             ["ST_T_InlineTurboLeft"] = new TurboDef(
                 Vector3I.Right + Vector3I.Backward,
                 Vector3I.Backward * 2,
-                Vector3I.Zero // TODO
+                Vector3I.Up + Vector3I.Forward
                 ),
             ["ST_T_InlineTurboRight"] = new TurboDef(
                 Vector3I.Left + Vector3I.Backward,
                 Vector3I.Backward * 2,
-                Vector3I.Zero
+                Vector3I.Up + Vector3I.Forward
                 ),
             ["ST_T_TurbochargerLeft"] = new TurboDef(
                 Vector3I.Right,
                 Vector3I.Forward,
-                Vector3I.Zero
+                Vector3I.Down
                 ),
             ["ST_T_TurbochargerRight"] = new TurboDef(
                 Vector3I.Left,
                 Vector3I.Forward,
-                Vector3I.Zero
+                Vector3I.Down
                 ),
         };
 

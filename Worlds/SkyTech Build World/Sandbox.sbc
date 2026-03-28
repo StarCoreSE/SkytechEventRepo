@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <MyObjectBuilder_Checkpoint xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <CurrentSector x="0" y="0" z="0" />
-  <ElapsedGameTime>133643760000</ElapsedGameTime>
+  <ElapsedGameTime>137778320000</ElapsedGameTime>
   <SessionName>SkyTech Build World</SessionName>
   <SpectatorPosition>
-    <Position x="-11.030715802669965" y="209.1001951857738" z="454.15699401265681" />
-    <Forward x="0.0589359" y="0.587554455" z="0.8070355" />
-    <Up x="0.880198061" y="0.350798666" z="-0.319674373" />
+    <Position x="-11.030715802670008" y="209.10019518577377" z="454.15699401265732" />
+    <Forward x="0.05893593" y="0.5875545" z="0.8070355" />
+    <Up x="0.880198061" y="0.3507986" z="-0.3196744" />
     <Orientation>
       <X>0.49631235</X>
       <Y>0.810673654</Y>
@@ -16,17 +16,18 @@
   </SpectatorPosition>
   <SpectatorSpeed x="0.100000061" y="1" />
   <SpectatorIsLightOn>false</SpectatorIsLightOn>
-  <CameraEntity>0</CameraEntity>
+  <CameraController>Entity</CameraController>
+  <CameraEntity>121146153636173499</CameraEntity>
   <ControlledObject>121146153636173499</ControlledObject>
   <Password />
   <Description>Highfleet-esque multicrew Space Engineers combat tournament.</Description>
-  <LastSaveTime>2026-03-26T11:25:54.9064929-05:00</LastSaveTime>
+  <LastSaveTime>2026-03-28T14:17:09.5950608-05:00</LastSaveTime>
   <SpectatorDistance>7.84126949</SpectatorDistance>
   <WorkshopId xsi:nil="true" />
   <WorkshopId1 xsi:nil="true" />
   <CharacterToolbar>
     <ToolbarType>Character</ToolbarType>
-    <SelectedSlot>5</SelectedSlot>
+    <SelectedSlot xsi:nil="true" />
     <Slots>
       <Slot>
         <Index>0</Index>
@@ -103,6 +104,13 @@
         <Item />
         <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
           <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_StraightPipe" />
+        </Data>
+      </Slot>
+      <Slot>
+        <Index>11</Index>
+        <Item />
+        <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+          <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_HullPipe" />
         </Data>
       </Slot>
       <Slot>
@@ -1374,7 +1382,7 @@ PaintUnfinishedBlocks=False
       <DisplayName>Space Pirates</DisplayName>
       <CharacterEntityId>0</CharacterEntityId>
       <BlockLimitModifier>0</BlockLimitModifier>
-      <LastLoginTime>2026-03-26T11:25:08.2810995-05:00</LastLoginTime>
+      <LastLoginTime>2026-03-28T14:15:32.758121-05:00</LastLoginTime>
       <SavedCharacters />
       <LastLogoutTime>2026-02-24T22:04:04.2722556-06:00</LastLogoutTime>
       <RespawnShips />
@@ -1388,7 +1396,7 @@ PaintUnfinishedBlocks=False
       <DisplayName>Unknown</DisplayName>
       <CharacterEntityId>0</CharacterEntityId>
       <BlockLimitModifier>0</BlockLimitModifier>
-      <LastLoginTime>2026-03-26T11:25:08.2810995-05:00</LastLoginTime>
+      <LastLoginTime>2026-03-28T14:15:32.758121-05:00</LastLoginTime>
       <SavedCharacters />
       <LastLogoutTime>2026-02-24T22:04:04.6102569-06:00</LastLogoutTime>
       <RespawnShips />
@@ -1402,7 +1410,7 @@ PaintUnfinishedBlocks=False
       <DisplayName>NEU NPC3719</DisplayName>
       <CharacterEntityId>0</CharacterEntityId>
       <BlockLimitModifier>0</BlockLimitModifier>
-      <LastLoginTime>2026-03-26T11:25:08.2810995-05:00</LastLoginTime>
+      <LastLoginTime>2026-03-28T14:15:32.758121-05:00</LastLoginTime>
       <SavedCharacters />
       <LastLogoutTime>2026-03-12T20:02:13.0822304-05:00</LastLogoutTime>
       <RespawnShips />
@@ -1418,11 +1426,11 @@ PaintUnfinishedBlocks=False
       <Model>Default_Astronaut_Female</Model>
       <ColorMask x="0.566666663" y="-0.528525352" z="0.133391291" />
       <BlockLimitModifier>0</BlockLimitModifier>
-      <LastLoginTime>2026-03-26T11:25:08.2930992-05:00</LastLoginTime>
+      <LastLoginTime>2026-03-28T14:15:32.7701205-05:00</LastLoginTime>
       <SavedCharacters>
         <long>121146153636173499</long>
       </SavedCharacters>
-      <LastLogoutTime>2026-03-26T11:25:54.9064929-05:00</LastLogoutTime>
+      <LastLogoutTime>2026-03-28T14:17:09.5950608-05:00</LastLogoutTime>
       <RespawnShips />
       <LastDeathPosition>
         <X>-9267.4061964308239</X>
@@ -1438,7 +1446,7 @@ PaintUnfinishedBlocks=False
       <DisplayName>Space Pirates</DisplayName>
       <CharacterEntityId>0</CharacterEntityId>
       <BlockLimitModifier>0</BlockLimitModifier>
-      <LastLoginTime>2026-03-26T11:25:10.2774351-05:00</LastLoginTime>
+      <LastLoginTime>2026-03-28T14:15:34.7111202-05:00</LastLoginTime>
       <SavedCharacters />
       <LastLogoutTime>0001-01-01T00:00:00</LastLogoutTime>
       <RespawnShips />
@@ -1452,7 +1460,7 @@ PaintUnfinishedBlocks=False
       <DisplayName>The Factorum</DisplayName>
       <CharacterEntityId>0</CharacterEntityId>
       <BlockLimitModifier>0</BlockLimitModifier>
-      <LastLoginTime>2026-03-26T11:25:08.2810995-05:00</LastLoginTime>
+      <LastLoginTime>2026-03-28T14:15:32.758121-05:00</LastLoginTime>
       <SavedCharacters />
       <LastLogoutTime>2026-02-24T19:18:42.891798-06:00</LastLogoutTime>
       <RespawnShips />
@@ -1466,7 +1474,7 @@ PaintUnfinishedBlocks=False
       <DisplayName>Unknown</DisplayName>
       <CharacterEntityId>0</CharacterEntityId>
       <BlockLimitModifier>0</BlockLimitModifier>
-      <LastLoginTime>2026-03-26T11:25:08.2810995-05:00</LastLoginTime>
+      <LastLoginTime>2026-03-28T14:15:32.758121-05:00</LastLoginTime>
       <SavedCharacters />
       <LastLogoutTime>2026-02-24T19:18:42.8947982-06:00</LastLogoutTime>
       <RespawnShips />
@@ -1480,7 +1488,7 @@ PaintUnfinishedBlocks=False
       <DisplayName>RED NPC8093</DisplayName>
       <CharacterEntityId>0</CharacterEntityId>
       <BlockLimitModifier>0</BlockLimitModifier>
-      <LastLoginTime>2026-03-26T11:25:08.2810995-05:00</LastLoginTime>
+      <LastLoginTime>2026-03-28T14:15:32.758121-05:00</LastLoginTime>
       <SavedCharacters />
       <LastLogoutTime>2026-02-24T21:57:06.2983124-06:00</LastLogoutTime>
       <RespawnShips />
@@ -1494,7 +1502,7 @@ PaintUnfinishedBlocks=False
       <DisplayName>BLU NPC9531</DisplayName>
       <CharacterEntityId>0</CharacterEntityId>
       <BlockLimitModifier>0</BlockLimitModifier>
-      <LastLoginTime>2026-03-26T11:25:08.2810995-05:00</LastLoginTime>
+      <LastLoginTime>2026-03-28T14:15:32.758121-05:00</LastLoginTime>
       <SavedCharacters />
       <LastLogoutTime>2026-02-24T21:57:50.0956308-06:00</LastLogoutTime>
       <RespawnShips />
@@ -1508,7 +1516,7 @@ PaintUnfinishedBlocks=False
       <DisplayName>SPC NPC9149</DisplayName>
       <CharacterEntityId>0</CharacterEntityId>
       <BlockLimitModifier>0</BlockLimitModifier>
-      <LastLoginTime>2026-03-26T11:25:08.2810995-05:00</LastLoginTime>
+      <LastLoginTime>2026-03-28T14:15:32.758121-05:00</LastLoginTime>
       <SavedCharacters />
       <LastLogoutTime>2026-02-24T21:58:59.1128193-06:00</LastLogoutTime>
       <RespawnShips />
@@ -1611,6 +1619,13 @@ PaintUnfinishedBlocks=False
                 <Item />
                 <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
                   <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_StraightPipe" />
+                </Data>
+              </Slot>
+              <Slot>
+                <Index>11</Index>
+                <Item />
+                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
+                  <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_HullPipe" />
                 </Data>
               </Slot>
               <Slot>
@@ -2204,7 +2219,7 @@ PaintUnfinishedBlocks=False
     </MyObjectBuilder_SessionComponent>
     <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_SpaceFaunaComponent">
       <SpawnInfos>
-        <Info X="-5.9397052282497995" Y="214.39629302440176" Z="464.47857526113643" S="904761" A="44667" />
+        <Info X="-5.9397052282497995" Y="214.39629302440176" Z="464.47857526113643" S="474078" A="44366" />
       </SpawnInfos>
       <TimeoutInfos />
     </MyObjectBuilder_SessionComponent>
@@ -2292,12 +2307,12 @@ PaintUnfinishedBlocks=False
     </MyObjectBuilder_SessionComponent>
     <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_AntennaSessionComponent" />
     <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_EnvironmentBotSpawningSystem">
-      <TimeSinceLastEventInMs>100366</TimeSinceLastEventInMs>
+      <TimeSinceLastEventInMs>50933</TimeSinceLastEventInMs>
     </MyObjectBuilder_SessionComponent>
     <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_TradingManager" />
     <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_CoordinateSystem">
       <Definition Type="MyObjectBuilder_CoordinateSystemDefinition" Subtype="CoordinateSystem" />
-      <LastCoordSysId>12</LastCoordSysId>
+      <LastCoordSysId>14</LastCoordSysId>
       <CoordSystems>
         <CoordSysInfo>
           <Id>2</Id>
@@ -2316,6 +2331,12 @@ PaintUnfinishedBlocks=False
           <EntityCount>1</EntityCount>
           <Rotation x="-0.288228869" y="0.210792467" z="-0.607554138" w="0.709484756" />
           <Position x="10664.780199408777" y="1853.6363483310977" z="10381.755498270551" />
+        </CoordSysInfo>
+        <CoordSysInfo>
+          <Id>13</Id>
+          <EntityCount>1</EntityCount>
+          <Rotation x="-0.667112648" y="-0.526304662" z="0.140640676" w="0.508118451" />
+          <Position x="-36.6840654549851" y="211.6295522674418" z="448.00802134957121" />
         </CoordSysInfo>
       </CoordSystems>
     </MyObjectBuilder_SessionComponent>
@@ -2497,8 +2518,8 @@ PaintUnfinishedBlocks=False
   <CustomSkybox />
   <RequiresDX>11</RequiresDX>
   <VicinityModelsCache>
-    <string>C:\Users\jnick\AppData\Roaming\SpaceEngineers\Mods\SkytechThrusters\Models\Cubes\large\GimbalThrustPart.mwm</string>
     <string>Models\Cubes\Large\AtmosphericThrusterSmall.mwm</string>
+    <string>C:\Users\jnick\AppData\Roaming\SpaceEngineers\Mods\SkytechThrusters\Models\Cubes\large\GimbalThrustPart.mwm</string>
     <string>Models\Cubes\Large\GeneratorSmall.mwm</string>
     <string>C:\Users\jnick\AppData\Roaming\SpaceEngineers\Mods\SkytechEngines\Models\Cubes\large\ST_T_4WayPipe.mwm</string>
     <string>C:\Users\jnick\AppData\Roaming\SpaceEngineers\Mods\SkytechEngines\Models\Cubes\large\ST_T_CrankShaft.mwm</string>
@@ -2520,7 +2541,6 @@ PaintUnfinishedBlocks=False
     <string>C:\Users\jnick\AppData\Roaming\SpaceEngineers\Mods\SkytechEngines\Models\Cubes\large\ST_T_HullPipe.mwm</string>
   </VicinityModelsCache>
   <VicinityArmorModelsCache>
-    <string>Models\Components\Sphere.mwm</string>
     <string>Models\Characters\Astronaut\Female\SE_astronaut.mwm</string>
     <string>Models\Cubes\Large\Armor\SquarePlate.mwm</string>
   </VicinityArmorModelsCache>

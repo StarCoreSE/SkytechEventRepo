@@ -1,14 +1,14 @@
-﻿using System;
+﻿using Collections;
+using VRage.Game.ModAPI;
 
 namespace Skytech.Engines.Shared.Exhaust
 {
-    internal interface IExhaustConsumer
+    internal interface IExhaustConsumer : IClosable
     {
-        /// <summary>
-        /// Should be const! And same for all!
-        /// </summary>
-        float MaxPressureUsage { get; }
-        void UpdateExhaust(FuelEngineExhaust.Exhaust available, out float pressureConsumed);
-        Action<IExhaustConsumer> OnClose { get; set; }
+        // TODO isconnected of some kind
+        void UpdateExhaust(FuelEngineExhaust.Exhaust available);
+        IMyCubeBlock Block { get; }
+
+        bool IsInlet(IMyCubeBlock block);
     }
 }

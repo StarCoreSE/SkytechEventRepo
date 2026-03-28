@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Skytech.Engines.Shared.Exhaust;
+using System;
 using System.Collections.Generic;
 using VRageMath;
 using static Skytech.Engines.Shared.ModularAssemblies.Communication.DefinitionDefs;
@@ -48,15 +49,15 @@ namespace Skytech.Engines.Shared.ModularAssemblies
                 "ST_T_5WayPipe",
                 "ST_T_6WayPipe",
                 "ST_T_CornerPipe",
-                "ST_T_Cylinder",
+                //"ST_T_Cylinder",
                 "ST_T_HullPipe",
-                "ST_T_InlineTurboLeft",
-                "ST_T_InlineTurboRight",
+                //"ST_T_InlineTurboLeft",
+                //"ST_T_InlineTurboRight",
                 "ST_T_JunctionPipe",
                 "ST_T_LJunctionPipe",
                 "ST_T_StraightPipe",
-                "ST_T_TurbochargerLeft",
-                "ST_T_TurbochargerRight",
+                //"ST_T_TurbochargerLeft",
+                //"ST_T_TurbochargerRight",
             },
 
             // Allowed connection directions & whitelists, measured in blocks.
@@ -88,14 +89,14 @@ namespace Skytech.Engines.Shared.ModularAssemblies
                     [Vector3I.Forward] = Array.Empty<string>(),
                     [Vector3I.Backward] = Array.Empty<string>(),
                 },
-                ["ST_T_Cylinder"] = new Dictionary<Vector3I, string[]>
-                {
-                    [Vector3I.Up] = FuelEngineExhCons.CylinderConnections,
-                    [Vector3I.Right] = FuelEngineExhCons.CylinderConnections,
-                    [Vector3I.Left] = FuelEngineExhCons.CylinderConnections,
-                    [Vector3I.Forward] = FuelEngineExhCons.CylinderConnections,
-                    [Vector3I.Backward] = FuelEngineExhCons.CylinderConnections,
-                },
+                //["ST_T_Cylinder"] = new Dictionary<Vector3I, string[]>
+                //{
+                //    [Vector3I.Up] = FuelEngineExhCons.CylinderConnections,
+                //    [Vector3I.Right] = FuelEngineExhCons.CylinderConnections,
+                //    [Vector3I.Left] = FuelEngineExhCons.CylinderConnections,
+                //    [Vector3I.Forward] = FuelEngineExhCons.CylinderConnections,
+                //    [Vector3I.Backward] = FuelEngineExhCons.CylinderConnections,
+                //},
                 ["ST_T_CornerPipe"] = new Dictionary<Vector3I, string[]>
                 {
                     [Vector3I.Down] = Array.Empty<string>(),
@@ -106,16 +107,16 @@ namespace Skytech.Engines.Shared.ModularAssemblies
                     [Vector3I.Forward] = Array.Empty<string>(),
                     [Vector3I.Backward] = Array.Empty<string>(),
                 },
-                ["ST_T_InlineTurboLeft"] = new Dictionary<Vector3I, string[]>
-                {
-                    [Vector3I.Right + Vector3I.Backward] = Array.Empty<string>(),
-                    [Vector3I.Backward * 2] = Array.Empty<string>(),
-                },
-                ["ST_T_InlineTurboRight"] = new Dictionary<Vector3I, string[]>
-                {
-                    [Vector3I.Left + Vector3I.Backward] = Array.Empty<string>(),
-                    [Vector3I.Backward * 2] = Array.Empty<string>(),
-                },
+                //["ST_T_InlineTurboLeft"] = new Dictionary<Vector3I, string[]>
+                //{
+                //    [Vector3I.Right + Vector3I.Backward] = Array.Empty<string>(),
+                //    [Vector3I.Backward * 2] = Array.Empty<string>(),
+                //},
+                //["ST_T_InlineTurboRight"] = new Dictionary<Vector3I, string[]>
+                //{
+                //    [Vector3I.Left + Vector3I.Backward] = Array.Empty<string>(),
+                //    [Vector3I.Backward * 2] = Array.Empty<string>(),
+                //},
                 ["ST_T_JunctionPipe"] = new Dictionary<Vector3I, string[]>
                 {
                     [Vector3I.Up] = Array.Empty<string>(),
@@ -133,36 +134,36 @@ namespace Skytech.Engines.Shared.ModularAssemblies
                     [Vector3I.Forward] = Array.Empty<string>(),
                     [Vector3I.Backward] = Array.Empty<string>(),
                 },
-                ["ST_T_TurbochargerLeft"] = new Dictionary<Vector3I, string[]>
-                {
-                    [Vector3I.Right] = Array.Empty<string>(),
-                    [Vector3I.Forward] = Array.Empty<string>(),
-                },
-                ["ST_T_TurbochargerRight"] = new Dictionary<Vector3I, string[]>
-                {
-                    [Vector3I.Left] = Array.Empty<string>(),
-                    [Vector3I.Forward] = Array.Empty<string>(),
-                },
+                //["ST_T_TurbochargerLeft"] = new Dictionary<Vector3I, string[]>
+                //{
+                //    [Vector3I.Right] = Array.Empty<string>(),
+                //    [Vector3I.Forward] = Array.Empty<string>(),
+                //},
+                //["ST_T_TurbochargerRight"] = new Dictionary<Vector3I, string[]>
+                //{
+                //    [Vector3I.Left] = Array.Empty<string>(),
+                //    [Vector3I.Forward] = Array.Empty<string>(),
+                //},
             },
         };
 
-        private static class FuelEngineExhCons
-        {
-            public static readonly string[] CylinderConnections =
-            {
-                "ST_T_4WayPipe",
-                "ST_T_5WayPipe",
-                "ST_T_6WayPipe",
-                "ST_T_CornerPipe",
-                "ST_T_HullPipe",
-                "ST_T_InlineTurboLeft",
-                "ST_T_InlineTurboRight",
-                "ST_T_JunctionPipe",
-                "ST_T_LJunctionPipe",
-                "ST_T_StraightPipe",
-                "ST_T_TurbochargerLeft",
-                "ST_T_TurbochargerRight",
-            };
-        }
+        //private static class FuelEngineExhCons
+        //{
+        //    public static readonly string[] CylinderConnections =
+        //    {
+        //        "ST_T_4WayPipe",
+        //        "ST_T_5WayPipe",
+        //        "ST_T_6WayPipe",
+        //        "ST_T_CornerPipe",
+        //        "ST_T_HullPipe",
+        //        "ST_T_InlineTurboLeft",
+        //        "ST_T_InlineTurboRight",
+        //        "ST_T_JunctionPipe",
+        //        "ST_T_LJunctionPipe",
+        //        "ST_T_StraightPipe",
+        //        "ST_T_TurbochargerLeft",
+        //        "ST_T_TurbochargerRight",
+        //    };
+        //}
     }
 }

@@ -2,7 +2,7 @@
 {
     internal interface IAssemblyManager
     {
-        void Unload();
+        void Unload(bool isSessionUnload = false);
         void Update();
     }
 }

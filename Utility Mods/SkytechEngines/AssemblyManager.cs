@@ -1,8 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using Skytech.Engines.Shared;
+using Skytech.Engines.Shared.ModularAssemblies;
 using Skytech.Engines.Shared.ModularAssemblies.Communication;
+using System.Collections.Generic;
 using VRage.Game.ModAPI;
+using VRageMath;
 
-namespace Skytech.Engines.Shared.ModularAssemblies
+namespace Skytech.Engines
 {
     internal class AssemblyManager<TAssembly> : IAssemblyManager
         where TAssembly : AssemblyBase, new()
@@ -11,26 +14,31 @@ namespace Skytech.Engines.Shared.ModularAssemblies
         protected static AssemblyManager<TAssembly> I { get; private set; } = null;
         private static ModularDefinitionApi ModularApi => ModularDefinition.ModularApi;
 
-
+        public static DefinitionDefs.ModularPhysicalDefinition Definition { get; private set; }
         private Dictionary<int, TAssembly> _assemblies = new Dictionary<int, TAssembly>();
 
 
-        public static void Load()
+        public static void Load(DefinitionDefs.ModularPhysicalDefinition definition)
         {
             if (I != null)
                 return;
             I = new AssemblyManager<TAssembly>();
+            Definition = definition;
             SharedMain.I.AssemblyManagers.Add(I);
             AssemblyBase.OnDefinitionInit<TAssembly>();
         }
 
-        public void Unload()
+        public void Unload(bool isSessionUnload = false)
         {
             foreach (var system in _assemblies.Values)
             {
                 system.Unload();
             }
-            SharedMain.I.AssemblyManagers.Remove(I);
+
+            if (isSessionUnload)
+            {
+                SharedMain.I.AssemblyManagers.Remove(I);
+            }
             I = null;
         }
 
@@ -42,12 +50,31 @@ namespace Skytech.Engines.Shared.ModularAssemblies
             }
         }
 
-        public static TAssembly Get(int assemblyId)
+        public static bool TryGet(int assemblyId, out TAssembly asm) => I._assemblies.TryGetValue(assemblyId, out asm);
+
+        public static bool TryGet(IMyCubeBlock block, out TAssembly asm)
         {
-            TAssembly asm;
-            if (!I._assemblies.TryGetValue(assemblyId, out asm))
-                return null;
-            return asm;
+            asm = null;
+            int id = ModularApi.GetContainingAssembly(block, Definition.Name);
+            if (id == -1)
+                return false;
+
+            return I._assemblies.TryGetValue(id, out asm);
+        }
+
+        public static bool TryGet(IMyCubeGrid grid, Vector3I position, out TAssembly asm)
+        {
+            asm = null;
+
+            IMyCubeBlock block = grid.GetCubeBlock(position)?.FatBlock;
+            if (block == null)
+                return false;
+
+            int id = ModularApi.GetContainingAssembly(block, Definition.Name);
+            if (id == -1)
+                return false;
+
+            return I._assemblies.TryGetValue(id, out asm);
         }
 
         public static void OnPartAdd(int assemblyId, IMyCubeBlock block, bool isBaseBlock)

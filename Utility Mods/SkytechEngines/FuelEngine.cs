@@ -1,5 +1,4 @@
-﻿using Skytech.Engines.Shared.ModularAssemblies;
-using System;
+﻿using System;
 using System.Text;
 using Sandbox.ModAPI;
 using VRage.Game.ModAPI;
@@ -17,12 +16,9 @@ namespace Skytech.Engines
             // delay a tick to let everything init right
             MyAPIGateway.Utilities.InvokeOnGameThread(() =>
             {
-                int cylId = ModularApi.GetContainingAssembly(block, "FuelEngineCylinder");
-                if (cylId != -1)
+                FuelEngineCylinder cyl;
+                if (AssemblyManager<FuelEngineCylinder>.TryGet(block, out cyl))
                 {
-                    FuelEngineCylinder cyl = AssemblyManager<FuelEngineCylinder>.Get(cylId);
-                    if (cyl == null)
-                        throw new Exception("Missing cylinder assembly!");
                     cyl.Engine = this;
                 }
             });

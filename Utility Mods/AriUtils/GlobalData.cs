@@ -36,6 +36,8 @@ namespace AriUtils
         public static Action<HudState> OnHudVisibleChanged = null;
         public static Random Random = new Random();
 
+        public static Action<IMySlimBlock> OnBlockAdded = null;
+        public static Action<IMySlimBlock> OnBlockRemoved = null;
 
         public static readonly MyDefinitionId ElectricityId = new MyDefinitionId(typeof(MyObjectBuilder_GasProperties), "Electricity");
         public static readonly MyDefinitionId HydrogenId = new MyDefinitionId(typeof(MyObjectBuilder_GasProperties), "Hydrogen");
@@ -107,6 +109,7 @@ namespace AriUtils
             }
 
             MyAPIGateway.Entities.OnEntityAdd += OnEntityAdd;
+            MyAPIGateway.Entities.OnEntityRemove += OnEntityRemove;
             MyAPIGateway.Entities.GetEntities(null, e =>
             {
                 OnEntityAdd(e);
@@ -195,6 +198,7 @@ namespace AriUtils
         internal static void Unload()
         {
             MyAPIGateway.Entities.OnEntityAdd -= OnEntityAdd;
+            MyAPIGateway.Entities.OnEntityRemove -= OnEntityRemove;
             Players = null;
             Planets = null;
             if (MyAPIGateway.Session.IsServer)
@@ -210,6 +214,31 @@ namespace AriUtils
             var planet = entity as MyPlanet;
             if (planet != null)
                 Planets.Add(planet);
+
+            var grid = entity as IMyCubeGrid;
+            if (grid != null)
+            {
+                // can safely skip unregistering these, GlobalData should survive for entire session
+                grid.OnBlockAdded += _OnBlockAdded;
+                grid.OnBlockRemoved += _OnBlockRemoved;
+            }
+        }
+
+        private static void OnEntityRemove(IMyEntity entity)
+        {
+            var planet = entity as MyPlanet;
+            if (planet != null)
+                Planets.Remove(planet);
+        }
+
+        private static void _OnBlockAdded(IMySlimBlock block)
+        { 
+            OnBlockAdded?.Invoke(block);
+        }
+
+        private static void _OnBlockRemoved(IMySlimBlock block)
+        {
+            OnBlockRemoved?.Invoke(block);
         }
 
         private static void UpdateVisible(int visible)

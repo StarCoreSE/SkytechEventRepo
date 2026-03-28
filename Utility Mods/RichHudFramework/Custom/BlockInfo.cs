@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using VRage.Game.ModAPI;
+using VRage.ModAPI;
 using VRageMath;
 
 namespace AriUtils.HUD
@@ -54,7 +55,14 @@ namespace AriUtils.HUD
             else
             {
                 I._infos.Add(block, info);
+                block.OnClose += OnBlockOnClose;
             }
+        }
+
+        // safety check
+        private static void OnBlockOnClose(IMyEntity ent)
+        {
+            I._infos.Remove((IMyCubeBlock)ent);
         }
 
         public static void Unregister(IMyCubeBlock block, Action<IMyCubeBlock, StringBuilder> info)
@@ -65,7 +73,10 @@ namespace AriUtils.HUD
             I._infos[block] -= info;
 
             if (I._infos[block] == null)
+            {
                 I._infos.Remove(block);
+                block.OnClose -= OnBlockOnClose;
+            }
         }
 
         private BlockInfo()

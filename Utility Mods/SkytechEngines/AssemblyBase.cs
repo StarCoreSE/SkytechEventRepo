@@ -19,6 +19,7 @@ namespace Skytech.Engines
         public int AssemblyId { get; private set; }
         public IMyCubeGrid Grid { get; private set; }
         public MyCubeGrid MyGrid { get; private set; }
+        public DefinitionDefs.ModularPhysicalDefinition Definition { get; private set; }
 
         public IMyCubeBlock RootBlock { get; private set; } = null;
         public long RootId { get; private set; } = -1;
@@ -37,6 +38,7 @@ namespace Skytech.Engines
             {
                 AssemblyId = assemblyId,
                 Grid = ModularApi.GetAssemblyGrid(assemblyId),
+                Definition = AssemblyManager<TAssembly>.Definition,
             };
             asm.MyGrid = (MyCubeGrid) asm.Grid;
 

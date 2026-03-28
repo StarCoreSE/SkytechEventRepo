@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 using Sandbox.ModAPI;
-using Skytech.Engines.Shared.ModularAssemblies;
+using Skytech.Engines.Shared.Exhaust;
 using VRage.Game.ModAPI;
 
 namespace Skytech.Engines
 {
-    internal class FuelEngineCylinder : AssemblyBase
+    internal class FuelEngineCylinder : AssemblyBase, IExhaustProducer
     {
         public const float ExhaustPerFuel = 1;
         public const float BaseFuelRate = 0.3f;
@@ -15,26 +15,27 @@ namespace Skytech.Engines
         public const float InjectorFuelRate = 8f;
 
         public FuelEngine Engine = null; // Set by owning engine
-        public Dictionary<IMyCubeBlock, FuelEngineExhaust> Exhausts = new Dictionary<IMyCubeBlock, FuelEngineExhaust>(); // Set by owning exhaust
+        public Dictionary<int, int> Exhausts = new Dictionary<int, int>(); // Set by owning exhaust. ID, count.
         public List<FuelEngineCarburettor> Carburettors = new List<FuelEngineCarburettor>();
         public List<IMyCubeBlock> Injectors = new List<IMyCubeBlock>();
+
+        Action<IExhaustProducer> IExhaustProducer.OnClose { get; set; }
 
         public bool Overheated = false;
         public float FuelBurnRate = 0;
 
-	    public override void OnPartAdd(IMyCubeBlock block, bool isBasePart)
+        private float _exhaustPerSide = 0;
+
+        public override void OnPartAdd(IMyCubeBlock block, bool isBasePart)
         {
-            base.OnPartAdd(block, isBasePart);
+            base.OnPartAdd(block, isBasePart); // TODO cylinders should get the same turbo connection thingy as the rest but it's kinda fucky because. turbos.
 
             // delay a tick to let everything init right
             MyAPIGateway.Utilities.InvokeOnGameThread(() =>
             {
-                int carbId = ModularApi.GetContainingAssembly(block, "FuelEngineCarburettor");
-                if (carbId != -1)
+                FuelEngineCarburettor carb;
+                if (AssemblyManager<FuelEngineCarburettor>.TryGet(block, out carb))
                 {
-                    FuelEngineCarburettor carb = AssemblyManager<FuelEngineCarburettor>.Get(carbId);
-                    if (carb == null)
-                        throw new Exception("Missing carburettor assembly!");
                     Carburettors.Add(carb);
                 }
             });
@@ -42,6 +43,23 @@ namespace Skytech.Engines
             if (block.BlockDefinition.SubtypeName == "ST_T_Injector")
             {
                 Injectors.Add(block);
+            }
+
+            if (isBasePart)
+            {
+                foreach (var pos in ModularApi.GetGridConnectingPositions(block, Definition.Name))
+                {
+                    var adjBlock = Grid.GetCubeBlock(pos)?.FatBlock;
+                    
+                    if (adjBlock == null)
+                        continue;
+
+                    FuelEngineExhaust exhaust;
+                    if (AssemblyManager<FuelEngineExhaust>.TryGet(adjBlock, out exhaust))
+                    {
+                        exhaust.TryRegisterInlet(this);
+                    }
+                }
             }
         }
 
@@ -72,6 +90,12 @@ namespace Skytech.Engines
             UpdateExhaust();
         }
 
+        public override void Unload()
+        {
+            base.Unload();
+            ((IExhaustProducer) this).OnClose?.Invoke(this);
+        }
+
         public void UpdateExhaust()
         {
             float rpm = Engine?.Rpm ?? 0;
@@ -80,10 +104,12 @@ namespace Skytech.Engines
             float exhaust = ExhaustPerFuel * FuelBurnRate;
             float exhaustPerInlet = exhaust / Exhausts.Count;
 
-            foreach (var inlet in Exhausts)
-            {
-                inlet.Value.UpdateInlet(inlet.Key, exhaustPerInlet);
-            }
+            _exhaustPerSide = exhaustPerInlet;
+        }
+
+        public FuelEngineExhaust.Exhaust GetExhaustProduced(int id)
+        {
+            return new FuelEngineExhaust.Exhaust(_exhaustPerSide * Exhausts.GetValueOrDefault(id, 0));
         }
 
         public float GetFuelRate(float rpmFrac, bool ignoreOverheated)

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using AriUtils;
 using AriUtils.HUD;
 using VRage.Game.Components;
+using Skytech.Engines.Shared.Exhaust;
 
 namespace Skytech.Engines.Shared
 {
@@ -32,6 +33,7 @@ namespace Skytech.Engines.Shared
 
                 GlobalData.Init(ModContext);
                 GlobalObjectPools.Init();
+                TurboManager.Init();
 
                 Log.DecreaseIndent();
                 Log.Info("SharedMain", "Initialized.");
@@ -58,6 +60,8 @@ namespace Skytech.Engines.Shared
                     asm.Update();
                 }
 
+                TurboManager.Update();
+
                 GlobalObjectPools.Update();
                 BlockInfo.Update();
                 Log.Update();
@@ -79,6 +83,9 @@ namespace Skytech.Engines.Shared
                 Log.Info("SharedMain", "Start unload...");
                 Log.IncreaseIndent();
 
+                TurboManager.Unload();
+                foreach (var aman in AssemblyManagers)
+                    aman.Unload(true);
                 AssemblyManagers = null;
                 BlockInfo.Close();
                 GlobalObjectPools.Unload();

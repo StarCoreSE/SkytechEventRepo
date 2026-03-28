@@ -153,6 +153,14 @@ namespace Skytech.Engines.Shared.Exhaust
                 {
                     outlet.UpdateExhaust(split); // NOTE - this only works if ALL consumers have the same consumption. Which they do.
                 }
+
+                foreach (var pair in _externalVents)
+                {
+                    foreach (var vent in pair.Value)
+                    {
+                        vent.Update();
+                    }
+                }
             }
         }
 
@@ -275,6 +283,23 @@ namespace Skytech.Engines.Shared.Exhaust
             // check for open exhausts
             // TODO issue with assembly splits not checking occlusion
 
+            // check for in/outlets
+            IMyCubeBlock fatBlock = block.FatBlock;
+            if (fatBlock != null)
+            {
+                IExhaustConsumer c;
+                if (TryGetConsumer(fatBlock, out c))
+                {
+                    RemoveOutlet(c);
+                }
+
+                IExhaustProducer p;
+                if (TryGetProducer(fatBlock, out p))
+                {
+                    RemoveInlet(p);
+                }
+            }
+
             BoundingBoxI bounds = new BoundingBoxI(block.Min, block.Max);
             List<IMyCubeBlock> blocksNeedCheck = new List<IMyCubeBlock>();
             foreach (var exhaust in _externalVents)
@@ -328,7 +353,7 @@ namespace Skytech.Engines.Shared.Exhaust
                 sb.AppendLine("Zero exhaust vents found!");
             }
             
-            sb.AppendLine($"Out: {_outlets.Count} In: {_inlets.Count}");
+            sb.AppendLine($"Out: {_outlets.Count}+{_externalVents.Count} In: {_inlets.Count}");
         }
 
         private void PerformVentCheck(IMyCubeBlock block)
@@ -390,6 +415,15 @@ namespace Skytech.Engines.Shared.Exhaust
             if (validDirs.Count > 0)
             {
                 _externalVents[block] = validDirs.ToArray();
+
+                // delayed update so everything can init correctly
+                foreach (var pair in _externalVents)
+                {
+                    foreach (var vent in pair.Value)
+                    {
+                        vent.Update();
+                    }
+                }
             }
         }
 
@@ -411,7 +445,7 @@ namespace Skytech.Engines.Shared.Exhaust
                 Vector3D pos = (Vector3D)localDirection * block.CubeGrid.GridSize / 2;
                 MatrixD matrix = MatrixD.CreateWorld(pos, LocalDirection, Vector3D.Up);
                 // ExhaustSmokeSmall
-                if (MyParticlesManager.TryCreateParticleEffect("ExhaustSmokeSmall", ref matrix, ref Vector3D.Zero, block.Render.GetRenderObjectID(), out Particle))
+                if (MyParticlesManager.TryCreateParticleEffect("EngineExhaustSmoke", ref matrix, ref Vector3D.Zero, block.Render.GetRenderObjectID(), out Particle))
                 {
                     //MyAPIGateway.Utilities.ShowNotification("Spawned particle at " + hitEffect.WorldMatrix.Translation);
                 }
@@ -420,8 +454,6 @@ namespace Skytech.Engines.Shared.Exhaust
                     Log.Exception("FuelEngineExhaust", new Exception("Could not create exhaust particle."));
                     //throw new Exception($"Failed to create new impact particle! RenderId: {uint.MaxValue} Effect: {Definition.VisualDef.ImpactParticle}");
                 }
-
-                Update();
             }
 
             public void Update()
@@ -430,13 +462,19 @@ namespace Skytech.Engines.Shared.Exhaust
                 float exhaustAmount = Assembly._exhaust.Amount / Assembly.TotalOutlets;
                 float exhaustPressure = Assembly._exhaust.Pressure / Assembly.TotalOutlets;
 
-                if (exhaustAmount == 0 && !Particle.IsEmittingStopped)
+                //MyAPIGateway.Utilities.ShowNotification($"{exhaustAmount:N} {exhaustPressure:N} {(Particle.IsEmittingStopped || Particle.IsStopped)}", 10000);
+
+                if ((Assembly.TotalOutlets == 0 || exhaustAmount <= 0.01) && !Particle.IsEmittingStopped)
+                {
                     Particle.StopEmitting();
-                if (exhaustAmount > 0 && Particle.IsEmittingStopped)
+                    return;
+                }
+                if (exhaustAmount > 0.01 && (Particle.IsEmittingStopped || Particle.IsStopped))
                     Particle.Play();
 
-                Particle.UserBirthMultiplier = exhaustAmount;
-                //Particle.UserLifeMultiplier = exhaustStrength.X;
+                Particle.UserBirthMultiplier = exhaustAmount; // TODO don't scale linearly; effects way too strong for larger engines.
+                //Particle.UserLifeMultiplier = exhaustPressure;
+                //Particle.UserColorIntensityMultiplier = 1/exhaustAmount;
                 Particle.UserVelocityMultiplier = exhaustPressure; // TODO new particle with working velocity
             }
 

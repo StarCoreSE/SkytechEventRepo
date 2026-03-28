@@ -9,7 +9,7 @@ namespace Skytech.Engines
 {
     internal class FuelEngineCylinder : AssemblyBase, IExhaustProducer
     {
-        public const float ExhaustPerFuel = 1;
+        public const float ExhaustPerFuel = 1; // TODO this is 1!
         public const float BaseFuelRate = 0.3f;
         public const float CarbFuelRate = 2.5f;
         public const float InjectorFuelRate = 8f;

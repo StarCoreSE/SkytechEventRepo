@@ -14,20 +14,16 @@ namespace Skytech.Engines
             base.OnPartAdd(block, isBasePart);
 
             // delay a tick to let everything init right
-            MyAPIGateway.Utilities.InvokeOnGameThread(() =>
+            FuelEngineCylinder cyl;
+            if (AssemblyManager<FuelEngineCylinder>.TryGet(block, out cyl))
             {
-                FuelEngineCylinder cyl;
-                if (AssemblyManager<FuelEngineCylinder>.TryGet(block, out cyl))
-                {
-                    cyl.Engine = this;
-                }
-            });
+                cyl.Engine = this;
+            }
         }
 
         public override void OnPartRemove(IMyCubeBlock block, bool isBasePart)
         {
             base.OnPartRemove(block, isBasePart);
-            
         }
 
         protected override void BlockInfoCallback(IMyCubeBlock block, StringBuilder sb)

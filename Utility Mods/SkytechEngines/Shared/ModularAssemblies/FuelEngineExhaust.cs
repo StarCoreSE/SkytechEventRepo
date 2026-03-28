@@ -58,6 +58,7 @@ namespace Skytech.Engines.Shared.ModularAssemblies
                 "ST_T_StraightPipe",
                 //"ST_T_TurbochargerLeft",
                 //"ST_T_TurbochargerRight",
+                "ST_T_XJunctionPipe",
             },
 
             // Allowed connection directions & whitelists, measured in blocks.
@@ -144,6 +145,13 @@ namespace Skytech.Engines.Shared.ModularAssemblies
                 //    [Vector3I.Left] = Array.Empty<string>(),
                 //    [Vector3I.Forward] = Array.Empty<string>(),
                 //},
+                ["ST_T_XJunctionPipe"] = new Dictionary<Vector3I, string[]>
+                {
+                    [Vector3I.Up] = Array.Empty<string>(),
+                    [Vector3I.Right] = Array.Empty<string>(),
+                    [Vector3I.Down] = Array.Empty<string>(),
+                    [Vector3I.Left] = Array.Empty<string>(),
+                },
             },
         };
 

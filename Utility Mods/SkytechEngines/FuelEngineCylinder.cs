@@ -9,7 +9,7 @@ namespace Skytech.Engines
 {
     internal class FuelEngineCylinder : AssemblyBase, IExhaustProducer
     {
-        public const float ExhaustPerFuel = 1; // TODO this is 1!
+        public const float ExhaustPerFuel = 10; // TODO this is 1!
         public const float BaseFuelRate = 0.3f;
         public const float CarbFuelRate = 2.5f;
         public const float InjectorFuelRate = 8f;
@@ -21,6 +21,7 @@ namespace Skytech.Engines
         public bool Overheated = false;
         public float FuelBurnRate = 0;
 
+        public List<FuelEngineExhaust> OutletAssembly { get; set; } = new List<FuelEngineExhaust>();
         public FuelEngineExhaust.Exhaust ExhaustProduced { get; private set; } = FuelEngineExhaust.Exhaust.Zero;
         public IMyCubeBlock Block { get; private set; }
         public bool IsClosed { get; private set; } = false;
@@ -49,6 +50,12 @@ namespace Skytech.Engines
             if (isBasePart)
             {
                 Block = block;
+
+                FuelEngine eng;
+                if (AssemblyManager<FuelEngine>.TryGet(block, out eng))
+                {
+                    Engine = eng;
+                }
             }
         }
 
@@ -104,6 +111,8 @@ namespace Skytech.Engines
             //}
             //_exhaustPerSide = exhaustPerInlet;
             ExhaustProduced = new FuelEngineExhaust.Exhaust(exhaust);
+            foreach (var asm in OutletAssembly)
+                asm.NeedsPressureUpdate = true;
         }
 
         public float GetFuelRate(float rpmFrac, bool ignoreOverheated)

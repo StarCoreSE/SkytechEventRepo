@@ -38,8 +38,8 @@ namespace Skytech.Engines.Shared.Exhaust
 
         protected override void _Init()
         {
-            GlobalData.OnBlockAdded += OnBlockAdded;
-            GlobalData.OnBlockRemoved += OnBlockRemoved;
+            GlobalData.RegisterOnBlockAdded(OnBlockAdded);
+            GlobalData.RegisterOnBlockRemoved(OnBlockRemoved);
         }
 
         protected override void _Update()
@@ -49,29 +49,24 @@ namespace Skytech.Engines.Shared.Exhaust
 
         protected override void _Unload()
         {
-            GlobalData.OnBlockAdded -= OnBlockAdded;
-            GlobalData.OnBlockRemoved -= OnBlockRemoved;
+            GlobalData.UnregisterOnBlockAdded(OnBlockAdded);
+            GlobalData.UnregisterOnBlockRemoved(OnBlockRemoved);
         }
 
         public bool TryGetTurbo(IMyCubeBlock block, out Turbo turbo) => _turbos.TryGetValue(block, out turbo);
 
-        private void OnBlockAdded(IMySlimBlock block)
+        private void OnBlockAdded(IMyCubeBlock block)
         {
-            if (block.FatBlock == null)
-                return;
-
             TurboDef def;
-            if (!TurboSubtypes.TryGetValue(block.BlockDefinition.Id.SubtypeName, out def))
+            if (!TurboSubtypes.TryGetValue(block.BlockDefinition.SubtypeName, out def))
                 return;
 
-            _turbos[block.FatBlock] = new Turbo(block.FatBlock, def);
+            _turbos[block] = new Turbo(block, def);
         }
 
-        private void OnBlockRemoved(IMySlimBlock block)
+        private void OnBlockRemoved(IMyCubeBlock block)
         {
-            if (block.FatBlock == null)
-                return;
-            _turbos.Remove(block.FatBlock);
+            _turbos.Remove(block);
         }
 
         public struct TurboDef

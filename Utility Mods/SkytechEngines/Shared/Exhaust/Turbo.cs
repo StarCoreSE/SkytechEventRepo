@@ -1,5 +1,6 @@
 ﻿using AriUtils.HUD;
 using System;
+using System.Collections.Generic;
 using System.Text;
 using VRage.Game.ModAPI;
 using VRageMath;
@@ -20,9 +21,10 @@ namespace Skytech.Engines.Shared.Exhaust
 
         public float PressureUse { get; private set; } = 0;
         public float TurboBonus { get; private set; } = 0;
-        public bool ExhaustObstructed { get; private set; } = true;
+        public bool ExhaustObstructed => OutletAssembly != null;
 
 
+        public List<FuelEngineExhaust> OutletAssembly { get; set; } = new List<FuelEngineExhaust>();
         public FuelEngineExhaust.Exhaust ExhaustProduced { get; private set; } = FuelEngineExhaust.Exhaust.Zero;
         public bool IsClosed => Block.Closed;
 
@@ -71,13 +73,13 @@ namespace Skytech.Engines.Shared.Exhaust
 
         public void UpdateExhaust(FuelEngineExhaust.Exhaust available)
         {
-            //ExhaustObstructed = true;
-
             PressureUse = Math.Min(available.Pressure, GasForMaxBonus);
             TurboBonus = (float) MathHelper.Clamp(Math.Pow(PressureUse / GasForMaxBonus, 0.35f), 0, 1) * BonusMultiplier;
 
             ExhaustProduced = new FuelEngineExhaust.Exhaust(available.Pressure - PressureUse, available.Amount);
-            //ExhaustObstructed = false;
+
+            foreach (var asm in OutletAssembly)
+                asm.NeedsPressureUpdate = true;
         }
 
         /// <summary>

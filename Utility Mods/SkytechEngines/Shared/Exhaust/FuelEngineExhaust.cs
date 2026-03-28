@@ -145,7 +145,9 @@ namespace Skytech.Engines.Shared.Exhaust
 
                 _exhaust = Exhaust.Zero;
                 foreach (var inlet in _inlets)
-                    _exhaust += inlet.ExhaustProduced;
+                {
+                    _exhaust += inlet.ExhaustProduced * inlet.OutletAssembly.Count(asm => asm == this);
+                }
 
                 Exhaust split = _exhaust / TotalOutlets;
 
@@ -169,6 +171,7 @@ namespace Skytech.Engines.Shared.Exhaust
             if (_inlets.Add(inlet))
             {
                 NeedsPressureUpdate = true;
+                inlet.OutletAssembly.Add(this);
                 return true;
             }
             return false;
@@ -179,6 +182,7 @@ namespace Skytech.Engines.Shared.Exhaust
             if (_inlets.Remove(inlet))
             {
                 NeedsPressureUpdate = true;
+                inlet.OutletAssembly.Remove(this);
             }
         }
 
@@ -214,6 +218,7 @@ namespace Skytech.Engines.Shared.Exhaust
                         if (c.IsInlet(part))
                         {
                             TryRegisterOutlet(c);
+                            PartsExhaustBlocked.Remove(part);
                             break;
                         }
                     }
@@ -227,6 +232,7 @@ namespace Skytech.Engines.Shared.Exhaust
                         if (p.IsOutlet(part))
                         {
                             TryRegisterInlet(p);
+                            PartsExhaustBlocked.Remove(part);
                             break;
                         }
                     }
@@ -443,7 +449,7 @@ namespace Skytech.Engines.Shared.Exhaust
                 GridDirection = gridDirection;
 
                 Vector3D pos = (Vector3D)localDirection * block.CubeGrid.GridSize / 2;
-                MatrixD matrix = MatrixD.CreateWorld(pos, LocalDirection, Vector3D.Up);
+                MatrixD matrix = MatrixD.CreateWorld(pos, Vector3.CalculatePerpendicularVector(LocalDirection), LocalDirection);
                 // ExhaustSmokeSmall
                 if (MyParticlesManager.TryCreateParticleEffect("EngineExhaustSmoke", ref matrix, ref Vector3D.Zero, block.Render.GetRenderObjectID(), out Particle))
                 {

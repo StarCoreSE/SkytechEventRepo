@@ -32,12 +32,13 @@ namespace AriUtils
         public static IMyModContext ModContext;
         public static int DebugLevel = 0;
         public static List<MyPlanet> Planets = new List<MyPlanet>();
+        public static HashSet<IMyCubeGrid> Grids = new HashSet<IMyCubeGrid>();
         public static HudState HudVisible = (HudState) (MyAPIGateway.Session?.Config?.HudState ?? 1);
         public static Action<HudState> OnHudVisibleChanged = null;
         public static Random Random = new Random();
 
-        public static Action<IMySlimBlock> OnBlockAdded = null;
-        public static Action<IMySlimBlock> OnBlockRemoved = null;
+        private static Action<IMyCubeBlock> OnBlockAdded = null;
+        private static Action<IMyCubeBlock> OnBlockRemoved = null;
 
         public static readonly MyDefinitionId ElectricityId = new MyDefinitionId(typeof(MyObjectBuilder_GasProperties), "Electricity");
         public static readonly MyDefinitionId HydrogenId = new MyDefinitionId(typeof(MyObjectBuilder_GasProperties), "Hydrogen");
@@ -218,9 +219,19 @@ namespace AriUtils
             var grid = entity as IMyCubeGrid;
             if (grid != null)
             {
+                Grids.Add(grid);
                 // can safely skip unregistering these, GlobalData should survive for entire session
                 grid.OnBlockAdded += _OnBlockAdded;
                 grid.OnBlockRemoved += _OnBlockRemoved;
+
+                grid.GetBlocks(null, block =>
+                {
+                    if (block.FatBlock != null)
+                    {
+                        OnBlockAdded?.Invoke(block.FatBlock);
+                    }
+                    return false;
+                });
             }
         }
 
@@ -229,16 +240,60 @@ namespace AriUtils
             var planet = entity as MyPlanet;
             if (planet != null)
                 Planets.Remove(planet);
+
+            var grid = entity as IMyCubeGrid;
+            if (grid != null)
+                Grids.Remove(grid);
+        }
+
+        public static void RegisterOnBlockAdded(Action<IMyCubeBlock> action)
+        {
+            int i = 0;
+            foreach (var grid in Grids)
+            {
+                grid.GetBlocks(null, block =>
+                {
+                    if (block.FatBlock != null)
+                    {
+                        action.Invoke(block.FatBlock);
+                        i++;
+                    }
+                    return false;
+                });
+            }
+
+            OnBlockAdded += action;
+            Log.Info("GlobalData", $"Registered global OnBlockAdded action {action.Target.GetType().Name}.{action.Method.Name} (invoked on {i} existing blocks)");
+        }
+
+        public static void UnregisterOnBlockAdded(Action<IMyCubeBlock> action)
+        {
+            OnBlockAdded -= action;
+            Log.Info("GlobalData", $"Unregistered global OnBlockAdded action {action.Target.GetType().Name}.{action.Method.Name}");
+        }
+
+        public static void RegisterOnBlockRemoved(Action<IMyCubeBlock> action)
+        {
+            OnBlockRemoved += action;
+            Log.Info("GlobalData", $"Registered global OnBlockRemoved action {action.Target.GetType().Name}.{action.Method.Name}");
+        }
+
+        public static void UnregisterOnBlockRemoved(Action<IMyCubeBlock> action)
+        {
+            OnBlockRemoved -= action;
+            Log.Info("GlobalData", $"Unregistered global OnBlockRemoved action {action.Target.GetType().Name}.{action.Method.Name}");
         }
 
         private static void _OnBlockAdded(IMySlimBlock block)
         { 
-            OnBlockAdded?.Invoke(block);
+            if (block.FatBlock != null)
+                OnBlockAdded?.Invoke(block.FatBlock);
         }
 
         private static void _OnBlockRemoved(IMySlimBlock block)
         {
-            OnBlockRemoved?.Invoke(block);
+            if (block.FatBlock != null)
+                OnBlockRemoved?.Invoke(block.FatBlock);
         }
 
         private static void UpdateVisible(int visible)

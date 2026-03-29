@@ -207,37 +207,40 @@ namespace Skytech.Engines.Shared.Exhaust
         private void OnGridBlockAdd(IMySlimBlock block)
         {
             // check for in/outlets
-            IMyCubeBlock fatBlock = block.FatBlock;
-            if (fatBlock != null)
+            MyAPIGateway.Utilities.InvokeOnGameThread(() =>
             {
-                IExhaustConsumer c;
-                if (TryGetConsumer(fatBlock, out c))
+                IMyCubeBlock fatBlock = block.FatBlock;
+                if (fatBlock != null)
                 {
-                    foreach (var part in Blocks) // actually horrible but it'll have to do. TODO replace with get block from position in interface, then check against this blocks hashset
+                    IExhaustConsumer c;
+                    if (TryGetConsumer(fatBlock, out c))
                     {
-                        if (c.IsInlet(part))
+                        foreach (var part in Blocks) // actually horrible but it'll have to do. TODO replace with get block from position in interface, then check against this blocks hashset
                         {
-                            TryRegisterOutlet(c);
-                            PartsExhaustBlocked.Remove(part);
-                            break;
+                            if (c.IsInlet(part))
+                            {
+                                TryRegisterOutlet(c);
+                                PartsExhaustBlocked.Remove(part);
+                                break;
+                            }
                         }
                     }
-                }
 
-                IExhaustProducer p;
-                if (TryGetProducer(fatBlock, out p))
-                {
-                    foreach (var part in Blocks) // actually horrible but it'll have to do. TODO replace with get block from position in interface, then check against this blocks hashset
+                    IExhaustProducer p;
+                    if (TryGetProducer(fatBlock, out p))
                     {
-                        if (p.IsOutlet(part))
+                        foreach (var part in Blocks) // actually horrible but it'll have to do. TODO replace with get block from position in interface, then check against this blocks hashset
                         {
-                            TryRegisterInlet(p);
-                            PartsExhaustBlocked.Remove(part);
-                            break;
+                            if (p.IsOutlet(part))
+                            {
+                                TryRegisterInlet(p);
+                                PartsExhaustBlocked.Remove(part);
+                                break;
+                            }
                         }
                     }
                 }
-            }
+            });
 
             // check for occluded exhausts
 
@@ -478,10 +481,10 @@ namespace Skytech.Engines.Shared.Exhaust
                 if (exhaustAmount > 0.01 && (Particle.IsEmittingStopped || Particle.IsStopped))
                     Particle.Play();
 
-                Particle.UserBirthMultiplier = exhaustAmount; // TODO don't scale linearly; effects way too strong for larger engines.
+                Particle.UserBirthMultiplier = (float) Math.Sqrt(exhaustAmount); // TODO tune exhaust strength; effects way too strong for larger engines.
                 //Particle.UserLifeMultiplier = exhaustPressure;
                 //Particle.UserColorIntensityMultiplier = 1/exhaustAmount;
-                Particle.UserVelocityMultiplier = exhaustPressure; // TODO new particle with working velocity
+                Particle.UserVelocityMultiplier = (float) Math.Sqrt(exhaustPressure);
             }
 
             public void Close()

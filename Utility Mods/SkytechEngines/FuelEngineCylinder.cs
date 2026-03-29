@@ -3,6 +3,7 @@ using Skytech.Engines.Shared.Exhaust;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Collections;
 using VRage.Game.ModAPI;
 
 namespace Skytech.Engines
@@ -22,15 +23,15 @@ namespace Skytech.Engines
         public float FuelBurnRate = 0;
 
         public List<FuelEngineExhaust> OutletAssembly { get; set; } = new List<FuelEngineExhaust>();
+        public CleanedSet<Turbo> OutletTurbos { get; set; } = new CleanedSet<Turbo>();
         public FuelEngineExhaust.Exhaust ExhaustProduced { get; private set; } = FuelEngineExhaust.Exhaust.Zero;
         public IMyCubeBlock Block { get; private set; }
         public bool IsClosed { get; private set; } = false;
 
-        private float _exhaustPerSide = 0;
-
         public override void OnPartAdd(IMyCubeBlock block, bool isBasePart)
         {
             base.OnPartAdd(block, isBasePart); // TODO cylinders should get the same turbo connection thingy as the rest but it's kinda fucky because. turbos.
+            // TODO placing SPECIFICALLY cylinders doesn't guarantee a connection, same with other producers.
 
             // delay a tick to let everything init right
             MyAPIGateway.Utilities.InvokeOnGameThread(() =>
@@ -50,11 +51,24 @@ namespace Skytech.Engines
             if (isBasePart)
             {
                 Block = block;
+                Grid.OnBlockAdded += OnBlockAdded;
 
                 FuelEngine eng;
                 if (AssemblyManager<FuelEngine>.TryGet(block, out eng))
                 {
                     Engine = eng;
+                }
+
+                // Modular Assemblies is the worst framework ever and update order is kinda wonky. This connects cylinders and adjacent consumers.
+                List<IMySlimBlock> neighbors = new List<IMySlimBlock>();
+                block.SlimBlock.GetNeighbours(neighbors);
+                foreach (var adjacent in neighbors)
+                {
+                    var fatBlock = adjacent.FatBlock;
+                    Turbo turbo;
+                    if (fatBlock == null || !TurboManager.I.TryGetTurbo(fatBlock, out turbo) || !turbo.IsInlet(block))
+                        continue;
+                    OutletTurbos.Add(turbo);
                 }
             }
         }
@@ -82,18 +96,33 @@ namespace Skytech.Engines
         {
             base.UpdateTick();
 
+            OutletTurbos.RunCleanup();
+
             UpdateExhaust();
         }
 
         public override void Unload()
         {
             base.Unload();
+            Grid.OnBlockAdded -= OnBlockAdded;
             IsClosed = true;
         }
 
         public bool IsOutlet(IMyCubeBlock block)
         {
             return block.Position.RectangularDistance(RootBlock.Position) == 1;
+        }
+
+        private void OnBlockAdded(IMySlimBlock block)
+        {
+            if (block.Position.RectangularDistance(RootBlock.Position) != 1)
+                return;
+
+            var fatBlock = block.FatBlock;
+            Turbo turbo;
+            if (fatBlock == null || !TurboManager.I.TryGetTurbo(fatBlock, out turbo) || !turbo.IsInlet(RootBlock))
+                return;
+            OutletTurbos.Add(turbo);
         }
 
         public void UpdateExhaust()
@@ -110,9 +139,18 @@ namespace Skytech.Engines
             //        ex.NeedsPressureUpdate = true;
             //}
             //_exhaustPerSide = exhaustPerInlet;
-            ExhaustProduced = new FuelEngineExhaust.Exhaust(exhaust);
+
+            // TODO don't constantly call updates
+            // no need to update if close
+            //if (Math.Abs(ExhaustProduced.Amount - exhaust) < 0.001f)
+            //    return;
+
+            ExhaustProduced = new FuelEngineExhaust.Exhaust(exhaust / (OutletAssembly.Count + OutletTurbos.Count));
+
             foreach (var asm in OutletAssembly)
                 asm.NeedsPressureUpdate = true;
+            foreach (var turbo in OutletTurbos)
+                turbo.UpdateExhaust(ExhaustProduced);
         }
 
         public float GetFuelRate(float rpmFrac, bool ignoreOverheated)

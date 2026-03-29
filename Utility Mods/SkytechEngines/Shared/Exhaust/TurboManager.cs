@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using AriUtils;
-using Sandbox.Game.Entities;
 using Skytech.Engines.Shared.ModularAssemblies;
 using VRage.Game.ModAPI;
 using VRageMath;
@@ -14,23 +13,23 @@ namespace Skytech.Engines.Shared.Exhaust
         private static readonly Dictionary<string, TurboDef> TurboSubtypes = new Dictionary<string, TurboDef>
         {
             ["ST_T_InlineTurboLeft"] = new TurboDef(
-                Vector3I.Right + Vector3I.Backward,
                 Vector3I.Backward * 2,
+                Vector3I.Right + Vector3I.Backward,
                 Vector3I.Up + Vector3I.Forward
                 ),
             ["ST_T_InlineTurboRight"] = new TurboDef(
-                Vector3I.Left + Vector3I.Backward,
                 Vector3I.Backward * 2,
+                Vector3I.Left + Vector3I.Backward,
                 Vector3I.Up + Vector3I.Forward
                 ),
             ["ST_T_TurbochargerLeft"] = new TurboDef(
-                Vector3I.Right,
                 Vector3I.Forward,
+                Vector3I.Right,
                 Vector3I.Down
                 ),
             ["ST_T_TurbochargerRight"] = new TurboDef(
-                Vector3I.Left,
                 Vector3I.Forward,
+                Vector3I.Left,
                 Vector3I.Down
                 ),
         };

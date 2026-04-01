@@ -1,10 +1,8 @@
 ﻿using Sandbox.ModAPI;
-using System;
 using System.Collections.Generic;
 using System.Text;
 using VRage.Game.ModAPI;
 using VRage.Input;
-using VRage.Library.Utils;
 
 namespace Skytech.Engines
 {
@@ -14,7 +12,10 @@ namespace Skytech.Engines
         public float Rpm { get; private set; } = 1; // TODO
 
         public float Power { get; private set; } = 0;
+        public float MaxPower { get; private set; } = 0;
         public float FuelUse { get; private set; } = 0;
+        public bool AnyCylindersOverheated { get; private set; } = false;
+        public float AverageCylinderTemp { get; private set; } = 0;
 
         /// <summary>
         /// Total cooling from radiators.
@@ -68,10 +69,15 @@ namespace Skytech.Engines
         protected override void BlockInfoCallback(IMyCubeBlock block, StringBuilder sb)
         {
             base.BlockInfoCallback(block, sb);
-            sb.AppendLine($"Engine RPM: {Rpm*100:F0}%"); // TODO unique info for each block type would be cool
-            sb.AppendLine($"Engine Power: {Power:F}");
-            sb.AppendLine($"Engine Fuel Use: {FuelUse:F}");
-            sb.AppendLine($"Engine Power per Fuel: {Power/FuelUse:F}");
+
+            if (block.BlockDefinition.SubtypeName == "ST_T_Cylinder")
+                return;
+
+            sb.AppendLine($"RPM: {Rpm*100:F0}%"); // TODO unique info for each block type would be cool
+            sb.AppendLine($"Power: {Power:F}/{MaxPower:F}");
+            sb.AppendLine($"Fuel Use: {FuelUse:F}");
+            sb.AppendLine($"Power per Fuel: {Power/FuelUse:F}");
+            sb.AppendLine($"Avg. Cylinder Temp: {AverageCylinderTemp*100:N0}% {(AnyCylindersOverheated ? " !OVERHEAT!" : "")}");
         }
 
         public override void UpdateTick()
@@ -90,8 +96,10 @@ namespace Skytech.Engines
 
         private void UpdatePower()
         {
+            AverageCylinderTemp = 0;
             FuelUse = 0;
             Power = 0;
+            MaxPower = 0;
 
 		    // TODO priority, maybe?
 
@@ -104,9 +112,15 @@ namespace Skytech.Engines
 
                     // cylinder already updated in its own logic
                     Power += cyl.PowerWithNoHeat(Rpm) * (1 - cyl.HeatLevel * FuelEngineCylinder.MaxHeatPowerPenalty);
+                    MaxPower += cyl.MaxPowerNoHeat(MaxRpmLimit);
                     FuelUse += cyl.GetFuelRate(Rpm, false);
+                    AverageCylinderTemp += cyl.HeatLevel;
+                    if (cyl.Overheated)
+                        AnyCylindersOverheated = true;
                 }
             }
+
+            AverageCylinderTemp /= Cylinders.Count;
         }
     }
 }

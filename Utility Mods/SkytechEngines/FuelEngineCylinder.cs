@@ -149,7 +149,7 @@ namespace Skytech.Engines
         public void UpdateExhaust()
         {
             float rpm = Engine?.Rpm ?? 0;
-            BaseFuelBurnRate = GetFuelRate(rpm, true);
+            BaseFuelBurnRate = GetFuelRate(rpm, false);
 
             float exhaust = ExhaustPerFuel * BaseFuelBurnRate;
             //float exhaustPerInlet = exhaust / Exhausts.Count;
@@ -263,7 +263,7 @@ namespace Skytech.Engines
 
         #region Power
 
-        public float MaxPowerNoHeat(int rpmLimit = -1) => PowerWithNoHeat(rpmLimit == -1 ? Engine.MaxRpmLimit : rpmLimit);
+        public float MaxPowerNoHeat(float rpmLimit = -1) => PowerWithNoHeat(rpmLimit == -1 ? Engine.MaxRpmLimit : rpmLimit);
 
         public float PowerWithNoHeat(float rpm)
         {

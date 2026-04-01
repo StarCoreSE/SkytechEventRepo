@@ -1,26 +1,26 @@
 <?xml version="1.0"?>
 <MyObjectBuilder_Checkpoint xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <CurrentSector x="0" y="0" z="0" />
-  <ElapsedGameTime>163369040000</ElapsedGameTime>
+  <ElapsedGameTime>165730000000</ElapsedGameTime>
   <SessionName>SkyTech Build World</SessionName>
   <SpectatorPosition>
-    <Position x="7.4253148595563836" y="222.90859042584381" z="466.53757485051221" />
-    <Forward x="-0.416031" y="-0.895186" z="-0.159875482" />
-    <Up x="0.480746835" y="-0.06728273" z="-0.8742743" />
+    <Position x="-8.73720167083605" y="221.44679388430032" z="459.04970165884055" />
+    <Forward x="-0.6287693" y="-0.7688457" z="-0.116299286" />
+    <Up x="0.304290324" y="-0.105648749" z="-0.94670254" />
     <Orientation>
-      <X>-0.6479368</X>
-      <Y>-0.0154960984</Y>
-      <Z>-0.337371051</Z>
-      <W>0.6827287</W>
+      <X>-0.652865</X>
+      <Y>0.124970675</Y>
+      <Z>-0.355797261</Z>
+      <W>0.6569307</W>
     </Orientation>
   </SpectatorPosition>
-  <SpectatorSpeed x="0.225000143" y="1" />
+  <SpectatorSpeed x="0.06666671" y="1" />
   <SpectatorIsLightOn>false</SpectatorIsLightOn>
   <CameraEntity>0</CameraEntity>
   <ControlledObject>121146153636173499</ControlledObject>
   <Password />
   <Description>Highfleet-esque multicrew Space Engineers combat tournament.</Description>
-  <LastSaveTime>2026-03-29T17:51:08.5864573-05:00</LastSaveTime>
+  <LastSaveTime>2026-03-31T20:48:21.5312852-05:00</LastSaveTime>
   <SpectatorDistance>7.84126949</SpectatorDistance>
   <WorkshopId xsi:nil="true" />
   <WorkshopId1 xsi:nil="true" />
@@ -1381,7 +1381,7 @@ PaintUnfinishedBlocks=False
       <DisplayName>Space Pirates</DisplayName>
       <CharacterEntityId>0</CharacterEntityId>
       <BlockLimitModifier>0</BlockLimitModifier>
-      <LastLoginTime>2026-03-29T17:27:40.6026058-05:00</LastLoginTime>
+      <LastLoginTime>2026-03-31T20:44:12.6536381-05:00</LastLoginTime>
       <SavedCharacters />
       <LastLogoutTime>2026-02-24T22:04:04.2722556-06:00</LastLogoutTime>
       <RespawnShips />
@@ -1395,7 +1395,7 @@ PaintUnfinishedBlocks=False
       <DisplayName>Unknown</DisplayName>
       <CharacterEntityId>0</CharacterEntityId>
       <BlockLimitModifier>0</BlockLimitModifier>
-      <LastLoginTime>2026-03-29T17:27:40.6096074-05:00</LastLoginTime>
+      <LastLoginTime>2026-03-31T20:44:12.6536381-05:00</LastLoginTime>
       <SavedCharacters />
       <LastLogoutTime>2026-02-24T22:04:04.6102569-06:00</LastLogoutTime>
       <RespawnShips />
@@ -1409,7 +1409,7 @@ PaintUnfinishedBlocks=False
       <DisplayName>NEU NPC3719</DisplayName>
       <CharacterEntityId>0</CharacterEntityId>
       <BlockLimitModifier>0</BlockLimitModifier>
-      <LastLoginTime>2026-03-29T17:27:40.6096074-05:00</LastLoginTime>
+      <LastLoginTime>2026-03-31T20:44:12.6536381-05:00</LastLoginTime>
       <SavedCharacters />
       <LastLogoutTime>2026-03-12T20:02:13.0822304-05:00</LastLogoutTime>
       <RespawnShips />
@@ -1425,11 +1425,11 @@ PaintUnfinishedBlocks=False
       <Model>Default_Astronaut_Female</Model>
       <ColorMask x="0.566666663" y="-0.528525352" z="0.133391291" />
       <BlockLimitModifier>0</BlockLimitModifier>
-      <LastLoginTime>2026-03-29T17:27:40.6456045-05:00</LastLoginTime>
+      <LastLoginTime>2026-03-31T20:44:12.6676393-05:00</LastLoginTime>
       <SavedCharacters>
         <long>121146153636173499</long>
       </SavedCharacters>
-      <LastLogoutTime>2026-03-29T17:51:08.5874606-05:00</LastLogoutTime>
+      <LastLogoutTime>2026-03-31T20:48:21.5452857-05:00</LastLogoutTime>
       <RespawnShips />
       <LastDeathPosition>
         <X>-9267.4061964308239</X>
@@ -1445,7 +1445,7 @@ PaintUnfinishedBlocks=False
       <DisplayName>Space Pirates</DisplayName>
       <CharacterEntityId>0</CharacterEntityId>
       <BlockLimitModifier>0</BlockLimitModifier>
-      <LastLoginTime>2026-03-29T17:27:43.7551385-05:00</LastLoginTime>
+      <LastLoginTime>2026-03-31T20:44:14.5293398-05:00</LastLoginTime>
       <SavedCharacters />
       <LastLogoutTime>0001-01-01T00:00:00</LastLogoutTime>
       <RespawnShips />
@@ -1459,7 +1459,7 @@ PaintUnfinishedBlocks=False
       <DisplayName>The Factorum</DisplayName>
       <CharacterEntityId>0</CharacterEntityId>
       <BlockLimitModifier>0</BlockLimitModifier>
-      <LastLoginTime>2026-03-29T17:27:40.6106074-05:00</LastLoginTime>
+      <LastLoginTime>2026-03-31T20:44:12.6536381-05:00</LastLoginTime>
       <SavedCharacters />
       <LastLogoutTime>2026-02-24T19:18:42.891798-06:00</LastLogoutTime>
       <RespawnShips />
@@ -1473,7 +1473,7 @@ PaintUnfinishedBlocks=False
       <DisplayName>Unknown</DisplayName>
       <CharacterEntityId>0</CharacterEntityId>
       <BlockLimitModifier>0</BlockLimitModifier>
-      <LastLoginTime>2026-03-29T17:27:40.6106074-05:00</LastLoginTime>
+      <LastLoginTime>2026-03-31T20:44:12.6536381-05:00</LastLoginTime>
       <SavedCharacters />
       <LastLogoutTime>2026-02-24T19:18:42.8947982-06:00</LastLogoutTime>
       <RespawnShips />
@@ -1487,7 +1487,7 @@ PaintUnfinishedBlocks=False
       <DisplayName>RED NPC8093</DisplayName>
       <CharacterEntityId>0</CharacterEntityId>
       <BlockLimitModifier>0</BlockLimitModifier>
-      <LastLoginTime>2026-03-29T17:27:40.6106074-05:00</LastLoginTime>
+      <LastLoginTime>2026-03-31T20:44:12.6536381-05:00</LastLoginTime>
       <SavedCharacters />
       <LastLogoutTime>2026-02-24T21:57:06.2983124-06:00</LastLogoutTime>
       <RespawnShips />
@@ -1501,7 +1501,7 @@ PaintUnfinishedBlocks=False
       <DisplayName>BLU NPC9531</DisplayName>
       <CharacterEntityId>0</CharacterEntityId>
       <BlockLimitModifier>0</BlockLimitModifier>
-      <LastLoginTime>2026-03-29T17:27:40.6106074-05:00</LastLoginTime>
+      <LastLoginTime>2026-03-31T20:44:12.6536381-05:00</LastLoginTime>
       <SavedCharacters />
       <LastLogoutTime>2026-02-24T21:57:50.0956308-06:00</LastLogoutTime>
       <RespawnShips />
@@ -1515,7 +1515,7 @@ PaintUnfinishedBlocks=False
       <DisplayName>SPC NPC9149</DisplayName>
       <CharacterEntityId>0</CharacterEntityId>
       <BlockLimitModifier>0</BlockLimitModifier>
-      <LastLoginTime>2026-03-29T17:27:40.6106074-05:00</LastLoginTime>
+      <LastLoginTime>2026-03-31T20:44:12.6536381-05:00</LastLoginTime>
       <SavedCharacters />
       <LastLogoutTime>2026-02-24T21:58:59.1128193-06:00</LastLogoutTime>
       <RespawnShips />
@@ -2218,7 +2218,7 @@ PaintUnfinishedBlocks=False
     </MyObjectBuilder_SessionComponent>
     <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_SpaceFaunaComponent">
       <SpawnInfos>
-        <Info X="25.208461307671229" Y="263.39791492915992" Z="476.00635154259811" S="1623975" A="43750" />
+        <Info X="25.208461307671229" Y="263.39791492915992" Z="476.00635154259811" S="1378043" A="44200" />
       </SpawnInfos>
       <TimeoutInfos />
     </MyObjectBuilder_SessionComponent>
@@ -2306,12 +2306,12 @@ PaintUnfinishedBlocks=False
     </MyObjectBuilder_SessionComponent>
     <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_AntennaSessionComponent" />
     <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_EnvironmentBotSpawningSystem">
-      <TimeSinceLastEventInMs>76266</TimeSinceLastEventInMs>
+      <TimeSinceLastEventInMs>82150</TimeSinceLastEventInMs>
     </MyObjectBuilder_SessionComponent>
     <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_TradingManager" />
     <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_CoordinateSystem">
       <Definition Type="MyObjectBuilder_CoordinateSystemDefinition" Subtype="CoordinateSystem" />
-      <LastCoordSysId>17</LastCoordSysId>
+      <LastCoordSysId>18</LastCoordSysId>
       <CoordSystems>
         <CoordSysInfo>
           <Id>2</Id>

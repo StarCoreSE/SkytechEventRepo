@@ -50,6 +50,7 @@ namespace Skytech.Engines.Shared.Exhaust
         };
 
         public bool NeedsPressureUpdate = false;
+        public bool ExhaustObstructed => _externalVents.Count == 0 && _outlets.Count == 0;
 
         protected override void Init()
         {

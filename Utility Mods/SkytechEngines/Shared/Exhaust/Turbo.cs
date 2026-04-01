@@ -21,7 +21,7 @@ namespace Skytech.Engines.Shared.Exhaust
 
         public float PressureUse { get; private set; } = 0;
         public float TurboBonus { get; private set; } = 0;
-        public bool ExhaustObstructed => OutletAssembly == null;
+        public bool ExhaustObstructed => OutletAssembly.Count == 0 || OutletAssembly[0].ExhaustObstructed; // safe to assume there's only one outlet assembly
 
 
         public List<FuelEngineExhaust> OutletAssembly { get; set; } = new List<FuelEngineExhaust>();

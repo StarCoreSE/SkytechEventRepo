@@ -1,35 +1,112 @@
-﻿using System;
+﻿using Sandbox.ModAPI;
+using System;
+using System.Collections.Generic;
 using System.Text;
-using Sandbox.ModAPI;
 using VRage.Game.ModAPI;
+using VRage.Input;
+using VRage.Library.Utils;
 
 namespace Skytech.Engines
 {
     internal class FuelEngine : AssemblyBase
     {
+        public float MaxRpmLimit { get; private set; } = 1;
         public float Rpm { get; private set; } = 1; // TODO
+
+        public float Power { get; private set; } = 0;
+        public float FuelUse { get; private set; } = 0;
+
+        /// <summary>
+        /// Total cooling from radiators.
+        /// </summary>
+        public float RadiatorCooling { get; private set; } = 0; // TODO
+
+        public HashSet<FuelEngineCylinder> Cylinders = new HashSet<FuelEngineCylinder>();
 
         public override void OnPartAdd(IMyCubeBlock block, bool isBasePart)
         {
             base.OnPartAdd(block, isBasePart);
 
-            // delay a tick to let everything init right
             FuelEngineCylinder cyl;
             if (AssemblyManager<FuelEngineCylinder>.TryGet(block, out cyl))
             {
                 cyl.Engine = this;
+                Cylinders.Add(cyl);
+            }
+            else switch (block.BlockDefinition.SubtypeName)
+            {
+                case "ST_T_Radiator": // born to hardcode
+                    RadiatorCooling += FuelEngineCylinder.RadiatorCooling * 1;
+                    break;
+                case "ST_T_LargeRadiator":
+                    RadiatorCooling += FuelEngineCylinder.RadiatorCooling * 9;
+                    break;
             }
         }
 
         public override void OnPartRemove(IMyCubeBlock block, bool isBasePart)
         {
             base.OnPartRemove(block, isBasePart);
+
+            FuelEngineCylinder cyl;
+            if (AssemblyManager<FuelEngineCylinder>.TryGet(block, out cyl))
+            {
+                cyl.Engine = this;
+                Cylinders.Add(cyl);
+            }
+            else switch (block.BlockDefinition.SubtypeName)
+            {
+                case "ST_T_Radiator":
+                    RadiatorCooling -= FuelEngineCylinder.RadiatorCooling * 1;
+                    break;
+                case "ST_T_LargeRadiator":
+                    RadiatorCooling -= FuelEngineCylinder.RadiatorCooling * 9;
+                    break;
+            }
         }
 
         protected override void BlockInfoCallback(IMyCubeBlock block, StringBuilder sb)
         {
             base.BlockInfoCallback(block, sb);
-            sb.AppendLine($"Engine RPM: {Rpm*100:F0}%");
+            sb.AppendLine($"Engine RPM: {Rpm*100:F0}%"); // TODO unique info for each block type would be cool
+            sb.AppendLine($"Engine Power: {Power:F}");
+            sb.AppendLine($"Engine Fuel Use: {FuelUse:F}");
+            sb.AppendLine($"Engine Power per Fuel: {Power/FuelUse:F}");
+        }
+
+        public override void UpdateTick()
+        {
+            UpdatePower();
+
+            if (MyAPIGateway.Input.IsNewKeyPressed(MyKeys.PageUp))
+            {
+                Rpm += 0.1f;
+            }
+            if (MyAPIGateway.Input.IsNewKeyPressed(MyKeys.PageDown))
+            {
+                Rpm -= 0.1f;
+            }
+        }
+
+        private void UpdatePower()
+        {
+            FuelUse = 0;
+            Power = 0;
+
+		    // TODO priority, maybe?
+
+            if (Rpm > 0)
+            {
+                foreach (var cyl in Cylinders)
+                {
+                    if (cyl.Overheated)
+                        continue;
+
+                    // cylinder already updated in its own logic
+                    Power += cyl.PowerWithNoHeat(Rpm) * (1 - cyl.HeatLevel * FuelEngineCylinder.MaxHeatPowerPenalty);
+                    FuelUse += cyl.GetFuelRate(Rpm, false);
+                }
+            }
         }
     }
 }

@@ -1,26 +1,40 @@
-﻿using Sandbox.ModAPI;
+﻿using Collections;
+using Sandbox.ModAPI;
 using Skytech.Engines.Shared.Exhaust;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Collections;
 using VRage.Game.ModAPI;
 
 namespace Skytech.Engines
 {
     internal class FuelEngineCylinder : AssemblyBase, IExhaustProducer
     {
-        public const float ExhaustPerFuel = 10; // TODO this is 1!
+        public const float ExhaustPerFuel = 1;
         public const float BaseFuelRate = 0.3f;
         public const float CarbFuelRate = 2.5f;
         public const float InjectorFuelRate = 8f;
+        public const float BasePowerPerFuel = 54f;
+        public const float SuperchargerBonusMult = 0.4f;
+        public const float HeatPerFuel = 2f;
+        public const float CoolingPerExhaust = 4f;
+        public const float BaseCooling = 0.1f;
+        public const float CoolingRange = 8f;
+        public const float OverheatLevel = 0.95f;
+        public const float EndOverheatLevel = 0.2f;
+        public const float RadiatorCooling = 3f;
+        public const float MaxHeatPowerPenalty = 0.5f;
 
         public FuelEngine Engine = null; // Set by owning engine
-        public List<FuelEngineCarburettor> Carburettors = new List<FuelEngineCarburettor>();
-        public List<IMyCubeBlock> Injectors = new List<IMyCubeBlock>();
+        public HashSet<FuelEngineCarburettor> Carburettors = new HashSet<FuelEngineCarburettor>();
+        public HashSet<IMyCubeBlock> Injectors = new HashSet<IMyCubeBlock>();
 
         public bool Overheated = false;
-        public float FuelBurnRate = 0;
+        public float BaseFuelBurnRate = 0;
+        /// <summary>
+        /// Heat fraction, 0-1
+        /// </summary>
+        public float HeatLevel { get; private set; } = 0;
 
         public List<FuelEngineExhaust> OutletAssembly { get; set; } = new List<FuelEngineExhaust>();
         public CleanedSet<Turbo> OutletTurbos { get; set; } = new CleanedSet<Turbo>();
@@ -30,8 +44,7 @@ namespace Skytech.Engines
 
         public override void OnPartAdd(IMyCubeBlock block, bool isBasePart)
         {
-            base.OnPartAdd(block, isBasePart); // TODO cylinders should get the same turbo connection thingy as the rest but it's kinda fucky because. turbos.
-            // TODO placing SPECIFICALLY cylinders doesn't guarantee a connection, same with other producers.
+            base.OnPartAdd(block, isBasePart);
 
             // delay a tick to let everything init right
             MyAPIGateway.Utilities.InvokeOnGameThread(() =>
@@ -40,6 +53,7 @@ namespace Skytech.Engines
                 if (AssemblyManager<FuelEngineCarburettor>.TryGet(block, out carb))
                 {
                     Carburettors.Add(carb);
+                    carb.Cylinder = this;
                 }
             });
 
@@ -57,6 +71,7 @@ namespace Skytech.Engines
                 if (AssemblyManager<FuelEngine>.TryGet(block, out eng))
                 {
                     Engine = eng;
+                    Engine.Cylinders.Add(this);
                 }
 
                 // Modular Assemblies is the worst framework ever and update order is kinda wonky. This connects cylinders and adjacent consumers.
@@ -76,7 +91,6 @@ namespace Skytech.Engines
         public override void OnPartRemove(IMyCubeBlock block, bool isBasePart)
         {
             base.OnPartRemove(block, isBasePart);
-            Carburettors.RemoveAll(c => c.RootBlock == block);
             if (block.BlockDefinition.SubtypeName == "ST_T_Injector")
             {
                 Injectors.Remove(block);
@@ -88,8 +102,14 @@ namespace Skytech.Engines
             base.BlockInfoCallback(block, sb);
             sb.AppendLine($"Carburettors: {Carburettors.Count:N0}");
             sb.AppendLine($"Injectors: {Injectors.Count:N0}");
-            sb.AppendLine($"Fuel Use: {FuelBurnRate:N}/s");
-            sb.AppendLine($"Max. Fuel Use: {GetMaxFuelRate(true):N}/s");
+            sb.AppendLine($"Fuel Use: ({BaseFuelBurnRate:N}/{GetMaxFuelRate(true):N})/s");
+            sb.AppendLine($"Temperature: {HeatLevel*100:N0}% {(Overheated ? " !OVERHEATED! " : "")}");
+            if (Engine != null)
+                sb.AppendLine($"Power: {PowerWithNoHeat(Engine.Rpm) * (1 - HeatLevel * MaxHeatPowerPenalty):F}/{MaxPowerNoHeat():F}");
+
+            float ventFac = GetVentingFactor();
+            if (ventFac < 1)
+                sb.AppendLine($"Some exhausts blocked! Cooling reduced ({ventFac*100:N0}%).");
         }
 
         public override void UpdateTick()
@@ -99,6 +119,7 @@ namespace Skytech.Engines
             OutletTurbos.RunCleanup();
 
             UpdateExhaust();
+            UpdateHeat();
         }
 
         public override void Unload()
@@ -128,9 +149,9 @@ namespace Skytech.Engines
         public void UpdateExhaust()
         {
             float rpm = Engine?.Rpm ?? 0;
-            FuelBurnRate = GetFuelRate(rpm, true);
+            BaseFuelBurnRate = GetFuelRate(rpm, true);
 
-            float exhaust = ExhaustPerFuel * FuelBurnRate;
+            float exhaust = ExhaustPerFuel * BaseFuelBurnRate;
             //float exhaustPerInlet = exhaust / Exhausts.Count;
             //
             //if (Math.Abs(_exhaustPerSide - exhaustPerInlet) > 0.0001)
@@ -153,6 +174,73 @@ namespace Skytech.Engines
                 turbo.UpdateExhaust(ExhaustProduced);
         }
 
+        #region Cooling
+
+        private float GetExhaustCooling()
+        {
+            int outletCt = OutletAssembly.Count + OutletTurbos.Count;
+            float ventFactor = outletCt == 0 ? 0 : GetVentingFactor();
+            return CoolingPerExhaust * outletCt * ventFactor;
+        }
+
+        private float GetFlatCooling()
+        {
+            if (Engine == null)
+                return BaseCooling;
+
+            return BaseCooling + GetExhaustCooling() + Engine.RadiatorCooling / Engine.Cylinders.Count;
+        }
+
+        private void UpdateHeat()
+        {
+            // Add heat from burning
+            HeatLevel += BaseFuelBurnRate * HeatPerFuel / 6000;
+            if (HeatLevel > 1)
+                HeatLevel = 1;
+
+            if (HeatLevel >= OverheatLevel)
+            {
+                Overheated = true;
+            }
+            else if (Overheated && HeatLevel <= EndOverheatLevel)
+            {
+                Overheated = false;
+            }
+
+            // Remove heat from cooling
+            float coolingMod = CoolingRange * (float) Math.Pow(HeatLevel, 2f);
+            float cooling = GetFlatCooling() * coolingMod;
+
+            // magic constant times tick rate
+            HeatLevel -= cooling / 6000;
+        }
+
+        /// <summary>
+        /// Ratio of blocked to non-blocked exhausts
+        /// </summary>
+        /// <returns></returns>
+        private float GetVentingFactor()
+        {
+            float sum = 0;
+
+            foreach (var exhaust in OutletAssembly)
+            {
+                if (!exhaust.ExhaustObstructed)
+                    sum++;
+            }
+            foreach (var turbo in OutletTurbos)
+            {
+                if (!turbo.ExhaustObstructed)
+                    sum++;
+            }
+
+            return sum / (OutletAssembly.Count + OutletTurbos.Count);
+        }
+
+        #endregion
+
+        #region Fuel
+
         public float GetFuelRate(float rpmFrac, bool ignoreOverheated)
         {
             if (rpmFrac == 0)
@@ -170,5 +258,29 @@ namespace Skytech.Engines
 
             return Carburettors.Count * CarbFuelRate + Injectors.Count * InjectorFuelRate;
         }
+
+        #endregion
+
+        #region Power
+
+        public float MaxPowerNoHeat(int rpmLimit = -1) => PowerWithNoHeat(rpmLimit == -1 ? Engine.MaxRpmLimit : rpmLimit);
+
+        public float PowerWithNoHeat(float rpm)
+        {
+            if (Carburettors.Count == 0 && Injectors.Count == 0)
+                return BaseFuelBurnRate * BasePowerPerFuel * rpm;
+
+            float power = 0f;
+            foreach (var carb in Carburettors)
+            {
+                power += CarbFuelRate * carb.PowerPerFuel(rpm) * rpm;
+            }
+
+            power += InjectorFuelRate * BasePowerPerFuel * rpm * Injectors.Count;
+
+            return power;
+        }
+
+        #endregion
     }
 }

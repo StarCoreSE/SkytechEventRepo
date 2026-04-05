@@ -203,7 +203,8 @@ namespace AriUtils.HUD
                 if (_chain.Count > lines.Length)
                 {
                     // TODO elements are 'sticky'
-                    for (int i = lines.Length - 1; i < _chain.Count; i++)
+
+                    for (int i = _chain.Count-1; i >= lines.Length; i--)
                     {
                         _chain[i].Element.Unregister();
                     }

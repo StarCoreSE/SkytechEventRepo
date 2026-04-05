@@ -1,26 +1,27 @@
 <?xml version="1.0"?>
 <MyObjectBuilder_Checkpoint xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <CurrentSector x="0" y="0" z="0" />
-  <ElapsedGameTime>165730000000</ElapsedGameTime>
+  <ElapsedGameTime>170101360000</ElapsedGameTime>
   <SessionName>SkyTech Build World</SessionName>
   <SpectatorPosition>
-    <Position x="-8.73720167083605" y="221.44679388430032" z="459.04970165884055" />
-    <Forward x="-0.6287693" y="-0.7688457" z="-0.116299286" />
-    <Up x="0.304290324" y="-0.105648749" z="-0.94670254" />
+    <Position x="-8.7372016708360576" y="221.44679388430035" z="459.0497016588406" />
+    <Forward x="-0.6287693" y="-0.7688457" z="-0.116299279" />
+    <Up x="0.304290354" y="-0.105648793" z="-0.94670254" />
     <Orientation>
       <X>-0.652865</X>
-      <Y>0.124970675</Y>
-      <Z>-0.355797261</Z>
+      <Y>0.12497066</Y>
+      <Z>-0.3557973</Z>
       <W>0.6569307</W>
     </Orientation>
   </SpectatorPosition>
   <SpectatorSpeed x="0.06666671" y="1" />
   <SpectatorIsLightOn>false</SpectatorIsLightOn>
-  <CameraEntity>0</CameraEntity>
+  <CameraController>Entity</CameraController>
+  <CameraEntity>121146153636173499</CameraEntity>
   <ControlledObject>121146153636173499</ControlledObject>
   <Password />
   <Description>Highfleet-esque multicrew Space Engineers combat tournament.</Description>
-  <LastSaveTime>2026-03-31T20:48:21.5312852-05:00</LastSaveTime>
+  <LastSaveTime>2026-04-05T13:40:16.5151524-05:00</LastSaveTime>
   <SpectatorDistance>7.84126949</SpectatorDistance>
   <WorkshopId xsi:nil="true" />
   <WorkshopId1 xsi:nil="true" />
@@ -106,192 +107,24 @@
         </Data>
       </Slot>
       <Slot>
-        <Index>11</Index>
-        <Item />
-        <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-          <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_Carburettor" />
-        </Data>
-      </Slot>
-      <Slot>
         <Index>13</Index>
         <Item />
         <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-          <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_TurbochargerLeft" />
-        </Data>
-      </Slot>
-      <Slot>
-        <Index>14</Index>
-        <Item />
-        <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-          <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_TurbochargerRight" />
-        </Data>
-      </Slot>
-      <Slot>
-        <Index>16</Index>
-        <Item />
-        <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-          <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_CrankShaft" />
-        </Data>
-      </Slot>
-      <Slot>
-        <Index>17</Index>
-        <Item />
-        <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
           <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_FuelEngineGenerator" />
         </Data>
       </Slot>
       <Slot>
-        <Index>18</Index>
-        <Item />
-        <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-          <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_4WayPipe" />
-        </Data>
-      </Slot>
-      <Slot>
-        <Index>19</Index>
-        <Item />
-        <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-          <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_5WayPipe" />
-        </Data>
-      </Slot>
-      <Slot>
-        <Index>20</Index>
-        <Item />
-        <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-          <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_6WayPipe" />
-        </Data>
-      </Slot>
-      <Slot>
-        <Index>21</Index>
-        <Item />
-        <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-          <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_Adapter" />
-        </Data>
-      </Slot>
-      <Slot>
-        <Index>22</Index>
-        <Item />
-        <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-          <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_Carburettor" />
-        </Data>
-      </Slot>
-      <Slot>
-        <Index>23</Index>
-        <Item />
-        <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-          <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_CornerPipe" />
-        </Data>
-      </Slot>
-      <Slot>
-        <Index>24</Index>
-        <Item />
-        <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-          <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_CrankShaft" />
-        </Data>
-      </Slot>
-      <Slot>
-        <Index>25</Index>
-        <Item />
-        <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-          <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_Cylinder" />
-        </Data>
-      </Slot>
-      <Slot>
-        <Index>26</Index>
-        <Item />
-        <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-          <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_FuelEngineGenerator" />
-        </Data>
-      </Slot>
-      <Slot>
-        <Index>27</Index>
-        <Item />
-        <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-          <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_HullPipe" />
-        </Data>
-      </Slot>
-      <Slot>
-        <Index>28</Index>
-        <Item />
-        <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-          <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_Injector" />
-        </Data>
-      </Slot>
-      <Slot>
-        <Index>29</Index>
+        <Index>15</Index>
         <Item />
         <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
           <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_InlineTurboLeft" />
         </Data>
       </Slot>
       <Slot>
-        <Index>30</Index>
+        <Index>18</Index>
         <Item />
         <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-          <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_InlineTurboRight" />
-        </Data>
-      </Slot>
-      <Slot>
-        <Index>31</Index>
-        <Item />
-        <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-          <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_JunctionPipe" />
-        </Data>
-      </Slot>
-      <Slot>
-        <Index>32</Index>
-        <Item />
-        <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-          <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_LargeRadiator" />
-        </Data>
-      </Slot>
-      <Slot>
-        <Index>33</Index>
-        <Item />
-        <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-          <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_LJunctionPipe" />
-        </Data>
-      </Slot>
-      <Slot>
-        <Index>34</Index>
-        <Item />
-        <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-          <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_Radiator" />
-        </Data>
-      </Slot>
-      <Slot>
-        <Index>35</Index>
-        <Item />
-        <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-          <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_StraightPipe" />
-        </Data>
-      </Slot>
-      <Slot>
-        <Index>36</Index>
-        <Item />
-        <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-          <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_Supercharger" />
-        </Data>
-      </Slot>
-      <Slot>
-        <Index>37</Index>
-        <Item />
-        <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-          <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_TurbochargerLeft" />
-        </Data>
-      </Slot>
-      <Slot>
-        <Index>38</Index>
-        <Item />
-        <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-          <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_TurbochargerRight" />
-        </Data>
-      </Slot>
-      <Slot>
-        <Index>39</Index>
-        <Item />
-        <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-          <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_XJunctionPipe" />
+          <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_FuelTankCenter" />
         </Data>
       </Slot>
       <Slot>
@@ -1381,7 +1214,7 @@ PaintUnfinishedBlocks=False
       <DisplayName>Space Pirates</DisplayName>
       <CharacterEntityId>0</CharacterEntityId>
       <BlockLimitModifier>0</BlockLimitModifier>
-      <LastLoginTime>2026-03-31T20:44:12.6536381-05:00</LastLoginTime>
+      <LastLoginTime>2026-04-05T13:28:24.35389-05:00</LastLoginTime>
       <SavedCharacters />
       <LastLogoutTime>2026-02-24T22:04:04.2722556-06:00</LastLogoutTime>
       <RespawnShips />
@@ -1395,7 +1228,7 @@ PaintUnfinishedBlocks=False
       <DisplayName>Unknown</DisplayName>
       <CharacterEntityId>0</CharacterEntityId>
       <BlockLimitModifier>0</BlockLimitModifier>
-      <LastLoginTime>2026-03-31T20:44:12.6536381-05:00</LastLoginTime>
+      <LastLoginTime>2026-04-05T13:28:24.3608937-05:00</LastLoginTime>
       <SavedCharacters />
       <LastLogoutTime>2026-02-24T22:04:04.6102569-06:00</LastLogoutTime>
       <RespawnShips />
@@ -1409,7 +1242,7 @@ PaintUnfinishedBlocks=False
       <DisplayName>NEU NPC3719</DisplayName>
       <CharacterEntityId>0</CharacterEntityId>
       <BlockLimitModifier>0</BlockLimitModifier>
-      <LastLoginTime>2026-03-31T20:44:12.6536381-05:00</LastLoginTime>
+      <LastLoginTime>2026-04-05T13:28:24.3608937-05:00</LastLoginTime>
       <SavedCharacters />
       <LastLogoutTime>2026-03-12T20:02:13.0822304-05:00</LastLogoutTime>
       <RespawnShips />
@@ -1425,11 +1258,11 @@ PaintUnfinishedBlocks=False
       <Model>Default_Astronaut_Female</Model>
       <ColorMask x="0.566666663" y="-0.528525352" z="0.133391291" />
       <BlockLimitModifier>0</BlockLimitModifier>
-      <LastLoginTime>2026-03-31T20:44:12.6676393-05:00</LastLoginTime>
+      <LastLoginTime>2026-04-05T13:28:24.3938916-05:00</LastLoginTime>
       <SavedCharacters>
         <long>121146153636173499</long>
       </SavedCharacters>
-      <LastLogoutTime>2026-03-31T20:48:21.5452857-05:00</LastLogoutTime>
+      <LastLogoutTime>2026-04-05T13:40:16.5151524-05:00</LastLogoutTime>
       <RespawnShips />
       <LastDeathPosition>
         <X>-9267.4061964308239</X>
@@ -1445,7 +1278,7 @@ PaintUnfinishedBlocks=False
       <DisplayName>Space Pirates</DisplayName>
       <CharacterEntityId>0</CharacterEntityId>
       <BlockLimitModifier>0</BlockLimitModifier>
-      <LastLoginTime>2026-03-31T20:44:14.5293398-05:00</LastLoginTime>
+      <LastLoginTime>2026-04-05T13:28:28.9493286-05:00</LastLoginTime>
       <SavedCharacters />
       <LastLogoutTime>0001-01-01T00:00:00</LastLogoutTime>
       <RespawnShips />
@@ -1459,7 +1292,7 @@ PaintUnfinishedBlocks=False
       <DisplayName>The Factorum</DisplayName>
       <CharacterEntityId>0</CharacterEntityId>
       <BlockLimitModifier>0</BlockLimitModifier>
-      <LastLoginTime>2026-03-31T20:44:12.6536381-05:00</LastLoginTime>
+      <LastLoginTime>2026-04-05T13:28:24.3608937-05:00</LastLoginTime>
       <SavedCharacters />
       <LastLogoutTime>2026-02-24T19:18:42.891798-06:00</LastLogoutTime>
       <RespawnShips />
@@ -1473,7 +1306,7 @@ PaintUnfinishedBlocks=False
       <DisplayName>Unknown</DisplayName>
       <CharacterEntityId>0</CharacterEntityId>
       <BlockLimitModifier>0</BlockLimitModifier>
-      <LastLoginTime>2026-03-31T20:44:12.6536381-05:00</LastLoginTime>
+      <LastLoginTime>2026-04-05T13:28:24.3608937-05:00</LastLoginTime>
       <SavedCharacters />
       <LastLogoutTime>2026-02-24T19:18:42.8947982-06:00</LastLogoutTime>
       <RespawnShips />
@@ -1487,7 +1320,7 @@ PaintUnfinishedBlocks=False
       <DisplayName>RED NPC8093</DisplayName>
       <CharacterEntityId>0</CharacterEntityId>
       <BlockLimitModifier>0</BlockLimitModifier>
-      <LastLoginTime>2026-03-31T20:44:12.6536381-05:00</LastLoginTime>
+      <LastLoginTime>2026-04-05T13:28:24.3608937-05:00</LastLoginTime>
       <SavedCharacters />
       <LastLogoutTime>2026-02-24T21:57:06.2983124-06:00</LastLogoutTime>
       <RespawnShips />
@@ -1501,7 +1334,7 @@ PaintUnfinishedBlocks=False
       <DisplayName>BLU NPC9531</DisplayName>
       <CharacterEntityId>0</CharacterEntityId>
       <BlockLimitModifier>0</BlockLimitModifier>
-      <LastLoginTime>2026-03-31T20:44:12.6536381-05:00</LastLoginTime>
+      <LastLoginTime>2026-04-05T13:28:24.3608937-05:00</LastLoginTime>
       <SavedCharacters />
       <LastLogoutTime>2026-02-24T21:57:50.0956308-06:00</LastLogoutTime>
       <RespawnShips />
@@ -1515,7 +1348,7 @@ PaintUnfinishedBlocks=False
       <DisplayName>SPC NPC9149</DisplayName>
       <CharacterEntityId>0</CharacterEntityId>
       <BlockLimitModifier>0</BlockLimitModifier>
-      <LastLoginTime>2026-03-31T20:44:12.6536381-05:00</LastLoginTime>
+      <LastLoginTime>2026-04-05T13:28:24.3608937-05:00</LastLoginTime>
       <SavedCharacters />
       <LastLogoutTime>2026-02-24T21:58:59.1128193-06:00</LastLogoutTime>
       <RespawnShips />
@@ -1621,192 +1454,24 @@ PaintUnfinishedBlocks=False
                 </Data>
               </Slot>
               <Slot>
-                <Index>11</Index>
-                <Item />
-                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-                  <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_Carburettor" />
-                </Data>
-              </Slot>
-              <Slot>
                 <Index>13</Index>
                 <Item />
                 <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-                  <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_TurbochargerLeft" />
-                </Data>
-              </Slot>
-              <Slot>
-                <Index>14</Index>
-                <Item />
-                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-                  <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_TurbochargerRight" />
-                </Data>
-              </Slot>
-              <Slot>
-                <Index>16</Index>
-                <Item />
-                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-                  <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_CrankShaft" />
-                </Data>
-              </Slot>
-              <Slot>
-                <Index>17</Index>
-                <Item />
-                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
                   <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_FuelEngineGenerator" />
                 </Data>
               </Slot>
               <Slot>
-                <Index>18</Index>
-                <Item />
-                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-                  <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_4WayPipe" />
-                </Data>
-              </Slot>
-              <Slot>
-                <Index>19</Index>
-                <Item />
-                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-                  <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_5WayPipe" />
-                </Data>
-              </Slot>
-              <Slot>
-                <Index>20</Index>
-                <Item />
-                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-                  <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_6WayPipe" />
-                </Data>
-              </Slot>
-              <Slot>
-                <Index>21</Index>
-                <Item />
-                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-                  <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_Adapter" />
-                </Data>
-              </Slot>
-              <Slot>
-                <Index>22</Index>
-                <Item />
-                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-                  <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_Carburettor" />
-                </Data>
-              </Slot>
-              <Slot>
-                <Index>23</Index>
-                <Item />
-                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-                  <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_CornerPipe" />
-                </Data>
-              </Slot>
-              <Slot>
-                <Index>24</Index>
-                <Item />
-                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-                  <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_CrankShaft" />
-                </Data>
-              </Slot>
-              <Slot>
-                <Index>25</Index>
-                <Item />
-                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-                  <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_Cylinder" />
-                </Data>
-              </Slot>
-              <Slot>
-                <Index>26</Index>
-                <Item />
-                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-                  <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_FuelEngineGenerator" />
-                </Data>
-              </Slot>
-              <Slot>
-                <Index>27</Index>
-                <Item />
-                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-                  <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_HullPipe" />
-                </Data>
-              </Slot>
-              <Slot>
-                <Index>28</Index>
-                <Item />
-                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-                  <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_Injector" />
-                </Data>
-              </Slot>
-              <Slot>
-                <Index>29</Index>
+                <Index>15</Index>
                 <Item />
                 <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
                   <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_InlineTurboLeft" />
                 </Data>
               </Slot>
               <Slot>
-                <Index>30</Index>
+                <Index>18</Index>
                 <Item />
                 <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-                  <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_InlineTurboRight" />
-                </Data>
-              </Slot>
-              <Slot>
-                <Index>31</Index>
-                <Item />
-                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-                  <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_JunctionPipe" />
-                </Data>
-              </Slot>
-              <Slot>
-                <Index>32</Index>
-                <Item />
-                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-                  <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_LargeRadiator" />
-                </Data>
-              </Slot>
-              <Slot>
-                <Index>33</Index>
-                <Item />
-                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-                  <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_LJunctionPipe" />
-                </Data>
-              </Slot>
-              <Slot>
-                <Index>34</Index>
-                <Item />
-                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-                  <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_Radiator" />
-                </Data>
-              </Slot>
-              <Slot>
-                <Index>35</Index>
-                <Item />
-                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-                  <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_StraightPipe" />
-                </Data>
-              </Slot>
-              <Slot>
-                <Index>36</Index>
-                <Item />
-                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-                  <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_Supercharger" />
-                </Data>
-              </Slot>
-              <Slot>
-                <Index>37</Index>
-                <Item />
-                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-                  <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_TurbochargerLeft" />
-                </Data>
-              </Slot>
-              <Slot>
-                <Index>38</Index>
-                <Item />
-                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-                  <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_TurbochargerRight" />
-                </Data>
-              </Slot>
-              <Slot>
-                <Index>39</Index>
-                <Item />
-                <Data xsi:type="MyObjectBuilder_ToolbarItemCubeBlock">
-                  <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_XJunctionPipe" />
+                  <DefinitionId Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_FuelTankCenter" />
                 </Data>
               </Slot>
               <Slot>
@@ -1821,7 +1486,7 @@ PaintUnfinishedBlocks=False
           </Toolbar>
           <EntityCameraData>
             <CameraControllerSettings EntityId="121146153636173499">
-              <IsFirstPerson>false</IsFirstPerson>
+              <IsFirstPerson>true</IsFirstPerson>
               <Distance>7.8412694931030273</Distance>
               <HeadAngle x="0" y="0" />
             </CameraControllerSettings>
@@ -2218,7 +1883,7 @@ PaintUnfinishedBlocks=False
     </MyObjectBuilder_SessionComponent>
     <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_SpaceFaunaComponent">
       <SpawnInfos>
-        <Info X="25.208461307671229" Y="263.39791492915992" Z="476.00635154259811" S="1378043" A="44200" />
+        <Info X="25.208461307671229" Y="263.39791492915992" Z="476.00635154259811" S="922696" A="43284" />
       </SpawnInfos>
       <TimeoutInfos />
     </MyObjectBuilder_SessionComponent>
@@ -2306,7 +1971,7 @@ PaintUnfinishedBlocks=False
     </MyObjectBuilder_SessionComponent>
     <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_AntennaSessionComponent" />
     <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_EnvironmentBotSpawningSystem">
-      <TimeSinceLastEventInMs>82150</TimeSinceLastEventInMs>
+      <TimeSinceLastEventInMs>57432</TimeSinceLastEventInMs>
     </MyObjectBuilder_SessionComponent>
     <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_TradingManager" />
     <MyObjectBuilder_SessionComponent xsi:type="MyObjectBuilder_CoordinateSystem">
@@ -2512,6 +2177,7 @@ PaintUnfinishedBlocks=False
   <RequiresDX>11</RequiresDX>
   <VicinityModelsCache>
     <string>Models\Cubes\Large\AtmosphericThrusterSmall.mwm</string>
+    <string>C:\Users\jnick\AppData\Roaming\SpaceEngineers\Mods\SkytechThrusters\Models\Cubes\large\GimbalThrustPart.mwm</string>
     <string>Models\Cubes\Large\GeneratorSmall.mwm</string>
     <string>C:\Users\jnick\AppData\Roaming\SpaceEngineers\Mods\SkytechEngines\Models\Cubes\large\ST_T_4WayPipe.mwm</string>
     <string>C:\Users\jnick\AppData\Roaming\SpaceEngineers\Mods\SkytechEngines\Models\Cubes\large\ST_T_CrankShaft.mwm</string>
@@ -2532,6 +2198,9 @@ PaintUnfinishedBlocks=False
     <string>C:\Users\jnick\AppData\Roaming\SpaceEngineers\Mods\SkytechEngines\Models\Cubes\large\ST_T_JunctionPipe.mwm</string>
     <string>C:\Users\jnick\AppData\Roaming\SpaceEngineers\Mods\SkytechEngines\Models\Cubes\large\ST_T_Supercharger.mwm</string>
     <string>Models\Cubes\Large\LCDPanel.mwm</string>
+    <string>C:\Users\jnick\AppData\Roaming\SpaceEngineers\Mods\SkytechEngines\Models\Cubes\large\ST_T_FuelTankCorner.mwm</string>
+    <string>C:\Users\jnick\AppData\Roaming\SpaceEngineers\Mods\SkytechEngines\Models\Cubes\large\ST_T_FuelTankCenter.mwm</string>
+    <string>C:\Users\jnick\AppData\Roaming\SpaceEngineers\Mods\SkytechEngines\Models\Cubes\large\ST_T_FuelTankEdge.mwm</string>
   </VicinityModelsCache>
   <VicinityArmorModelsCache>
     <string>Models\Characters\Astronaut\Female\SE_astronaut.mwm</string>

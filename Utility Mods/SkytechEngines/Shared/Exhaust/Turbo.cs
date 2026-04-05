@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Collections;
 using VRage.Game.ModAPI;
 using VRageMath;
 
@@ -21,10 +22,11 @@ namespace Skytech.Engines.Shared.Exhaust
 
         public float PressureUse { get; private set; } = 0;
         public float TurboBonus { get; private set; } = 0;
-        public bool ExhaustObstructed => OutletAssembly.Count == 0 || OutletAssembly[0].ExhaustObstructed; // safe to assume there's only one outlet assembly
+        public bool ExhaustObstructed => OutletExhausts.Count == 0 || OutletExhausts.FirstElement().ExhaustObstructed; // safe to assume there's only one outlet assembly
 
 
-        public List<FuelEngineExhaust> OutletAssembly { get; set; } = new List<FuelEngineExhaust>();
+        public ICollection<FuelEngineExhaust> OutletAssembly => OutletExhausts;
+        public readonly CleanedSet<FuelEngineExhaust> OutletExhausts = new CleanedSet<FuelEngineExhaust>();
         public FuelEngineExhaust.Exhaust ExhaustProduced { get; private set; } = FuelEngineExhaust.Exhaust.Zero;
         public bool IsClosed => Block.Closed;
 
@@ -78,7 +80,8 @@ namespace Skytech.Engines.Shared.Exhaust
 
             ExhaustProduced = new FuelEngineExhaust.Exhaust(available.Pressure - PressureUse, available.Amount);
 
-            foreach (var asm in OutletAssembly)
+            OutletExhausts.RunCleanup();
+            foreach (var asm in OutletExhausts)
                 asm.NeedsPressureUpdate = true;
         }
 

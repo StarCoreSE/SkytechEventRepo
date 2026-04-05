@@ -7,7 +7,7 @@ namespace Skytech.Engines.Shared.Exhaust
     internal interface IExhaustProducer : IClosable
     {
         // TODO isconnected of some kind
-        List<FuelEngineExhaust> OutletAssembly { get; set; }
+        ICollection<FuelEngineExhaust> OutletAssembly { get; }
         FuelEngineExhaust.Exhaust ExhaustProduced { get; }
         IMyCubeBlock Block { get; }
 

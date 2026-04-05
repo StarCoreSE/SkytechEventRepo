@@ -169,10 +169,10 @@ namespace Skytech.Engines.Shared.Exhaust
 
         public bool TryRegisterInlet(IExhaustProducer inlet)
         {
+            inlet.OutletAssembly.Add(this);
             if (_inlets.Add(inlet))
             {
                 NeedsPressureUpdate = true;
-                inlet.OutletAssembly.Add(this);
                 return true;
             }
             return false;
@@ -180,10 +180,10 @@ namespace Skytech.Engines.Shared.Exhaust
 
         public void RemoveInlet(IExhaustProducer inlet)
         {
+            inlet.OutletAssembly.Remove(this);
             if (_inlets.Remove(inlet))
             {
                 NeedsPressureUpdate = true;
-                inlet.OutletAssembly.Remove(this);
             }
         }
 

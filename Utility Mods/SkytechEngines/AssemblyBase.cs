@@ -5,6 +5,7 @@ using Skytech.Engines.Shared.ModularAssemblies.Communication;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Collections;
 using VRage.Game.ModAPI;
 
 namespace Skytech.Engines
@@ -12,7 +13,7 @@ namespace Skytech.Engines
     /// <summary>
     /// Single assembly instance logic class. You should put your assembly logic here!
     /// </summary>
-    internal abstract class AssemblyBase
+    internal abstract class AssemblyBase : IClosable, IEquatable<AssemblyBase>
     {
         protected static ModularDefinitionApi ModularApi => ModularDefinition.ModularApi;
 
@@ -23,6 +24,7 @@ namespace Skytech.Engines
 
         public IMyCubeBlock RootBlock { get; private set; } = null;
         public long RootId { get; private set; } = -1;
+        public bool IsClosed { get; private set; } = false;
         public Action OnClose = null;
 
         protected HashSet<IMyCubeBlock> Blocks = new HashSet<IMyCubeBlock>();
@@ -71,6 +73,7 @@ namespace Skytech.Engines
         /// </summary>
         public virtual void Unload()
         {
+            IsClosed = true;
             OnClose?.Invoke();
 
             foreach (var block in Blocks)
@@ -118,6 +121,26 @@ namespace Skytech.Engines
         protected virtual void BlockInfoCallback(IMyCubeBlock block, StringBuilder sb)
         {
             sb.AppendLine($"{GetType().Name}: {Blocks.Count} parts");
+        }
+
+        public override int GetHashCode()
+        {
+            return AssemblyId;
+        }
+
+        public bool Equals(AssemblyBase other)
+        {
+            if (ReferenceEquals(null, other)) return false;
+            if (ReferenceEquals(this, other)) return true;
+            return AssemblyId == other.AssemblyId;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != GetType()) return false;
+            return Equals((AssemblyBase)obj);
         }
     }
 }

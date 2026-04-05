@@ -36,11 +36,11 @@ namespace Skytech.Engines
         /// </summary>
         public float HeatLevel { get; private set; } = 0;
 
-        public List<FuelEngineExhaust> OutletAssembly { get; set; } = new List<FuelEngineExhaust>();
+        public ICollection<FuelEngineExhaust> OutletAssembly => OutletExhaust;
+        public CleanedList<FuelEngineExhaust> OutletExhaust { get; set; } = new CleanedList<FuelEngineExhaust>();
         public CleanedSet<Turbo> OutletTurbos { get; set; } = new CleanedSet<Turbo>();
         public FuelEngineExhaust.Exhaust ExhaustProduced { get; private set; } = FuelEngineExhaust.Exhaust.Zero;
         public IMyCubeBlock Block { get; private set; }
-        public bool IsClosed { get; private set; } = false;
 
         public override void OnPartAdd(IMyCubeBlock block, bool isBasePart)
         {
@@ -80,10 +80,12 @@ namespace Skytech.Engines
                 foreach (var adjacent in neighbors)
                 {
                     var fatBlock = adjacent.FatBlock;
-                    Turbo turbo;
-                    if (fatBlock == null || !TurboManager.I.TryGetTurbo(fatBlock, out turbo) || !turbo.IsInlet(block))
+                    if (fatBlock == null)
                         continue;
-                    OutletTurbos.Add(turbo);
+
+                    Turbo turbo;
+                    if (TurboManager.I.TryGetTurbo(fatBlock, out turbo) && turbo.IsInlet(block))
+                        OutletTurbos.Add(turbo);
                 }
             }
         }
@@ -100,14 +102,16 @@ namespace Skytech.Engines
         protected override void BlockInfoCallback(IMyCubeBlock block, StringBuilder sb)
         {
             base.BlockInfoCallback(block, sb);
+
+            float ventFac = GetVentingFactor();
+
             sb.AppendLine($"Carburettors: {Carburettors.Count:N0}");
             sb.AppendLine($"Injectors: {Injectors.Count:N0}");
             sb.AppendLine($"Fuel Use: ({BaseFuelBurnRate:N}/{GetMaxFuelRate(true):N})/s");
-            sb.AppendLine($"Temperature: {HeatLevel*100:N0}% {(Overheated ? " !OVERHEATED! " : "")}");
+            sb.AppendLine($"Temperature: {HeatLevel*100:N0}% {(Overheated ? " !OVERHEATED! " : "")} ({(OutletExhaust.Count + OutletTurbos.Count) * ventFac:N0} cooling from exhaust)");
             if (Engine != null)
-                sb.AppendLine($"Power: {PowerWithNoHeat(Engine.Rpm) * (1 - HeatLevel * MaxHeatPowerPenalty):F}/{MaxPowerNoHeat():F}");
+                sb.AppendLine($"Power: {(Overheated ? 0 : PowerWithNoHeat(Engine.Rpm) * (1 - HeatLevel * MaxHeatPowerPenalty)):F}/{MaxPowerNoHeat():F}");
 
-            float ventFac = GetVentingFactor();
             if (ventFac < 1)
                 sb.AppendLine($"Some exhausts blocked! Cooling reduced ({ventFac*100:N0}%).");
         }
@@ -117,6 +121,7 @@ namespace Skytech.Engines
             base.UpdateTick();
 
             OutletTurbos.RunCleanup();
+            OutletExhaust.RunCleanup();
 
             UpdateExhaust();
             UpdateHeat();
@@ -126,7 +131,6 @@ namespace Skytech.Engines
         {
             base.Unload();
             Grid.OnBlockAdded -= OnBlockAdded;
-            IsClosed = true;
         }
 
         public bool IsOutlet(IMyCubeBlock block)
@@ -166,9 +170,9 @@ namespace Skytech.Engines
             //if (Math.Abs(ExhaustProduced.Amount - exhaust) < 0.001f)
             //    return;
 
-            ExhaustProduced = new FuelEngineExhaust.Exhaust(exhaust / (OutletAssembly.Count + OutletTurbos.Count));
+            ExhaustProduced = new FuelEngineExhaust.Exhaust(exhaust / (OutletExhaust.Count + OutletTurbos.Count));
 
-            foreach (var asm in OutletAssembly)
+            foreach (var asm in OutletExhaust)
                 asm.NeedsPressureUpdate = true;
             foreach (var turbo in OutletTurbos)
                 turbo.UpdateExhaust(ExhaustProduced);
@@ -178,7 +182,7 @@ namespace Skytech.Engines
 
         private float GetExhaustCooling()
         {
-            int outletCt = OutletAssembly.Count + OutletTurbos.Count;
+            int outletCt = OutletExhaust.Count + OutletTurbos.Count;
             float ventFactor = outletCt == 0 ? 0 : GetVentingFactor();
             return CoolingPerExhaust * outletCt * ventFactor;
         }
@@ -221,9 +225,12 @@ namespace Skytech.Engines
         /// <returns></returns>
         private float GetVentingFactor()
         {
+            if (OutletExhaust.Count == 0 && OutletTurbos.Count == 0)
+                return 0;
+
             float sum = 0;
 
-            foreach (var exhaust in OutletAssembly)
+            foreach (var exhaust in OutletExhaust)
             {
                 if (!exhaust.ExhaustObstructed)
                     sum++;
@@ -234,7 +241,7 @@ namespace Skytech.Engines
                     sum++;
             }
 
-            return sum / (OutletAssembly.Count + OutletTurbos.Count);
+            return sum / (OutletExhaust.Count + OutletTurbos.Count);
         }
 
         #endregion

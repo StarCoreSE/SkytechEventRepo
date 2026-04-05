@@ -8,7 +8,7 @@
 			</Id>
 			<DisplayName>{LOC:DisplayName_ST_T_LargeRadiator}</DisplayName>
 			<Description>{LOC:Description_ST_T_LargeRadiator}</Description>
-			<Icon>Textures\GUI\Icons\AstronautBackpack.dds</Icon>
+			<Icon>Textures\GUI\ST_T_LargeRadiator.dds</Icon>
 			<CubeSize>Large</CubeSize>
 			<BlockTopology>TriangleMesh</BlockTopology>
 			<Size x="3" y="3" z="1"/>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<BlockVariantGroups>
+
+		<BlockVariantGroup>
+			<Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="ST_T_FuelTankGroup" />
+			<Icon>Textures\GUI\ST_T_FuelTankCenter.dds</Icon>
+			<DisplayName>Fuel Tanks</DisplayName>
+			<Description>SkyTech Modular Fuel Tanks</Description>
+			<Blocks>
+				<Block Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_FuelTankCenter" />
+				<Block Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_FuelTankCorner" />
+				<Block Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_FuelTankEdge" />
+			</Blocks>
+		</BlockVariantGroup>
+		
+		<BlockVariantGroup>
+			<Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="ST_T_ExhaustPipeGroup" />
+			<Icon>Textures\GUI\ST_T_StraightPipe.dds</Icon>
+			<DisplayName>Exhaust Pipes</DisplayName>
+			<Description>SkyTech Exhaust Pipes</Description>
+			<Blocks>
+				<Block Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_StraightPipe" />
+				<Block Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_CornerPipe" />
+				<Block Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_JunctionPipe" />
+				<Block Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_LJunctionPipe" />
+				<Block Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_4WayPipe" />
+				<Block Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_XJunctionPipe" />
+				<Block Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_5WayPipe" />
+				<Block Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_6WayPipe" />
+				<Block Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_HullPipe" />
+			</Blocks>
+		</BlockVariantGroup>
+		
+		<BlockVariantGroup>
+			<Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="ST_T_CrankshaftGroup" />
+			<Icon>Textures\GUI\ST_T_CrankShaft.dds</Icon>
+			<DisplayName>Crankshaft Components</DisplayName>
+			<Description>SkyTech Engine Crankshaft Components</Description>
+			<Blocks>
+				<Block Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_FuelEngineGenerator" />
+				<Block Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_CrankShaft" />
+				<Block Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_Adapter" />
+				<Block Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_LargeRadiator" />
+				<Block Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_Radiator" />
+			</Blocks>
+		</BlockVariantGroup>
+		
+		<BlockVariantGroup>
+			<Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="ST_T_CylinderGroup" />
+			<Icon>Textures\GUI\ST_T_Cylinder.dds</Icon>
+			<DisplayName>Cylinder Components</DisplayName>
+			<Description>SkyTech Engine Cylinder Components</Description>
+			<Blocks>
+				<Block Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_Cylinder" />
+				<Block Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_Injector" />
+				<Block Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_Carburettor" />
+				<Block Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_Supercharger" />
+			</Blocks>
+		</BlockVariantGroup>
+		
+		<BlockVariantGroup>
+			<Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="ST_T_TurboGroup" />
+			<Icon>Textures\GUI\ST_T_InlineTurboLeft.dds</Icon>
+			<DisplayName>Turbochargers</DisplayName>
+			<Description>SkyTech Engine Turbochargers</Description>
+			<Blocks>
+				<Block Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_InlineTurboLeft" />
+				<Block Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_InlineTurboRight" />
+				<Block Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_TurbochargerLeft" />
+				<Block Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_TurbochargerRight" />
+			</Blocks>
+		</BlockVariantGroup>
+		
+
+	</BlockVariantGroups>
+</Definitions>

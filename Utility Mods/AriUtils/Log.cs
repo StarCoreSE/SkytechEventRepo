@@ -145,10 +145,12 @@ namespace AriUtils
                 _indent = _indent.Remove(_indent.Length - 1);
         }
 
+        private static int _lastUpdate = -1;
         public static void Update()
         {
-            if (_exceptions == null)
+            if (_exceptions == null || _lastUpdate == MyAPIGateway.Session.GameplayFrameCounter)
                 return;
+            _lastUpdate = MyAPIGateway.Session.GameplayFrameCounter;
 
             _exceptions.Enqueue(_lastTickExceptions);
             while (_exceptions.Count > MaxExceptionIntervalTicks)

@@ -7,6 +7,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)ApiManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ClientMain.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Client\RichHudClient.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Client\UI\BindManager\Bind.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Client\UI\BindManager\BindGroup.cs" />

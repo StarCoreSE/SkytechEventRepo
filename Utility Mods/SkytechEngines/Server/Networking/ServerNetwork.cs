@@ -114,7 +114,7 @@ namespace Skytech.Engines.Server.Networking
             if (packet == null)
                 return;
 
-            if (Environment.CurrentManagedThreadId != GlobalData.MainThreadId || SharedMain.I.Ticks == 0)
+            if (Environment.CurrentManagedThreadId != GlobalData.MainThreadId || SessionInstance.Ticks == 0)
             {
                 // avoid thread contention and zero players connected on world load
                 MyAPIGateway.Utilities.InvokeOnGameThread(() => SendToPlayerInternal(packet, playerSteamId));
@@ -131,7 +131,7 @@ namespace Skytech.Engines.Server.Networking
             if (packet == null)
                 return;
 
-            if (Environment.CurrentManagedThreadId != GlobalData.MainThreadId || SharedMain.I.Ticks == 0)
+            if (Environment.CurrentManagedThreadId != GlobalData.MainThreadId || SessionInstance.Ticks == 0)
             {
                 // avoid thread contention and zero players connected on world load
                 MyAPIGateway.Utilities.InvokeOnGameThread(() => SendToEveryoneInternal(packet));
@@ -151,7 +151,7 @@ namespace Skytech.Engines.Server.Networking
             if (packet == null)
                 return;
 
-            if (Environment.CurrentManagedThreadId != GlobalData.MainThreadId || SharedMain.I.Ticks == 0)
+            if (Environment.CurrentManagedThreadId != GlobalData.MainThreadId || SessionInstance.Ticks == 0)
             {
                 // avoid thread contention and zero players connected on world load
                 MyAPIGateway.Utilities.InvokeOnGameThread(() => SendToEveryoneInSyncInternal(packet, position));

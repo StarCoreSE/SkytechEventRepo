@@ -8,6 +8,9 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Collections\AsyncSharedObjectPool.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Collections\CleanedCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Components\ClientMain.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Components\ServerMain.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Components\SharedMain.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DebugDrawManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GlobalData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\IcoSphereConstructor.cs" />
@@ -18,7 +21,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Collections\ObjectPool.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Collections\OrderedDictionary.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\PaintUtils.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)SingletonBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Components\SingletonBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\SubpartManager.cs" />
   </ItemGroup>
   <ItemGroup>

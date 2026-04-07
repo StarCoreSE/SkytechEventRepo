@@ -35,21 +35,23 @@ namespace Skytech.Engines.Shared.Exhaust
         };
 
 
-        protected override void _Init()
+        public override void Init()
         {
             GlobalData.RegisterOnBlockAdded(OnBlockAdded);
             GlobalData.RegisterOnBlockRemoved(OnBlockRemoved);
         }
 
-        protected override void _Update()
+        public override void Update()
         {
             
         }
 
-        protected override void _Unload()
+        public override void Unload()
         {
             GlobalData.UnregisterOnBlockAdded(OnBlockAdded);
             GlobalData.UnregisterOnBlockRemoved(OnBlockRemoved);
+
+            base.Unload();
         }
 
         public bool TryGetTurbo(IMyCubeBlock block, out Turbo turbo) => _turbos.TryGetValue(block, out turbo);

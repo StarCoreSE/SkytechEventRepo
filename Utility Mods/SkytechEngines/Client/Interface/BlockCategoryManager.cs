@@ -5,17 +5,17 @@ using VRage.Game;
 
 namespace Skytech.Engines.Client.Interface
 {
-    public static class BlockCategoryManager
+    public class BlockCategoryManager : SingletonBase<BlockCategoryManager>
     {
-        private static GuiBlockCategoryHelper _blockCategory;
-        private static HashSet<string> _bufferBlockSubtypes = new HashSet<string>
+        private GuiBlockCategoryHelper _blockCategory;
+        private HashSet<string> _bufferBlockSubtypes = new HashSet<string>
         {
             // Everything relevant should be automatically added, but if not, put its subtype here.
         }; // DefinitionManager can load before the BlockCategoryManager on client and cause an exception.
 
-        private static Dictionary<string, string> _subtypeToTypePairing;
+        private Dictionary<string, string> _subtypeToTypePairing;
 
-        public static void Init()
+        public override void Init()
         {
             _subtypeToTypePairing = new Dictionary<string, string>();
             foreach (var def in MyDefinitionManager.Static.GetAllDefinitions())
@@ -35,11 +35,16 @@ namespace Skytech.Engines.Client.Interface
 
         public static void RegisterFromSubtype(string subtypeId)
         {
-            if (_bufferBlockSubtypes.Add(subtypeId) && _blockCategory != null)
-                _blockCategory.AddBlock(subtypeId);
+            if (I._bufferBlockSubtypes.Add(subtypeId) && I._blockCategory != null)
+                I._blockCategory.AddBlock(subtypeId);
         }
 
-        public static void Close()
+        public override void Update()
+        {
+            
+        }
+
+        public override void Unload()
         {
             _subtypeToTypePairing = null;
             _blockCategory = null;
@@ -68,7 +73,7 @@ namespace Skytech.Engines.Client.Interface
             {
                 Log.IncreaseIndent();
                 string typeId;
-                if (_subtypeToTypePairing.TryGetValue(subtypeId, out typeId)) // keen broke block category items with just subtypeid
+                if (I._subtypeToTypePairing.TryGetValue(subtypeId, out typeId)) // keen broke block category items with just subtypeid
                 {
                     _category.ItemIds.Add(typeId + "/" + subtypeId);
                     Log.Info("GuiBlockCategoryHelper", $"Added {typeId + "/" + subtypeId}");

@@ -1,105 +1,12 @@
-﻿using Skytech.Engines.Shared.Utils;
-using System;
-using System.Collections.Generic;
-using AriUtils;
-using AriUtils.HUD;
-using VRage.Game.Components;
+﻿using System;
 using Skytech.Engines.Shared.Exhaust;
+using Skytech.Engines.Shared.Fuel;
 
-namespace Skytech.Engines.Shared
+namespace AriUtils.Components
 {
-    [MySessionComponentDescriptor(MyUpdateOrder.AfterSimulation, Priority = int.MinValue)]
-    // ReSharper disable once ClassNeverInstantiated.Global
-    internal class SharedMain : MySessionComponentBase
+    public partial class SharedMain
     {
-        public static SharedMain I;
-        public HashSet<IAssemblyManager> AssemblyManagers = new HashSet<IAssemblyManager>();
-
-        public override void LoadData()
-        {
-            try
-            {
-                I = this;
-
-                if (!GlobalData.CheckShouldLoad(ModContext, modIdFormatted => modIdFormatted.Contains("skytech") && modIdFormatted.Contains("engines")))
-                {
-                    I = null;
-                    return;
-                }
-
-                Log.Init(ModContext);
-                Log.Info("SharedMain", "Start initialize...");
-                Log.IncreaseIndent();
-
-                GlobalData.Init(ModContext);
-                GlobalObjectPools.Init();
-                TurboManager.Init();
-
-                Log.DecreaseIndent();
-                Log.Info("SharedMain", "Initialized.");
-            }
-            catch (Exception ex)
-            {
-                Log.Exception("SharedMain", ex, true);
-            }
-        }
-
-        public int Ticks = 0;
-
-        public override void UpdateAfterSimulation()
-        {
-            if (GlobalData.Killswitch)
-                return;
-
-            try
-            {
-                GlobalData.Update();
-
-                foreach (var asm in AssemblyManagers)
-                {
-                    asm.Update();
-                }
-
-                TurboManager.Update();
-
-                GlobalObjectPools.Update();
-                BlockInfo.Update();
-                Log.Update();
-                Ticks++;
-            }
-            catch (Exception ex)
-            {
-                Log.Exception("SharedMain", ex);
-            }
-        }
-
-        protected override void UnloadData()
-        {
-            if (GlobalData.Killswitch)
-                return;
-
-            try
-            {
-                Log.Info("SharedMain", "Start unload...");
-                Log.IncreaseIndent();
-
-                TurboManager.Unload();
-                foreach (var aman in AssemblyManagers)
-                    aman.Unload(true);
-                AssemblyManagers = null;
-                BlockInfo.Close();
-                GlobalObjectPools.Unload();
-                GlobalData.Unload();
-
-                I = null;
-
-                Log.DecreaseIndent();
-                Log.Info("SharedMain", "Unloaded.");
-            }
-            catch (Exception ex)
-            {
-                Log.Exception("SharedMain", ex, true);
-            }
-        }
+        private TurboManager _tm = TurboManager.Create<SharedMain>();
+        private FuelTankManager _ftm = FuelTankManager.Create<SharedMain>();
     }
 }

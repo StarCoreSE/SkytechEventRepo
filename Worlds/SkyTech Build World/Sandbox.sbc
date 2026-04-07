@@ -5,11 +5,11 @@
   <SessionName>SkyTech Build World</SessionName>
   <SpectatorPosition>
     <Position x="-8.7372016708360576" y="221.44679388430035" z="459.0497016588406" />
-    <Forward x="-0.6287693" y="-0.7688457" z="-0.116299279" />
-    <Up x="0.304290354" y="-0.105648793" z="-0.94670254" />
+    <Forward x="-0.628769338" y="-0.7688456" z="-0.116299279" />
+    <Up x="0.304290384" y="-0.105648816" z="-0.94670254" />
     <Orientation>
       <X>-0.652865</X>
-      <Y>0.12497066</Y>
+      <Y>0.124970675</Y>
       <Z>-0.3557973</Z>
       <W>0.6569307</W>
     </Orientation>
@@ -194,8 +194,8 @@
     <EnableIngameScripts>true</EnableIngameScripts>
     <ViewDistance>30000</ViewDistance>
     <VoxelGeneratorVersion>4</VoxelGeneratorVersion>
-    <EnableOxygen>true</EnableOxygen>
-    <EnableOxygenPressurization>true</EnableOxygenPressurization>
+    <EnableOxygen>false</EnableOxygen>
+    <EnableOxygenPressurization>false</EnableOxygenPressurization>
     <Enable3rdPersonView>true</Enable3rdPersonView>
     <EnableEncounters>false</EnableEncounters>
     <EnableConvertToStation>true</EnableConvertToStation>
@@ -227,7 +227,7 @@
     <MaxDropContainerRespawnTime>20</MaxDropContainerRespawnTime>
     <EnableTurretsFriendlyFire>false</EnableTurretsFriendlyFire>
     <EnableSubgridDamage>false</EnableSubgridDamage>
-    <SyncDistance>150000</SyncDistance>
+    <SyncDistance>20000</SyncDistance>
     <ExperimentalMode>true</ExperimentalMode>
     <AdaptiveSimulationQuality>true</AdaptiveSimulationQuality>
     <EnableVoxelHand>false</EnableVoxelHand>
@@ -1206,6 +1206,7 @@ PaintUnfinishedBlocks=False
       <IsDependency>true</IsDependency>
     </ModItem>
   </Mods>
+  <CreativeTools />
   <Scenario Type="MyObjectBuilder_ScenarioDefinition" Subtype="EmptyWorld" />
   <RespawnCooldowns />
   <Identities>
@@ -1658,6 +1659,8 @@ PaintUnfinishedBlocks=False
       </item>
     </dictionary>
   </AllPlayersColors>
+  <ChatHistory />
+  <FactionChatHistory />
   <NonPlayerIdentities>
     <long>144115188075855896</long>
     <long>144115188075855897</long>
@@ -2224,4 +2227,7 @@ PaintUnfinishedBlocks=False
     <string>DesertRocks</string>
   </VicinityVoxelCache>
   <WorldId>dd5139a0-a776-4b1d-a075-50e7e316b75b</WorldId>
+  <RemoteAdminSettings>
+    <dictionary />
+  </RemoteAdminSettings>
 </MyObjectBuilder_Checkpoint>

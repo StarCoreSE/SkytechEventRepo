@@ -53,7 +53,7 @@ namespace AriUtils
 
         #endregion
 
-        internal static bool CheckShouldLoad(IMyModContext myModContext, Func<string, bool> modCheck)
+        internal static bool CheckShouldLoad(IMyModContext myModContext)
         {
             foreach (var mod in MyAPIGateway.Session.Mods)
             {
@@ -61,7 +61,7 @@ namespace AriUtils
                     continue;
 
                 string modIdFormatted = mod.GetModContext().ModId.RemoveChars(' ').ToLower();
-                if (modCheck.Invoke(modIdFormatted))
+                if (KillswitchCheck.Invoke(modIdFormatted))
                 {
                     Killswitch = true;
                     MyLog.Default.WriteLineAndConsole($"[{GlobalData.FriendlyModName}] Found local mod version \"{mod.GetPath()}\" - cancelling init and disabling mod. My ModId: {myModContext.ModId}");
@@ -69,13 +69,20 @@ namespace AriUtils
                 }
             }
 
+            MyLog.Default.WriteLineAndConsole($"[{GlobalData.FriendlyModName}] No existing local mods found; continuing init. My ModId: {myModContext.ModId}");
             Killswitch = false;
             return true;
         }
 
         public static bool IsReady = false;
+        private static int _initCounter = 0;
         internal static void Init(IMyModContext myModContext)
         {
+            if (_initCounter++ > 0)
+                return;
+
+            Log.Init(myModContext);
+
             Log.Info("GlobalData", "Start initialize...");
             Log.IncreaseIndent();
 
@@ -181,6 +188,8 @@ namespace AriUtils
 
         internal static void Update()
         {
+            Log.Update();
+
             if (MyAPIGateway.Session.GameplayFrameCounter % 10 == 0)
             {
                 Players.Clear();
@@ -198,6 +207,9 @@ namespace AriUtils
 
         internal static void Unload()
         {
+            if (--_initCounter > 0) // hacky and relies on equal counts of init and unload calls
+                return;
+
             MyAPIGateway.Entities.OnEntityAdd -= OnEntityAdd;
             MyAPIGateway.Entities.OnEntityRemove -= OnEntityRemove;
             Players = null;
@@ -208,6 +220,7 @@ namespace AriUtils
                 MyAPIGateway.Multiplayer.UnregisterSecureMessageHandler(DataNetworkId, ClientMessageHandler);
             _generalConfig = null;
             Log.Info("GlobalData", "Data cleared.");
+            Log.Close();
         }
 
         private static void OnEntityAdd(IMyEntity entity)

@@ -1,21 +1,21 @@
 ﻿using System;
 using AriUtils;
 using RichHudFramework.Client;
-using VRage.Game.ModAPI;
 
 namespace RichHudFramework
 {
-    internal static class ApiManager
+    internal class ApiManager : SingletonBase<ApiManager>
     {
+        public override int InitPriority => int.MinValue;
         private static Action _onRichHudReady = () => Log.Info("RichHud", "Ready.");
 
-        public static void Init(IMyModContext context)
+        public override void Init()
         {
             Log.IncreaseIndent();
 
             try
             {
-                RichHudClient.Init(context.ModName, () => _onRichHudReady.Invoke(), null);
+                RichHudClient.Init(ModContext.ModName, () => _onRichHudReady.Invoke(), null);
             }
             catch (Exception ex)
             {
@@ -26,7 +26,12 @@ namespace RichHudFramework
             Log.Info("ApiManager", "Ready.");
         }
 
-        public static void Unload()
+        public override void Update()
+        {
+            
+        }
+
+        public override void Unload()
         {
             Log.IncreaseIndent();
 
@@ -34,6 +39,7 @@ namespace RichHudFramework
 
             Log.DecreaseIndent();
             Log.Info("ApiManager", "Unloaded.");
+            base.Unload();
         }
 
         /// <summary>

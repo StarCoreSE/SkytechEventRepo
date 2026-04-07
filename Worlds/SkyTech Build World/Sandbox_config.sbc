@@ -45,8 +45,8 @@
     <EnableIngameScripts>true</EnableIngameScripts>
     <ViewDistance>30000</ViewDistance>
     <VoxelGeneratorVersion>4</VoxelGeneratorVersion>
-    <EnableOxygen>true</EnableOxygen>
-    <EnableOxygenPressurization>true</EnableOxygenPressurization>
+    <EnableOxygen>false</EnableOxygen>
+    <EnableOxygenPressurization>false</EnableOxygenPressurization>
     <Enable3rdPersonView>true</Enable3rdPersonView>
     <EnableEncounters>false</EnableEncounters>
     <EnableConvertToStation>true</EnableConvertToStation>
@@ -78,7 +78,7 @@
     <MaxDropContainerRespawnTime>20</MaxDropContainerRespawnTime>
     <EnableTurretsFriendlyFire>false</EnableTurretsFriendlyFire>
     <EnableSubgridDamage>false</EnableSubgridDamage>
-    <SyncDistance>150000</SyncDistance>
+    <SyncDistance>20000</SyncDistance>
     <ExperimentalMode>true</ExperimentalMode>
     <AdaptiveSimulationQuality>true</AdaptiveSimulationQuality>
     <EnableVoxelHand>false</EnableVoxelHand>

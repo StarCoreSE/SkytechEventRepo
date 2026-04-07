@@ -4,121 +4,36 @@ using Sandbox.ModAPI;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using RichHudFramework;
+using RichHudFramework.Client;
 using VRage.Game.ModAPI;
 using VRage.ModAPI;
 using VRageMath;
 
 namespace AriUtils.HUD
 {
-    public class BlockInfo
+    public class BlockInfo : SingletonBase<BlockInfo>
     {
         private const int UpdateIntervalTicks = 29;
         private const int MaxCastDistance = 15;
 
-        private static BlockInfo I;
-
         private Dictionary<IMyCubeBlock, Action<IMyCubeBlock, StringBuilder>> _infos = new Dictionary<IMyCubeBlock, Action<IMyCubeBlock, StringBuilder>>();
         private int _tick = 0;
         private StringBuilder _builder = new StringBuilder();
-        private BlockInfoDisplay _display = new BlockInfoDisplay(HudMain.HighDpiRoot);
+        private BlockInfoDisplay _display;
 
-        public static void Init()
+        public override void Init()
         {
-            if (MyAPIGateway.Utilities.IsDedicated || I != null)
-                return;
-            I = new BlockInfo();
-        }
-
-        public static void Update()
-        {
-            if (MyAPIGateway.Utilities.IsDedicated || I == null)
-                return;
-            I._Update();
-        }
-
-        public static void Close()
-        {
-            if (MyAPIGateway.Utilities.IsDedicated)
-                return;
-            I = null;
-        }
-
-        public static void Register(IMyCubeBlock block, Action<IMyCubeBlock, StringBuilder> info)
-        {
-            if (I == null)
-                return;
-
-            if (I._infos.ContainsKey(block))
+            ApiManager.RichHudOnLoadRegisterOrInvoke(() =>
             {
-                I._infos[block] += info;
-            }
-            else
-            {
-                I._infos.Add(block, info);
-                block.OnClose += OnBlockOnClose;
-            }
+                _display = new BlockInfoDisplay(HudMain.HighDpiRoot);
+            });
         }
 
-        // safety check
-        private static void OnBlockOnClose(IMyEntity ent)
+        public override void Update()
         {
-            I._infos.Remove((IMyCubeBlock)ent);
-        }
-
-        public static void Unregister(IMyCubeBlock block, Action<IMyCubeBlock, StringBuilder> info)
-        {
-            if (I == null || !I._infos.ContainsKey(block))
+            if (!RichHudClient.Registered)
                 return;
-
-            I._infos[block] -= info;
-
-            if (I._infos[block] == null)
-            {
-                I._infos.Remove(block);
-                block.OnClose -= OnBlockOnClose;
-            }
-        }
-
-        private BlockInfo()
-        {
-            I = this;
-        }
-
-        private void _Update()
-        {
-            //if (_tick % UpdateIntervalTicks == 0)
-            //{
-            //    RayD camLine = new RayD(MyAPIGateway.Session.Camera.Position, MyAPIGateway.Session.Camera.WorldMatrix.Forward);
-            //
-            //    foreach (var infoKvp in _infos)
-            //    {
-            //        if (Vector3D.DistanceSquared(block.WorldVolume.Center, camLine.Position) > 15 * 15)
-            //            continue;
-            //
-            //        double? intersect = block.WorldVolume.Intersects(camLine);
-            //        if (intersect < 15)
-            //        {
-            //            _Display(infoKvp.Key, block);
-            //        }
-            //    }
-            //}
-
-            // rolling update
-            // evenly distribute updates along UpdateIntervalTicks ticks
-            //int nToUpdate = (int) Math.Ceiling((float) _infos.Count / UpdateIntervalTicks);
-            //for (int i = _lastUpdated; i < _lastUpdated + nToUpdate && i < _infos.Count; i++)
-            //{
-            //    IBlockInfo info = _infos[i];
-            //    double? intersect = info.Block.WorldVolume.Intersects(camLine);
-            //    if (intersect < 50)
-            //    {
-            //        _Display(info);
-            //    }
-            //}
-            //
-            //_lastUpdated += nToUpdate;
-            //if (_tick % UpdateIntervalTicks == 0)
-            //    _lastUpdated = 0;
 
             if (_tick % UpdateIntervalTicks == 0 && GlobalData.HudVisible == GlobalData.HudState.VisibleDesc)
             {
@@ -155,6 +70,42 @@ namespace AriUtils.HUD
             _display.UpdatePosition();
 
             _tick++;
+        }
+
+        public static void Register(IMyCubeBlock block, Action<IMyCubeBlock, StringBuilder> info)
+        {
+            if (I == null)
+                return;
+
+            if (I._infos.ContainsKey(block))
+            {
+                I._infos[block] += info;
+            }
+            else
+            {
+                I._infos.Add(block, info);
+                block.OnClose += OnBlockOnClose;
+            }
+        }
+
+        // safety check
+        private static void OnBlockOnClose(IMyEntity ent)
+        {
+            I._infos.Remove((IMyCubeBlock)ent);
+        }
+
+        public static void Unregister(IMyCubeBlock block, Action<IMyCubeBlock, StringBuilder> info)
+        {
+            if (I == null || !I._infos.ContainsKey(block))
+                return;
+
+            I._infos[block] -= info;
+
+            if (I._infos[block] == null)
+            {
+                I._infos.Remove(block);
+                block.OnClose -= OnBlockOnClose;
+            }
         }
 
         private void _Display(Action<IMyCubeBlock, StringBuilder> info, IMyCubeBlock block)

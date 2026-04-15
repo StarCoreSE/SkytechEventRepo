@@ -152,10 +152,15 @@ namespace Skytech.Engines
 
         public void UpdateExhaust()
         {
-            float rpm = Engine?.Rpm ?? 0;
-            BaseFuelBurnRate = GetFuelRate(rpm, false);
+            float exhaust = 0;
+            if (Engine != null && Engine.HasFuel)
+            {
+                float rpm = Engine.Rpm;
+                BaseFuelBurnRate = GetFuelRate(rpm, false);
 
-            float exhaust = ExhaustPerFuel * BaseFuelBurnRate;
+                exhaust = ExhaustPerFuel * BaseFuelBurnRate;
+            }
+
             //float exhaustPerInlet = exhaust / Exhausts.Count;
             //
             //if (Math.Abs(_exhaustPerSide - exhaustPerInlet) > 0.0001)

@@ -28,6 +28,7 @@
 			</MountPoints>
 			<BlockPairName>ST_T_FuelEngineGenerator</BlockPairName>
 			<MirroringY>Z</MirroringY>
+			<IsAirTight>false</IsAirTight>
 		</Definition>
 	</CubeBlocks>
 </Definitions>

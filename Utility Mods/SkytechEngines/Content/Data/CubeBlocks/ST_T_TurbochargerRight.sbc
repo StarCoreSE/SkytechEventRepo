@@ -26,6 +26,7 @@
 			<MirroringY>Z</MirroringY>
 			<MirroringZ>Y</MirroringZ>
 			<MirroringBlock>ST_T_TurbochargerLeft</MirroringBlock>
+			<IsAirTight>false</IsAirTight>
 		</Definition>
 	</CubeBlocks>
 </Definitions>

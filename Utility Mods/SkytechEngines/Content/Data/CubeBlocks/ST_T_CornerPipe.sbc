@@ -25,6 +25,7 @@
 			<BlockPairName>ST_T_CornerPipe</BlockPairName>
 			<MirroringY>Z</MirroringY>
 			<MirroringZ>Y</MirroringZ>
+			<IsAirTight>false</IsAirTight>
 		</Definition>
 	</CubeBlocks>
 </Definitions>

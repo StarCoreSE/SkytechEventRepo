@@ -28,6 +28,7 @@
 			</MountPoints>
 			<BlockPairName>ST_T_Carburettor</BlockPairName>
 			<MirroringY>X</MirroringY>
+			<IsAirTight>false</IsAirTight>
 		</Definition>
 	</CubeBlocks>
 </Definitions>

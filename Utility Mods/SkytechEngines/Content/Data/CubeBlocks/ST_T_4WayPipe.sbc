@@ -27,6 +27,7 @@
 			<BlockPairName>ST_T_4WayPipe</BlockPairName>
 			<MirroringY>Z</MirroringY>
 			<MirroringZ>HalfX</MirroringZ>
+			<IsAirTight>false</IsAirTight>
 		</Definition>
 	</CubeBlocks>
 </Definitions>

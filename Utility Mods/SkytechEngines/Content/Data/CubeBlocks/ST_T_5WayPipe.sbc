@@ -27,6 +27,7 @@
 			</MountPoints>
 			<BlockPairName>ST_T_5WayPipe</BlockPairName>
 			<MirroringZ>Y</MirroringZ>
+			<IsAirTight>false</IsAirTight>
 		</Definition>
 	</CubeBlocks>
 </Definitions>

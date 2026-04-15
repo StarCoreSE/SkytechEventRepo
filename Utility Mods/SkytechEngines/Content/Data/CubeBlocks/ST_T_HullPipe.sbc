@@ -19,6 +19,7 @@
 			</Components>
 			<CriticalComponent Subtype="SteelPlate" Index="0"/>
 			<BlockPairName>ST_T_HullPipe</BlockPairName>
+			<IsAirTight>true</IsAirTight>
 		</Definition>
 	</CubeBlocks>
 </Definitions>

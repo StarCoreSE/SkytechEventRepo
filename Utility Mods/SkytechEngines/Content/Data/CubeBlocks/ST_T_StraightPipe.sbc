@@ -23,6 +23,7 @@
 				<MountPoint Side="Back" StartX="0.00" StartY="0.00" EndX="1.00" EndY="1.00"/>
 			</MountPoints>
 			<BlockPairName>ST_T_StraightPipe</BlockPairName>
+			<IsAirTight>false</IsAirTight>
 		</Definition>
 	</CubeBlocks>
 </Definitions>

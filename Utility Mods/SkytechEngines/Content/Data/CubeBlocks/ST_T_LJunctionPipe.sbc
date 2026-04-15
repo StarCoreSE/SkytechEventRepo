@@ -27,6 +27,7 @@
 			<MirroringX>MinusHalfY</MirroringX>
 			<MirroringY>MinusHalfX</MirroringY>
 			<MirroringZ>HalfY</MirroringZ>
+			<IsAirTight>false</IsAirTight>
 		</Definition>
 	</CubeBlocks>
 </Definitions>

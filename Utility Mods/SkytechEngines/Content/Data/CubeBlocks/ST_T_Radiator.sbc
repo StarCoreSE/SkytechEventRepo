@@ -20,6 +20,7 @@
 			<CriticalComponent Subtype="SteelPlate" Index="0"/>
 			<BlockPairName>ST_T_Radiator</BlockPairName>
 			<MirroringZ>Y</MirroringZ>
+			<IsAirTight>false</IsAirTight>
 		</Definition>
 	</CubeBlocks>
 </Definitions>

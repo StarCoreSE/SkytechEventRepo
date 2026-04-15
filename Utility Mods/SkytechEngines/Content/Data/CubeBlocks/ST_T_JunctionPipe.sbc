@@ -25,6 +25,7 @@
 			</MountPoints>
 			<BlockPairName>ST_T_JunctionPipe</BlockPairName>
 			<MirroringY>X</MirroringY>
+			<IsAirTight>false</IsAirTight>
 		</Definition>
 	</CubeBlocks>
 </Definitions>

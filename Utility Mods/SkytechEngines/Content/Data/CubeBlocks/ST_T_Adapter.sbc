@@ -20,6 +20,7 @@
 			<CriticalComponent Subtype="SteelPlate" Index="0"/>
 			<BlockPairName>ST_T_Adapter</BlockPairName>
 			<MirroringY>Z</MirroringY>
+			<IsAirTight>false</IsAirTight>
 		</Definition>
 	</CubeBlocks>
 </Definitions>

@@ -27,6 +27,7 @@
 			<MirroringY>Z</MirroringY>
 			<MirroringZ>Y</MirroringZ>
 			<MirroringBlock>ST_T_InlineTurboRight</MirroringBlock>
+			<IsAirTight>false</IsAirTight>
 		</Definition>
 	</CubeBlocks>
 </Definitions>

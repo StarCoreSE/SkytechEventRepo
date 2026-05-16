@@ -452,6 +452,12 @@ namespace Skytech.Engines.Shared.Exhaust
                 LocalDirection = localDirection;
                 GridDirection = gridDirection;
 
+                if (MyAPIGateway.Utilities.IsDedicated)
+                {
+                    Particle = null;
+                    return;
+                }
+
                 Vector3D pos = (Vector3D)localDirection * block.CubeGrid.GridSize / 2;
                 MatrixD matrix = MatrixD.CreateWorld(pos, Vector3.CalculatePerpendicularVector(LocalDirection), LocalDirection);
                 // ExhaustSmokeSmall
@@ -474,6 +480,9 @@ namespace Skytech.Engines.Shared.Exhaust
 
                 //MyAPIGateway.Utilities.ShowNotification($"{exhaustAmount:N} {exhaustPressure:N} {(Particle.IsEmittingStopped || Particle.IsStopped)}", 10000);
 
+                if (MyAPIGateway.Utilities.IsDedicated)
+                    return;
+
                 if ((Assembly.TotalOutlets == 0 || exhaustAmount <= 0.01) && !Particle.IsEmittingStopped)
                 {
                     Particle.StopEmitting();
@@ -490,6 +499,8 @@ namespace Skytech.Engines.Shared.Exhaust
 
             public void Close()
             {
+                if (MyAPIGateway.Utilities.IsDedicated)
+                    return;
                 MyParticlesManager.RemoveParticleEffect(Particle);
             }
 

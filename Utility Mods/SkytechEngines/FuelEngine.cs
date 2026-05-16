@@ -126,10 +126,14 @@ namespace Skytech.Engines
             if (MyAPIGateway.Input.IsNewKeyPressed(MyKeys.PageUp))
             {
                 Rpm += 0.1f;
+                if (Rpm > 1) 
+                    Rpm = 1;
             }
             if (MyAPIGateway.Input.IsNewKeyPressed(MyKeys.PageDown))
             {
                 Rpm -= 0.1f;
+                if (Rpm < 0) 
+                    Rpm = 0;
             }
 
             if (MyAPIGateway.Input.IsNewKeyPressed(MyKeys.Add))

@@ -180,20 +180,32 @@
     <FoodConsumptionRate>0</FoodConsumptionRate>
     <EnableSurvivalBuffs>false</EnableSurvivalBuffs>
     <EnableReducedStatsOnRespawn>false</EnableReducedStatsOnRespawn>
+    <ReputationDecayRate>0.5</ReputationDecayRate>
     <RandomizeSeed>false</RandomizeSeed>
+    <GridStorageAllowsInventory>false</GridStorageAllowsInventory>
+    <GridStorageMaxPerPlayer>100</GridStorageMaxPerPlayer>
+    <GridStorageQueueLimit>1</GridStorageQueueLimit>
+    <GridStorageRetrievalTimeMaxMinutes>30</GridStorageRetrievalTimeMaxMinutes>
+    <GridStorageRetrievalTimeMinMinutes>2</GridStorageRetrievalTimeMinMinutes>
+    <GridStorageRetrievalTimeMultiplier>1</GridStorageRetrievalTimeMultiplier>
+    <GridStorageMinutesPerPCU>0.001</GridStorageMinutesPerPCU>
+    <GridStorageExpediteFactor>0.5</GridStorageExpediteFactor>
+    <GridStorageExpediteCostPerSecond>1000</GridStorageExpediteCostPerSecond>
   </Settings>
   <Mods>
-    <ModItem FriendlyName="SC_FactionIcons">
-      <Name>3703528738.sbm</Name>
-      <PublishedFileId>3703528738</PublishedFileId>
+    <ModItem FriendlyName="SkytechThrusters">
+      <Name>3727190331.sbm</Name>
+      <PublishedFileId>3727190331</PublishedFileId>
       <PublishedServiceName>Steam</PublishedServiceName>
     </ModItem>
     <ModItem FriendlyName="SkytechEngines">
-      <Name>SkytechEngines</Name>
+      <Name>3691729245.sbm</Name>
+      <PublishedFileId>3691729245</PublishedFileId>
       <PublishedServiceName>Steam</PublishedServiceName>
     </ModItem>
-    <ModItem FriendlyName="SkytechThrusters">
-      <Name>SkytechThrusters</Name>
+    <ModItem FriendlyName="SC_FactionIcons">
+      <Name>3703528738.sbm</Name>
+      <PublishedFileId>3703528738</PublishedFileId>
       <PublishedServiceName>Steam</PublishedServiceName>
     </ModItem>
     <ModItem FriendlyName="|_M  A  X  I  M_| Sensor Suite V1">
@@ -475,12 +487,6 @@
       <Name>3387631719.sbm</Name>
       <PublishedFileId>3387631719</PublishedFileId>
       <PublishedServiceName>Steam</PublishedServiceName>
-    </ModItem>
-    <ModItem FriendlyName="Leak Finder">
-      <Name>3170315974.sbm</Name>
-      <PublishedFileId>3170315974</PublishedFileId>
-      <PublishedServiceName>Steam</PublishedServiceName>
-      <IsDependency>true</IsDependency>
     </ModItem>
   </Mods>
   <SessionName>SkyTech Build World</SessionName>

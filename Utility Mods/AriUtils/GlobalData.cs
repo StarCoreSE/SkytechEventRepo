@@ -1,5 +1,4 @@
-﻿using Sandbox.Definitions;
-using Sandbox.Game.Entities;
+﻿using Sandbox.Game.Entities;
 using Sandbox.ModAPI;
 using System;
 using System.Collections.Generic;
@@ -19,18 +18,11 @@ namespace AriUtils
         /// Kill switch for the entire mod
         /// </summary>
         public static bool Killswitch = true;
-        public const ushort ServerNetworkId = 15289;
-        public const ushort DataNetworkId = 15288;
-        public const ushort ClientNetworkId = 15287;
         public static int MainThreadId = -1;
         public static double SyncRange => MyAPIGateway.Session.SessionSettings.SyncDistance;
         public static double SyncRangeSq => (double) MyAPIGateway.Session.SessionSettings.SyncDistance * MyAPIGateway.Session.SessionSettings.SyncDistance;
-        public static readonly Guid LogicSettingsGuid = new Guid("b4e33a2c-0406-4aea-bf0a-d1ad04266a14");
-        public static readonly Guid SensorSettingsGuid = new Guid("ed7fde7f-c8a4-4c1b-9c07-cfd31aa0226e");
-        public static readonly Guid PersistentBlockIdGuid = new Guid("385ace88-f770-4241-a02c-af63e0851c06");
         public static List<IMyPlayer> Players = new List<IMyPlayer>();
         public static IMyModContext ModContext;
-        public static int DebugLevel = 0;
         public static List<MyPlanet> Planets = new List<MyPlanet>();
         public static HashSet<IMyCubeGrid> Grids = new HashSet<IMyCubeGrid>();
         public static HudState HudVisible = (HudState) (MyAPIGateway.Session?.Config?.HudState ?? 1);

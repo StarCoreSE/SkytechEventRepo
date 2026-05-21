@@ -20,9 +20,9 @@ namespace Skytech.Thrusters.Shared
         /// Kill switch for the entire mod
         /// </summary>
         public static bool Killswitch = true;
-        public const ushort ServerNetworkId = 15289;
-        public const ushort DataNetworkId = 15288;
-        public const ushort ClientNetworkId = 15287;
+        public const ushort ServerNetworkId = 15299;
+        public const ushort DataNetworkId = 15298;
+        public const ushort ClientNetworkId = 15297;
         public static int MainThreadId = -1;
         public static double SyncRange => MyAPIGateway.Session.SessionSettings.SyncDistance;
         public static double SyncRangeSq => (double) MyAPIGateway.Session.SessionSettings.SyncDistance * MyAPIGateway.Session.SessionSettings.SyncDistance;

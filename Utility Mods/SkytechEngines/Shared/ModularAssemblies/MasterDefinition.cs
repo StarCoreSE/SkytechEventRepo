@@ -9,7 +9,7 @@
 
             LoadDefinitions
             (
-                FuelEngine, FuelEngineCylinder, FuelEngineCarburettor, FuelEngineExhaust
+                FuelEngine, FuelEngineCylinder, FuelEngineCarburettor, FuelEngineExhaust, Driveshaft
             );
         }
     }

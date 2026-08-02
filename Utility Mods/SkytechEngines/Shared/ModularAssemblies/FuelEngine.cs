@@ -21,7 +21,7 @@ namespace Skytech.Engines.Shared.ModularAssemblies
         internal ModularPhysicalDefinition FuelEngine => new ModularPhysicalDefinition
         {
             // Unique name of the definition.
-            Name = "FuelEngine",
+            Name = "ST_T_FuelEngine",
 
             OnInit = AssemblyManager<FuelEngine>.Load,
 
@@ -38,15 +38,13 @@ namespace Skytech.Engines.Shared.ModularAssemblies
 
             // Optional - if this is set, an assembly will not be created until a baseblock exists.
             // 
-            BaseBlockSubtype = "ST_T_FuelEngineGenerator",
+            BaseBlockSubtype = "",
 
             // All SubtypeIds that can be part of this assembly.
             AllowedBlockSubtypes = new[]
             {
-                "ST_T_Adapter",
                 "ST_T_CrankShaft",
                 "ST_T_Cylinder",
-                "ST_T_FuelEngineGenerator",
                 "ST_T_LargeRadiator",
                 "ST_T_Radiator",
             },
@@ -56,15 +54,6 @@ namespace Skytech.Engines.Shared.ModularAssemblies
             // If the connection type whitelist is empty, all allowed subtypes may connect on that side.
             AllowedConnections = new Dictionary<string, Dictionary<Vector3I, string[]>>
             {
-                ["ST_T_Adapter"] = new Dictionary<Vector3I, string[]>
-                {
-                    [Vector3I.Up] = FuelEngineCons.AdapterSideConnections,
-                    [Vector3I.Right] = FuelEngineCons.AdapterSideConnections,
-                    [Vector3I.Down] = FuelEngineCons.AdapterBottomConnections,
-                    [Vector3I.Left] = FuelEngineCons.AdapterSideConnections,
-                    [Vector3I.Forward] = FuelEngineCons.AdapterSideConnections,
-                    [Vector3I.Backward] = FuelEngineCons.AdapterSideConnections,
-                },
                 ["ST_T_CrankShaft"] = new Dictionary<Vector3I, string[]>
                 {
                     [Vector3I.Up] = FuelEngineCons.CrankshaftSideConnections,
@@ -77,10 +66,6 @@ namespace Skytech.Engines.Shared.ModularAssemblies
                 ["ST_T_Cylinder"] = new Dictionary<Vector3I, string[]>
                 {
                     [Vector3I.Down] = FuelEngineCons.CylinderBottomConnections,
-                },
-                ["ST_T_FuelEngineGenerator"] = new Dictionary<Vector3I, string[]>
-                {
-                    [Vector3I.Forward] = FuelEngineCons.CrankshaftConnections,
                 },
                 ["ST_T_LargeRadiator"] = new Dictionary<Vector3I, string[]>
                 {
@@ -103,13 +88,10 @@ namespace Skytech.Engines.Shared.ModularAssemblies
 
         private static class FuelEngineCons
         {
-            public static readonly string[] CrankshaftConnections = { "ST_T_CrankShaft", "ST_T_FuelEngineGenerator", "ST_T_Radiator", "ST_T_LargeRadiator", "ST_T_Cylinder", };
-            public static readonly string[] CrankshaftSideConnections = { "ST_T_Adapter", "ST_T_Cylinder", "ST_T_Radiator", "ST_T_LargeRadiator", };
+            public static readonly string[] CrankshaftConnections = { "ST_T_CrankShaft", "ST_T_Radiator", "ST_T_LargeRadiator", "ST_T_Cylinder", };
+            public static readonly string[] CrankshaftSideConnections = { "ST_T_Cylinder", "ST_T_Radiator", "ST_T_LargeRadiator", };
 
-            public static readonly string[] AdapterSideConnections = { "ST_T_Cylinder", "ST_T_Radiator", "ST_T_LargeRadiator", };
-            public static readonly string[] AdapterBottomConnections = { "ST_T_CrankShaft", };
-
-            public static readonly string[] CylinderBottomConnections = { "ST_T_CrankShaft", "ST_T_Adapter", "ST_T_FuelEngineGenerator" };
+            public static readonly string[] CylinderBottomConnections = { "ST_T_CrankShaft" };
 
             public static readonly string[] RadiatorSideConnections = { "ST_T_Radiator", "ST_T_LargeRadiator", };
         }

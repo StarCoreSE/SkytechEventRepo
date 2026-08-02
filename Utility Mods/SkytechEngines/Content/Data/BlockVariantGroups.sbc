@@ -38,9 +38,7 @@
 			<DisplayName>Crankshaft Components</DisplayName>
 			<Description>SkyTech Engine Crankshaft Components</Description>
 			<Blocks>
-				<Block Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_FuelEngineGenerator" />
 				<Block Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_CrankShaft" />
-				<Block Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_Adapter" />
 				<Block Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_LargeRadiator" />
 				<Block Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_Radiator" />
 			</Blocks>
@@ -69,6 +67,18 @@
 				<Block Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_InlineTurboRight" />
 				<Block Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_TurbochargerLeft" />
 				<Block Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_TurbochargerRight" />
+			</Blocks>
+		</BlockVariantGroup>
+		
+		<BlockVariantGroup>
+			<Id Type="MyObjectBuilder_BlockVariantGroup" Subtype="ST_T_DriveshaftGroup" />
+			<Icon>Textures\GUI\ST_T_Driveshaft.dds</Icon>
+			<DisplayName>Driveshafts</DisplayName>
+			<Description>SkyTech Engine Driveshafts</Description>
+			<Blocks>
+				<Block Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_Driveshaft" />
+				<Block Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_DriveshaftCorner" />
+				<Block Type="MyObjectBuilder_CubeBlock" Subtype="ST_T_Driveshaft6" />
 			</Blocks>
 		</BlockVariantGroup>
 		

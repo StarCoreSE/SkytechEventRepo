@@ -21,7 +21,7 @@ namespace Skytech.Engines.Shared.ModularAssemblies
         internal ModularPhysicalDefinition FuelEngineCarburettor => new ModularPhysicalDefinition
         {
             // Unique name of the definition.
-            Name = "FuelEngineCarburettor",
+            Name = "ST_T_FuelEngineCarburettor",
 
             OnInit = AssemblyManager<FuelEngineCarburettor>.Load,
 

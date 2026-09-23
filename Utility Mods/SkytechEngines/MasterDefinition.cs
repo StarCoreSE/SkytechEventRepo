@@ -13,7 +13,7 @@ namespace ModularAssemblies
                 // SkyTech Engines
                 FuelEngine, FuelEngineCylinder, FuelEngineCarburettor, FuelEngineExhaust, Driveshaft,
                 // SkyTech Thrusters
-                Gimbal3x3
+                Gimbal3x3, ShaftedThruster
             );
         }
     }

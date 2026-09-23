@@ -2,6 +2,7 @@
 using Sandbox.ModAPI;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Text;
 using VRage.Game;
 using VRage.Game.ModAPI;
@@ -100,6 +101,80 @@ namespace AriUtils
                 return;
             }
             MyAPIGateway.Utilities.ShowNotification($"{subtypeName} added at {position}", 1000);
+        }
+
+        /// <summary>
+        /// Combines two arrays into one
+        /// </summary>
+        /// <typeparam name="TValue"></typeparam>
+        /// <param name="arrays"></param>
+        /// <returns></returns>
+        public static TValue[] ArrayJoin<TValue>(params TValue[][] arrays)
+        {
+            int size = 0;
+            foreach (var array in arrays)
+            {
+                size += array.Length;
+            }
+            TValue[] outArray = new TValue[size];
+            int i = 0;
+            foreach (var array in arrays)
+            {
+                foreach (var item in array)
+                {
+                    outArray[i++] = item;
+                }
+            }
+
+            return outArray;
+        }
+
+        /// <summary>
+        /// Combines two dictionaries into one
+        /// </summary>
+        /// <typeparam name="TKey"></typeparam>
+        /// <typeparam name="TValue"></typeparam>
+        /// <param name="dicts"></param>
+        /// <returns></returns>
+        public static Dictionary<TKey, TValue> DictJoin<TKey, TValue>(params Dictionary<TKey, TValue>[] dicts)
+        {
+            int size = 0;
+            foreach (var dict in dicts)
+            {
+                size += dict.Count;
+            }
+            Dictionary<TKey, TValue> outDict = new Dictionary<TKey, TValue>(size);
+            foreach (var dict in dicts)
+            {
+                foreach (var item in dict)
+                {
+                    outDict.Add(item.Key, item.Value);
+                }
+            }
+
+            return outDict;
+        }
+
+        /// <summary>
+        /// Creates a copy of a ModularApi connections dictionary with all side subtype whitelists replaced by <paramref name="newValues"/>.
+        /// </summary>
+        /// <param name="connections"></param>
+        /// <param name="newValues"></param>
+        /// <returns></returns>
+        public static Dictionary<string, Dictionary<Vector3I, string[]>> EditPartDict(Dictionary<string, Dictionary<Vector3I, string[]>> connections, params string[] newValues)
+        {
+            Dictionary<string, Dictionary<Vector3I, string[]>> outDict = new Dictionary<string, Dictionary<Vector3I, string[]>>(connections.Count);
+            foreach (var partKvp in connections)
+            {
+                Dictionary<Vector3I, string[]> newConDict = new Dictionary<Vector3I, string[]>(partKvp.Value.Count);
+                foreach (var dir in partKvp.Value.Keys)
+                {
+                    newConDict.Add(dir, newValues);
+                }
+                outDict.Add(partKvp.Key, newConDict);
+            }
+
+            return outDict;
         }
     }
 }

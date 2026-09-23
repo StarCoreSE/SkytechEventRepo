@@ -63,7 +63,7 @@ namespace Skytech.Thrusters.Shared
             }
             else
             {
-                Unload();
+                Unload(); // removing any non-thruster part destroys the entire assembly
             }
         }
 

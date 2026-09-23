@@ -7,7 +7,7 @@ using VRage.Game.ModAPI;
 using VRage.Input;
 using Skytech.Engines.Shared.Fuel;
 
-namespace Skytech.Engines
+namespace Skytech.Engines.Shared
 {
     internal class FuelEngine : AssemblyBase
     {

@@ -7,7 +7,7 @@ using VRage.Game.ModAPI;
 using VRageMath;
 using Skytech.Engines.Shared.Exhaust;
 
-namespace Skytech.Engines
+namespace Skytech.Engines.Shared
 {
     internal class FuelEngineCarburettor : AssemblyBase
     {

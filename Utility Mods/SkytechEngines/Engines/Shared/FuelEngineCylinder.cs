@@ -7,7 +7,7 @@ using System.Text;
 using ModularAssemblies.Utils;
 using VRage.Game.ModAPI;
 
-namespace Skytech.Engines
+namespace Skytech.Engines.Shared
 {
     internal class FuelEngineCylinder : AssemblyBase, IExhaustProducer
     {

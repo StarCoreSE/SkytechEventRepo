@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ModularAssemblies.Utils;
 
-namespace Skytech.Engines
+namespace Skytech.Engines.Shared
 {
     internal class Driveshaft : AssemblyBase
     {

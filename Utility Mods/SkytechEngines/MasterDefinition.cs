@@ -10,7 +10,10 @@ namespace ModularAssemblies
 
             LoadDefinitions
             (
-                FuelEngine, FuelEngineCylinder, FuelEngineCarburettor, FuelEngineExhaust, Driveshaft
+                // SkyTech Engines
+                FuelEngine, FuelEngineCylinder, FuelEngineCarburettor, FuelEngineExhaust, Driveshaft,
+                // SkyTech Thrusters
+                Gimbal3x3
             );
         }
     }

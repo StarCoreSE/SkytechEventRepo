@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using ModularAssemblies.Utils;
-using Skytech.Engines.Shared;
+using Skytech.Thrusters.Shared;
 using VRageMath;
 using static ModularAssemblies.DefinitionDefs;
 
-// ReSharper disable once CheckNamespace
 namespace ModularAssemblies
 {
     /* Hey there modders!
@@ -22,35 +20,34 @@ namespace ModularAssemblies
         // However, for all but the simplest of assemblies it would be wise to have a separate utilities class.
 
         // This is the important bit.
-        internal ModularPhysicalDefinition Driveshaft => new ModularPhysicalDefinition
+        internal ModularPhysicalDefinition Gimbal3x3 => new ModularPhysicalDefinition
         {
             // Unique name of the definition.
-            Name = "ST_T_Driveshaft",
+            Name = "Gimbal3x3",
 
-            OnInit = AssemblyManager<Driveshaft>.Load,
+            OnInit = AssemblyManager<Gimbal3x3>.Load,
 
             // Triggers whenever a new part is added to an assembly.
-            OnPartAdd = AssemblyManager<Driveshaft>.OnPartAdd,
+            OnPartAdd = AssemblyManager<Gimbal3x3>.OnPartAdd,
 
             // Triggers whenever a part is removed from an assembly.
-            OnPartRemove = AssemblyManager<Driveshaft>.OnPartRemove,
+            OnPartRemove = AssemblyManager<Gimbal3x3>.OnPartRemove,
 
             // Triggers whenever a part is destroyed, just after OnPartRemove.
-            OnPartDestroy = AssemblyManager<Driveshaft>.OnPartDestroy,
+            OnPartDestroy = AssemblyManager<Gimbal3x3>.OnPartDestroy,
 
-            OnAssemblyClose = AssemblyManager<Driveshaft>.OnAssemblyClose,
+            OnAssemblyClose = AssemblyManager<Gimbal3x3>.OnAssemblyClose,
 
             // Optional - if this is set, an assembly will not be created until a baseblock exists.
             // 
-            BaseBlockSubtype = "",
+            BaseBlockSubtype = "Gimbal3x3Center",
 
             // All SubtypeIds that can be part of this assembly.
             AllowedBlockSubtypes = new[]
             {
-                "ST_T_Driveshaft",
-                "ST_T_DriveshaftCorner",
-                "ST_T_Driveshaft6",
-                "ST_T_CrankShaft",
+                "Gimbal3x3Center",
+                "GimbalThrustPart",
+                "LargeBlockSmallAtmosphericThrust",
             },
 
             // Allowed connection directions & whitelists, measured in blocks.
@@ -58,23 +55,22 @@ namespace ModularAssemblies
             // If the connection type whitelist is empty, all allowed subtypes may connect on that side.
             AllowedConnections = new Dictionary<string, Dictionary<Vector3I, string[]>>
             {
-                ["ST_T_Driveshaft"] = new Dictionary<Vector3I, string[]>
+                ["Gimbal3x3Center"] = new Dictionary<Vector3I, string[]>
                 {
-                    [Vector3I.Forward] = Array.Empty<string>(),
-                    [Vector3I.Backward] = Array.Empty<string>(),
+                    [Vector3I.Up] = CenterConnections,
+                    [Vector3I.Right] = CenterConnections,
+                    [Vector3I.Down] = CenterConnections,
+                    [Vector3I.Left] = CenterConnections,
+                    [Vector3I.Forward] = new [] { "LargeBlockSmallAtmosphericThrust" },
                 },
-                ["ST_T_DriveshaftCorner"] = new Dictionary<Vector3I, string[]>
+                ["GimbalThrustPart"] = new Dictionary<Vector3I, string[]>
                 {
-                    [Vector3I.Forward] = Array.Empty<string>(),
-                    [Vector3I.Right] = Array.Empty<string>(),
+                    [Vector3I.Backward] = new[] { "Gimbal3x3Center" },
                 },
-                // Driveshaft6 allows all connections on all sides
-                ["ST_T_CrankShaft"] = new Dictionary<Vector3I, string[]>
-                {
-                    [Vector3I.Forward] = Array.Empty<string>(),
-                    [Vector3I.Backward] = Array.Empty<string>(),
-                },
+                // TODO connections on thrusters
             },
         };
+
+        private static readonly string[] CenterConnections = { "GimbalThrustPart" };
     }
 }

@@ -6,8 +6,8 @@
 				<TypeId>CubeBlock</TypeId>
 				<SubtypeId>ST_T_Supercharger</SubtypeId>
 			</Id>
-			<DisplayName>{LOC:DisplayName_ST_T_Supercharger}</DisplayName>
-			<Description>{LOC:Description_ST_T_Supercharger}</Description>
+			<DisplayName>Engine Supercharger</DisplayName>
+			<Description>[DESCRIPTION TODO]</Description>
 			<Icon>Textures\GUI\Engine\ST_T_Supercharger.dds</Icon>
 			<CubeSize>Large</CubeSize>
 			<BlockTopology>TriangleMesh</BlockTopology>

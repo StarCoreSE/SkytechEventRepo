@@ -6,8 +6,8 @@
 				<TypeId>CubeBlock</TypeId>
 				<SubtypeId>ST_T_Adapter</SubtypeId>
 			</Id>
-			<DisplayName>{LOC:DisplayName_ST_T_Adapter}</DisplayName>
-			<Description>{LOC:Description_ST_T_Adapter}</Description>
+			<DisplayName>Engine Shaft Adapter</DisplayName>
+			<Description>[DESCRIPTION TODO]</Description>
 			<Icon>Textures\GUI\Shaft\ST_T_Adapter.dds</Icon>
 			<CubeSize>Large</CubeSize>
 			<BlockTopology>TriangleMesh</BlockTopology>

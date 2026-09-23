@@ -6,8 +6,8 @@
 				<TypeId>CubeBlock</TypeId>
 				<SubtypeId>ST_T_CrankShaft</SubtypeId>
 			</Id>
-			<DisplayName>{LOC:DisplayName_ST_T_CrankShaft}</DisplayName>
-			<Description>{LOC:Description_ST_T_CrankShaft}</Description>
+			<DisplayName>Engine Crankshaft</DisplayName>
+			<Description>[DESCRIPTION TODO]</Description>
 			<Icon>Textures\GUI\Shaft\ST_T_CrankShaft.dds</Icon>
 			<CubeSize>Large</CubeSize>
 			<BlockTopology>TriangleMesh</BlockTopology>

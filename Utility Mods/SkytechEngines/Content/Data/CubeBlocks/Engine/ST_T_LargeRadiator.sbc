@@ -6,8 +6,8 @@
 				<TypeId>CubeBlock</TypeId>
 				<SubtypeId>ST_T_LargeRadiator</SubtypeId>
 			</Id>
-			<DisplayName>{LOC:DisplayName_ST_T_LargeRadiator}</DisplayName>
-			<Description>{LOC:Description_ST_T_LargeRadiator}</Description>
+			<DisplayName>Engine Large Radiator</DisplayName>
+			<Description>[DESCRIPTION TODO]</Description>
 			<Icon>Textures\GUI\Engine\ST_T_LargeRadiator.dds</Icon>
 			<CubeSize>Large</CubeSize>
 			<BlockTopology>TriangleMesh</BlockTopology>

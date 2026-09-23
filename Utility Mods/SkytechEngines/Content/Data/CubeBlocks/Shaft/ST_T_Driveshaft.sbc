@@ -6,8 +6,8 @@
 				<TypeId>CubeBlock</TypeId>
 				<SubtypeId>ST_T_Driveshaft</SubtypeId>
 			</Id>
-			<DisplayName>{LOC:DisplayName_ST_T_Driveshaft}</DisplayName>
-			<Description>{LOC:Description_ST_T_Driveshaft}</Description>
+			<DisplayName>Driveshaft</DisplayName>
+			<Description>[DESCRIPTION TODO]</Description>
 			<Icon>Textures\GUI\Shaft\ST_T_Driveshaft.dds</Icon>
 			<CubeSize>Large</CubeSize>
 			<BlockTopology>TriangleMesh</BlockTopology>

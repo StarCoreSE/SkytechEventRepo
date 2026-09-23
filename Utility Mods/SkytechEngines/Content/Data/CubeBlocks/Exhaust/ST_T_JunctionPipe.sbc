@@ -6,8 +6,8 @@
 				<TypeId>CubeBlock</TypeId>
 				<SubtypeId>ST_T_JunctionPipe</SubtypeId>
 			</Id>
-			<DisplayName>{LOC:DisplayName_ST_T_JunctionPipe}</DisplayName>
-			<Description>{LOC:Description_ST_T_JunctionPipe}</Description>
+			<DisplayName>T Junction Exhaust Pipe</DisplayName>
+			<Description>[DESCRIPTION TODO]</Description>
 			<Icon>Textures\GUI\Exhaust\ST_T_JunctionPipe.dds</Icon>
 			<CubeSize>Large</CubeSize>
 			<BlockTopology>TriangleMesh</BlockTopology>

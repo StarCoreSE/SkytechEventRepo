@@ -6,8 +6,8 @@
 				<TypeId>CubeBlock</TypeId>
 				<SubtypeId>ST_T_CornerPipe</SubtypeId>
 			</Id>
-			<DisplayName>{LOC:DisplayName_ST_T_CornerPipe}</DisplayName>
-			<Description>{LOC:Description_ST_T_CornerPipe}</Description>
+			<DisplayName>Corner Exhaust Pipe</DisplayName>
+			<Description>[DESCRIPTION TODO]</Description>
 			<Icon>Textures\GUI\Exhaust\ST_T_CornerPipe.dds</Icon>
 			<CubeSize>Large</CubeSize>
 			<BlockTopology>TriangleMesh</BlockTopology>

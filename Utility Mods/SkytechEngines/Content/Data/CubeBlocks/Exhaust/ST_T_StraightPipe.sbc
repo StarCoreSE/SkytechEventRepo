@@ -6,8 +6,8 @@
 				<TypeId>CubeBlock</TypeId>
 				<SubtypeId>ST_T_StraightPipe</SubtypeId>
 			</Id>
-			<DisplayName>{LOC:DisplayName_ST_T_StraightPipe}</DisplayName>
-			<Description>{LOC:Description_ST_T_StraightPipe}</Description>
+			<DisplayName>Exhaust Pipe</DisplayName>
+			<Description>[DESCRIPTION TODO]</Description>
 			<Icon>Textures\GUI\Exhaust\ST_T_StraightPipe.dds</Icon>
 			<CubeSize>Large</CubeSize>
 			<BlockTopology>TriangleMesh</BlockTopology>

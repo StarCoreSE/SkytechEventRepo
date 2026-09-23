@@ -15,7 +15,7 @@
 			<BlockTopology>TriangleMesh</BlockTopology>
 			<Size x="1" y="1" z="1"/>
 			<ModelOffset x="0" y="0" z="0"/>
-			<Model>Models\Cubes\large\Engine\Engine\ST_T_Carburettor.mwm</Model>
+			<Model>Models\Cubes\large\Engine\ST_T_Carburettor.mwm</Model>
 			<Components>
 				<Component Subtype="SteelPlate" Count="10"/>
 			</Components>

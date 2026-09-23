@@ -6,8 +6,8 @@
 				<TypeId>CubeBlock</TypeId>
 				<SubtypeId>ST_T_TurbochargerLeft</SubtypeId>
 			</Id>
-			<DisplayName>{LOC:DisplayName_ST_T_TurbochargerLeft}</DisplayName>
-			<Description>{LOC:Description_ST_T_TurbochargerLeft}</Description>
+			<DisplayName>Engine Turbocharger Left</DisplayName>
+			<Description>[DESCRIPTION TODO]</Description>
 			<Icon>Textures\GUI\Engine\ST_T_TurbochargerLeft.dds</Icon>
 			<CubeSize>Large</CubeSize>
 			<BlockTopology>TriangleMesh</BlockTopology>

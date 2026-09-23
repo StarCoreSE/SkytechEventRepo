@@ -4,8 +4,7 @@ using VRageMath;
 namespace RichHudFramework.UI
 {
 	using Client;
-	using Server;
-	using static NodeConfigIndices;
+    using static NodeConfigIndices;
 
 	/// <summary>
 	/// Core mouse interaction component for clickable UI elements.

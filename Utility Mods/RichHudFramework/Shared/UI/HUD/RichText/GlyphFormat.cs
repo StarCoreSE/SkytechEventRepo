@@ -7,7 +7,6 @@ namespace RichHudFramework
     namespace UI
     {
         using Rendering.Client;
-        using Rendering.Server;
         using Rendering;
 
         /// <summary>

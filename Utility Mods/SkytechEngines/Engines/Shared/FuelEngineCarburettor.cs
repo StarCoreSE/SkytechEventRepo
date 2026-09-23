@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Sandbox.ModAPI;
 using System.Text;
 using ModularAssemblies.Utils;

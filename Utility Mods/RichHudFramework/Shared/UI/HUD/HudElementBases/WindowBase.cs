@@ -5,9 +5,8 @@ using RichHudFramework.UI.Rendering;
 namespace RichHudFramework.UI
 {
 	using Client;
-	using Server;
 
-	/// <summary>
+    /// <summary>
 	/// Base class for a standard window element featuring a header, body, and border. 
 	/// Includes built-in support for mouse dragging, edge resizing, and focus management.
 	/// </summary>

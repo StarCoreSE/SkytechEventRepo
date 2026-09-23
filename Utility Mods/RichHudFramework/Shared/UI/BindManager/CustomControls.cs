@@ -1,5 +1,4 @@
 ﻿using VRage.Input;
-using RichHudFramework.UI.Server;
 
 namespace RichHudFramework
 {

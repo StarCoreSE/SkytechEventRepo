@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using VRage;
-using VRage.Input;
 
 namespace RichHudFramework
 {
@@ -9,8 +8,7 @@ namespace RichHudFramework
 
 	namespace UI
 	{
-		using Server;
-		using Client;
+        using Client;
 		using System.Collections;
 		using BindInitData = MyTuple<string, KeyComboInitData, IReadOnlyList<KeyComboInitData>>;
 

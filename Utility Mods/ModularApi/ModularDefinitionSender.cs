@@ -1,5 +1,4 @@
-﻿using ModularAssemblies;
-using VRage.Game.Components;
+﻿using VRage.Game.Components;
 using VRage.Utils;
 using static ModularAssemblies.DefinitionDefs;
 

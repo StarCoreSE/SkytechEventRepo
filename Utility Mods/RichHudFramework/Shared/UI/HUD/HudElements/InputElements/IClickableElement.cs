@@ -3,7 +3,6 @@
     namespace UI
     {
         using Client;
-        using Server;
 
         /// <summary>
         /// Low-level mouse input handler providing cursor enter/exit detection and click events.

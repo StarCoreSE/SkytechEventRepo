@@ -6,9 +6,8 @@ namespace RichHudFramework
 	namespace UI
 	{
 		using Client;
-		using Server;
 
-		/// <summary>
+        /// <summary>
 		/// HudSpace node that builds its Plane-to-World matrix directly from the player camera.
 		/// <para>In its default state this exactly replicates the vanilla <see cref="HudMain.HighDpiRoot"/> 
 		/// transform (screen-space UI). By modifying its properties you can create rotated, offset,

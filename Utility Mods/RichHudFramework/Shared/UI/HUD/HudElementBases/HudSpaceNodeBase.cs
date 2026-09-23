@@ -9,8 +9,7 @@ namespace RichHudFramework
 	namespace UI
 	{
 		using Client;
-		using Server;
-		using static NodeConfigIndices;
+        using static NodeConfigIndices;
 
 		/// <summary>
 		/// Abstract base for all HUD nodes that define their own custom coordinate space

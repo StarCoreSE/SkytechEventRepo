@@ -1,5 +1,4 @@
-﻿using System;
-using Skytech.Engines.Shared.Exhaust;
+﻿using Skytech.Engines.Shared.Exhaust;
 using Skytech.Engines.Shared.Fuel;
 
 // ReSharper disable once CheckNamespace

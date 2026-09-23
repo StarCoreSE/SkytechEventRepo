@@ -3,7 +3,6 @@ using AriUtils;
 using AriUtils.Components;
 using VRage.Game.ModAPI;
 using VRageMath;
-using ModularAssemblies;
 
 namespace ModularAssemblies.Utils
 {

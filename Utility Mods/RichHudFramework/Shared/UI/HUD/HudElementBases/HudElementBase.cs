@@ -5,8 +5,7 @@ namespace RichHudFramework
 	namespace UI
 	{
 		using static RichHudFramework.UI.NodeConfigIndices;
-		using Server;
-		using Client;
+        using Client;
 
 		/// <summary>
 		/// Abstract base for all UI elements with definite size and position. Extends HudParentBase and HudNodeBase.

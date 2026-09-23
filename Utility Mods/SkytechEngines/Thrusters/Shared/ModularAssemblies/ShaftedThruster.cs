@@ -1,7 +1,5 @@
-﻿using System;
-using ModularAssemblies.Utils;
+﻿using ModularAssemblies.Utils;
 using System.Collections.Generic;
-using System.Linq;
 using AriUtils;
 using VRageMath;
 using static ModularAssemblies.DefinitionDefs;

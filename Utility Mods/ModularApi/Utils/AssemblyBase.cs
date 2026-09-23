@@ -1,6 +1,5 @@
 ﻿using AriUtils.HUD;
 using Sandbox.Game.Entities;
-using ModularAssemblies;
 using System;
 using System.Collections.Generic;
 using System.Text;

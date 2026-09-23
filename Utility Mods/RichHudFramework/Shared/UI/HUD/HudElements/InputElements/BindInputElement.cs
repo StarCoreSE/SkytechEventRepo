@@ -6,9 +6,8 @@ using VRageMath;
 namespace RichHudFramework.UI
 {
 	using Client;
-	using Server;
 
-	/// <summary>
+    /// <summary>
 	/// Attaches custom control-bind (key/combo) event handling to a UI element.
 	/// Allows arbitrary <see cref="IBind"/> definitions to trigger NewPressed/PressedAndHeld/Released events
 	/// on a specific UI node, optionally requiring input focus.

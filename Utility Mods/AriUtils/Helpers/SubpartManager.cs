@@ -4,7 +4,6 @@ using VRage.Game.Entity;
 using VRage.Game.ModAPI;
 using VRage.ModAPI;
 using VRageMath;
-using VRageRender.Import;
 
 namespace AriUtils
 {

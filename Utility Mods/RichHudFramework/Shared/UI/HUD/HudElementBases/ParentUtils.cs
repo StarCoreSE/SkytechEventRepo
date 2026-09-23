@@ -5,8 +5,7 @@ namespace RichHudFramework
 	namespace UI
 	{
 		using static NodeConfigIndices;
-		using RichHudFramework.UI.Server;
-		using System.Collections.Generic;
+        using System.Collections.Generic;
 		using Client;
 
 		public abstract partial class HudParentBase

@@ -3,9 +3,8 @@
     namespace UI
     {
         using Client;
-        using Server;
 
-		/// <summary>
+        /// <summary>
 		/// Interface for controls used by the <see cref="BindManager"/>
 		/// </summary> 
 		public interface IControl

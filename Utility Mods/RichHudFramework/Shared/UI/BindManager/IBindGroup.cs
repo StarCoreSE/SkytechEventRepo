@@ -8,9 +8,8 @@ namespace RichHudFramework
     namespace UI
     {
         using Client;
-        using Server;
 
-		/// <summary>
+        /// <summary>
 		/// A collection of unique keybinds in the <see cref="BindManager"/>
 		/// </summary>
 		public interface IBindGroup : IReadOnlyList<IBind>

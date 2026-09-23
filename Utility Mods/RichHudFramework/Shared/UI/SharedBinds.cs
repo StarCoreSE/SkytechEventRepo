@@ -3,7 +3,6 @@
 namespace RichHudFramework.UI
 {
     using Client;
-    using Server;
 
     /// <summary>
     /// A collection of immutable, commonly used key binds used by the framework library.

@@ -4,9 +4,8 @@ namespace RichHudFramework.UI
 {
 	using Rendering;
 	using Rendering.Client;
-	using Rendering.Server;
 
-	/// <summary>
+    /// <summary>
 	/// A HUD element dedicated to rendering formatted <see cref="RichText"/>. 
 	/// This element acts as a wrapper for the underlying <see cref="TextBoard"/>.
 	/// </summary>

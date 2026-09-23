@@ -7,7 +7,6 @@ namespace RichHudFramework
 {
     namespace UI
     {
-        using Server;
         using Client;
 
         using ControlContainerMembers = MyTuple<

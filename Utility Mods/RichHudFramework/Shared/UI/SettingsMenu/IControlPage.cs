@@ -4,7 +4,6 @@ namespace RichHudFramework
 {
     namespace UI
     {
-        using Server;
         using Client;
 
 		/// <summary>

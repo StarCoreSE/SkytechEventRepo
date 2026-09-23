@@ -1,13 +1,5 @@
-﻿using Sandbox.Game.Entities;
-using Sandbox.ModAPI;
-using System;
-using System.Linq;
-using AriUtils;
-using ModularAssemblies.Utils;
-using VRage.Game;
-using VRage.Game.Entity;
+﻿using ModularAssemblies.Utils;
 using VRage.Game.ModAPI;
-using VRageMath;
 
 namespace Skytech.Thrusters.Shared
 {

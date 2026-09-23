@@ -5,9 +5,8 @@ namespace RichHudFramework
 	namespace UI
 	{
 		using Client;
-		using Server;
 
-		/// <summary>
+        /// <summary>
 		/// Default implementation of <see cref="IFocusHandler"/>. Handles acquiring and releasing global input focus
 		/// through <see cref="HudMain"/> and raises the appropriate events.
 		/// </summary>

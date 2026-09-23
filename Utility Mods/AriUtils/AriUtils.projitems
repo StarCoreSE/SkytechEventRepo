@@ -37,4 +37,7 @@
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Helpers\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)README.md" />
+  </ItemGroup>
 </Project>

@@ -12,7 +12,7 @@ using VRage.Utils;
 
 namespace AriUtils
 {
-    public static partial class GlobalData
+    public partial class GlobalData : SingletonBase<GlobalData>
     {
         /// <summary>
         /// Kill switch for the entire mod
@@ -66,9 +66,13 @@ namespace AriUtils
             return true;
         }
 
+        public override void Init()
+        {
+        }
+
         public static bool IsReady = false;
         private static int _initCounter = 0;
-        internal static void Init(IMyModContext myModContext)
+        public static void StaticInit(IMyModContext myModContext)
         {
             if (_initCounter++ > 0)
                 return;
@@ -178,7 +182,7 @@ namespace AriUtils
             }
         }
 
-        internal static void Update()
+        public override void Update()
         {
             Log.Update();
 
@@ -197,7 +201,7 @@ namespace AriUtils
             }
         }
 
-        internal static void Unload()
+        public static void StaticUnload()
         {
             if (--_initCounter > 0) // hacky and relies on equal counts of init and unload calls
                 return;

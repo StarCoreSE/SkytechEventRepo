@@ -128,7 +128,7 @@ namespace AriUtils
             // always check first
             if (!GlobalData.CheckShouldLoad(ModContext))
                 return;
-            GlobalData.Init(ModContext);
+            GlobalData.StaticInit(ModContext);
 
             if (_skipRun)
                 return;
@@ -210,7 +210,7 @@ namespace AriUtils
             // always unload
             _instances.Remove(GetType());
             _thisSessionLoaded = false;
-            GlobalData.Unload();
+            GlobalData.StaticUnload();
         }
 
         private void _RegisterSingleton(ISingleton singleton)

@@ -6,7 +6,7 @@ namespace AriUtils.Components.Networking.SimpleSync
 {
     internal class SimpleSyncManager : SingletonBase<SimpleSyncManager>
     {
-        private readonly Dictionary<long, ISimpleSync> _syncIdMap = new Dictionary<long, ISimpleSync>();
+        private readonly Dictionary<long, ISimpleSync> _syncIdMap = new Dictionary<long, ISimpleSync>(); // TODO prevent id collisions
 
         public override void Init()
         {

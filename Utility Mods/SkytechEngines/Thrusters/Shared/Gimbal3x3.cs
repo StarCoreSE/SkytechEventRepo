@@ -14,6 +14,7 @@ namespace Skytech.Thrusters.Shared
     internal class Gimbal3x3 : AssemblyBase
     {
         public MyThrust Thruster = null;
+        public float ThrustMultiplier { get; set; }
         private AnimationPanel DrawDummy = null;
         private bool GridDamping = true;
         private Vector3 LastTargetRotation = Vector3.Zero;
@@ -159,14 +160,15 @@ namespace Skytech.Thrusters.Shared
 
                 if (Thruster.IsWorking)
                 {
-                    float thrustForceMult = Vector3.Dot(ctrlInput, DrawDummy.PositionComp.LocalMatrixRef.Backward);
+                    float thrustForceMult = Vector3.Dot(ctrlInput, DrawDummy.PositionComp.LocalMatrixRef.Backward) * ThrustMultiplier;
+                    float thrust = Thruster.ThrustForceLength * thrustForceMult;
 
-                    MyAPIGateway.Utilities.ShowNotification($"Thrust: {thrustForceMult * Thruster.ThrustForceLength:F}", 1000/60);
+                    MyAPIGateway.Utilities.ShowNotification($"Thrust: {thrust:F}", 1000/60);
 
-                    if (thrustForceMult > 0.5)
+                    if (thrustForceMult > 0)
                     {
                         // TODO apply to thrusters instead of direct impulse
-                        Grid.Physics.ApplyImpulse(DrawDummy.WorldMatrix.Backward * Thruster.ThrustForceLength, Grid.Physics.CenterOfMassWorld);
+                        Grid.Physics.ApplyImpulse(DrawDummy.WorldMatrix.Backward * thrust, Grid.Physics.CenterOfMassWorld);
                         DebugDraw.AddLine(DrawDummy.WorldMatrix.Translation, DrawDummy.WorldMatrix.Translation + DrawDummy.WorldMatrix.Forward * thrustForceMult * 5, Color.Red, 0);
                     }
                 }

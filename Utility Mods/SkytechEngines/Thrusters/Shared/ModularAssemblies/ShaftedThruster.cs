@@ -41,7 +41,7 @@ namespace ModularAssemblies
 
             // Optional - if this is set, an assembly will not be created until a baseblock exists.
             // 
-            //BaseBlockSubtype = "",
+            BaseBlockSubtype = "Gimbal3x3Center",
 
             // All SubtypeIds that can be part of this assembly.
             AllowedBlockSubtypes = MiscUtils.ArrayJoin(new[]

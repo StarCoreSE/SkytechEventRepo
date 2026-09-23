@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>b427f94a-fdda-4237-bffe-b60fa918a897</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>ModularAssemblies</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)DefinitionCollector.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ModularDefinitionApi.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ModularDefinitionSender.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MasterDefinition.cs" />
+  </ItemGroup>
+</Project>

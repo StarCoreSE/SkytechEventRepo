@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netframework48</TargetFramework>
-    <RootNamespace>Skytech.Engines</RootNamespace>
+    <RootNamespace>Skytech</RootNamespace>
     <LangVersion>6</LangVersion>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <Configurations>Release;Debug</Configurations>
@@ -33,6 +33,13 @@
     <AdditionalFiles Remove="Content\Data\SBC files can go here" />
     <None Remove="thumb.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\Data\CubeBlocks\Thruster\" />
+    <Folder Include="Content\Models\Cubes\large\Thruster\" />
+    <Folder Include="Content\Textures\GUI\Thruster\" />
+    <Folder Include="Thrusters\" />
+  </ItemGroup>
   <Import Project="..\RichHudFramework\RichHudFramework.projitems" Label="Shared" />
   <Import Project="..\AriUtils\AriUtils.projitems" Label="Shared" />
+  <Import Project="..\ModularApi\ModularAssembliesApi.projitems" Label="Shared" />
 </Project>

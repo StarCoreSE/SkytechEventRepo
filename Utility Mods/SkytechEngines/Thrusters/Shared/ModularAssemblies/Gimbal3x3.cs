@@ -48,6 +48,7 @@ namespace ModularAssemblies
                 "Gimbal3x3Center",
                 "GimbalThrustPart",
                 "LargeBlockSmallAtmosphericThrust",
+                "LargeBlockLargeAtmosphericThrust",
             },
 
             // Allowed connection directions & whitelists, measured in blocks.
@@ -61,7 +62,7 @@ namespace ModularAssemblies
                     [Vector3I.Right] = CenterConnections,
                     [Vector3I.Down] = CenterConnections,
                     [Vector3I.Left] = CenterConnections,
-                    [Vector3I.Forward] = new [] { "LargeBlockSmallAtmosphericThrust" },
+                    [Vector3I.Forward] = new [] { "LargeBlockSmallAtmosphericThrust", "LargeBlockLargeAtmosphericThrust" },
                 },
                 ["GimbalThrustPart"] = new Dictionary<Vector3I, string[]>
                 {

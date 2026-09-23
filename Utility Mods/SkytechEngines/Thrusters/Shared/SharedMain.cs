@@ -1,8 +1,8 @@
 ﻿// ReSharper disable once CheckNamespace
 namespace AriUtils.Components
 {
-    partial class ServerMain
+    public partial class SharedMain
     {
-        // TODO any singleton components
+        
     }
 }

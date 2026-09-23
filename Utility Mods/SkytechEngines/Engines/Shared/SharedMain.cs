@@ -2,6 +2,7 @@
 using Skytech.Engines.Shared.Exhaust;
 using Skytech.Engines.Shared.Fuel;
 
+// ReSharper disable once CheckNamespace
 namespace AriUtils.Components
 {
     public partial class SharedMain

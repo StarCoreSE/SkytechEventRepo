@@ -193,11 +193,6 @@
     <GridStorageExpediteCostPerSecond>1000</GridStorageExpediteCostPerSecond>
   </Settings>
   <Mods>
-    <ModItem FriendlyName="SkytechThrusters">
-      <Name>3727190331.sbm</Name>
-      <PublishedFileId>3727190331</PublishedFileId>
-      <PublishedServiceName>Steam</PublishedServiceName>
-    </ModItem>
     <ModItem FriendlyName="SkytechEngines">
       <Name>3691729245.sbm</Name>
       <PublishedFileId>3691729245</PublishedFileId>

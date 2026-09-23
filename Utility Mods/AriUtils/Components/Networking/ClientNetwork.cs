@@ -1,36 +1,38 @@
-﻿using Sandbox.ModAPI;
-using System.Collections.Generic;
+﻿using AriUtils.Components.Networking.SimpleSync;
+using Sandbox.ModAPI;
 using System;
+using System.Collections.Generic;
 using System.Linq;
-using AriUtils;
-using Skytech.Engines.Shared.Networking;
 
-namespace Skytech.Engines.Client.Networking
+namespace AriUtils.Components.Networking
 {
-    internal class ClientNetwork
+    public class ClientNetwork : SingletonBase<ClientNetwork>
     {
-        public static ClientNetwork I;
         // We only need one because it's only being sent to the server.
         private readonly HashSet<PacketBase> _packetQueue = new HashSet<PacketBase>();
         public NetworkProfiler Profiler = new NetworkProfiler(false);
+        private SimpleSyncManager _syncManager;
 
-        public void LoadData()
+        public override void Init()
         {
-            I = this;
             MyAPIGateway.Multiplayer.RegisterSecureMessageHandler(GlobalData.ClientNetworkId, ReceivedPacket);
-            SimpleSyncManager.Init();
+            if (SimpleSyncManager.I == null)
+            {
+                SimpleSyncManager.CreateWithOwner<SharedMain>();
+            }
+            _syncManager = SimpleSyncManager.I;
 
             Log.Info("ClientNetwork", "Ready.");
         }
 
-        public void UnloadData()
+        public override void Unload()
         {
-            SimpleSyncManager.Close();
+            base.Unload();
             MyAPIGateway.Multiplayer.UnregisterSecureMessageHandler(GlobalData.ClientNetworkId, ReceivedPacket);
             Log.Info("ClientNetwork", "Closed.");
         }
 
-        public void Update()
+        public override void Update()
         {
             if (_packetQueue.Count > 0)
             {

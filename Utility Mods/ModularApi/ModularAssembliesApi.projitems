@@ -13,5 +13,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)ModularDefinitionApi.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ModularDefinitionSender.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MasterDefinition.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\AssemblyBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\AssemblyManager.cs" />
   </ItemGroup>
 </Project>

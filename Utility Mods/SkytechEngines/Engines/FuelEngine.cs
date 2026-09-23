@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using AriUtils;
+using ModularAssemblies.Utils;
 using VRage.Game.ModAPI;
 using VRage.Input;
 using Skytech.Engines.Shared.Fuel;

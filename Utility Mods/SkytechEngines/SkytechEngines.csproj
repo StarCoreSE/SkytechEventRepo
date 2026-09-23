@@ -35,9 +35,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Data\CubeBlocks\Thruster\" />
-    <Folder Include="Content\Models\Cubes\large\Thruster\" />
     <Folder Include="Content\Textures\GUI\Thruster\" />
-    <Folder Include="Thrusters\" />
+    <Folder Include="Engines\Client\Interface\" />
+    <Folder Include="Thrusters\Client\" />
+    <Folder Include="Thrusters\Server\" />
   </ItemGroup>
   <Import Project="..\RichHudFramework\RichHudFramework.projitems" Label="Shared" />
   <Import Project="..\AriUtils\AriUtils.projitems" Label="Shared" />

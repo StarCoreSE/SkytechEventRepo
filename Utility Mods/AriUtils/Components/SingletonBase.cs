@@ -22,7 +22,13 @@ namespace AriUtils
 
         private readonly int _hashCode;
 
-        public static TThis Create<TOwner>() where TOwner : SessionInstance
+        /// <summary>
+        /// Creates a new singleton instance and registers it to a SessionInstance.
+        /// </summary>
+        /// <typeparam name="TOwner"></typeparam>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public static TThis CreateWithOwner<TOwner>() where TOwner : SessionInstance
         {
             if (I != null)
                 throw new Exception($"Singleton {typeof(TThis).PrettyName()} instantiated multiple times!");

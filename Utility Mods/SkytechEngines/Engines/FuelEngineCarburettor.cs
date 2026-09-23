@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Sandbox.ModAPI;
 using System.Text;
+using ModularAssemblies.Utils;
 using VRage.Game.ModAPI;
 using VRageMath;
 using Skytech.Engines.Shared.Exhaust;

@@ -6,7 +6,7 @@ namespace AriUtils.Components
 {
     public partial class SharedMain
     {
-        private TurboManager _tm = TurboManager.Create<SharedMain>();
-        private FuelTankManager _ftm = FuelTankManager.Create<SharedMain>();
+        private TurboManager _tm = TurboManager.CreateWithOwner<SharedMain>();
+        private FuelTankManager _ftm = FuelTankManager.CreateWithOwner<SharedMain>();
     }
 }

@@ -5,7 +5,7 @@ using VRage.Game.ModAPI;
 using VRageMath;
 using ModularAssemblies;
 
-namespace Skytech.Engines
+namespace ModularAssemblies.Utils
 {
     internal class AssemblyManager<TAssembly> : SingletonBase<AssemblyManager<TAssembly>>
         where TAssembly : AssemblyBase, new()
@@ -26,7 +26,7 @@ namespace Skytech.Engines
             //if (I != null)
             //    return;
             //I = new AssemblyManager<TAssembly>();
-            AssemblyManager<TAssembly>.Create<SharedMain>();
+            AssemblyManager<TAssembly>.CreateWithOwner<SharedMain>();
             Definition = definition;
             AssemblyBase.OnDefinitionInit<TAssembly>();
         }

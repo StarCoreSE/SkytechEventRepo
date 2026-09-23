@@ -2,39 +2,38 @@
 using System.Collections.Generic;
 using System;
 using System.Linq;
-using AriUtils;
+using AriUtils.Components.Networking.SimpleSync;
 using VRage.Game.ModAPI;
 using VRageMath;
-using Skytech.Engines.Shared;
-using Skytech.Engines.Shared.Networking;
 
-namespace Skytech.Engines.Server.Networking
+namespace AriUtils.Components.Networking
 {
-    internal class ServerNetwork
+    public class ServerNetwork : SingletonBase<ServerNetwork>
     {
-        public static ServerNetwork I;
         private readonly Dictionary<ulong, HashSet<PacketBase>> _packetQueue = new Dictionary<ulong, HashSet<PacketBase>>();
         public NetworkProfiler Profiler = new NetworkProfiler(true);
+        private SimpleSyncManager _syncManager;
 
-
-        public void LoadData()
+        public override void Init()
         {
-            I = this;
             MyAPIGateway.Multiplayer.RegisterSecureMessageHandler(GlobalData.ServerNetworkId, ReceivedPacket);
-            SimpleSyncManager.Init();
+            if (SimpleSyncManager.I == null)
+            {
+                SimpleSyncManager.CreateWithOwner<SharedMain>();
+            }
+            _syncManager = SimpleSyncManager.I;
 
             Log.Info("ServerNetwork", "Ready.");
         }
 
-        public void UnloadData()
+        public override void Unload()
         {
-            SimpleSyncManager.Close();
+            base.Unload();
             MyAPIGateway.Multiplayer.UnregisterSecureMessageHandler(GlobalData.ServerNetworkId, ReceivedPacket);
-            I = null;
             Log.Info("ServerNetwork", "Closed.");
         }
 
-        public void Update()
+        public override void Update()
         {
             foreach (var queuePair in _packetQueue)
             {

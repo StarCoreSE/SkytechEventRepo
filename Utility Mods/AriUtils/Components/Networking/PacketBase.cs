@@ -1,14 +1,17 @@
 ﻿using ProtoBuf;
 using System;
-using AriUtils;
+using AriUtils.Components.Networking.SimpleSync;
 using Sandbox.ModAPI;
 
-namespace Skytech.Engines.Shared.Networking
+namespace AriUtils.Components.Networking
 {
+    /// <summary>
+    /// Base type all packets must inherit from. Create a partial class in your mod assembly for ProtoIncludes on all added subtypes.
+    /// </summary>
     [ProtoInclude(GlobalData.ServerNetworkId + 1, typeof(SimpleSyncManager.InternalSimpleSyncBothWays))]
     [ProtoInclude(GlobalData.ServerNetworkId + 2, typeof(NetworkProfiler.NetworkProfilePacket))]
     [ProtoContract(UseProtoMembersOnly = true)]
-    public abstract class PacketBase
+    public abstract partial class PacketBase
     {
         /// <summary>
         /// Called whenever your packet is received.

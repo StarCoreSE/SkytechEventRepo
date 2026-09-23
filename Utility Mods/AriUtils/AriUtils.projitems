@@ -8,7 +8,17 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Collections\AsyncSharedObjectPool.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Collections\CleanedCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Components\BlockCategoryManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Components\ClientMain.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Components\Networking\ClientNetwork.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Components\Networking\NetworkProfiler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Components\Networking\PacketBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Components\Networking\ServerNetwork.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Components\Networking\SimpleSync\EntitySimpleSyncWrapper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Components\Networking\SimpleSync\ISimpleSync.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Components\Networking\SimpleSync\ISyncableComponent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Components\Networking\SimpleSync\SimpleSync.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Components\Networking\SimpleSync\SimpleSyncManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Components\ServerMain.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Components\SharedMain.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DebugDrawManager.cs" />

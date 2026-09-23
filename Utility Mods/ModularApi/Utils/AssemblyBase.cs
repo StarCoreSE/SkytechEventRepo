@@ -4,15 +4,17 @@ using ModularAssemblies;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using AriUtils.Components.Networking.SimpleSync;
 using Collections;
 using VRage.Game.ModAPI;
+using VRageMath;
 
-namespace Skytech.Engines
+namespace ModularAssemblies.Utils
 {
     /// <summary>
     /// Single assembly instance logic class. You should put your assembly logic here!
     /// </summary>
-    internal abstract class AssemblyBase : IClosable, IEquatable<AssemblyBase>
+    internal abstract class AssemblyBase : IClosable, IEquatable<AssemblyBase>, ISyncableComponent
     {
         protected static ModularDefinitionApi ModularApi => ModularDefinition.ModularApi;
 
@@ -24,7 +26,10 @@ namespace Skytech.Engines
         public IMyCubeBlock RootBlock { get; private set; } = null;
         public long RootId { get; private set; } = -1;
         public bool IsClosed { get; private set; } = false;
-        public Action OnClose = null;
+
+        public long UniqueId => RootId;
+        public Vector3D Position => RootBlock.GetPosition();
+        public event Action OnClose;
 
         protected HashSet<IMyCubeBlock> Blocks = new HashSet<IMyCubeBlock>();
 

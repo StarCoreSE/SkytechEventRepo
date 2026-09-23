@@ -1,12 +1,16 @@
-﻿using VRage.Game.Components;
+﻿using AriUtils.Components.Networking;
+using VRage.Game.Components;
 
 namespace AriUtils.Components
 {
     [MySessionComponentDescriptor(MyUpdateOrder.AfterSimulation)]
+    // ReSharper disable once ClassNeverInstantiated.Global
     // ReSharper disable once UnusedType.Global
     public partial class ClientMain : SessionInstance
     {
         protected override bool LoadOnServer => false;
         protected override bool LoadOnClient => true;
+
+        protected readonly ClientNetwork Network = ClientNetwork.CreateWithOwner<ClientMain>();
     }
 }

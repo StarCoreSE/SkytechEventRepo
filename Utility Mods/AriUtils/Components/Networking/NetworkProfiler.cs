@@ -2,17 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using AriUtils;
 using ProtoBuf;
 using Sandbox.Game;
 using Sandbox.ModAPI;
 using VRageMath;
-using Skytech.Engines.Client.Networking;
-using Skytech.Engines.Server.Networking;
 
-namespace Skytech.Engines.Shared.Networking
+namespace AriUtils.Components.Networking
 {
-    internal class NetworkProfiler
+    public class NetworkProfiler
     {
         public readonly bool IsServer;
         public bool Active => RemainingDuration > 0;

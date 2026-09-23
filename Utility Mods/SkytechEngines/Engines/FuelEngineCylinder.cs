@@ -4,6 +4,7 @@ using Skytech.Engines.Shared.Exhaust;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using ModularAssemblies.Utils;
 using VRage.Game.ModAPI;
 
 namespace Skytech.Engines

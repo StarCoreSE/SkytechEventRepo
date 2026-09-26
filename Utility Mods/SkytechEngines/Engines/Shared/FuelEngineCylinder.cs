@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Text;
 using ModularAssemblies.Utils;
 using VRage.Game.ModAPI;
+using VRageMath;
 
 namespace Skytech.Engines.Shared
 {
@@ -15,7 +16,7 @@ namespace Skytech.Engines.Shared
         public const float BaseFuelRate = 0.3f;
         public const float CarbFuelRate = 2.5f;
         public const float InjectorFuelRate = 8f;
-        public const float BasePowerPerFuel = 54f;
+        public const float BasePowerPerFuel = 540f;
         public const float SuperchargerBonusMult = 0.4f;
         public const float HeatPerFuel = 2f;
         public const float CoolingPerExhaust = 4f;
@@ -205,8 +206,7 @@ namespace Skytech.Engines.Shared
         {
             // Add heat from burning
             HeatLevel += BaseFuelBurnRate * HeatPerFuel / 6000;
-            if (HeatLevel > 1)
-                HeatLevel = 1;
+            HeatLevel = MathHelper.Clamp(HeatLevel, 0, 1);
 
             if (HeatLevel >= OverheatLevel)
             {

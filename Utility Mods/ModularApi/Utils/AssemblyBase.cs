@@ -28,6 +28,9 @@ namespace ModularAssemblies.Utils
 
         public long UniqueId => RootId;
         public Vector3D Position => RootBlock.GetPosition();
+        public event Action<IMyCubeBlock, bool> OnPartAdded;
+        public event Action<IMyCubeBlock, bool> OnPartRemoved;
+        public event Action<IMyCubeBlock, bool> OnPartDestroyed;
         public event Action OnClose;
 
         protected HashSet<IMyCubeBlock> Blocks = new HashSet<IMyCubeBlock>();
@@ -99,6 +102,7 @@ namespace ModularAssemblies.Utils
                 RootId = RootBlock.EntityId ^ GetType().Name.GetHashCode();
             }
             BlockInfo.Register(block, BlockInfoCallback);
+            OnPartAdded?.Invoke(block, isBasePart);
         }
 
         /// <summary>
@@ -110,6 +114,7 @@ namespace ModularAssemblies.Utils
         {
             Blocks.Remove(block);
             BlockInfo.Unregister(block, BlockInfoCallback);
+            OnPartRemoved?.Invoke(block, isBasePart);
         }
 
         /// <summary>
@@ -119,6 +124,7 @@ namespace ModularAssemblies.Utils
         /// <param name="isBasePart"></param>
         public virtual void OnPartDestroy(IMyCubeBlock block, bool isBasePart)
         {
+            OnPartDestroyed?.Invoke(block, isBasePart);
         }
 
         protected virtual void BlockInfoCallback(IMyCubeBlock block, StringBuilder sb)

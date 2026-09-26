@@ -12,6 +12,10 @@ namespace Skytech.Engines.Shared.Fuel
 
 
         public readonly IMyCubeGrid Grid;
+
+        /// <summary>
+        /// Fuel percentage
+        /// </summary>
         public double FuelLevel { get; private set; } = 1;
         public bool IsClosed { get; private set; }
 

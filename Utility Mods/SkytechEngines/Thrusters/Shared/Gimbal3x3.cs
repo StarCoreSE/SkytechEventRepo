@@ -14,7 +14,8 @@ namespace Skytech.Thrusters.Shared
     internal class Gimbal3x3 : AssemblyBase
     {
         public MyThrust Thruster = null;
-        public float ThrustMultiplier { get; set; }
+        public float ThrustMultiplier { get; set; } = 0;
+        public float DesiredThrusterPower { get; private set; } = 0;
         private AnimationPanel DrawDummy = null;
         private bool GridDamping = true;
         private Vector3 LastTargetRotation = Vector3.Zero;
@@ -153,6 +154,7 @@ namespace Skytech.Thrusters.Shared
             }
 
             float ctrlInLength = ctrlInput.Length();
+            DesiredThrusterPower = 0;
             if (ctrlInLength > 0.05f) // don't thrust/rotate if input is low enough
             {
                 ctrlInput /= ctrlInLength;
@@ -160,14 +162,16 @@ namespace Skytech.Thrusters.Shared
 
                 if (Thruster.IsWorking)
                 {
-                    float thrustForceMult = Vector3.Dot(ctrlInput, DrawDummy.PositionComp.LocalMatrixRef.Backward) * ThrustMultiplier;
-                    float thrust = Thruster.ThrustForceLength * thrustForceMult;
-
-                    MyAPIGateway.Utilities.ShowNotification($"Thrust: {thrust:F}", 1000/60);
-
+                    float thrustForceMult = Vector3.Dot(ctrlInput, DrawDummy.PositionComp.LocalMatrixRef.Backward);
                     if (thrustForceMult > 0)
                     {
-                        // TODO apply to thrusters instead of direct impulse
+                        DesiredThrusterPower = Thruster.MaxPowerConsumption * thrustForceMult; // TODO REMOVE TEST
+                        thrustForceMult *= ThrustMultiplier;
+                        float thrust = Thruster.ThrustForceLength * thrustForceMult;
+
+                        MyAPIGateway.Utilities.ShowNotification($"Gimbal Thrust: {thrust/1000000:F}MN", 1000/60);
+
+                        // TODO decide if we should apply impulse to thruster position (realistic) instead of direct impulse
                         Grid.Physics.ApplyImpulse(DrawDummy.WorldMatrix.Backward * thrust, Grid.Physics.CenterOfMassWorld);
                         DebugDraw.AddLine(DrawDummy.WorldMatrix.Translation, DrawDummy.WorldMatrix.Translation + DrawDummy.WorldMatrix.Forward * thrustForceMult * 5, Color.Red, 0);
                     }

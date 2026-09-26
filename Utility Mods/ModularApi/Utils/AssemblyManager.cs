@@ -55,6 +55,8 @@ namespace ModularAssemblies.Utils
         public static bool TryGet(IMyCubeBlock block, out TAssembly asm)
         {
             asm = null;
+            if (block == null || block.MarkedForClose)
+                return false;
             int id = ModularApi.GetContainingAssembly(block, Definition.Name);
             if (id == -1)
                 return false;

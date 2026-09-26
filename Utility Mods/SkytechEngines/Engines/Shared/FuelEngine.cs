@@ -12,7 +12,7 @@ namespace Skytech.Engines.Shared
     internal class FuelEngine : AssemblyBase
     {
         public float MaxRpmLimit { get; private set; } = 1;
-        public float Rpm { get; private set; } = 1; // TODO
+        public float Rpm { get; set; } = 0; // TODO
 
         public float Power { get; private set; } = 0;
         public float MaxPower { get; private set; } = 0;
@@ -137,13 +137,16 @@ namespace Skytech.Engines.Shared
                     Rpm = 0;
             }
 
+            MyAPIGateway.Utilities.ShowNotification($"Engine RPM: {Rpm*100:N0}%", 1000/60);
+            double fuelRate = tank.CalcFuelRate();
+            MyAPIGateway.Utilities.ShowNotification($"Grid Fuel: {(fuelRate > 0 ? "+" : "")}{fuelRate:N}L/s ({tank.FuelLevel*100:N0}%)", 1000/60);
+
             if (MyAPIGateway.Input.IsNewKeyPressed(MyKeys.Add))
             {
                 Log.Info("FuelEngine", "i refilled the tank :D");
-                GridFuelTank tankk;
-                if (FuelTankManager.I.TryGetTank(Grid, out tankk))
+                if (FuelTankManager.I.TryGetTank(Grid, out tank))
                 {
-                    tankk.Refill();
+                    tank.Refill();
                 }
             }
         }
@@ -157,23 +160,19 @@ namespace Skytech.Engines.Shared
             MaxPower = 0;
 
 		    // TODO priority, maybe?
-
-            if (Rpm > 0)
+            foreach (var cyl in Cylinders)
             {
-                foreach (var cyl in Cylinders)
-                {
-                    if (cyl.Overheated)
-                        continue;
+                if (cyl.Overheated)
+                    continue;
 
-                    // cylinder already updated in its own logic
-                    Power += cyl.PowerWithNoHeat(Rpm) * (1 - cyl.HeatLevel * FuelEngineCylinder.MaxHeatPowerPenalty);
-                    MaxPower += cyl.MaxPowerNoHeat(MaxRpmLimit);
-                    FuelUse += cyl.GetFuelRate(Rpm, false);
-                    MaxFuelUse += cyl.GetMaxFuelRate(true);
-                    AverageCylinderTemp += cyl.HeatLevel;
-                    if (cyl.Overheated)
-                        AnyCylindersOverheated = true;
-                }
+                // cylinder already updated in its own logic
+                Power += cyl.PowerWithNoHeat(Rpm) * (1 - cyl.HeatLevel * FuelEngineCylinder.MaxHeatPowerPenalty);
+                MaxPower += cyl.MaxPowerNoHeat(MaxRpmLimit);
+                FuelUse += cyl.GetFuelRate(Rpm, false);
+                MaxFuelUse += cyl.GetMaxFuelRate(true);
+                AverageCylinderTemp += cyl.HeatLevel;
+                if (cyl.Overheated)
+                    AnyCylindersOverheated = true;
             }
 
             AverageCylinderTemp /= Cylinders.Count;

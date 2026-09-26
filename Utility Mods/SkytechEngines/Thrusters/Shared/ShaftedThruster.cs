@@ -22,6 +22,7 @@ namespace Skytech.Thrusters.Shared
             if (_driveshaftParts.Contains(block.BlockDefinition.SubtypeName))
             {
                 ShaftBlock = block;
+                UpdateDriveshaft(block, isBasePart);
             }
             else if (block is IMyThrust)
             {
@@ -56,15 +57,34 @@ namespace Skytech.Thrusters.Shared
         {
             if (Thruster == null || ShaftBlock == null)
                 return;
-            AssemblyManager<Driveshaft>.TryGet(ShaftBlock, out Shaft); // TODO figure out cache, this prevents breakage when the shaft assembly splits
             if (Shaft == null)
             {
-                Gimbal.ThrustMultiplier = 0;
-                return;
+                if (AssemblyManager<Driveshaft>.TryGet(ShaftBlock, out Shaft))
+                {
+                    Shaft.OnPartRemoved += UpdateDriveshaft;
+                }
+                else
+                {
+                    Gimbal.ThrustMultiplier = 0;
+                    return;
+                }
             }
 
-            Shaft.UsedPower += 200;
+            Shaft.UsedPower += Gimbal.DesiredThrusterPower * 1000f;
             Gimbal.ThrustMultiplier = Shaft.AvailablePowerPct;
+        }
+
+        private void UpdateDriveshaft(IMyCubeBlock shaftBlock, bool isBaseBlock)
+        {
+            if (shaftBlock != ShaftBlock)
+                return;
+
+            if (Shaft != null)
+            {
+                Shaft.OnPartRemoved -= UpdateDriveshaft;
+            }
+
+            Shaft = null;
         }
     }
 }

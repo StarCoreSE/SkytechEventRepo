@@ -22,10 +22,9 @@ namespace AriUtils
         public static double SyncRange => MyAPIGateway.Session.SessionSettings.SyncDistance;
         public static double SyncRangeSq => (double) MyAPIGateway.Session.SessionSettings.SyncDistance * MyAPIGateway.Session.SessionSettings.SyncDistance;
         public static List<IMyPlayer> Players = new List<IMyPlayer>();
-        public static IMyModContext ModContext;
         public static List<MyPlanet> Planets = new List<MyPlanet>();
         public static HashSet<IMyCubeGrid> Grids = new HashSet<IMyCubeGrid>();
-        public static HudState HudVisible = (HudState) (MyAPIGateway.Session?.Config?.HudState ?? 1);
+        public static HudState HudVisible = HudState.VisibleDesc;
         public static Action<HudState> OnHudVisibleChanged = null;
         public static Random Random = new Random();
 
@@ -97,14 +96,13 @@ namespace AriUtils
             }
 
             {
-                ModContext = myModContext;
-                string modId = ModContext.ModId.Replace(".sbm", "");
+                string modId = myModContext.ModId.Replace(".sbm", "");
                 long discard;
 
                 Log.Info("GlobalData", "ModContext:\n" +
-                                       $"\tName: {ModContext.ModName}\n" +
+                                       $"\tName: {myModContext.ModName}\n" +
                                        $"\tItem: {(long.TryParse(modId, out discard) ? "https://steamcommunity.com/workshop/filedetails/?id=" : "LocalMod ")}{modId}\n" +
-                                       $"\tService: {ModContext.ModServiceName} (if this isn't steam, please report the mod)");
+                                       $"\tService: {myModContext.ModServiceName} (if this isn't steam, please report the mod)");
             }
 
             {
@@ -119,6 +117,11 @@ namespace AriUtils
                 OnEntityAdd(e);
                 return false;
             });
+
+            if (!MyAPIGateway.Utilities.IsDedicated)
+            {
+                HudVisible = (HudState) (MyAPIGateway.Session?.Config?.HudState ?? 1);
+            }
 
             Log.DecreaseIndent();
             Log.Info("GlobalData", "Initial values set.");

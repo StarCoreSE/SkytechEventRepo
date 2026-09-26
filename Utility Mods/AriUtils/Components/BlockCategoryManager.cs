@@ -22,7 +22,7 @@ namespace Skytech.Engines.Client.Interface
             {
                 if (string.IsNullOrEmpty(def.Id.SubtypeName)) continue;
                 _subtypeToTypePairing[def.Id.SubtypeName] = def.Id.TypeId.ToString().Replace("MyObjectBuilder_", "");
-                if (def.Context?.ModPath == GlobalData.ModContext.ModPath && (def is MyCubeBlockDefinition || def is MyPhysicalItemDefinition)) // Adds all blocks from this mod automatically
+                if (def.Context?.ModPath == ModContext.ModPath && (def is MyCubeBlockDefinition || def is MyPhysicalItemDefinition)) // Adds all blocks from this mod automatically
                     RegisterFromSubtype(def.Id.SubtypeName);
             }
 

@@ -1,5 +1,7 @@
-﻿using ModularAssemblies.Utils;
+﻿using System;
+using ModularAssemblies.Utils;
 using System.Collections.Generic;
+using System.Linq;
 using AriUtils;
 using VRageMath;
 using static ModularAssemblies.DefinitionDefs;
@@ -40,16 +42,10 @@ namespace ModularAssemblies
             OnAssemblyClose = AssemblyManager<ShaftedThruster>.OnAssemblyClose,
 
             // Optional - if this is set, an assembly will not be created until a baseblock exists.
-            // 
-            BaseBlockSubtype = "Gimbal3x3Center",
+            BaseBlockSubtypes = _shaftThrusters,
 
             // All SubtypeIds that can be part of this assembly.
-            AllowedBlockSubtypes = MiscUtils.ArrayJoin(new[]
-            {
-                "Gimbal3x3Center",
-                "LargeBlockSmallAtmosphericThrust",
-                "LargeBlockLargeAtmosphericThrust",
-            }, Driveshaft.AllowedBlockSubtypes),
+            AllowedBlockSubtypes = MiscUtils.ArrayJoin(_shaftConnections, Driveshaft.AllowedBlockSubtypes),
 
             // Allowed connection directions & whitelists, measured in blocks.
             // If an allowed SubtypeId is not included here, connections are allowed on all sides.
@@ -58,15 +54,15 @@ namespace ModularAssemblies
             {
                 ["Gimbal3x3Center"] = new Dictionary<Vector3I, string[]>
                 {
-                    [Vector3I.Forward] = new[]
-                    {
-                        "LargeBlockSmallAtmosphericThrust",
-                        "LargeBlockLargeAtmosphericThrust",
-                    },
+                    [Vector3I.Forward] = _shaftThrusters,
                     [Vector3I.Backward] = Driveshaft.AllowedBlockSubtypes
                 },
                 // TODO connections on thrusters
-            }, MiscUtils.EditPartDict(Driveshaft.AllowedConnections, "Gimbal3x3Center")),
+            }, MiscUtils.EditPartDict(Driveshaft.AllowedConnections, _shaftConnections)),
         };
+
+        private readonly string[] _shaftThrusters = ThrusterConstants.ThrusterInfos.Keys.ToArray();
+
+        private readonly string[] _shaftConnections = MiscUtils.ArrayAppend(ThrusterConstants.ThrusterInfos.Keys, "Gimbal3x3Center");
     }
 }

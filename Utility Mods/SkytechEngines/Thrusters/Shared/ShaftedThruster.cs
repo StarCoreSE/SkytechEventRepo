@@ -2,7 +2,10 @@
 using Sandbox.ModAPI;
 using Skytech.Engines.Shared;
 using System;
+using AriUtils;
+using Sandbox.Game.Entities;
 using VRage.Game.ModAPI;
+using VRageMath;
 
 namespace Skytech.Thrusters.Shared
 {
@@ -11,8 +14,10 @@ namespace Skytech.Thrusters.Shared
         private readonly string[] _driveshaftParts = AssemblyManager<Driveshaft>.Definition.AllowedBlockSubtypes;
 
         private IMyThrust Thruster;
+        private ThrusterConstants.ThrusterInfo ThrustInfo;
         private IMyCubeBlock ShaftBlock;
         private Driveshaft Shaft;
+        private IMyCubeBlock GimbalBlock;
         private Gimbal3x3 Gimbal;
 
         public override void OnPartAdd(IMyCubeBlock block, bool isBasePart)
@@ -27,9 +32,16 @@ namespace Skytech.Thrusters.Shared
             else if (block is IMyThrust)
             {
                 Thruster = (IMyThrust) block;
+                ThrustInfo = ThrusterConstants.ThrusterInfos[Thruster.BlockDefinition.SubtypeName];
+
+                foreach (var component in Thruster.Components)
+                {
+                    Log.Info("Thruster Components", component.GetType().Name);
+                }
             }
-            else if (isBasePart)
+            else if (block.BlockDefinition.SubtypeName == "Gimbal3x3Center")
             {
+                GimbalBlock = block;
                 AssemblyManager<Gimbal3x3>.TryGet(block, out Gimbal);
             }
         }
@@ -46,6 +58,12 @@ namespace Skytech.Thrusters.Shared
             {
                 Thruster = null;
             }
+
+            if (block == GimbalBlock)
+            {
+                GimbalBlock = null;
+                Gimbal = null;
+            }
         }
 
         public override void Unload()
@@ -57,6 +75,12 @@ namespace Skytech.Thrusters.Shared
         {
             if (Thruster == null || ShaftBlock == null)
                 return;
+
+            if (GimbalBlock != null && Gimbal == null)
+            {
+                AssemblyManager<Gimbal3x3>.TryGet(GimbalBlock, out Gimbal);
+            }
+
             if (Shaft == null)
             {
                 if (AssemblyManager<Driveshaft>.TryGet(ShaftBlock, out Shaft))
@@ -65,13 +89,25 @@ namespace Skytech.Thrusters.Shared
                 }
                 else
                 {
-                    Gimbal.ThrustMultiplier = 0;
+                    if (Gimbal != null)
+                    {
+                        Gimbal.ThrustMultiplier = 0;
+                    }
                     return;
                 }
             }
 
-            Shaft.UsedPower += Gimbal.DesiredThrusterPower * 1000f;
-            Gimbal.ThrustMultiplier = Shaft.AvailablePowerPct;
+            // allows directly connected thrusters
+            if (Gimbal == null)
+            {
+                Shaft.UsedPower += Thruster.CurrentThrustPercentage/100 * ThrustInfo.MaxPowerConsumption; // TODO this doesn't take thruster usage into account
+                Thruster.ThrustMultiplier = Shaft.AvailablePowerPct;
+            }
+            else
+            {
+                Shaft.UsedPower += Gimbal.DesiredThrusterPowerPct * ThrustInfo.MaxPowerConsumption;
+                Gimbal.ThrustMultiplier = Shaft.AvailablePowerPct;
+            }
         }
 
         private void UpdateDriveshaft(IMyCubeBlock shaftBlock, bool isBaseBlock)

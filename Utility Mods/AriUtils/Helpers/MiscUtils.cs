@@ -106,12 +106,12 @@ namespace AriUtils
         /// <typeparam name="TValue"></typeparam>
         /// <param name="arrays"></param>
         /// <returns></returns>
-        public static TValue[] ArrayJoin<TValue>(params TValue[][] arrays)
+        public static TValue[] ArrayJoin<TValue>(params ICollection<TValue>[] arrays)
         {
             int size = 0;
             foreach (var array in arrays)
             {
-                size += array.Length;
+                size += array.Count;
             }
             TValue[] outArray = new TValue[size];
             int i = 0;
@@ -121,6 +121,22 @@ namespace AriUtils
                 {
                     outArray[i++] = item;
                 }
+            }
+
+            return outArray;
+        }
+
+        public static TValue[] ArrayAppend<TValue>(ICollection<TValue> array, params TValue[] values)
+        {
+            TValue[] outArray = new TValue[array.Count + values.Length];
+            int i = 0;
+            foreach (var item in array)
+            {
+                outArray[i++] = item;
+            }
+            foreach (var item in values)
+            {
+                outArray[i++] = item;
             }
 
             return outArray;

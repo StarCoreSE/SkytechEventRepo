@@ -15,6 +15,9 @@ namespace AriUtils.Components.Networking
 
         public override void Init()
         {
+            if (GlobalData.ClientNetworkId == 0)
+                return;
+
             MyAPIGateway.Multiplayer.RegisterSecureMessageHandler(GlobalData.ClientNetworkId, ReceivedPacket);
             if (SimpleSyncManager.I == null)
             {
@@ -28,12 +31,18 @@ namespace AriUtils.Components.Networking
         public override void Unload()
         {
             base.Unload();
+            if (GlobalData.ClientNetworkId == 0)
+                return;
+
             MyAPIGateway.Multiplayer.UnregisterSecureMessageHandler(GlobalData.ClientNetworkId, ReceivedPacket);
             Log.Info("ClientNetwork", "Closed.");
         }
 
         public override void Update()
         {
+            if (GlobalData.ClientNetworkId == 0)
+                return;
+
             if (_packetQueue.Count > 0)
             {
                 if (MyAPIGateway.Session.IsServer)

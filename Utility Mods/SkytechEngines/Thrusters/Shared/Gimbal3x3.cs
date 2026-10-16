@@ -1,6 +1,7 @@
 ﻿using Sandbox.Game.Entities;
 using Sandbox.ModAPI;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using AriUtils;
 using ModularAssemblies.Utils;
@@ -117,7 +118,11 @@ namespace Skytech.Thrusters.Shared
             if (Thruster == null)
                 return;
             Thruster.Render.UpdateFlameProperties(false, 0);
+            ((IMyThrust)Thruster).ThrustMultiplier = 0.0001f;
             //MyAPIGateway.Utilities.ShowNotification($"HasThrust: {Thruster != null}. Damping: {GridDamping}", 1000/60);
+
+            if (ThrustMultiplier == 0) // thruster can't run so don't do anything
+                return;
 
             Vector3 ctrlInput = Vector3.Zero;
             if (Grid.ControlSystem.IsControlled)
@@ -128,10 +133,11 @@ namespace Skytech.Thrusters.Shared
 
             if (GridDamping)
             {
-                var damping = GetDamping();
+                var damping = GetDampingForce() / (Thruster.BlockDefinition.ForceMagnitude * ThrustMultiplier); // TODO adjust based on *total* gimbal thruster force
                 float dLen = damping.Length();
                 if (dLen > 1)
                     damping /= dLen;
+                MyAPIGateway.Utilities.ShowNotification($"Damping Force: {GetDampingForce().Length():N0} ({damping.Length()*100:N0}%)", 1000/60);
 
                 if (ctrlInput.X == 0)
                     ctrlInput.X = damping.X;
@@ -158,7 +164,6 @@ namespace Skytech.Thrusters.Shared
             DesiredThrusterPowerPct = 0;
             if (ctrlInLength > 0.05f) // don't thrust/rotate if input is low enough
             {
-                ctrlInput /= ctrlInLength;
                 LastTargetRotation = ctrlInput;
 
                 if (Thruster.IsWorking)
@@ -168,13 +173,12 @@ namespace Skytech.Thrusters.Shared
                     {
                         DesiredThrusterPowerPct = thrustForceMult; // TODO REMOVE TEST
                         thrustForceMult *= ThrustMultiplier;
-                        float thrust = Thruster.ThrustForceLength * thrustForceMult;
-                        Thruster.Render.UpdatePropellerSpeed(thrustForceMult);
+                        float thrust = Thruster.BlockDefinition.ForceMagnitude * thrustForceMult;
                         
-                        MyAPIGateway.Utilities.ShowNotification($"Gimbal Thrust: {thrust/1000000:F}MN", 1000/60);
+                        MyAPIGateway.Utilities.ShowNotification($"Gimbal Thrust: {thrust/1000:N}kN ({Vector3.Dot(ctrlInput, DrawDummy.PositionComp.LocalMatrixRef.Backward)*100:N0}%->{DesiredThrusterPowerPct*100:N0}%)", 1000/60);
 
                         // TODO decide if we should apply impulse to thruster position (realistic) instead of direct impulse
-                        Grid.Physics.ApplyImpulse(DrawDummy.WorldMatrix.Backward * thrust, Grid.Physics.CenterOfMassWorld);
+                        Grid.Physics.ApplyImpulse(DrawDummy.WorldMatrix.Backward * thrust / 60f, Grid.Physics.CenterOfMassWorld); // J = F * dT
                         DebugDraw.AddLine(DrawDummy.WorldMatrix.Translation, DrawDummy.WorldMatrix.Translation + DrawDummy.WorldMatrix.Forward * thrustForceMult * 5, Color.Red, 0);
                     }
                 }
@@ -209,21 +213,35 @@ namespace Skytech.Thrusters.Shared
             //DebugDraw.AddLine(Grid.GetPosition(), Vector3.Transform(ctrlInput.Z * 5 * Vector3.Backward, Grid.WorldMatrix), Color.Blue, 0);
         }
 
-        private Vector3 GetDamping() // relative damping is for nerds
+        private Vector3 GetDampingForce() // relative damping is for nerds
         {
-            Matrix matrix = Grid.PositionComp.WorldMatrixNormalizedInv;
-            Vector3 vector = Grid.Physics.Gravity * 0.5f;
-            return -Vector3.TransformNormal(Grid.Physics.LinearVelocity + vector, matrix);
+            Vector3 gravityForce = Vector3.Zero;
+            float counterGravityForce = 0;
+            if (Grid.NaturalGravity.Volume != 0) // vector length expensive
+            {
+                List<IMyCubeGrid> gridGroup = GlobalData.I.GridListPool.Pop();
+                Grid.GetGridGroup(GridLinkTypeEnum.Physical).GetGrids(gridGroup);
+                foreach (var grid in gridGroup)
+                {
+                    gravityForce += grid.Physics.Mass * grid.NaturalGravity; // grids can probably have different gravity idk
+                    counterGravityForce += GridThrustTracker.I.GetCounterGravityThrust(grid);
+                }
+                GlobalData.I.GridListPool.Push(gridGroup);
+            }
+            MyAPIGateway.Utilities.ShowNotification($"GForceNet: {gravityForce.Length():N0} vs {counterGravityForce:N0} ({gravityForce.Length() - counterGravityForce:N0})", 1000/60);
+            float gravityForceNet = Math.Max(0, gravityForce.Normalize() - counterGravityForce);
+            gravityForce *= gravityForceNet;
+
+            Vector3 velocityForce = Grid.Physics.LinearVelocity * Grid.Physics.LinearVelocity / 60 * Grid.Physics.Mass; // TODO this needs to be tied into [all] thrusters
+
+            Matrix matrix = Grid.PositionComp.WorldMatrixNormalizedInv; // idk what's going on with velocity help
+            return -Vector3.TransformNormal((Grid.Physics.LinearVelocity * Grid.Physics.LinearVelocity / 60) * Grid.Physics.Mass + gravityForce, matrix);
         }
 
         private sealed class AnimationPanel : MyEntity
         {
-            public readonly Matrix RefMatrix;
-            public readonly Matrix RefMatrixWorld;
-
             public AnimationPanel(string model, Matrix localMatrix, MyEntity parent)
             {
-                RefMatrix = localMatrix;
                 Init(null, model, parent, 1);
                 Save = false;
                 NeedsWorldMatrix = true;

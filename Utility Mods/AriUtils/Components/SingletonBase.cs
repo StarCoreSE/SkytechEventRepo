@@ -50,6 +50,10 @@ namespace AriUtils
             I = null;
         }
 
+        public virtual void Draw()
+        {
+        }
+
         public override int GetHashCode()
         {
             return _hashCode;
@@ -62,6 +66,7 @@ namespace AriUtils
 
         void Init();
         void Update();
+        void Draw();
         void Unload();
 
         IMyModContext ModContext { get; set; }
@@ -175,6 +180,24 @@ namespace AriUtils
 
             Log.Update();
             Ticks++;
+        }
+
+        public override void Draw()
+        {
+            if (GlobalData.Killswitch || _skipRun)
+                return;
+            
+            try
+            {
+                foreach (var singleton in _singletons)
+                {
+                    singleton.Draw();
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Exception(_instanceName, ex, false);
+            }
         }
 
         protected override void UnloadData()

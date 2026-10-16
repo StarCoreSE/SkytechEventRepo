@@ -85,14 +85,20 @@ namespace AriUtils
             {
                 _generalConfig.ReadSettings();
                 _generalConfig.WriteSettings();
-                MyAPIGateway.Multiplayer.RegisterSecureMessageHandler(DataNetworkId, ServerMessageHandler);
+                if (DataNetworkId != 0)
+                {
+                    MyAPIGateway.Multiplayer.RegisterSecureMessageHandler(DataNetworkId, ServerMessageHandler);
+                }
                 IsReady = true;
             }
             else if (!IsReady)
             {
-                Log.Info("GlobalData", "Reading config data from network. Default configs will temporarily be used.");
-                MyAPIGateway.Multiplayer.RegisterSecureMessageHandler(DataNetworkId, ClientMessageHandler);
-                MyAPIGateway.Multiplayer.SendMessageToServer(DataNetworkId, Array.Empty<byte>());
+                if (DataNetworkId != 0)
+                {
+                    Log.Info("GlobalData", "Reading config data from network. Default configs will temporarily be used.");
+                    MyAPIGateway.Multiplayer.RegisterSecureMessageHandler(DataNetworkId, ClientMessageHandler);
+                    MyAPIGateway.Multiplayer.SendMessageToServer(DataNetworkId, Array.Empty<byte>());
+                }
             }
 
             {
@@ -174,10 +180,13 @@ namespace AriUtils
                     setting.Read(ini, _generalConfig.SectionName);
 
                 // Can't unregister network handlers inside a network handler call
-                MyAPIGateway.Utilities.InvokeOnGameThread(() =>
+                if (DataNetworkId != 0)
                 {
-                    MyAPIGateway.Multiplayer.UnregisterSecureMessageHandler(DataNetworkId, ClientMessageHandler);
-                });
+                    MyAPIGateway.Utilities.InvokeOnGameThread(() =>
+                    {
+                        MyAPIGateway.Multiplayer.UnregisterSecureMessageHandler(DataNetworkId, ClientMessageHandler);
+                    });
+                }
             }
             catch (Exception ex)
             {
@@ -213,10 +222,13 @@ namespace AriUtils
             MyAPIGateway.Entities.OnEntityRemove -= OnEntityRemove;
             Players = null;
             Planets = null;
-            if (MyAPIGateway.Session.IsServer)
-                MyAPIGateway.Multiplayer.UnregisterSecureMessageHandler(DataNetworkId, ServerMessageHandler);
-            else
-                MyAPIGateway.Multiplayer.UnregisterSecureMessageHandler(DataNetworkId, ClientMessageHandler);
+            if (DataNetworkId != 0)
+            {
+                if (MyAPIGateway.Session.IsServer)
+                    MyAPIGateway.Multiplayer.UnregisterSecureMessageHandler(DataNetworkId, ServerMessageHandler);
+                else
+                    MyAPIGateway.Multiplayer.UnregisterSecureMessageHandler(DataNetworkId, ClientMessageHandler);
+            }
             _generalConfig = null;
             Log.Info("GlobalData", "Data cleared.");
             Log.Close();
